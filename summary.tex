@@ -3,6 +3,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 
+\usepackage{amsthm}
 
 \usepackage[dvipsnames,usenames,svgnames,table]{xcolor} 
 \usepackage{lipsum}
@@ -19,6 +20,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{empheq}
 
+\graphicspath{ {img/} }
 
 \geometry{
  landscape,
@@ -121,6 +123,18 @@
 
 \usepackage{palatino}
 
+% begin custom commands
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+
+
+
+\newtheorem{thm}{Thm}[section]
+
+
+% end custom commands
+
 \begin{document}
 
 \fontfamily{ppl}\selectfont
@@ -130,13 +144,44 @@
 \maketitle
 
 
-
 \begin{multicols}{3}
 
 
 \section{Einführung}
+
 \subsection{Ordnungsvollständigkeit}
-dfklj
+Unterscheidet $\R$ von $\Q$. Für $A,B$ nichtleere Teilmengen von $\R$ mit $$\forall a\in A \land \forall b \in B \implies a \leq b$$
+Dann gibt es $c \in \R$ mit $\forall a \in A : a \leq c$ und $\forall b \in B : c \leq b$
+
+\subsection{Archimedisches Prinzip}
+Korollar von Ordnungsvollständigkeit. Sei $x\in \R$ mit $x>0$ und $y \in \R$, dann gibt es $n\in \N$ mit $y \leq nx$
+
+\subsection{Youngsche Ungleichung}
+$\forall \epsilon > 0 , \forall x,y\in \R$ gilt: $2 |xy| \leq \epsilon x^2 + \frac{1}{\epsilon} y^2$. Beweis per Expansion von $\left( \sqrt{\epsilon} |x| - \frac{1}{\sqrt{\epsilon}} |y| \right) ^2 \geq 0$
+
+\subsection{Existenz des Supremums}
+Sei $A \subset \R$, $A \not = \varnothing$. Sei $A$ nach oben beschränkt, dann gibt es eine kleinste obere Schranke von $A$, $c = \sup A$, genannt Supremum von $A$. Um dies zu Beweisen nutzt man die Ordnungsvollständigkeit und definiert $B$ als die Menge der oberen Schranken.
+
+\subsection{Cauchy Schwarz}
+$\forall x,y\in \R^n$ gilt $|\langle x,y\rangle| \leq ||x||\cdot||y||$.
+
+\subsection{Komplexe Zahlen}
+\includegraphics[scale=1.4]{complex.jpg}\\
+\textsc{Division:} Es gilt $z^{-1} = \frac{\bar{z}}{||z||^2}$ wenn $z \not = 0$\\
+\textsc{Polarform} Wenn \begin{align*}
+z_1 &= r_1(\cos(\theta_1) + i\sin(\theta_1))\\
+z_2 &= r_2(\cos(\theta_2) + i\sin(\theta_2))
+\end{align*}
+dann gilt: 
+\begin{align*}
+z_1 \cdot z_2 &= r_1 \cdot r_2 \left(\cos(\theta_1 + \theta_2) + i\sin(\theta_1 + \theta_2)\right)\\
+\frac{z_1}{z_2} &= \frac{r_1}{r_2}\left(\cos(\theta_1 - \theta_2) + i\sin(\theta_1 - \theta_2)\right)
+\end{align*}
+Zudem folgt durch Induktion:
+$$z^n = r^n (\cos(n\theta) + i \sin(n \theta))$$
+
+
+
 
 \newpage
 
