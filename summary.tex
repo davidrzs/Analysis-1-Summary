@@ -200,6 +200,33 @@ $$z^n = r^n (\cos(n\theta) + i \sin(n \theta))$$
 
 \newpage
 
+
+% -------------------------- Folgen --------------------------
+
+\section{Folgen}
+
+\TODO{ add defs of convergence and divergence}
+\TODO{Beweis mittels definition}
+
+\begin{method}{Rechnen mit Grenzwerten} $(a_n)_n$ und $(b_n)_n$ konvergent mit GW $a,b$. Dann gilt:
+	\begin{itemize}
+		\item $\lim \limits_{n \to \infty} (a_n + b_n) = a + b$	
+		\item $\lim \limits_{n \to \infty} (a_n \cdot b_n) = a \cdot b$
+		\item  Falls $b_n, b \not = 0$, so gilt $\lim \limits_{n \to \infty} \frac{a_n}{b_n} = \frac{a}{b}$
+		\item Falls $a_n \leq b_n$ $\forall n \in \mathbb{N}$, so gilt $a \leq b$
+	\end{itemize}
+\end{method}
+
+\TODO{Bsp p 69 ff.}
+
+
+\begin{method}{Sandwich Theorem}
+Seien $b_n \leq a_n \leq c_n$. Falls $b_n$ und $c_n$ konvergent sind mit $\lim \limits_{n \to \infty } b_n = \lim \limits_{n \to \infty } c_n = L$, so ist $a_n$ auch konv. mit $\lim \limits_{n \to \infty } a_n = L$
+\end{method}
+\TODO{add proof sandwich}
+\TODO{add examples}
+% -------------------------- Reihen --------------------------
+
 \section{Reihen}
 \begin{method}{Konvergenz mit Definition} Eine Reihe konvergiert wenn der Grenzwert der Partialsummen existiert:
 	$$\sum_{n=0}^{\infty} a_n  = \lim\limits_{N\to\infty} S_n = \lim\limits_{N\to\infty} \sum_{n=0}^{\infty} a_n$$
@@ -269,7 +296,7 @@ $$ \frac{d}{dx} \frac{\log(x)}{x^2} = -2 \frac{\log(x)}{x^3} + \frac{1}{x} = \fr
 \end{method}
 
 \textbf{Beispiel (Absolute Konvergenz)} Ang. $\sum_{n} a_n$ konvergiert absolut. Betrachte $\sum_{n=0}^{\infty} (\sqrt{1 + a_n} -1)$ und bemerke dass es auch abs. konv.
-$$\left|(\sqrt{1 + a_n} -1)\right| = \left| \frac{(\sqrt{1 + a_n} +1))}{(\sqrt{1 + a_n} +1))} \right| = \left| \frac{a_n}{\sqrt{1 + a_n} + 1} \right| \leq |a_n|$$
+$$\left|\sqrt{1 + a_n} -1\right| = \left| (\sqrt{1 + a_n} -1) \frac{\sqrt{1 + a_n} +1}{\sqrt{1 + a_n} +1} \right| = \left| \frac{a_n}{\sqrt{1 + a_n} + 1} \right| \leq |a_n|$$
 
 \TODO{Sätze aus dem Skript zur absoluten Konvergenz}
 
