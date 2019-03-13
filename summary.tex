@@ -1,4 +1,4 @@
-\documentclass{sciposter}
+\documentclass[25pt]{sciposter}
 
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -19,6 +19,7 @@
 \usepackage{gensymb}
 \usepackage[utf8]{inputenc}
 \usepackage{empheq}
+\usepackage{mathtools}
 
 \graphicspath{ {img/} }
 
@@ -143,6 +144,10 @@
 }
 \usepackage{todonotes}
 \newcommand{\TODO}[1]{\todo[inline]{\Large TODO:  #1}}
+
+
+\DeclarePairedDelimiter\abs{\left|}{\right|}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
 % end custom commands
 
 \begin{document}
@@ -200,6 +205,77 @@ $$z^n = r^n (\cos(n\theta) + i \sin(n \theta))$$
 	$$\sum_{n=0}^{\infty} a_n  = \lim\limits_{N\to\infty} S_n = \lim\limits_{N\to\infty} \sum_{n=0}^{\infty} a_n$$
 \end{method}
 \TODO{Bsp fehlt}
+\begin{method}{Konvergenz mit $\lim\limits_{n \to \infty } a_n = 0$}
+$$\sum_{n=0}^{\infty} a_0 \text{ konvergiert } \implies \lim\limits_{n \to \infty } a_n = 0 $$
+\end{method}
+\TODO{Bsp fehlt}
+
+
+\begin{method}{Majorantenkriterium}
+	Fall $a_n \geq b_n \forall n \geq n_0$ für ein $n_0$. Dann gilt $\sum_n a_n \text{ konvergiert } \implies \sum_{n} b_n$ konvergiert.
+\end{method}
+
+\begin{method}{Minorantenkriterium}
+	Fall $a_n \geq b_n \forall n \geq n_0$ für ein $n_0$. Dann gilt $\sum_n b_n \text{ divergiert } \implies \sum_{n} a_n$ divergiert.
+\end{method}
+
+
+
+
+\begin{method}{Quotientenkriterium}
+	Sei $a_n \not = 0$, dann gilt:
+	\begin{itemize}
+		\item $\lim\limits_{n \to \infty} |\frac{a_{n+1}}{a_n}|> 1 \implies \sum_{n} a_n$ divergiert. 
+		\item $\lim\limits_{n \to \infty} |\frac{a_{n+1}}{a_n}|< 1 \implies \sum_{n} a_n$ konvergiert. 
+		\item $\lim\limits_{n \to \infty} |\frac{a_{n+1}}{a_n}|=  1 \implies $ Kriterium versagt.
+	\end{itemize}
+\end{method}
+\TODO{Beispiel \& Beweis}
+
+
+
+
+
+\begin{method}{Wurzelkriterium}
+	\begin{itemize}
+		\item $\lim\limits_{n \to \infty} \sqrt[n]{|a_n|}>1 \implies \sum_{n} a_n $ divergiert
+		\item $\lim\limits_{n \to \infty} \sqrt[n]{|a_n|}<1 \implies \sum_{n} a_n $ konvergiert
+		\item $\lim\limits_{n \to \infty} \sqrt[n]{|a_n|}=1 \implies $ Kriterium versagt
+	\end{itemize}
+\end{method}
+
+\TODO{Beispiel \& BEweis}
+
+
+
+\begin{method}{Integralkriterium} Wenn $\sum_{n=p}^{\infty} a_n$ sowohl $a_n \geq 0$ und $a_{n+1} \leq a_n$ (monot. fall.), dann gilt:
+$$\sum_{n=p}^{\infty} a_n \text{ konv. } \iff \int_{p}^{\infty} a(x) dx \text{ konv.}$$
+\end{method}
+\TODO{Frage ob legal}
+
+
+\begin{method}{Leibnitzkriterium} Eine Reihe $\sum_n (-1)^n a_n$ konvergiert falls $a_n \geq 0$ , $\lim\limits_{n \to \infty } a_n = 0$ und $a_n$ monoton fallend ist.
+\end{method}
+
+\textbf{Beispiel (Leibnitz)}: $\sum_{n = 1}^{\infty} \frac{\cos(2\pi n)}{\cos(n \pi)} \frac{\log(n)}{n^2}$. Wir stellen fest dass $\sum_{n = 1}^{\infty} \frac{\cos(2\pi n)}{\cos(n \pi)} \frac{\log(n)}{n^2} = \sum_{n = 1}^{\infty} (-1)^n \frac{\log(n)}{n^2}$. Zudem gilt $\frac{\log(n)}{n^2} \geq 0$, sowie $\lim\limits_{n \to \infty} \frac{\log(n)}{n^2} = 0$. Zudem ist $\frac{\log(n)}{n^2}$ monot. fallend für $n \geq 2$, da: 
+$$ \frac{d}{dx} \frac{\log(x)}{x^2} = -2 \frac{\log(x)}{x^3} + \frac{1}{x} = \frac{1- 2\log(x)}{x^3} \leq 0\text{ } \forall x \geq \sqrt{e} = 1.6..$$
+
+
+
+
+
+\begin{method}{Absolute Konvergent}
+	Eine Reihe $\sum_{n} a_n$ ist absolut konvergent falls $\sum_{n} |a_n|$ konvergiert.
+\end{method}
+
+\textbf{Beispiel (Absolute Konvergenz)} Ang. $\sum_{n} a_n$ konvergiert absolut. Betrachte $\sum_{n=0}^{\infty} (\sqrt{1 + a_n} -1)$ und bemerke dass es auch abs. konv.
+$$\left|(\sqrt{1 + a_n} -1)\right| = \left| \frac{(\sqrt{1 + a_n} +1))}{(\sqrt{1 + a_n} +1))} \right| = \left| \frac{a_n}{\sqrt{1 + a_n} + 1} \right| \leq |a_n|$$
+
+\TODO{Sätze aus dem Skript zur absoluten Konvergenz}
+
+
+
+
 \newpage
 
 \end{multicols}
