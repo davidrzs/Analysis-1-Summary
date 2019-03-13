@@ -133,6 +133,16 @@
 \newtheorem{thm}{Thm}[section]
 
 
+
+\usepackage[framemethod=TikZ]{mdframed}
+\newenvironment{method}[1]{\begin{mdframed}[backgroundcolor=blue!10,innertopmargin=15pt, innerbottommargin=15pt]
+		\textbf{#1 }
+	}
+	{ 
+	\end{mdframed}
+}
+\usepackage{todonotes}
+\newcommand{\TODO}[1]{\todo[inline]{\Large TODO:  #1}}
 % end custom commands
 
 \begin{document}
@@ -183,6 +193,13 @@ $$z^n = r^n (\cos(n\theta) + i \sin(n \theta))$$
 
 
 
+\newpage
+
+\section{Reihen}
+\begin{method}{Konvergenz mit Definition} Eine Reihe konvergiert wenn der Grenzwert der Partialsummen existiert:
+	$$\sum_{n=0}^{\infty} a_n  = \lim\limits_{N\to\infty} S_n = \lim\limits_{N\to\infty} \sum_{n=0}^{\infty} a_n$$
+\end{method}
+\TODO{Bsp fehlt}
 \newpage
 
 \end{multicols}
