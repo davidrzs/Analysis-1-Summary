@@ -96,7 +96,7 @@
 
 
 \newcommand*\widefbox[1]{\fbox{\hspace{2em}#1\hspace{2em}}}
-
+\newcommand{\limm}{\lim\limits_{n \to \infty}}
 
 \newlength\dlf  % Define a new measure, dlf
 \newcommand\alignedbox[2]{
@@ -148,6 +148,11 @@
 
 \DeclarePairedDelimiter\abs{\left|}{\right|}%
 \DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+
+
+\setlength\abovedisplayskip{0pt}
+
+
 % end custom commands
 
 \begin{document}
@@ -205,8 +210,16 @@ $$z^n = r^n (\cos(n\theta) + i \sin(n \theta))$$
 
 \section{Folgen}
 
-\TODO{ add defs of convergence and divergence}
-\TODO{Beweis mittels definition}
+\begin{method}{Definition Konvergenz}
+Folge $a_n$ is konvergent, falls $\exists l \in \mathbb{R}$ so dass $\forall \epsilon > 0$ die Menge $\{n \in \mathbb{N}^+: a_n \not \in (l-\epsilon, l + \epsilon)\}$ endlich ist. \\
+Äquivalent: $\forall \epsilon > 0 \exists N >  0$ s.d. $|a_n - l|< \epsilon$.
+\end{method}
+
+\textbf{Beispiel (Konvergenz mit Definition)}: 
+Beweise dass $\limm \frac{3n^2 + 4}{2n^2 + 1} = \frac{3}{2}$. Sei $\epsilon > 0$. Dann muss gelten $|a_n - a | < \epsilon$. Somit $\left| \frac{3n^2 + 4}{2n^2 + 1} -  \frac{3}{2}\right| = \left| \frac{6n^2 + 8 - 6n^2 -3}{4n^2 + 2} \right| = \frac{5}{4n^2 + 2} < \epsilon$. Gibt $4n^2 + 2 > \frac{5}{\epsilon}$, äquiv zu $n > \sqrt{\frac{5}{4 \epsilon} - \frac{1}{2}}$. Wir definieren $N = \lfloor \sqrt{\frac{5}{4 \epsilon} - \frac{1}{2}} \rfloor$. Nun gilt $\forall n \geq N : |a_n - a | < \epsilon$.
+
+
+
 
 \begin{method}{Rechnen mit Grenzwerten} $(a_n)_n$ und $(b_n)_n$ konvergent mit GW $a,b$. Dann gilt:
 	\begin{itemize}
@@ -217,14 +230,41 @@ $$z^n = r^n (\cos(n\theta) + i \sin(n \theta))$$
 	\end{itemize}
 \end{method}
 
-\TODO{Bsp p 69 ff.}
+\textbf{Beispiel (Rechnen mit Grenzwerten)}: 
+\begin{itemize}
+	\item $\limm  \frac{(\frac{1}{n} + n^2 )^3}{1 + n^6} = \limm \frac{n^6}{n^6} \frac{(\frac{1}{n^3} + 1 )^3}{\frac{1}{n^6} + 1} = \limm \frac{(\frac{1}{n^3} + 1 )^3}{\frac{1}{n^6} + 1} = 1$
+	\item $\limm \sqrt{n} (\sqrt{n + 2} - \sqrt{n}) \stackrel{\text{Wurzeltrick}}{=} \limm \frac{2 \sqrt{2}}{\sqrt{n + \sqrt{n}} + \sqrt{n - \sqrt{n}} }$ \\$ = \limm \frac{2 \sqrt{2}}{\sqrt{n} \sqrt{1 + \frac{1}{\sqrt{n}}} + \sqrt{n} \sqrt{1 - \frac{1}{\sqrt{n}}}} = 1$
+\end{itemize}
 
+\begin{method}{Satz von Weierstrass}
+	Wenn $a_n$ nach oben (nach unten) konvergent ist und monoton wachsend (fallend), dann ist $a_n$ konvergent.
+\end{method}
+
+\textbf{Beispiel (Induktive Folge mit Weierstrass)}: 
+Beachte $a_0 = 0$, $a_{n+1} = \left(\frac{a_n}{2}\right)^2 + 1$. \textsc{Monotonie:} Anstatt $a_{n+1} > a_{n}$ zeigen wir $a_{n+1} - a_{n} > 0$:
+$$a_{n+1} - a_{n} = \frac{a_n ^2}{4} + 1 - a_n = \frac{a_n ^2 -4a_n + 4}{4} = \frac{(2-a_n)^2}{4} \geq 0$$
+\textsc{Beschränktheit:} ($\leq 2$) per Induktion. Für $n=0$, $a_0 = 0 \leq 2 \checkmark$. Schritt: $a_{n+1} = \frac{a_n ^2}{4} + 1 \stackrel{\text{I.H.}}{\leq} \frac{2^2}{4} +1 = 2 \checkmark$. Nach Weierstrass konvergent. mit $a = \frac{a^2}{4} + 1 \implies a = 2$ als GW.
 
 \begin{method}{Sandwich Theorem}
 Seien $b_n \leq a_n \leq c_n$. Falls $b_n$ und $c_n$ konvergent sind mit $\lim \limits_{n \to \infty } b_n = \lim \limits_{n \to \infty } c_n = L$, so ist $a_n$ auch konv. mit $\lim \limits_{n \to \infty } a_n = L$
 \end{method}
-\TODO{add proof sandwich}
-\TODO{add examples}
+\textbf{Beweis (Sandwich Theorem)}: 
+Da $b_n$, $c_n$ konvergent mit GW $L$:
+$$\forall \epsilon > 0 \exists N_1 : \forall n \geq N_1 : L-\epsilon < b_n + \epsilon$$
+Analog  $ \exists N_2$, setze $N = \max\{N_1, N_2\}$, dann gilt $\forall \epsilon > 0 \exists N$:
+$$L-\epsilon < b_n \leq a_n \leq c_n < L + \epsilon \implies L - \epsilon < a_n < L + \epsilon$$
+
+
+\textbf{Beispiel (Sandwich)}
+$\limm \frac{n + \cos(n)}{n^2 -1}$. Wenn es absolut konv. dann auch absolut. Sicher gilt somit : $0 \leq \left|\frac{n + \cos(n)}{n^2 -1}\right|$ Nun schätzen wir nach oben ab: $\left|\frac{n + \cos(n)}{n^2 -1}\right| \leq \frac{n+1}{n^2 - 1} = \frac{n+1}{(n+1)(n-1)} = \frac{1}{n-1}$. Es gilt $\limm \frac{1}{n-1} = 0$, somit gilt $\limm \left|\frac{n + \cos(n)}{n^2 -1}\right| = 0$. (da Sandwich)
+
+
+
+
+
+
+
+
 % -------------------------- Reihen --------------------------
 
 \section{Reihen}
