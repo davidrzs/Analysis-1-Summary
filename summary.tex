@@ -278,13 +278,21 @@ $\limm \frac{n + \cos(n)}{n^2 -1}$. Wenn es absolut konv. dann auch absolut. Sic
 \begin{method}{Konvergenz mit Definition} Eine Reihe konvergiert wenn der Grenzwert der Partialsummen existiert:
 	$$\sum_{n=0}^{\infty} a_n  = \lim\limits_{N\to\infty} S_n = \lim\limits_{N\to\infty} \sum_{n=0}^{\infty} a_n$$
 \end{method}
-\TODO{Bsp fehlt}
+
+\textbf{Beispiel (Konvergenz mit Definition)}
+\begin{itemize}
+	\item $\sum_{n = 0}^{\infty} \frac{1}{n(n+1)} = \frac{1}{n} - \frac{1}{n+1}$. Es gilt somit $S_n = 1 - \frac{1}{2} + \frac{1}{2} - \frac{1}{3} \ldots - \frac{1}{n+1}$ Somit $S_n = 1-\frac{1}{n+1}$. Es gilt $\limm S_n = \limm 1 - \frac{1}{n+1} = 1$, somit ist die Reihe konvergent mit Grenzwert 1.
+	\item $\sum_{n = 0}^{\infty} \frac{1}{\sqrt{n} + \sqrt{n+1}} $ Zuerst nutzen wir den Wurzeltrick: $\frac{1}{\sqrt{n} + \sqrt{n+1}} = \sqrt{n+1} - \sqrt{n}$. Wir bemerken $S_n = 1 - 0 + \sqrt{2} - 1 \ldots + \sqrt{n+1} - \sqrt{n} = \sqrt{n+1}$. Da aber $\limm S_n =  \limm \sqrt{n+1} = \infty$ divergiert die Reihe.
+\end{itemize}
+
+
+
 \begin{method}{Konvergenz mit $\lim\limits_{n \to \infty } a_n = 0$}
 $$\sum_{n=0}^{\infty} a_0 \text{ konvergiert } \implies \lim\limits_{n \to \infty } a_n = 0 $$
 \end{method}
 
-\TODO{Bsp fehlt}
-
+\textbf{Beweis (Nullfolge)} Wenn $\sum_{n = 0}^{\infty} a_n$ konvergent ist, dann ist $\limm a_n = 0$.
+Es gilt $a_N = S_N - S_{N-1}$. Somit $\limm a_n = \limm (S_n - S_{n-1}) = \limm S_n - \limm S_{n-1} = S-S = 0$
 
 \begin{method}{Majorantenkriterium}
 	Fall $a_n \geq b_n \forall n \geq n_0$ für ein $n_0$. Dann gilt $\sum_n a_n \text{ konvergiert } \implies \sum_{n} b_n$ konvergiert.
@@ -319,7 +327,14 @@ $$\sum_{n=0}^{\infty} a_0 \text{ konvergiert } \implies \lim\limits_{n \to \inft
 	\end{itemize}
 \end{method}
 
-\TODO{Beispiel \& BEweis}
+\textbf{Beispiel (Wurzelkriterium)}
+\begin{itemize}
+	\item $\sum_{n=1}^{\infty} \left( n^{1/n} -1 \right)^n $. Es gilt $\limm \sqrt[n]{|a_n|} = \limm (n^{1/n}-1) = \limm e^{\frac{1}{n}\log n} -1 = e^0-1 = 0$ Somit konvergent.
+	
+	\item $\sum_{n=1}^{\infty} \left(\frac{n}{2n+1}\right) ^{n-5}$. Es gilt $\limm \sqrt[n]{|a_n|} = \limm \left( \frac{n}{2n+1} \right)^{1-\frac{5}{n}} = \limm\frac{n}{2n+1} = \frac{1}{2}$. Somit konvergent.
+\end{itemize}
+
+\TODO{Beweis}
 
 
 
