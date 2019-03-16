@@ -169,23 +169,30 @@
 
 \section{Einführung}
 
-\subsection{Ordnungsvollständigkeit}
+\subsection*{Ordnungsvollständigkeit}
 Unterscheidet $\R$ von $\Q$. Für $A,B$ nichtleere Teilmengen von $\R$ mit $$\forall a\in A \land \forall b \in B \implies a \leq b$$
 Dann gibt es $c \in \R$ mit $\forall a \in A : a \leq c$ und $\forall b \in B : c \leq b$
 
-\subsection{Archimedisches Prinzip}
+\begin{method}{Archimedisches Prinzip}
 Korollar von Ordnungsvollständigkeit. Sei $x\in \R$ mit $x>0$ und $y \in \R$, dann gibt es $n\in \N$ mit $y \leq nx$
+\end{method}
 
-\subsection{Youngsche Ungleichung}
+\subsection*{Youngsche Ungleichung}
 $\forall \epsilon > 0 , \forall x,y\in \R$ gilt: $2 |xy| \leq \epsilon x^2 + \frac{1}{\epsilon} y^2$. Beweis per Expansion von $\left( \sqrt{\epsilon} |x| - \frac{1}{\sqrt{\epsilon}} |y| \right) ^2 \geq 0$
 
-\subsection{Existenz des Supremums}
+\begin{method}{Existenz des Supremums}
 Sei $A \subset \R$, $A \not = \varnothing$. Sei $A$ nach oben beschränkt, dann gibt es eine kleinste obere Schranke von $A$, $c = \sup A$, genannt Supremum von $A$. Um dies zu Beweisen nutzt man die Ordnungsvollständigkeit und definiert $B$ als die Menge der oberen Schranken.
+\end{method}
+\textbf{Beispiel (Sup \& Inf finden)} Sei $M = \{ \frac{|x|}{1 + |x|} : x \in \mathbb{R}\}$. \\ \textsc{Infinum:} Weil alle Elemente positiv sind ist von unten durch 0 beschränkt. Falls $x = 0$, folgt $\frac{|0|}{|0|+1} =0$ womit $\min{M} = \inf{M} = 0$. \\
+\textsc{Supremum:} Für alle $x$ gilt $|x| + 1 > |x|$ somit $\frac{|x|}{|x|+1} < 1$. Somit gilt sicher $\sup M \leq 1$. \\
+Nach Archimedes: $\forall \epsilon > 0,\exists n_0 : 1/n \leq \epsilon \ \forall n \geq n_0$
+$$\frac{n}{n+1} = \frac{1}{1 + \frac{1}{n}} =\geq \frac{1}{1 + \epsilon} = 1 - \frac{\epsilon}{1 + \epsilon}$$
+Wir erreichen $1$ sicher nie da sonst $1 = 0$, aber wir können beliebig nahe kommen. Somit $\sup M = 1$ aber $\neg \exists \max M$
 
-\subsection{Cauchy Schwarz}
+\subsection*{Cauchy Schwarz}
 $\forall x,y\in \R^n$ gilt $|\langle x,y\rangle| \leq ||x||\cdot||y||$.
 
-\subsection{Komplexe Zahlen}
+\subsection*{Komplexe Zahlen}
 \includegraphics[scale=1.4]{complex.jpg}\\
 \textsc{Division:} Es gilt $z^{-1} = \frac{\bar{z}}{||z||^2}$ wenn $z \not = 0$\\
 \textsc{Polarform} Wenn \begin{align*}
@@ -203,7 +210,6 @@ $$z^n = r^n (\cos(n\theta) + i \sin(n \theta))$$
 
 
 
-\newpage
 
 
 % -------------------------- Folgen --------------------------
@@ -233,7 +239,8 @@ Beweise dass $\limm \frac{3n^2 + 4}{2n^2 + 1} = \frac{3}{2}$. Sei $\epsilon > 0$
 \textbf{Beispiel (Rechnen mit Grenzwerten)}: 
 \begin{itemize}
 	\item $\limm  \frac{(\frac{1}{n} + n^2 )^3}{1 + n^6} = \limm \frac{n^6}{n^6} \frac{(\frac{1}{n^3} + 1 )^3}{\frac{1}{n^6} + 1} = \limm \frac{(\frac{1}{n^3} + 1 )^3}{\frac{1}{n^6} + 1} = 1$
-	\item $\limm \sqrt{n} (\sqrt{n + 2} - \sqrt{n}) \stackrel{\text{Wurzeltrick}}{=} \limm \frac{2 \sqrt{2}}{\sqrt{n + \sqrt{n}} + \sqrt{n - \sqrt{n}} }$ \\$ = \limm \frac{2 \sqrt{2}}{\sqrt{n} \sqrt{1 + \frac{1}{\sqrt{n}}} + \sqrt{n} \sqrt{1 - \frac{1}{\sqrt{n}}}} = 1$
+	
+	\item $\limm \sqrt{n} (\sqrt{n + 2} - \sqrt{n}) \stackrel{\text{Wurzeltrick}}{=} \limm \frac{2 \sqrt{2}}{\sqrt{n+2} + \sqrt{n}} = \limm  \frac{2}{\sqrt{1 + \frac{2}{n}} + 1} = 1$
 \end{itemize}
 
 \begin{method}{Satz von Weierstrass}
@@ -266,7 +273,7 @@ $\limm \frac{n + \cos(n)}{n^2 -1}$. Wenn es absolut konv. dann auch absolut. Sic
 
 
 % -------------------------- Reihen --------------------------
-
+\newpage
 \section{Reihen}
 \begin{method}{Konvergenz mit Definition} Eine Reihe konvergiert wenn der Grenzwert der Partialsummen existiert:
 	$$\sum_{n=0}^{\infty} a_n  = \lim\limits_{N\to\infty} S_n = \lim\limits_{N\to\infty} \sum_{n=0}^{\infty} a_n$$
@@ -275,6 +282,7 @@ $\limm \frac{n + \cos(n)}{n^2 -1}$. Wenn es absolut konv. dann auch absolut. Sic
 \begin{method}{Konvergenz mit $\lim\limits_{n \to \infty } a_n = 0$}
 $$\sum_{n=0}^{\infty} a_0 \text{ konvergiert } \implies \lim\limits_{n \to \infty } a_n = 0 $$
 \end{method}
+
 \TODO{Bsp fehlt}
 
 
