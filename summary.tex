@@ -136,7 +136,7 @@
 
 
 \usepackage[framemethod=TikZ]{mdframed}
-\newenvironment{method}[1]{\begin{mdframed}[backgroundcolor=blue!10,innertopmargin=15pt, innerbottommargin=15pt]
+\newenvironment{method}[1]{\begin{mdframed}[backgroundcolor=blue!10,innertopmargin=15pt, innerbottommargin=15pt, nobreak=true]
 		\textbf{#1 }
 	}
 	{ 
@@ -168,10 +168,11 @@
 
 
 \section{Einführung}
-
-\subsection*{Ordnungsvollständigkeit}
+\begin{method}{Ordnungsvollständigkeit}
 Unterscheidet $\R$ von $\Q$. Für $A,B$ nichtleere Teilmengen von $\R$ mit $$\forall a\in A \land \forall b \in B \implies a \leq b$$
 Dann gibt es $c \in \R$ mit $\forall a \in A : a \leq c$ und $\forall b \in B : c \leq b$
+\end{method}
+
 
 \begin{method}{Archimedisches Prinzip}
 Korollar von Ordnungsvollständigkeit. Sei $x\in \R$ mit $x>0$ und $y \in \R$, dann gibt es $n\in \N$ mit $y \leq nx$
@@ -192,7 +193,7 @@ Wir erreichen $1$ sicher nie da sonst $1 = 0$, aber wir können beliebig nahe ko
 \subsection*{Cauchy Schwarz}
 $\forall x,y\in \R^n$ gilt $|\langle x,y\rangle| \leq ||x||\cdot||y||$.
 
-\subsection*{Komplexe Zahlen}
+\begin{method}{Komplexe Zahlen}\\
 \includegraphics[scale=1.4]{complex.jpg}\\
 \textsc{Division:} Es gilt $z^{-1} = \frac{\bar{z}}{||z||^2}$ wenn $z \not = 0$\\
 \textsc{Polarform} Wenn \begin{align*}
@@ -206,7 +207,7 @@ z_1 \cdot z_2 &= r_1 \cdot r_2 \left(\cos(\theta_1 + \theta_2) + i\sin(\theta_1 
 \end{align*}
 Zudem folgt durch Induktion:
 $$z^n = r^n (\cos(n\theta) + i \sin(n \theta))$$
-
+\end{method}
 
 
 
@@ -265,16 +266,21 @@ $$L-\epsilon < b_n \leq a_n \leq c_n < L + \epsilon \implies L - \epsilon < a_n 
 \textbf{Beispiel (Sandwich)}
 $\limm \frac{n + \cos(n)}{n^2 -1}$. Wenn es absolut konv. dann auch absolut. Sicher gilt somit : $0 \leq \left|\frac{n + \cos(n)}{n^2 -1}\right|$ Nun schätzen wir nach oben ab: $\left|\frac{n + \cos(n)}{n^2 -1}\right| \leq \frac{n+1}{n^2 - 1} = \frac{n+1}{(n+1)(n-1)} = \frac{1}{n-1}$. Es gilt $\limm \frac{1}{n-1} = 0$, somit gilt $\limm \left|\frac{n + \cos(n)}{n^2 -1}\right| = 0$. (da Sandwich)
 
+\begin{method}{Cauchy Kriterium}
+	Die Folge $(a_n)_n$ ist genau dann konvergent, falls $\forall  \epsilon > 0 \ \exists N \geq 1 \text{ so dass } |a_n - a_m| < \epsilon \quad \forall n,m \geq N$
+\end{method}
 
+\textbf{Beispiel (Cauchy Kriterium)}
+Sei $a_n = \frac{n-1}{2n}$ eine Folge. Wir versuchen Konvergenz mittels Cauchy zu zeigen:\\
+$|a_n - a_m| = |\frac{n-1}{2n} - \frac{m-1}{2m}| = |\frac{nm-m-nm+n}{2nm}| = |\frac{n-m}{2nm}| = \frac{1}{2n} - \frac{1}{2m} \stackrel{m\geq n}{\leq} \frac{1}{2n} < \epsilon$. Für alle $n \geq N = \lceil \frac{1}{2\epsilon} \rceil$ haben wir $|a_n - a_m| < \epsilon$. Nach Cauchy ist $a_n$ somit konvergent.
 
-
-
-
+\TODO{SATZ VON BOLZANO WEIERSTRASS}
 
 
 % -------------------------- Reihen --------------------------
-\newpage
+
 \section{Reihen}
+
 \begin{method}{Konvergenz mit Definition} Eine Reihe konvergiert wenn der Grenzwert der Partialsummen existiert:
 	$$\sum_{n=0}^{\infty} a_n  = \lim\limits_{N\to\infty} S_n = \lim\limits_{N\to\infty} \sum_{n=0}^{\infty} a_n$$
 \end{method}
@@ -313,7 +319,16 @@ Es gilt $a_N = S_N - S_{N-1}$. Somit $\limm a_n = \limm (S_n - S_{n-1}) = \limm 
 		\item $\lim\limits_{n \to \infty} |\frac{a_{n+1}}{a_n}|=  1 \implies $ Kriterium versagt.
 	\end{itemize}
 \end{method}
-\TODO{Beispiel \& Beweis}
+
+\textbf{Beweis (Quotientenkriterium)} Angenommen $c_n = \sup\{ \frac{|a_{k+1}|}{|a_{k}|} : k \geq n \}$. Dann wenn beschränkt: $\limsup_{n\to \infty} \frac{|a_{n+1}|}{|a_{n}|} = \limm c_n$. Angenommen wir haben $q$ so dass $\limm c_n < q < 1$. Sei $N \geq 1$ so dass $c_N \leq q < 1$ woraus $\frac{|a_{k+1}|}{|a_k|} \leq q$ $\implies |a_{k+1}| \leq q |a_k|$. Für $j\geq 1$ folgt: $|a_{N+j}|\leq q|a_{N+j-1}| \leq \ldots \leq q^j |a_N| = q^{N+j} \frac{|a_N|}{q^N}$. Somit gilt: $|a_n| \leq q^n \frac{|a_N|}{q^N}$ und wir haben eine Majorante.
+
+\textbf{Beispiel (Quotientenkriterium)}
+
+\begin{itemize}
+	\item $\sum_{n = 1}^\infty \frac{4^n}{n!}$. $\limm \frac{|a_{n+1}|}{|a_n|} = \limm \frac{4^{n+1} n!}{4^n (n+1)!} = \limm \frac{4}{n+1} = 0 < 1$. Konvergent $\checkmark$
+	
+	\item $\sum_{n = 1}^\infty \frac{n^n}{(2n)!!}$.  $\limm \frac{|a_{n+1}|}{|a_n|}  = \frac{(n+1)^{n+1}}{(2n+2)!!} \frac{(2n)!!}{n^n} = \limm \frac{(n+1)^{n+1}}{n^n} \frac{(2n)!!}{(2n+2)(2n)!!} = \limm \frac{1}{2} \left( \frac{n+1}{n} \right)^n = \frac{e}{2}>1$. Somit divergent.
+\end{itemize}
 
 
 
@@ -334,8 +349,9 @@ Es gilt $a_N = S_N - S_{N-1}$. Somit $\limm a_n = \limm (S_n - S_{n-1}) = \limm 
 	\item $\sum_{n=1}^{\infty} \left(\frac{n}{2n+1}\right) ^{n-5}$. Es gilt $\limm \sqrt[n]{|a_n|} = \limm \left( \frac{n}{2n+1} \right)^{1-\frac{5}{n}} = \limm\frac{n}{2n+1} = \frac{1}{2}$. Somit konvergent.
 \end{itemize}
 
-\TODO{Beweis}
 
+\textbf{Beweis (Wurzelkriterium)}
+Sei $c = \sup \{\sqrt[k]{|a_k|}\}$ und $ < q< 1$ mit $\limm c_n = \limsup_{n\to \infty} \sqrt[k]{|a_k|} < q <1$. Dann $\exists N \geq 1$ mit $ c_N = \sup\{ \sqrt[k]{|a_k|}: k\geq N \} \leq q$ was uns $|a_n| \leq q^n$ gibt. Somit ist eine geometrische Reihe eine Majorante.
 
 
 \begin{method}{Integralkriterium} Wenn $\sum_{n=p}^{\infty} a_n$ sowohl $a_n \geq 0$ und $a_{n+1} \leq a_n$ (monot. fall.), dann gilt:
@@ -364,7 +380,7 @@ $$\left|\sqrt{1 + a_n} -1\right| = \left| (\sqrt{1 + a_n} -1) \frac{\sqrt{1 + a_
 \TODO{Sätze aus dem Skript zur absoluten Konvergenz}
 
 
-
+\TODO{Satz Weierstrass / Bolzano Weierstrass}
 
 \newpage
 
