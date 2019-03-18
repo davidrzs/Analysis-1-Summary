@@ -414,27 +414,44 @@ Somit gilt: $\sum_{n=1}^\infty \frac{3}{n(n+1)} - \frac{4}{2^n} = 3-4 = -1$
 \end{method}
 
 \textbf{Beispiel (Konvergenzradius)}
-
-
-
-
-
-\newpage
-
-\section{Stetigkeit}
-\begin{method}{Definition (Stetigkeit)}
-Eine Funktion $f : D \to \mathbb{R}$ nennt man stetig falls 
-$$\forall \epsilon > 0 \ \exists \delta > 0 \ : \ |x-x_0| < \delta \implies |f(x) - f(x_0)| < \epsilon$$ beziehungsweise auf $\mathbb{R}$.
-
-$$f((x_0 - \delta , x_0 + \delta)) \subset (f(x_0) - \epsilon, f(x_0) + \epsilon)$$
-\end{method}
-
-\textbf{Beispiel (Stetigkeit)}
 \begin{itemize}
-	\item 
+	\item $\sum_{n=1}^\infty  \frac{x^n}{n!}$. Wir rechnen $\rho = \limm \left|\frac{a_n}{a_{n+1}}\right| = \limm \left| \frac{(n+1)!}{n!} \right| = = \limm (n+1 ) = \infty$. Die Reihe konvergiert für alle $x$.
+	\item $\sum_{n=1}^{\infty} \left( 1 + \frac{a}{n} \right)^n$. Wir Rechnen $\rho = \frac{1}{\limm \sqrt[n]{|a_n|}} = \frac{1}{\limm (1 + \frac{a}{n})^n} = \frac{1}{e^a} = e^{-a}$. Die Reihe konvergiert für alle $|x| < e^{-a}$.
 \end{itemize}
 
 
+
+
+
+
+
+% -------------------------- Stetigkeit --------------------------
+
+
+
+
+
+
+
+\section{Stetigkeit}
+\begin{method}{Definition (Stetigkeit)}
+Eine Funktion $f : D \to \mathbb{R}$ nennt man stetig in $x_0$ falls 
+$$\forall \epsilon > 0 \ \exists \delta > 0 \ : \ |x-x_0| < \delta \implies |f(x) - f(x_0)| < \epsilon$$ beziehungsweise auf $\mathbb{R}$.
+
+$$f((x_0 - \delta , x_0 + \delta)) \subset (f(x_0) - \epsilon, f(x_0) + \epsilon)$$
+Äquivalent dazu gibt es das Folgenkriterium: Für jede Folge $x_n \in \Omega$ mit $\limm x_n = a$ gilt $\limm f(x_n) = f(a)$. 
+\end{method}
+
+\TODO{BEISPIELE HIER z.B. 10.3.1}
+\textbf{Beispiel (Stetigkeit)}
+\begin{itemize}
+	\item abcdefg
+\end{itemize}
+
+\begin{method}{Rechenregeln für Stetige Funktionen}
+Falls $f,g:\Omega \to \mathbb{R}$ stetig, dann sind folgende auch stetig:
+$$f + g \quad f-g \quad fg \quad \frac{f}{g} \text{ falls } g \not = 0$$
+\end{method}
 
 \newpage
 
