@@ -190,8 +190,10 @@ Nach Archimedes: $\forall \epsilon > 0,\exists n_0 : 1/n \leq \epsilon \ \forall
 $$\frac{n}{n+1} = \frac{1}{1 + \frac{1}{n}} =\geq \frac{1}{1 + \epsilon} = 1 - \frac{\epsilon}{1 + \epsilon}$$
 Wir erreichen $1$ sicher nie da sonst $1 = 0$, aber wir können beliebig nahe kommen. Somit $\sup M = 1$ aber $\neg \exists \max M$
 
-\subsection*{Cauchy Schwarz}
+\begin{method}{Cauchy Schwarz}
 $\forall x,y\in \R^n$ gilt $|\langle x,y\rangle| \leq ||x||\cdot||y||$.
+\end{method}
+
 
 \begin{method}{Komplexe Zahlen}\\
 \includegraphics[scale=1.4]{complex.jpg}\\
@@ -253,6 +255,11 @@ Beachte $a_0 = 0$, $a_{n+1} = \left(\frac{a_n}{2}\right)^2 + 1$. \textsc{Monoton
 $$a_{n+1} - a_{n} = \frac{a_n ^2}{4} + 1 - a_n = \frac{a_n ^2 -4a_n + 4}{4} = \frac{(2-a_n)^2}{4} \geq 0$$
 \textsc{Beschränktheit:} ($\leq 2$) per Induktion. Für $n=0$, $a_0 = 0 \leq 2 \checkmark$. Schritt: $a_{n+1} = \frac{a_n ^2}{4} + 1 \stackrel{\text{I.H.}}{\leq} \frac{2^2}{4} +1 = 2 \checkmark$. Nach Weierstrass konvergent. mit $a = \frac{a^2}{4} + 1 \implies a = 2$ als GW.
 
+\begin{method}{Satz von }
+	content...
+\end{method}
+
+
 \begin{method}{Sandwich Theorem}
 Seien $b_n \leq a_n \leq c_n$. Falls $b_n$ und $c_n$ konvergent sind mit $\lim \limits_{n \to \infty } b_n = \lim \limits_{n \to \infty } c_n = L$, so ist $a_n$ auch konv. mit $\lim \limits_{n \to \infty } a_n = L$
 \end{method}
@@ -291,7 +298,11 @@ $|a_n - a_m| = |\frac{n-1}{2n} - \frac{m-1}{2m}| = |\frac{nm-m-nm+n}{2nm}| = |\f
 	\item $\sum_{n = 0}^{\infty} \frac{1}{\sqrt{n} + \sqrt{n+1}} $ Zuerst nutzen wir den Wurzeltrick: $\frac{1}{\sqrt{n} + \sqrt{n+1}} = \sqrt{n+1} - \sqrt{n}$. Wir bemerken $S_n = 1 - 0 + \sqrt{2} - 1 \ldots + \sqrt{n+1} - \sqrt{n} = \sqrt{n+1}$. Da aber $\limm S_n =  \limm \sqrt{n+1} = \infty$ divergiert die Reihe.
 \end{itemize}
 
-
+\begin{method}{Geometrische Reihen}
+	Für geometrische Reihen gilt:
+	$$\sum _{k=0}^{n-1}ar^{k}=a\left({\frac {1-r^{n}}{1-r}}\right)$$
+	\textit{Beweis:}{\begin{align*}s&=a+ar+ar^{2}+ar^{3}+\cdots +ar^{n-1},\\rs&=ar+ar^{2}+ar^{3}+ar^{4}+\cdots +ar^{n},\\s-rs&=a-ar^{n},\\s(1-r)&=a(1-r^{n}),\end{align*}}
+\end{method}
 
 \begin{method}{Konvergenz mit $\lim\limits_{n \to \infty } a_n = 0$}
 $$\sum_{n=0}^{\infty} a_0 \text{ konvergiert } \implies \lim\limits_{n \to \infty } a_n = 0 $$
@@ -370,17 +381,60 @@ $$ \frac{d}{dx} \frac{\log(x)}{x^2} = -2 \frac{\log(x)}{x^3} + \frac{1}{x} = \fr
 
 
 
-\begin{method}{Absolute Konvergent}
+\begin{method}{Absolute Konvergenz}
 	Eine Reihe $\sum_{n} a_n$ ist absolut konvergent falls $\sum_{n} |a_n|$ konvergiert.
 \end{method}
 
 \textbf{Beispiel (Absolute Konvergenz)} Ang. $\sum_{n} a_n$ konvergiert absolut. Betrachte $\sum_{n=0}^{\infty} (\sqrt{1 + a_n} -1)$ und bemerke dass es auch abs. konv.
 $$\left|\sqrt{1 + a_n} -1\right| = \left| (\sqrt{1 + a_n} -1) \frac{\sqrt{1 + a_n} +1}{\sqrt{1 + a_n} +1} \right| = \left| \frac{a_n}{\sqrt{1 + a_n} + 1} \right| \leq |a_n|$$
 
+
+\begin{method}{Summenregel für Reihen}
+	Wenn $\sum_n a_n$ und $\sum_n b_n$ zwei konvergente Reihen sind, dann gilt $\sum_n (a_n \pm b_n ) = \sum_n a_n \pm \sum b_n$.\\
+	\textit{Beweis: Direkt aus $\limm S_n \pm \limm T_n = \limm (S_n \pm T_n)  = S \pm T$}
+\end{method}
+\textbf{Beipiel (Summenregel)}
+Wir berechnen $\sum_{n=1}^\infty \frac{3}{n(n+1)} - \frac{4}{2^n}$ Die erste Konvergiert nach $3$ \textit{(Beispiel bei Konv. mit Def.)}. Die zweite ist eine geometrische Reihe mit $q=\frac{1}{2}$ da $\sum_{n=1}^{\infty} \frac{4}{2^n} = 4\left( \sum_{n=0}^{\infty} \frac{1}{2^n} -1 \right) = 4 \left( \frac{1}{1-1/2} -1\right) = 4$
+Somit gilt: $\sum_{n=1}^\infty \frac{3}{n(n+1)} - \frac{4}{2^n} = 3-4 = -1$ 
+
+
 \TODO{Sätze aus dem Skript zur absoluten Konvergenz}
 
 
-\TODO{Satz Weierstrass / Bolzano Weierstrass}
+\begin{method}{Cauchy Produkt}
+	Falls $\sum_{n} a_n$ und $\sum_n b_n$ absolut konvergierten, konvergiert ihre Cauchy Produkt und es gilt:
+	$\sum_{k=0}^{\infty} \left(\sum_{j=0}^{n} a_{n-j} b_j\right) = \left(\sum_{i=0}^\infty a_i\right) * \left(\sum_{j=0}^\infty b_i\right)$
+\end{method}
+
+
+\begin{method}{Potenzreihe / Konvergenzradius}
+	Potenzreihe hat Form $f(x) = \sum_{n=0}^{\infty} a_n x^n$.
+	Die Menge aller $x$ für welche $f(x)$ konvergiert nennt man Konvergenzbereich. Der Konvergenzradius (dessen Grenze) ist definiert:
+	$\rho = \limm \left|  \frac{a_n}{a_{n+1}}\right|$ oder eben $\rho = \frac{1}{\limm \sqrt[n]{|a_n|}}$.
+\end{method}
+
+\textbf{Beispiel (Konvergenzradius)}
+
+
+
+
+
+\newpage
+
+\section{Stetigkeit}
+\begin{method}{Definition (Stetigkeit)}
+Eine Funktion $f : D \to \mathbb{R}$ nennt man stetig falls 
+$$\forall \epsilon > 0 \ \exists \delta > 0 \ : \ |x-x_0| < \delta \implies |f(x) - f(x_0)| < \epsilon$$ beziehungsweise auf $\mathbb{R}$.
+
+$$f((x_0 - \delta , x_0 + \delta)) \subset (f(x_0) - \epsilon, f(x_0) + \epsilon)$$
+\end{method}
+
+\textbf{Beispiel (Stetigkeit)}
+\begin{itemize}
+	\item 
+\end{itemize}
+
+
 
 \newpage
 
