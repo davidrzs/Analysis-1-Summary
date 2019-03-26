@@ -368,7 +368,6 @@ Sei $c = \sup \{\sqrt[k]{|a_k|}\}$ und $ < q< 1$ mit $\limm c_n = \limsup_{n\to 
 \begin{method}{Integralkriterium} Wenn $\sum_{n=p}^{\infty} a_n$ sowohl $a_n \geq 0$ und $a_{n+1} \leq a_n$ (monot. fall.), dann gilt:
 $$\sum_{n=p}^{\infty} a_n \text{ konv. } \iff \int_{p}^{\infty} a(x) dx \text{ konv.}$$
 \end{method}
-\TODO{Frage ob legal}
 
 
 \begin{method}{Leibnitzkriterium} Eine Reihe $\sum_n (-1)^n a_n$ konvergiert falls $a_n \geq 0$ , $\lim\limits_{n \to \infty } a_n = 0$ und $a_n$ monoton fallend ist.
@@ -389,6 +388,11 @@ $$ \frac{d}{dx} \frac{\log(x)}{x^2} = -2 \frac{\log(x)}{x^3} + \frac{1}{x} = \fr
 $$\left|\sqrt{1 + a_n} -1\right| = \left| (\sqrt{1 + a_n} -1) \frac{\sqrt{1 + a_n} +1}{\sqrt{1 + a_n} +1} \right| = \left| \frac{a_n}{\sqrt{1 + a_n} + 1} \right| \leq |a_n|$$
 
 
+\begin{method}{Absolut Konvergente Reihe ist auch konvergent}
+Eine absolut konvergente Reihe $\sum _{k=1} ^{\infty} a_k$ ist auch konvergent und es gilt $\left|\sum_{k=1}^{\infty} a_k \right| \leq |\sum_{k=1}^{\infty} |a_k|$
+\end{method}
+\textbf{Beweis von obigem:} Da $\sum_{k=1}^{\infty} |a_k|$ konvergiert, gilt nach Cauchy: $\forall \epsilon > 0 \exists N \geq 1$ mit $\sum_{k=1}^{m} |a_k| < \epsilon$. Daraus folgt: $\left| \sum_{k=1}^{m} a_k \right| \leq \sum_{k=1}^{m} |a_k| < \epsilon$, daraus folgt die Konvergenz. Die Ungleichung folgt per Limes der endlichen Reihen.
+
 \begin{method}{Summenregel für Reihen}
 	Wenn $\sum_n a_n$ und $\sum_n b_n$ zwei konvergente Reihen sind, dann gilt $\sum_n (a_n \pm b_n ) = \sum_n a_n \pm \sum b_n$.\\
 	\textit{Beweis: Direkt aus $\limm S_n \pm \limm T_n = \limm (S_n \pm T_n)  = S \pm T$}
@@ -398,13 +402,25 @@ Wir berechnen $\sum_{n=1}^\infty \frac{3}{n(n+1)} - \frac{4}{2^n}$ Die erste Kon
 Somit gilt: $\sum_{n=1}^\infty \frac{3}{n(n+1)} - \frac{4}{2^n} = 3-4 = -1$ 
 
 
-\TODO{Sätze aus dem Skript zur absoluten Konvergenz}
+\begin{method}{Umordnung einer Reihe}
+	Eine Reihe $\sum_{k=1}^{\infty} a'_n$ ist eine Umordnung von $\sum_{k=1}^{\infty} a_n$, falls $\phi : \N^+ \to \N^+$ bijektiv existiert, so dass $a' = a_{\phi(n)}$.
+	
+	Wenn eine Reihe absolut konvergiert, dann konvergiert jede Umordnung der Reihe und hat denselben Grenzwert.
+	
+	Zum Beispiel $\sum _{{n=1}}^{\infty }{\frac{(-1)^{{n+1}}}{n}}$ kann man umordnen.
+\end{method}
 
 
 \begin{method}{Cauchy Produkt}
-	Falls $\sum_{n} a_n$ und $\sum_n b_n$ absolut konvergierten, konvergiert ihre Cauchy Produkt und es gilt:
-	$\sum_{k=0}^{\infty} \left(\sum_{j=0}^{n} a_{n-j} b_j\right) = \left(\sum_{i=0}^\infty a_i\right) * \left(\sum_{j=0}^\infty b_i\right)$
+	\begin{enumerate}
+\item 	Falls $\sum_{n} a_n$ und $\sum_n b_n$ absolut konvergierten, konvergiert ihre Cauchy Produkt und es gilt:
+$\sum_{k=0}^{\infty} \left(\sum_{j=0}^{n} a_{n-j} b_j\right) = \left(\sum_{i=0}^\infty a_i\right) * \left(\sum_{j=0}^\infty b_i\right)$
+
+ \item Wenn $\exists B \geq 0$, so dass $\sum_{i=0}^{m} \sum_{j=0}^{m} |a_{ij}| \leq B \quad \forall m \geq 0$, dann konvergieren $S_i = \sum_{j=0}^{m} a_{ij} \ \forall i $, sowie $U_j 0 \sum_{i=0}^{m} a_{ij} \ \forall j$. Zudem gilt: $\sum_{i=0}^{\infty} S_i = \sum_{j=0}^{\infty} U_j$. Jede lineare Anordnung der Doppelreihe konv. auf den gleichen Grenzwert.
+	\end{enumerate}
 \end{method}
+
+\TODO{ Skript Übung 2.60 Cuahcy Produkt divergiert.}
 
 
 \begin{method}{Potenzreihe / Konvergenzradius}
@@ -420,6 +436,7 @@ Somit gilt: $\sum_{n=1}^\infty \frac{3}{n(n+1)} - \frac{4}{2^n} = 3-4 = -1$
 \end{itemize}
 
 
+maximum zwischen zwei stetigen Funcktionen ist stetig.
 
 
 
