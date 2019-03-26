@@ -436,7 +436,7 @@ $\sum_{k=0}^{\infty} \left(\sum_{j=0}^{n} a_{n-j} b_j\right) = \left(\sum_{i=0}^
 \end{itemize}
 
 
-maximum zwischen zwei stetigen Funcktionen ist stetig.
+
 
 
 
@@ -452,11 +452,12 @@ maximum zwischen zwei stetigen Funcktionen ist stetig.
 
 \section{Stetigkeit}
 \begin{method}{Definition (Stetigkeit)}
-Eine Funktion $f : D \to \mathbb{R}$ nennt man stetig in $x_0$ falls 
-$$\forall \epsilon > 0 \ \exists \delta > 0 \ : \ |x-x_0| < \delta \implies |f(x) - f(x_0)| < \epsilon$$ beziehungsweise auf $\mathbb{R}$.
+	\begin{itemize}
+		\item Sei $D \subseteq \mathbb{R}$, $x_0 \in D$. Die Funktion $f:D \to \R$ \textit{ist in $x_0$ stetig}, falls $\forall \epsilon > 0 \ \exists \delta > 0$, so dass für alle $x$ die Implikation $$|x-x_0| < \delta \implies |f(x) - f(x_0)| < \epsilon$$
+		
+		\item Daraus leitet sich ab: Sei $x_0 \in D \subseteq \R$ und $f:D \to \R$, $f$ ist genau dann in $x_0$ stetig, falls für \textsc{jede} Folge $(a_n)_{n \geq 1}$ in $D$ die Implikation gilt:$$\lim\limits_{n \to \infty} a_n = x_0 \implies \limm f(a_n) = f(x_0)$$
+	\end{itemize}
 
-$$f((x_0 - \delta , x_0 + \delta)) \subset (f(x_0) - \epsilon, f(x_0) + \epsilon)$$
-Äquivalent dazu gibt es das Folgenkriterium: Für jede Folge $x_n \in \Omega$ mit $\limm x_n = a$ gilt $\limm f(x_n) = f(a)$. 
 \end{method}
 
 \TODO{BEISPIELE HIER z.B. 10.3.1}
@@ -468,7 +469,41 @@ $$f((x_0 - \delta , x_0 + \delta)) \subset (f(x_0) - \epsilon, f(x_0) + \epsilon
 \begin{method}{Rechenregeln für Stetige Funktionen}
 Falls $f,g:\Omega \to \mathbb{R}$ stetig, dann sind folgende auch stetig:
 $$f + g \quad f-g \quad fg \quad \frac{f}{g} \text{ falls } g \not = 0$$
+Das Maximum zweier stetigen Funktionen ist auch stetig.
 \end{method}
+
+\begin{method}{Zwischenwertsatz (Bolzano)}
+	Sei $I \in \R$ ein Intervall, $f: I \to \R$ eine stetige Funktion un $a,b \in I$. Dann gilt: Für alle $c$ zwischen $f(a)$ und $f(b)$ exisitert ein $z$ zwischen $a$ und $b$ so dass $f(z) = c$.
+\end{method}
+
+
+\begin{method}{Min-Max Satz}
+\begin{itemize}
+	\item  Jede auf einem kompakten Intervall $\displaystyle [a,b]\subset \mathbb {R} \;(a\leq b) $ definierte stetige Funktion ist dort beschränkt und nimmt dort ein Maximum und ein Minimum an. Insbesondere ist $f$ beschränkt.
+	\item Ist ${\displaystyle f\colon [a,b]\to \mathbb {R} }$ ${\displaystyle f\colon [a,b]\to \mathbb {R} }$ eine stetige Funktion, so gibt es stets Argumente ${\displaystyle {\tilde {x}},{\hat {x}}\in [a,b]}$ ${\displaystyle {\tilde {x}},{\hat {x}}\in [a,b]}$ derart, dass für jedes andere Argument ${\displaystyle x\in [a,b]} x\in[a,b]$ die Ungleichung ${\displaystyle f({\hat {x}})\leq f(x)\leq f({\tilde {x}})} {\displaystyle f({\hat {x}})\leq f(x)\leq f({\tilde {x}})}$ erfüllt ist.
+\end{itemize}
+\end{method}
+
+
+
+
+
+% -------------------------- Sonstiges --------------------------
+
+\newpage
+
+
+
+
+
+
+
+\section{Sonstiges}
+\begin{method}{Binomialsatz}
+	$\forall x,y \in \mathbb{C}$, $n \geq 1$ gilt:
+	$$(x+y)^n = \sum_{k=0}^{n} \binom{n}{k}x^k y^{n-k}$$
+\end{method}
+
 
 \newpage
 
