@@ -128,8 +128,9 @@
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\N}{\mathbb{N}}
-
-
+%\newcommand{\cos}{\operatorname{cos}}
+%\newcommand{\sin}{\operatorname{sin}}
+%\newcommand{\exp}{\operatorname{exp}}
 
 \newtheorem{thm}{Thm}[section]
 
@@ -144,6 +145,9 @@
 }
 \usepackage{todonotes}
 \newcommand{\TODO}[1]{\todo[inline]{\Large TODO:  #1}}
+
+
+
 
 
 \DeclarePairedDelimiter\abs{\left|}{\right|}%
@@ -276,6 +280,8 @@ $\limm \frac{n + \cos(n)}{n^2 -1}$. Wenn es absolut konv. dann auch absolut. Sic
 \begin{method}{Cauchy Kriterium}
 	Die Folge $(a_n)_n$ ist genau dann konvergent, falls $\forall  \epsilon > 0 \ \exists N \geq 1 \text{ so dass } |a_n - a_m| < \epsilon \quad \forall n,m \geq N$
 \end{method}
+
+\TODO{Beweis von Cauchy}
 
 \textbf{Beispiel (Cauchy Kriterium)}
 Sei $a_n = \frac{n-1}{2n}$ eine Folge. Wir versuchen Konvergenz mittels Cauchy zu zeigen:\\
@@ -426,7 +432,7 @@ $\sum_{k=0}^{\infty} \left(\sum_{j=0}^{n} a_{n-j} b_j\right) = \left(\sum_{i=0}^
 \begin{method}{Potenzreihe / Konvergenzradius}
 	Potenzreihe hat Form $f(x) = \sum_{n=0}^{\infty} a_n x^n$.
 	Die Menge aller $x$ für welche $f(x)$ konvergiert nennt man Konvergenzbereich. Der Konvergenzradius (dessen Grenze) ist definiert:
-	$\rho = \limm \left|  \frac{a_n}{a_{n+1}}\right|$ oder eben $\rho = \frac{1}{\limm \sqrt[n]{|a_n|}}$.
+	$\rho = \limm \left|  \frac{a_n}{a_{n+1}}\right|$ oder eben $\rho = \frac{1}{\limm \sqrt[n]{|a_n|}}$. Falls $\limm \sqrt[n]{|a_n|}=0 $ so sagen wir ist $\rho = + \infty$.
 \end{method}
 
 \textbf{Beispiel (Konvergenzradius)}
@@ -434,6 +440,41 @@ $\sum_{k=0}^{\infty} \left(\sum_{j=0}^{n} a_{n-j} b_j\right) = \left(\sum_{i=0}^
 	\item $\sum_{n=1}^\infty  \frac{x^n}{n!}$. Wir rechnen $\rho = \limm \left|\frac{a_n}{a_{n+1}}\right| = \limm \left| \frac{(n+1)!}{n!} \right| = = \limm (n+1 ) = \infty$. Die Reihe konvergiert für alle $x$.
 	\item $\sum_{n=1}^{\infty} \left( 1 + \frac{a}{n} \right)^n$. Wir Rechnen $\rho = \frac{1}{\limm \sqrt[n]{|a_n|}} = \frac{1}{\limm (1 + \frac{a}{n})^n} = \frac{1}{e^a} = e^{-a}$. Die Reihe konvergiert für alle $|x| < e^{-a}$.
 \end{itemize}
+
+
+
+
+\begin{method}{Punktweise Konvergenz}
+	Die Funktionenfolge $(f_n)_n$ konvergiert punktweise gegen eine Funktion $F: D \to \R$, falls für alle $x \in D$ : $f(x) = \limm f_n(x)$ 
+\end{method}
+
+
+\textbf{Beispiel (punktweise Konvergenz)}
+Sei $D:[0,1]$ und $f_n = x^n$. Dann gilt $\limm f_n(x) = 0 \quad 0 \leq x < 1$
+. Für $x=1$ gilt $ \limm f_n(1) = 1$. Somit konvergiert $f_n$ punktweise gegen 
+$
+f(x)=
+\begin{cases}
+0 , 0 \leq x < 1\\
+1 , x=1
+\end{cases}
+$ Leider ist $f$ nicht stetig in $1$.
+
+
+\begin{method}{Gleichmässige Folgenkovergenz}
+	Die Folge $f_n : D \to \R$ konvergiert gleichmässig in $D$ gegen $f:D \to \R$ falls gilt $ \forall \epsilon > 0 \ \exists N \geq 1$, so dass 
+	$$ \forall n \geq N , \forall x \in D : \ |f_n(x) - f(x)| < \epsilon$$
+\end{method}
+
+
+\begin{method}{Stetig Funktionenfolge gleichmässige Konvergenz}
+	Sei $D \subseteq \R$ unf $f_n: D \to R$ eine Funktionenfolge bestehend aus stetigen Funktionen die gleichmässig gegen $f$ konvergieren. Dann ist $f$ in $D$ stetig.
+\end{method}
+
+\textbf{Beweis (Stetig Funktionenfolge gleichmässige Konvergenz)}
+Da $f_n$ gleichmässig Konvergent existieren Konst. $|f(x) - f_N(x)| < \epsilon \ \forall x \in D$. Da $f_N$ stetig in $x_0$ folgt:
+$$|x - x_0| < \delta \implies |f_N(x) - f_N(x_0)| < \epsilon$$
+Daraus folgt: $$|f(x) - f(x_0)| = |f(x) - f_N(x_0) + f_N(x) - f_N(x_0) + f_N(x_0) - f(x_0)| < 3 \epsilon$$
 
 
 
@@ -476,16 +517,77 @@ Das Maximum zweier stetigen Funktionen ist auch stetig.
 	Sei $I \in \R$ ein Intervall, $f: I \to \R$ eine stetige Funktion un $a,b \in I$. Dann gilt: Für alle $c$ zwischen $f(a)$ und $f(b)$ exisitert ein $z$ zwischen $a$ und $b$ so dass $f(z) = c$.
 \end{method}
 
-
+\textbf{Beipiel (Jedes Polynom ungerades Grades hat eine Nullstelle)} Sei $P(x) = a_n x^n  + a_{n-1}x^{n-1} + \cdots + a_0$ mit $a_n \not = 0$ sowie $n$ ungerade. Dann hat $P(x)$ mindestens eine Nullstelle in $\R$.\\
+\textit{Beweis} Wir definieren $\frac{P(x)}{x} = 1 + a_{n-1}x^{-1} + \cdots + a_0 x^{-n} = Q(x)$. Wir bemerken dass $\limm \left( \frac{1}{n} \right)^j = 0$ für $1\leq j \leq n$. Analog: $\limm \left( - \frac{1}{n} \right)^j = 0$. Somit gibt es ein $N \in \N, N \geq 1$ für welches $\frac{1}{2} \leq Q(N) \leq \frac{3}{2}$ sowie $\frac{1}{2} \leq Q(-N) \leq \frac{3}{2}$ (Wegen dem $1$ in $Q$). Daraus folgt: $P(N) = N^nQ(n) > 0$ sowie $P(-N) = (-N)^N Q(-N) < 0$. Nach Anwendung des Zwischenwertsatzes auf $P:[-N,N] \to \R$ haben wir ein $z \in [-N,N]$ mit $P(z) = 0$.
 \begin{method}{Min-Max Satz}
 \begin{itemize}
 	\item  Jede auf einem kompakten Intervall $\displaystyle [a,b]\subset \mathbb {R} \;(a\leq b) $ definierte stetige Funktion ist dort beschränkt und nimmt dort ein Maximum und ein Minimum an. Insbesondere ist $f$ beschränkt.
-	\item Ist ${\displaystyle f\colon [a,b]\to \mathbb {R} }$ ${\displaystyle f\colon [a,b]\to \mathbb {R} }$ eine stetige Funktion, so gibt es stets Argumente ${\displaystyle {\tilde {x}},{\hat {x}}\in [a,b]}$ ${\displaystyle {\tilde {x}},{\hat {x}}\in [a,b]}$ derart, dass für jedes andere Argument ${\displaystyle x\in [a,b]} x\in[a,b]$ die Ungleichung ${\displaystyle f({\hat {x}})\leq f(x)\leq f({\tilde {x}})} {\displaystyle f({\hat {x}})\leq f(x)\leq f({\tilde {x}})}$ erfüllt ist.
-\end{itemize}
+	\item Ist ${\displaystyle f\colon [a,b]\to \mathbb {R} }$ eine stetige Funktion auf einem kompakten Intervall $I$, dann gitb es $u,v\in I$ mit $$f(u) \leq f(x) \leq f(v) \quad \forall x \in I$$
+	\end{itemize}
 \end{method}
 
 
+\begin{method}{Kompaktheit}
+	Wir nennen ein Intervall $I \subseteq R$ kompakt, wenn es die Form $[a,b], a \leq b$ hat.
+\end{method}
+
+
+\begin{method}{Stetigkeit der Verknüpfung}
+Seien $D_1, D_2 \subseteq \R$ zwei Teilmengen, $f: D_1 \to D_2$, $g:D_2 \to \R$ Funktionen, sowie $x_0 \in D_1$. Falls $f$ in $x_0$ und $g$ in $f(x_0)$ stetig sind, so ist $g \circ f : D_1 \to \R$ in $x_0$ stetig.
+\end{method}
+
+\textbf{Beweis (Stetigkeit der Verknüpfung)}
+
+Sei $(a_n)_n$ eine beliebige Folge in $D_1$ mit $\lim a_n = x_0$, dann gilt da $f$ stetig ist $\limm f(a_n) = f(x_0)$. Da auch $g$ stetig ist gilt desweiteren $\limm g(f(a_n)) = g(f(x_0))$. (Man kann ja z.B. $f(a_n)=f_n$ als neue Folge sehen.)
+
+\section{Exponentialfunktion \& Sinus \& Kosinus}
+
+\begin{align*}
+	\operatorname{exp}(z) &:=\sum_{n=0}^{\infty} \frac{z}{n!} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \ldots\\
+	\operatorname{sin}(z) &:=\sum_{n=0}^{\infty} \frac{(-1)^n z^{2n+1}}{(2n+1)!} = z - \frac{z^3}{3!}+ \frac{z^5}{5!} - \frac{z^7}{7!} + \ldots\\
+	\operatorname{cos}(z) &:=\sum_{n=0}^{\infty} \frac{(-1)^n z^{2n}}{(2n+1)!} = 1 - \frac{z^2}{2!} + \frac{z^4}{4!} -\frac{z^6}{6!} + \ldots `
+\end{align*}
+
+Dabei gelten die folgenden Gleichungen:
+
+\begin{align*}
+	\operatorname{exp}(iz) &= \cos (z) + i\sin(z)\\
+	\cos(z) &= \cos(-z) & \sin (-z) &= - \sin(z) \\
+	\sin (z) &= \frac{e^{iz} - e^{-iz}}{2i} & \cos (z) &= \frac{e^{iz} + e^{-iz}}{2}\\
+	\sin(z+w) &= \sin(z) \cos(w) + \cos(z) \sin(w) \\
+	\cos(z + w) &= \cos(z) \cos(w) - \sin(z) \sin(w)\\
+	\cos(z) ^2 &+ \sin(z)^2 = 1
+\end{align*}
+
+<<<<<<< HEAD
 \TODO{abgeschlossen}
+=======
+
+% -------------------------- Ableitung --------------------------
+
+
+
+
+
+
+
+\section{Ableitung}
+
+\begin{method}{Häufungspunkt} 
+	$x_0 \in \R$ ist ein Häufungspunkt der Menge $D$ falls $\forall \delta > 0$:
+	$$(]x_0 - \delta, x_0 + \delta [ \setminus x_0) \cap D \not = \emptyset$$
+\end{method}
+\textbf{Beispiel (Häufungspunkt)} Sei $D = {0} \cup ] 1,2 [$, dann ist die Menge der Häufungspunkte von $D$, $D' = [1,2]$.
+
+
+\begin{method}{Ableitung}
+	Sei $D \subset \R$ , $f:D \to  \R$ und $x_0$ ein Häufungspunkt von $D$. $f$ ist in $x_0$ differenzierbar, falls der Grenzwert 
+	$$ \lim\limits_{x \to x_0} \frac{f(x) -f(x_0)}{x-x_0}$$
+	existiert. Ist dies der Fall, wird der Grenzwert mit $f'(x_0)$ bezeichnet.\\
+	Alternativ nutzt man auch $x = x_0 + h$
+	$$f'(x_0) = \lim\limits_{h \to 0} \frac{f(x_0 + h) - f(x_0)}{h}$$
+\end{method}
+>>>>>>> cd428d9899392b1f8d3903e49b9680b4ba458915
 
 
 % -------------------------- Sonstiges --------------------------
