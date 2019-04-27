@@ -21,6 +21,10 @@
 \usepackage{empheq}
 \usepackage{mathtools}
 
+
+% for nice tableas
+\usepackage{booktabs}
+
 \graphicspath{ {img/} }
 
 \geometry{
@@ -443,6 +447,8 @@ $\sum_{k=0}^{\infty} \left(\sum_{j=0}^{n} a_{n-j} b_j\right) = \left(\sum_{i=0}^
 	\item $\sum_{n=1}^{\infty} \left( 1 + \frac{a}{n} \right)^n$. Wir Rechnen $\rho = \frac{1}{\limm \sqrt[n]{|a_n|}} = \frac{1}{\limm (1 + \frac{a}{n})^n} = \frac{1}{e^a} = e^{-a}$. Die Reihe konvergiert für alle $|x| < e^{-a}$.
 \end{itemize}
 
+\vfill\null
+\columnbreak
 
 \section{Funktionenfolgen}
 \begin{method}{Punktweise und Gleichmässige Konvergenz (Rezept)}
@@ -519,10 +525,10 @@ Daraus folgt: $$|f(x) - f(x_0)| = |f(x) - f_N(x_0) + f_N(x) - f_N(x_0) + f_N(x_0
 
 \end{method}
 
-\TODO{BEISPIELE HIER z.B. 10.3.1}
 \textbf{Beispiel (Stetigkeit)}
 \begin{itemize}
-	\item abcdefg
+	\item Trick: schätze $|f(x)-f(x_0)|$ durch $C|x-x_0|$ ab. 
+	\item Stetigkeit von $\sqrt{x}$ auf $[0, \infty)$. Sei $\epsilon > 0 $ mit $|f(x)-f(x_0)| < \epsilon$. d.h. $|\sqrt{x} - \sqrt{x_0}|< \epsilon$. Zudem ist bekannt, dass $|\sqrt{x} - \sqrt{y}|\leq\sqrt{x-y}$ wenn $x > y$. Somit gilt: $|\sqrt{x} - \sqrt{x_0}|\leq \sqrt{x - x_0}<\epsilon$. Wir wählen $|x-y|\epsilon^2 = \delta \implies \delta = \epsilon^2$. Dann ist $\sqrt{x}$ stetig.
 \end{itemize}
 
 \begin{method}{Rechenregeln für Stetige Funktionen}
@@ -534,6 +540,13 @@ Das Maximum zweier stetigen Funktionen ist auch stetig.
 \begin{method}{Zwischenwertsatz (Bolzano)}
 	Sei $I \in \R$ ein Intervall, $f: I \to \R$ eine stetige Funktion un $a,b \in I$. Dann gilt: Für alle $c$ zwischen $f(a)$ und $f(b)$ exisitert ein $z$ zwischen $a$ und $b$ so dass $f(z) = c$.
 \end{method}
+
+\textbf{Beispiel (Zwischenwertsatz)}
+\begin{itemize}
+	\item Sei $f:[a,b]\to [a,b]$ stetig. Zeige $f$ hat Fixpunkt. Wir def. die stetige Fkt. $h(x) = f(x)-x$. Es gilt $h(a) = f(a)-a \geq 0$ da $f(a) \in [a,b]$. Analog $h(b) = f(b)-b\leq 0$. Somit exisiter $x_0$ mit $h(x_0) = 0$ resp. $f(x_0) = x_0$.
+	\item Hat $e^{2x} - \log (1+x) = 2$ eine Lösung in $[0,1]$?. Wir def. $h(x) = e^{2x} - \log (1+x) -2$. Bemerke $h(x)$ ist stetig. Es gilt $h(0) = 1 - 0 - 2 = -1$, sowie $h(1) = e^2 - \log(2) -2 \geq 0$. Somit existiert $x_0 \in [0,1]$ mit $h(x_0) = 0$. Somit exisiter Lösung in $[0,1]$.
+\end{itemize}
+
 
 \textbf{Beipiel (Jedes Polynom ungerades Grades hat eine Nullstelle)} Sei $P(x) = a_n x^n  + a_{n-1}x^{n-1} + \cdots + a_0$ mit $a_n \not = 0$ sowie $n$ ungerade. Dann hat $P(x)$ mindestens eine Nullstelle in $\R$.\\
 \textit{Beweis} Wir definieren $\frac{P(x)}{x} = 1 + a_{n-1}x^{-1} + \cdots + a_0 x^{-n} = Q(x)$. Wir bemerken dass $\limm \left( \frac{1}{n} \right)^j = 0$ für $1\leq j \leq n$. Analog: $\limm \left( - \frac{1}{n} \right)^j = 0$. Somit gibt es ein $N \in \N, N \geq 1$ für welches $\frac{1}{2} \leq Q(N) \leq \frac{3}{2}$ sowie $\frac{1}{2} \leq Q(-N) \leq \frac{3}{2}$ (Wegen dem $1$ in $Q$). Daraus folgt: $P(N) = N^nQ(n) > 0$ sowie $P(-N) = (-N)^N Q(-N) < 0$. Nach Anwendung des Zwischenwertsatzes auf $P:[-N,N] \to \R$ haben wir ein $z \in [-N,N]$ mit $P(z) = 0$.
@@ -558,6 +571,13 @@ Seien $D_1, D_2 \subseteq \R$ zwei Teilmengen, $f: D_1 \to D_2$, $g:D_2 \to \R$ 
 
 Sei $(a_n)_n$ eine beliebige Folge in $D_1$ mit $\lim a_n = x_0$, dann gilt da $f$ stetig ist $\limm f(a_n) = f(x_0)$. Da auch $g$ stetig ist gilt desweiteren $\limm g(f(a_n)) = g(f(x_0))$. (Man kann ja z.B. $f(a_n)=f_n$ als neue Folge sehen.)
 
+
+\begin{method}{Stetigkeit der Umkehrabbildung}
+	Sei $I \subset \R$ ein intervall und $f:I \to R$ stetig, streng monoton. Dann ist $J = f(I) \subseteq \R$ ein intervall und $f^{-1} : J \to I$ stetig und bijektiv
+\end{method}
+
+
+
 \section{Exponentialfunktion \& Sinus \& Kosinus}
 
 \begin{align*}
@@ -574,11 +594,14 @@ Dabei gelten die folgenden Gleichungen:
 	\sin (z) &= \frac{e^{iz} - e^{-iz}}{2i} & \cos (z) &= \frac{e^{iz} + e^{-iz}}{2}\\
 	\sin(z+w) &= \sin(z) \cos(w) + \cos(z) \sin(w) \\
 	\cos(z + w) &= \cos(z) \cos(w) - \sin(z) \sin(w)\\
-	\cos(z) ^2 &+ \sin(z)^2 = 1
+	\cos(z) ^2 &+ \sin(z)^2 = 1\\
+	\sin(x) - \sin(y) &=  2 \sin \left(\frac{x-y}{2}\right) \cos \left(\frac{x+y}{2}\right)\\
+	\cos(x) - \cos(y) &= - 2 \sin \left(\frac{x-y}{2}\right) \sin \left(\frac{x+y}{2}\right)
 \end{align*}
 
+\textbf{Zeige $\sin(x)$ monton auf $[-\frac{\pi}{2}, \frac{\pi}{2}]$} Es gilt bekanntlich $\sin(x) - \sin(y) =  2 \sin \left(\frac{x-y}{2}\right) \cos \left(\frac{x+y}{2}\right) \geq 0$ wenn $-\frac{\pi}{2} \leq y < x \leq \frac{\pi}{2}$ womit auch $\frac{x-y}{2} \in (0,\frac{\pi}{2}]$ und $\frac{x+y}{2} \in (- \frac{\pi}{2}, \frac{\pi}{2})$
 
-\TODO{abgeschlossen}
+\TODO{anzuschliessen}
 
 
 
@@ -609,9 +632,52 @@ Dabei gelten die folgenden Gleichungen:
 
 
 
+\subsection*{Ableitungsregeln}
+% to have more vertical space in the table.
+\TODO{COSH and TANH and SINH}
+{\renewcommand{\arraystretch}{1.5}
+\begin{table}[]
+	\begin{tabular}{@{} p{.3\textwidth} p{.3\textwidth} p{.35\textwidth} @{}}
+		\toprule
+		Funktion & Ableitung & Bemerkung / Regel\\ \midrule
+		  $x$ & $1$ &   \\
+		  $x^2$& $2x$ &   \\
+		  $x^n$& $n\cdot x^{n-1}$ & $n \in \R$  \\
+		  $\frac{1}{x} = x^{-1}$ & $- \frac{1}{x^2}$ & \\
+		  $\sqrt{x} = x^{\frac{1}{2}}$ & $\frac{1}{2\sqrt{x}}$ & \\
+		  $\sin(x)$ & $\cos(x)$ & \\
+		  $\cos(x)$ & $- \sin(x)$ & \\ 
+		  $\tan(x) = \frac{\sin(x)}{\cos(x)}$ & $\frac{1}{\cos^2(x)} = 1 + \tan^2(x)$ &\\
+		  $\cot(x) = \frac{\cos(x)}{\sin(x)}$ & - $\frac{1}{\sin^2(x)}$ & \\
+		  $e^x$ & $e^x$ & \\
+		  $a^x$ & $\ln(a) \cdot a^x$& \\
+		  $\ln(x)$ & $\frac{1}{x}$ & \\ \midrule
+		  $g(x) \cdot h(x)$ & $g(x) \cdot h'(x) + g'(x) \cdot h(x)$ & Produktregel\\
+		  $\left(g(x)\right)^n$ & $n \cdot \left( g(x) \right)^{n-1} \cdot g'(x)$ & Potenzregel\\
+		  $\frac{g(x)}{h(x)}$ & $\frac{ g'(x) \cdot h(x) - g(x)\cdot h'(x)}{\left(h(x)\right) ^2}$ & Quotientenregel\\
+		  $h(g(x))$ & $h'(g(x)) \cdot g'(x)$ & Kettenregel\\
+		  \bottomrule
+	\end{tabular}
+\end{table}
+}
+
+
+
+
+\begin{method}{Satz von Rolle}
+	Sei $f: [a,b] \to \R$ stetig auf $(a,b)$ differenzierbar. Falls $f(a) = f(b)$, dann gibt es $\xi \in [a,b]$ mit $f'(\xi) = 0$
+\end{method}
+\textbf{Beweis (Satz von Rolle)} Aus dem Min-Max Satz folgt $\exists u,v \in [a,b]$ mit $f(u) \leq f(x) \leq f(v) \ \forall x \in [a,b]$. Falls einer der beiden in $(a,b)$ liegt nennen wir es $\xi$. Sonst gilt $f(a) = f(b)$ und dann $\xi = a$.
+
+
+\begin{method}{Satz von Lagrange}
+	Sei $f:[a,b] \to \R$ stetig mit $(a,b)$ differenzierbar. Dann gibt es $\xi \in (a,b)$ mit $$f(b) - f(a) = f'(\xi) (b-a)$$
+\end{method}
+
+
 % -------------------------- Sonstiges --------------------------
 
-\newpage
+
 
 
 
