@@ -263,10 +263,6 @@ Beachte $a_0 = 0$, $a_{n+1} = \left(\frac{a_n}{2}\right)^2 + 1$. \textsc{Monoton
 $$a_{n+1} - a_{n} = \frac{a_n ^2}{4} + 1 - a_n = \frac{a_n ^2 -4a_n + 4}{4} = \frac{(2-a_n)^2}{4} \geq 0$$
 \textsc{Beschränktheit:} ($\leq 2$) per Induktion. Für $n=0$, $a_0 = 0 \leq 2 \checkmark$. Schritt: $a_{n+1} = \frac{a_n ^2}{4} + 1 \stackrel{\text{I.H.}}{\leq} \frac{2^2}{4} +1 = 2 \checkmark$. Nach Weierstrass konvergent. mit $a = \frac{a^2}{4} + 1 \implies a = 2$ als GW.
 
-\begin{method}{Satz von }
-	content...
-\end{method}
-
 
 \begin{method}{Sandwich Theorem}
 Seien $b_n \leq a_n \leq c_n$. Falls $b_n$ und $c_n$ konvergent sind mit $\lim \limits_{n \to \infty } b_n = \lim \limits_{n \to \infty } c_n = L$, so ist $a_n$ auch konv. mit $\lim \limits_{n \to \infty } a_n = L$
@@ -280,6 +276,9 @@ $$L-\epsilon < b_n \leq a_n \leq c_n < L + \epsilon \implies L - \epsilon < a_n 
 
 \textbf{Beispiel (Sandwich)}
 $\limm \frac{n + \cos(n)}{n^2 -1}$. Wenn es absolut konv. dann auch absolut. Sicher gilt somit : $0 \leq \left|\frac{n + \cos(n)}{n^2 -1}\right|$ Nun schätzen wir nach oben ab: $\left|\frac{n + \cos(n)}{n^2 -1}\right| \leq \frac{n+1}{n^2 - 1} = \frac{n+1}{(n+1)(n-1)} = \frac{1}{n-1}$. Es gilt $\limm \frac{1}{n-1} = 0$, somit gilt $\limm \left|\frac{n + \cos(n)}{n^2 -1}\right| = 0$. (da Sandwich)
+
+
+\TODO{Bernoulli-l'Hopital}
 
 \begin{method}{Cauchy Kriterium}
 	Die Folge $(a_n)_n$ ist genau dann konvergent, falls $\forall  \epsilon > 0 \ \exists N \geq 1 \text{ so dass } |a_n - a_m| < \epsilon \quad \forall n,m \geq N$
@@ -605,6 +604,15 @@ Dabei gelten die folgenden Gleichungen:
 
 
 
+\subsection*{Hyperbolische Funktionen}
+Es gilt:
+\begin{align*}
+	\cosh(x) &= \frac{e^x + e^{-x}}{2}\\
+	\sinh(x) &= \frac{e^x - e^{-x}}{2}\\
+	\tanh(x) &= \frac{\sinh(x)}{\cosh(x)} = \frac{e^x - e^{-x}}{e^x + e^{-x}}
+\end{align*}
+
+\newpage
 % -------------------------- Ableitung --------------------------
 
 
@@ -634,24 +642,35 @@ Dabei gelten die folgenden Gleichungen:
 
 \subsection*{Ableitungsregeln}
 % to have more vertical space in the table.
-\TODO{COSH and TANH and SINH}
+
 {\renewcommand{\arraystretch}{1.5}
 \begin{table}[]
-	\begin{tabular}{@{} p{.3\textwidth} p{.3\textwidth} p{.35\textwidth} @{}}
+	\begin{tabular}{@{} p{.25\textwidth} p{.3\textwidth} p{.45\textwidth} @{}}
 		\toprule
 		Funktion & Ableitung & Bemerkung / Regel\\ \midrule
 		  $x$ & $1$ &   \\
 		  $x^2$& $2x$ &   \\
 		  $x^n$& $n\cdot x^{n-1}$ & $n \in \R$  \\
 		  $\frac{1}{x} = x^{-1}$ & $- \frac{1}{x^2}$ & \\
-		  $\sqrt{x} = x^{\frac{1}{2}}$ & $\frac{1}{2\sqrt{x}}$ & \\
+		  $\sqrt{x} = x^{\frac{1}{2}}$ & $\frac{1}{2\sqrt{x}}$ & \\ 
+		   $e^x$ & $e^x$ & \\
+		  $a^x$ & $\ln(a) \cdot a^x$& \\
+		  $\ln(x)$ & $\frac{1}{x}$ & \\ \midrule
 		  $\sin(x)$ & $\cos(x)$ & \\
 		  $\cos(x)$ & $- \sin(x)$ & \\ 
 		  $\tan(x) = \frac{\sin(x)}{\cos(x)}$ & $\frac{1}{\cos^2(x)} = 1 + \tan^2(x)$ &\\
-		  $\cot(x) = \frac{\cos(x)}{\sin(x)}$ & - $\frac{1}{\sin^2(x)}$ & \\
-		  $e^x$ & $e^x$ & \\
-		  $a^x$ & $\ln(a) \cdot a^x$& \\
-		  $\ln(x)$ & $\frac{1}{x}$ & \\ \midrule
+		  $\cot(x) = \frac{\cos(x)}{\sin(x)}$ & - $\frac{1}{\sin^2(x)}$ & \\ 
+		  $\arcsin(x)$ & $\frac{1}{\sqrt{1 - x^2}}$ & $ \arcsin : [-1,1] \to [-\frac{\pi}{2},\frac{\pi}{2}]$\\
+		  $\arccos(x)$ & $ - \frac{1}{\sqrt{1-x^2}}$ & $\arccos : [-1,1] \to [0, \pi]$\\
+		  $\arctan(x)$ & $\frac{1}{1+x^2}$ & $\arctan:(-\infty, \infty) \to (- \frac{\pi}{2},\frac{\pi}{2})$\\
+		  $\operatorname{arccot}(x)$ & $ - \frac{1}{1+x^2} $ & $\operatorname{arccot} : (-\infty, \infty) \to (0,\pi)$\\
+		  \midrule
+		  $\cosh(x)$ & $\sinh(x)$ &\\
+		  $\sinh(x)$ & $\cosh(x)$ & \\
+		  $\tanh(x)$ & $\frac{1}{\cosh^2(x)}$ & \\
+		  $\operatorname{arsinh}(x)$ & $\frac{1}{\sqrt{1+x^2}}$ & $\forall x \in R$\\
+		  $\operatorname{arcos}(x)$ & $\frac{1}{\sqrt{x^2 - 1}}$ & $\forall x \in (1, \infty)$\\		  $\operatorname{artanh}(x)$ & $\frac{1}{1-x^2}$ & $\forall x \in (-1,1)$\\
+		  \midrule
 		  $g(x) \cdot h(x)$ & $g(x) \cdot h'(x) + g'(x) \cdot h(x)$ & Produktregel\\
 		  $\left(g(x)\right)^n$ & $n \cdot \left( g(x) \right)^{n-1} \cdot g'(x)$ & Potenzregel\\
 		  $\frac{g(x)}{h(x)}$ & $\frac{ g'(x) \cdot h(x) - g(x)\cdot h'(x)}{\left(h(x)\right) ^2}$ & Quotientenregel\\
@@ -672,7 +691,19 @@ Dabei gelten die folgenden Gleichungen:
 
 \begin{method}{Satz von Lagrange}
 	Sei $f:[a,b] \to \R$ stetig mit $(a,b)$ differenzierbar. Dann gibt es $\xi \in (a,b)$ mit $$f(b) - f(a) = f'(\xi) (b-a)$$
+	Dieser Satz ist auch bekannt als Mittelwertsatz. Die Aussage ist äquivalent zu: 
+	$$\exists x \in (a,b) : \quad f'(c) = \frac{f(b) -f(a) }{b-a}$$
 \end{method}
+\textbf{Beispiele (Lagrange)}
+\begin{itemize}
+	\item \textit{Zeige $|\sin(a) - \sin(b)| \leq |b-a|$:} Es folgt direkt dass $\exists c$: $\frac{\sin(b)- \sin(a)}{b-a} = \cos(c)$. Es folgt: $\cos(c) (b-a) = \sin(b) - \sin(a)$. Da aber $\cos(c) \leq 1$ folgt:
+	$|b-a| \geq |\sin(b) - \sin(a)|$.
+	\item \textit{Beweise: falls $f'(x) = 0 \ \forall x$, dann ist $f(x)$ auf $[a,b]$ konstant:} Aus Lagrange folgt dass für $x_1,x_2\in (a,b)$ beliebig: $0 = \frac{f(x_2)-f(x_1)}{x_2-x_1}$ dies impliziert $f(x_1) = f(x_2)$ $\forall x_1,x_2 \in (a,b)$.
+\end{itemize}
+
+
+
+\TODO{taylorapproximation}
 
 
 % -------------------------- Sonstiges --------------------------
