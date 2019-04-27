@@ -287,7 +287,9 @@ $\limm \frac{n + \cos(n)}{n^2 -1}$. Wenn es absolut konv. dann auch absolut. Sic
 Sei $a_n = \frac{n-1}{2n}$ eine Folge. Wir versuchen Konvergenz mittels Cauchy zu zeigen:\\
 $|a_n - a_m| = |\frac{n-1}{2n} - \frac{m-1}{2m}| = |\frac{nm-m-nm+n}{2nm}| = |\frac{n-m}{2nm}| = \frac{1}{2n} - \frac{1}{2m} \stackrel{m\geq n}{\leq} \frac{1}{2n} < \epsilon$. Für alle $n \geq N = \lceil \frac{1}{2\epsilon} \rceil$ haben wir $|a_n - a_m| < \epsilon$. Nach Cauchy ist $a_n$ somit konvergent.
 
-\TODO{SATZ VON BOLZANO WEIERSTRASS}
+\begin{method}{Satz von Bolzano Weierstrass}
+	Jede beschränkte Folge besitzt eine konvergente Teilfolge.
+\end{method}
 
 
 % -------------------------- Reihen --------------------------
@@ -397,7 +399,7 @@ $$\left|\sqrt{1 + a_n} -1\right| = \left| (\sqrt{1 + a_n} -1) \frac{\sqrt{1 + a_
 \begin{method}{Absolut Konvergente Reihe ist auch konvergent}
 Eine absolut konvergente Reihe $\sum _{k=1} ^{\infty} a_k$ ist auch konvergent und es gilt $\left|\sum_{k=1}^{\infty} a_k \right| \leq |\sum_{k=1}^{\infty} |a_k|$
 \end{method}
-\textbf{Beweis von obigem:} Da $\sum_{k=1}^{\infty} |a_k|$ konvergiert, gilt nach Cauchy: $\forall \epsilon > 0 \exists N \geq 1$ mit $\sum_{k=1}^{m} |a_k| < \epsilon$. Daraus folgt: $\left| \sum_{k=1}^{m} a_k \right| \leq \sum_{k=1}^{m} |a_k| < \epsilon$, daraus folgt die Konvergenz. Die Ungleichung folgt per Limes der endlichen Reihen.
+\textbf{Beweis von absolut Konvergente Reihe ist auch konvergent:} Da $\sum_{k=1}^{\infty} |a_k|$ konvergiert, gilt nach Cauchy: $\forall \epsilon > 0 \exists N \geq 1$ mit $\sum_{k=1}^{m} |a_k| < \epsilon$. Daraus folgt: $\left| \sum_{k=1}^{m} a_k \right| \leq \sum_{k=1}^{m} |a_k| < \epsilon$, daraus folgt die Konvergenz. Die Ungleichung folgt per Limes der endlichen Reihen.
 
 \begin{method}{Summenregel für Reihen}
 	Wenn $\sum_n a_n$ und $\sum_n b_n$ zwei konvergente Reihen sind, dann gilt $\sum_n (a_n \pm b_n ) = \sum_n a_n \pm \sum b_n$.\\
@@ -442,14 +444,30 @@ $\sum_{k=0}^{\infty} \left(\sum_{j=0}^{n} a_{n-j} b_j\right) = \left(\sum_{i=0}^
 \end{itemize}
 
 
+\section{Funktionenfolgen}
+\begin{method}{Punktweise und Gleichmässige Konvergenz (Rezept)}
+Zuerst berechnen wir den punktweisen Grenzwert der definiert ist als: 	Die Funktionenfolge $(f_n)_n$ konvergiert punktweise gegen eine Funktion $F: D \to \R$, falls für alle $x \in D$ : $f(x) = \limm f_n(x)$ \\
 
+In Praxis interessiert man sich für 
+$$f(x) = \limm f_n(x) \quad \text{ für fixes $x \in D$}$$
 
-\begin{method}{Punktweise Konvergenz}
-	Die Funktionenfolge $(f_n)_n$ konvergiert punktweise gegen eine Funktion $F: D \to \R$, falls für alle $x \in D$ : $f(x) = \limm f_n(x)$ 
+Nun prüft man $f_n$ auf gleichmässige Konvergenz. 	Die Folge $f_n : D \to \R$ konvergiert gleichmässig in $D$ gegen $f:D \to \R$ falls gilt $ \forall \epsilon > 0 \ \exists N \geq 1$, so dass 
+$$ \forall n \geq N , \forall x \in D : \ |f_n(x) - f(x)| < \epsilon$$
+
+In Praxis:
+\begin{enumerate}
+	\item Berechne $$\sup_{x\in D} |f_n(x) -f(x)|$$ Es ist of nützlich die Ableitung von $|f_n(x) -f(x)|$ zu bilden und diese gleich Null zu setzen.
+	\item Bilde nun den Limes: $$\limm \left(\sup_{x\in D} |f_n(x) -f(x)|\right)$$ Falls der Limes 0 ist haben wir gleichmässige Konvergenz.
+\end{enumerate}
+\textbf{Indirekte Methoden:}
+\begin{itemize}
+	\item $f$ unstetig, keine gleichmässige Konvergenz
+	\item $f$ stetig, $f_n (x)\leq f_{n+1}(x) < \forall x \in D$, $D$ kompakt $\implies$ gleichmässige Konvergenz. (Satz von Dini, nicht Skript)
+\end{itemize}
 \end{method}
 
 
-\textbf{Beispiel (punktweise Konvergenz)}
+\textbf{Beispiel (Punktweise Konvergenz)}
 Sei $D:[0,1]$ und $f_n = x^n$. Dann gilt $\limm f_n(x) = 0 \quad 0 \leq x < 1$
 . Für $x=1$ gilt $ \limm f_n(1) = 1$. Somit konvergiert $f_n$ punktweise gegen 
 $
@@ -458,13 +476,14 @@ f(x)=
 0 , 0 \leq x < 1\\
 1 , x=1
 \end{cases}
-$ Leider ist $f$ nicht stetig in $1$.
+$ Leider ist $f$ nicht stetig in $1$.\\
 
+\textbf{Beispiel (Gleichmässige Konvergenz)}\\
+Konvergiert $f_n(x) = \frac{nx}{1+n^2 x^2}$ gleichmässig auf $\left[0,1 \right]$?\\
+\textit{Pkt-Konv:} $f(x) = \limm \frac{nx}{1+n^2 x^2} = \limm \frac{\frac{x}{n}}{\frac{1}{n^2}+x^2} = 0$\\
+\textit{Glm-Konv:} Wir berechnen zuerst $\sup _{x\in [0,1]} | f_n(x) -f(x) | = \sup _{x\in [0,1]} |\frac{nx}{1+n^2 x^2}|$. Wir leiten den Term nach $x$ ab und setzen zu 0. Das Maximum leigt bei $x = \frac{1}{n}$. Dies setzen wir ein:
+$\sup _{x\in [0,1]} \left|\frac{n\frac{1}{n}}{1+n^2 \frac{1}{n^2}}\right| = \frac{1}{2}$. Somit nicht glm konv auf $[0,1]$. Beachte aber dass es auf $[1,\infty)$ glm. Konv. ist da das Max dann bei $\frac{1}{1}$ angenommen wird und dann $\sup _{x\in [1,\infty)} \left|\frac{n}{1+n^2}\right|$ mit $\limm \left|\frac{n}{1+n^2}\right| = 0$
 
-\begin{method}{Gleichmässige Folgenkovergenz}
-	Die Folge $f_n : D \to \R$ konvergiert gleichmässig in $D$ gegen $f:D \to \R$ falls gilt $ \forall \epsilon > 0 \ \exists N \geq 1$, so dass 
-	$$ \forall n \geq N , \forall x \in D : \ |f_n(x) - f(x)| < \epsilon$$
-\end{method}
 
 
 \begin{method}{Stetig Funktionenfolge gleichmässige Konvergenz}
@@ -475,7 +494,6 @@ $ Leider ist $f$ nicht stetig in $1$.
 Da $f_n$ gleichmässig Konvergent existieren Konst. $|f(x) - f_N(x)| < \epsilon \ \forall x \in D$. Da $f_N$ stetig in $x_0$ folgt:
 $$|x - x_0| < \delta \implies |f_N(x) - f_N(x_0)| < \epsilon$$
 Daraus folgt: $$|f(x) - f(x_0)| = |f(x) - f_N(x_0) + f_N(x) - f_N(x_0) + f_N(x_0) - f(x_0)| < 3 \epsilon$$
-
 
 
 
@@ -559,9 +577,9 @@ Dabei gelten die folgenden Gleichungen:
 	\cos(z) ^2 &+ \sin(z)^2 = 1
 \end{align*}
 
-<<<<<<< HEAD
+
 \TODO{abgeschlossen}
-=======
+
 
 
 % -------------------------- Ableitung --------------------------
@@ -588,7 +606,7 @@ Dabei gelten die folgenden Gleichungen:
 	Alternativ nutzt man auch $x = x_0 + h$
 	$$f'(x_0) = \lim\limits_{h \to 0} \frac{f(x_0 + h) - f(x_0)}{h}$$
 \end{method}
->>>>>>> cd428d9899392b1f8d3903e49b9680b4ba458915
+
 
 
 % -------------------------- Sonstiges --------------------------
