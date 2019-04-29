@@ -21,6 +21,9 @@
 \usepackage{empheq}
 \usepackage{mathtools}
 
+\usepackage{pgfplots}
+\pgfplotsset{width=11cm,compat=1.9}
+
 
 % for nice tableas
 \usepackage{booktabs}
@@ -229,7 +232,7 @@ $$z^n = r^n (\cos(n\theta) + i \sin(n \theta))$$
 
 \begin{method}{Definition Konvergenz}
 Folge $a_n$ is konvergent, falls $\exists l \in \mathbb{R}$ so dass $\forall \epsilon > 0$ die Menge $\{n \in \mathbb{N}^+: a_n \not \in (l-\epsilon, l + \epsilon)\}$ endlich ist. \\
-Äquivalent: $\forall \epsilon > 0 \exists N >  0$ s.d. $|a_n - l|< \epsilon$.
+Äquivalent: $\forall \epsilon > 0 \ \exists N \in \N $ so dass $ \forall n \geq N$ gilt $|a_n - l|< \epsilon$.
 \end{method}
 
 \textbf{Beispiel (Konvergenz mit Definition)}: 
@@ -277,6 +280,25 @@ $$L-\epsilon < b_n \leq a_n \leq c_n < L + \epsilon \implies L - \epsilon < a_n 
 \textbf{Beispiel (Sandwich)}
 $\limm \frac{n + \cos(n)}{n^2 -1}$. Wenn es absolut konv. dann auch absolut. Sicher gilt somit : $0 \leq \left|\frac{n + \cos(n)}{n^2 -1}\right|$ Nun schätzen wir nach oben ab: $\left|\frac{n + \cos(n)}{n^2 -1}\right| \leq \frac{n+1}{n^2 - 1} = \frac{n+1}{(n+1)(n-1)} = \frac{1}{n-1}$. Es gilt $\limm \frac{1}{n-1} = 0$, somit gilt $\limm \left|\frac{n + \cos(n)}{n^2 -1}\right| = 0$. (da Sandwich)
 
+\begin{method}{Bernoulli - de l’Hospital}
+	Wenn wir zwei differenzierbare Funktionen $f$ $g$ haben mit $g'(a)\not = 0$ dann gilt falls:
+	\begin{itemize}
+		\item entweder $\lim_{x \to a} f(x) = \lim_{x \to a} g(x) = 0 $
+		\item oder $\lim_{x \to a} f(x) = \lim_{x \to a} g(x) = \infty $
+	\end{itemize}
+dann gilt:
+\begin{equation*}
+	\lim_{x \to a} \frac{f(x)}{g(x)} = 	\lim_{x \to a} \frac{f'(x)}{g'(x)}
+\end{equation*}
+\end{method}
+\begin{itemize}
+	\item \textbf{Typ 1: $\frac{0}{0}$ oder $\frac{\infty}{\infty}$}
+	\begin{itemize}
+		\item 
+	\end{itemize}
+	\item \textbf{Typ 2: $0 \cdot \infty$}
+	\item \textbf{Typ 3: $f(x)^{f(x)}$}
+\end{itemize}
 
 \TODO{Bernoulli-l'Hopital}
 
@@ -584,6 +606,28 @@ Sei $(a_n)_n$ eine beliebige Folge in $D_1$ mit $\lim a_n = x_0$, dann gilt da $
 	\operatorname{sin}(z) &:=\sum_{n=0}^{\infty} \frac{(-1)^n z^{2n+1}}{(2n+1)!} = z - \frac{z^3}{3!}+ \frac{z^5}{5!} - \frac{z^7}{7!} + \ldots\\
 	\operatorname{cos}(z) &:=\sum_{n=0}^{\infty} \frac{(-1)^n z^{2n}}{(2n)!} = 1 - \frac{z^2}{2!} + \frac{z^4}{4!} -\frac{z^6}{6!} + \ldots `
 \end{align*}
+
+ \begin{tikzpicture}
+\begin{axis}[
+clip=false,
+xmin=-pi,xmax=2*pi,
+%axis lines=left,
+%axis x line=middle,
+%axis y line=left,
+xtick={-3.14,-1.57,0,1.57,3.14,4.71,6.28},
+xticklabels={$-\pi$,$-\frac{\pi}{2}$,$0$, $\frac{\pi}{2}$,$\pi$,$\frac{3}{2}\pi$,$2\pi$}
+]
+\addplot[domain=-1*pi:2*pi,samples=400,red]{sin(deg(x))};
+\addlegendentry{$\sin(x)$}
+\addplot[domain=-1*pi:2*pi,samples=400,blue]{cos(deg(x))};
+\addlegendentry{$\cos(x)$}
+\end{axis}
+\end{tikzpicture}
+
+\begin{figure}[!ht]
+	\subfigure{\includegraphics[width=0.4\linewidth]{p1Trig.png}}
+	\subfigure{\includegraphics[width=0.41\linewidth]{p2Trig.png}}
+\end{figure}
 
 Dabei gelten die folgenden Gleichungen:
 
