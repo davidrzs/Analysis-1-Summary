@@ -104,7 +104,7 @@
 
 \newcommand*\widefbox[1]{\fbox{\hspace{2em}#1\hspace{2em}}}
 \newcommand{\limm}{\lim\limits_{n \to \infty}}
-
+\newcommand{\limx}[1]{\lim\limits_{x \to #1}}
 \newlength\dlf  % Define a new measure, dlf
 \newcommand\alignedbox[2]{
 % Argument #1 = before & if there were no box (lhs)
@@ -292,15 +292,38 @@ dann gilt:
 \end{equation*}
 \end{method}
 \begin{itemize}
-	\item \textbf{Typ 1: $\frac{0}{0}$ oder $\frac{\infty}{\infty}$}
+	\item \textbf{Typ 1: $\frac{0}{0}$ oder $\frac{\infty}{\infty}$}\\
+	\textit{Beispiele:}
 	\begin{itemize}
-		\item 
+		\item $\limx{0^+}\sqrt{\frac{1- \cos(x)}{2x}} = \sqrt{\limx{0^+}\frac{1- \cos(x)}{2x}} =  \sqrt{\limx{0^+}\frac{\sin(x)}{2}} = 0$, wobei wir die Stetigkeit nutzten.
+		\item $\limx{0^+} \frac{e^{-\frac{1}{x}}}{x} = \limx{0^+} \frac{\frac{1}{x}}{e^{-\frac{1}{x}}} = \frac{-\frac{1}{x^2}}{-\frac{1}{x^2}e^{\frac{1}{x}}} = \limx{0^+} e^{- \frac{1}{x}} = 0$
+		\item $\limx{0} \frac{\sin(\pi\cos(x))}{x\sin(x)} = \limx{0} \frac{-\sin(x)\pi\cos(\pi\cos(x))}{x\cos(x)+\sin(x)} = \limx{0} \frac{-\pi\cos(\pi\cos(x))}{\frac{x}{\sin(x)}\cos(x)+1} = \limx{0} \frac{-\pi\cos(\pi\cos(x))}{1+1} = \frac{-\pi\cos(\pi)}{2} = \frac{\pi}{2}$
 	\end{itemize}
-	\item \textbf{Typ 2: $0 \cdot \infty$}
-	\item \textbf{Typ 3: $f(x)^{f(x)}$}
+	\item \textbf{Typ 2: $0 \cdot \infty$} Wenn wir einen Grenzwert wie $\lim\limits_{x \to a} f(x)g(x)$ haben dann können wir den umformen in:
+\begin{align*}
+	\lim_{x \to a}f(x) g(x) &= \lim_{x\to a} \frac{f(x)}{\frac{1}{g(x)}}\\
+		\lim_{x \to a}f(x) g(x) &= \lim_{x\to a} \frac{g(x)}{\frac{1}{f(x)}}
+\end{align*}
+\textit{Beispiele:}
+\begin{itemize}
+	\item $\limx{0^+} x\ln(x) = \limx{0^+} \frac{\ln(x)}{\frac{1}{x}} = \limx{0^+} \frac{\frac{1}{x}}{-\frac{1}{x^2}} = \limx{0^+} -\frac{x^2}{x} = 0$
+	\item $\limx{\frac{\pi}{2}^-} \left( \tan(x) - \frac{1}{\cos(x)} \right) = \limx{\frac{\pi}{2}^-} \left(\frac{\sin(x)}{\cos(x)}- \frac{1}{\cos(x)} \right) = \limx{\frac{\pi}{2}^-} \frac{\sin(x) -1}{\cos(x)} = \limx{\frac{\pi}{2}^-} \frac{\cos(x)}{-\sin(x)} = \frac{\cos(\frac{\pi}{2})}{-\sin(\frac{\pi}{2})} = \frac{0}{-1} = 0$
+	\item $\limx{+ \infty} x \left( \sqrt[x]{e} -1 \right) = \limx{+ \infty} \frac{e^{-\frac{1}{x}}-1}{\frac{1}{x}} = \limx{+ \infty} \frac{\frac{1}{-x^2}e^{-\frac{1}{x}}}{\frac{1}{-x^2}} = \limx{+ \infty} e^{-\frac{1}{x}} = 0$
+\end{itemize}
+	
+	
+	\item \textbf{Typ 3: $f(x)^{g(x)}$} Wenn wir Grenzwerte des Types $ \limx{a} f(x)^{g(x)}$ haben, dann schreiben wir es wie folgt:
+	\begin{align*}
+		\limx{a} f(x)^{g(x)} &= \limx{a} e^{\ln(f(x))\cdot g(x)} = e^{\limx{a} \ln(f(x))\cdot g(x)}
+	\end{align*}
+	\textit{Beispiele:}
+	\begin{itemize}
+		\item $\limx{0^+} x^{\sin(x)} = e^{\limx{0^+} \sin(x)\ln(x)}$. Nun schauen wir den Exponenten an: $\limx{0^+} \sin(x)\ln(x) = \limx{0^+} \frac{\ln(x)}{\frac{1}{\sin(x)}} = \limx{0^+} \frac{\frac{1}{x}}{\frac{-\cos(x)}{\sin^2(x)}} = \limx{0^+} \frac{\sin^2(x)}{- x\cos(x)} = \limx{0^+} -\frac{\sin(x)}{x} \cdot\frac{\sin(x)}{\cos(c)} = 1 \cdot 0 = 0$. Wir haben somit $e^0 = 1$.
+		\item $\limx{0^+} \left( \sqrt{x^2 + 1} \right)^{\frac{1}{\sin^2(x)}} = e^{\left(\limx{0^+} \frac{\ln(\sqrt{x^2 + 1})}{\sin^2(x)} \right)}$. Nun schauen wir den Exponenten an: $\limx{0^+} \frac{\ln(\sqrt{x^2 + 1})}{\sin^2(x)} = \limx{0^+} \frac{\ln(x^2 + 1)}{2\sin^2(x)} = \limx{0^+} \frac{\ln(x^2 + 1)}{2\sin^2(x)} = \limx{0^+} \frac{\frac{1}{x^2+1}\cdot 2x}{4\sin(x)\cos(x)} = \limx{0^+} \frac{1}{2}\cdot \frac{x}{\sin(x)} \cdot \frac{1}{(x^2 + 1) \cos(x)} = \frac{1}{2}$. Somit haben wir somit $e^{\frac{1}{2}}$.
+	\end{itemize}
 \end{itemize}
 
-\TODO{Bernoulli-l'Hopital}
+
 
 \begin{method}{Cauchy Kriterium}
 	Die Folge $(a_n)_n$ ist genau dann konvergent, falls $\forall  \epsilon > 0 \ \exists N \geq 1 \text{ so dass } |a_n - a_m| < \epsilon \quad \forall n,m \geq N$
@@ -748,6 +771,7 @@ Es gilt:
 
 
 \TODO{taylorapproximation}
+\TODO{wichtige Taylorapprox p. 121}
 
 
 % -------------------------- Sonstiges --------------------------
