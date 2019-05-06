@@ -771,7 +771,48 @@ Es gilt:
 
 
 \TODO{taylorapproximation}
-\TODO{wichtige Taylorapprox p. 121}
+
+\subsection*{Wichtige Taylorapproximationen um $x=0$ entwickelt}
+\begin{itemize}
+	\item 	$\boxed{\frac{1}{1-x}}$ Für alle $x \in (1,0)$ gilt:
+	\begin{align*}
+	{\frac{1}{1-x}} &= 1 + x + x^2 + x^3 + x^4 + \cdots \\
+	&= \sum_{n=0}^{\infty} x^n
+	\end{align*}	
+	
+	\item $\boxed{e^x}$ Für alle $x \in \R$ gilt:
+	\begin{align*}
+		e^x &= 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!}\\
+		&= \sum_{n=0}^{\infty} \frac{x^n}{n!}
+	\end{align*}
+	
+	\item $\boxed{\cos(x)}$ Für alle $x\in R$ gilt:
+	\begin{align*}
+	\cos(x) &= 1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \frac{x^6}{6!} + \frac{x^8}{8!} - \cdots  \\
+	&= \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n}}{(2n)!}
+	\end{align*}
+	
+	\item $\boxed{\sin(x)}$ Für alle $x\in R$ gilt:
+	\begin{align*}
+	\sin(x) &=  x - \frac{x^3}{3!} + \frac{x^5}{5!} - \frac{x^7}{7!} + \frac{x^9}{9!} - \cdots\\
+	&= \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n+1}}{(2n+1)!} = \sum_{n=1}^{\infty} (-1)^{(n-1)} \frac{x^{2n-1}}{(2n-1)!}
+	\end{align*}
+
+	\item $\boxed{\ln(1+x)}$ Für alle $x\in (-1,1]$ gilt:
+	\begin{align*}
+	\ln(x+1) &= x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \frac{x^5}{5}- \cdots \\
+	&= \sum_{n=1}^{\infty} (-1)^{(n+1)} \frac{x^n}{n}
+	\end{align*}
+
+	\item $\boxed{\arctan(x)}$ Für alle $x\in [-1,1]$ gilt:
+	\begin{align*}
+	\l\arctan(x) &= x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \frac{x^9}{9} - \cdots \\
+	&= \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n+1}}{2n+1}
+	\end{align*}
+
+	
+\end{itemize}
+
 
 
 % -------------------------- Sonstiges --------------------------
