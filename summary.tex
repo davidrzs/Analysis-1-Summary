@@ -243,10 +243,99 @@ $$z^n = r^n (\cos(n\theta) + i \sin(n \theta))$$
 
 
 
+% -------------------------- Grenzwerte --------------------------
+
+\section*{Grenzwerte}
+Wir sagen dass $f$ an der stelle $a$ den Grenzwert $L\in \R$ hat, geschrieben $\lim\limits_{x \to a} f(x) = L$ falls $\forall \epsilon > 0 \ \exists \delta > 0 $ sodass für alle $|x-a|<\delta$ gilt $|f(x)-L|< \epsilon$
+
+\subsubsection*{Grenzwert mittels Definition}
+\TODO{noch zwei Beispiele hinzufügen und mit Hausaufgaben abgleichen}
+
+
+\begin{method}{Sandwich Theorem}
+	Aus $g(x) \leq f(x) \leq h(x)$ und $\lim\limits_{x\to a} g(x) = \lim\limits_{x \to a} h(x) = L$ folgt $\lim\limits_{x \to a} f(x)$
+\end{method}
+
+
+\begin{method}{Grenzwert mittels Dominanz}
+Grundsätzlich gelten die folgenden Dominanzen: \\
+Für $x \to + \infty$:
+\begin{align*}
+	\ldots < \log(\log(x)) < \log(x) < x^\alpha < e^x < \alpha^x < x! < x^x
+\end{align*}
+Sowie für $x \to 0^+$
+\begin{align*}
+\ldots < \log(\log(x)) < \log(x) < \left(\frac{1}{x}\right)^\alpha
+\end{align*}
+\end{method}
+
+
+\subsubsection*{Wurzeltrick}
+\TODO{Beispiel}
+
+
+\begin{method}{Fundamentallimes}
+	Oft kann man einen dieser Limits verwenden:
+	\begin{align*}
+		\lim\limits_{x \to \infty} \left(1 + \frac{1}{x}\right)^x &= e &  \lim\limits_{x \to \infty} \frac{\sin(x)}{x} &= 1 \\
+		\lim\limits_{n \to \infty} \frac{a^n}{n^n} &= 0 & 	\lim\limits_{n \to \infty} \sqrt[n]{n} &= 1\\
+		\lim\limits_{n \to \infty} \sqrt[n]{a} &= 1  & 	\lim\limits_{n \to \infty} \frac{1}{\sqrt[n]{n!}} &= 0
+	\end{align*}
+\end{method}
+
+
+
+\begin{method}{Bernoulli - de l’Hospital}
+	Wenn wir zwei differenzierbare Funktionen $f$ $g$ haben mit $g'(a)\not = 0$ dann gilt falls:
+	\begin{itemize}
+		\item entweder $\lim_{x \to a} f(x) = \lim_{x \to a} g(x) = 0 $
+		\item oder $\lim_{x \to a} f(x) = \lim_{x \to a} g(x) = \infty $
+	\end{itemize}
+	dann gilt:
+	\begin{equation*}
+	\lim_{x \to a} \frac{f(x)}{g(x)} = 	\lim_{x \to a} \frac{f'(x)}{g'(x)}
+	\end{equation*}
+\end{method}
+\begin{itemize}
+	\item \textbf{Typ 1: $\frac{0}{0}$ oder $\frac{\infty}{\infty}$}\\
+	\textit{Beispiele:}
+	\begin{itemize}
+		\item $\limx{0^+}\sqrt{\frac{1- \cos(x)}{2x}} = \sqrt{\limx{0^+}\frac{1- \cos(x)}{2x}} =  \sqrt{\limx{0^+}\frac{\sin(x)}{2}} = 0$, wobei wir die Stetigkeit nutzten.
+		\item $\limx{0^+} \frac{e^{-\frac{1}{x}}}{x} = \limx{0^+} \frac{\frac{1}{x}}{e^{-\frac{1}{x}}} = \frac{-\frac{1}{x^2}}{-\frac{1}{x^2}e^{\frac{1}{x}}} = \limx{0^+} e^{- \frac{1}{x}} = 0$
+		\item $\limx{0} \frac{\sin(\pi\cos(x))}{x\sin(x)} = \limx{0} \frac{-\sin(x)\pi\cos(\pi\cos(x))}{x\cos(x)+\sin(x)} = \limx{0} \frac{-\pi\cos(\pi\cos(x))}{\frac{x}{\sin(x)}\cos(x)+1} = \limx{0} \frac{-\pi\cos(\pi\cos(x))}{1+1} = \frac{-\pi\cos(\pi)}{2} = \frac{\pi}{2}$
+	\end{itemize}
+	\item \textbf{Typ 2: $0 \cdot \infty$} Wenn wir einen Grenzwert wie $\lim\limits_{x \to a} f(x)g(x)$ haben dann können wir den umformen in:
+	\begin{align*}
+	\lim_{x \to a}f(x) g(x) &= \lim_{x\to a} \frac{f(x)}{\frac{1}{g(x)}}\\
+	\lim_{x \to a}f(x) g(x) &= \lim_{x\to a} \frac{g(x)}{\frac{1}{f(x)}}
+	\end{align*}
+	\textit{Beispiele:}
+	\begin{itemize}
+		\item $\limx{0^+} x\ln(x) = \limx{0^+} \frac{\ln(x)}{\frac{1}{x}} = \limx{0^+} \frac{\frac{1}{x}}{-\frac{1}{x^2}} = \limx{0^+} -\frac{x^2}{x} = 0$
+		\item $\limx{\frac{\pi}{2}^-} \left( \tan(x) - \frac{1}{\cos(x)} \right) = \limx{\frac{\pi}{2}^-} \left(\frac{\sin(x)}{\cos(x)}- \frac{1}{\cos(x)} \right) = \limx{\frac{\pi}{2}^-} \frac{\sin(x) -1}{\cos(x)} = \limx{\frac{\pi}{2}^-} \frac{\cos(x)}{-\sin(x)} = \frac{\cos(\frac{\pi}{2})}{-\sin(\frac{\pi}{2})} = \frac{0}{-1} = 0$
+		\item $\limx{+ \infty} x \left( \sqrt[x]{e} -1 \right) = \limx{+ \infty} \frac{e^{-\frac{1}{x}}-1}{\frac{1}{x}} = \limx{+ \infty} \frac{\frac{1}{-x^2}e^{-\frac{1}{x}}}{\frac{1}{-x^2}} = \limx{+ \infty} e^{-\frac{1}{x}} = 0$
+	\end{itemize}
+	
+	
+	\item \textbf{Typ 3: $f(x)^{g(x)}$} Wenn wir Grenzwerte des Types $ \limx{a} f(x)^{g(x)}$ haben, dann schreiben wir es wie folgt:
+	\begin{align*}
+	\limx{a} f(x)^{g(x)} &= \limx{a} e^{\ln(f(x))\cdot g(x)} = e^{\limx{a} \ln(f(x))\cdot g(x)}
+	\end{align*}
+	\textit{Beispiele:}
+	\begin{itemize}
+		\item $\limx{0^+} x^{\sin(x)} = e^{\limx{0^+} \sin(x)\ln(x)}$. Nun schauen wir den Exponenten an: $\limx{0^+} \sin(x)\ln(x) = \limx{0^+} \frac{\ln(x)}{\frac{1}{\sin(x)}} = \limx{0^+} \frac{\frac{1}{x}}{\frac{-\cos(x)}{\sin^2(x)}} = \limx{0^+} \frac{\sin^2(x)}{- x\cos(x)} = \limx{0^+} -\frac{\sin(x)}{x} \cdot\frac{\sin(x)}{\cos(c)} = 1 \cdot 0 = 0$. Wir haben somit $e^0 = 1$.
+		\item $\limx{0^+} \left( \sqrt{x^2 + 1} \right)^{\frac{1}{\sin^2(x)}} = e^{\left(\limx{0^+} \frac{\ln(\sqrt{x^2 + 1})}{\sin^2(x)} \right)}$. Nun schauen wir den Exponenten an: $\limx{0^+} \frac{\ln(\sqrt{x^2 + 1})}{\sin^2(x)} = \limx{0^+} \frac{\ln(x^2 + 1)}{2\sin^2(x)} = \limx{0^+} \frac{\ln(x^2 + 1)}{2\sin^2(x)} = \limx{0^+} \frac{\frac{1}{x^2+1}\cdot 2x}{4\sin(x)\cos(x)} = \limx{0^+} \frac{1}{2}\cdot \frac{x}{\sin(x)} \cdot \frac{1}{(x^2 + 1) \cos(x)} = \frac{1}{2}$. Somit haben wir somit $e^{\frac{1}{2}}$.
+	\end{itemize}
+\end{itemize}
+
+\subsection*{Taylor (als letzte Hoffung)}
+Wenn das alles nicht funktioniert kann man versuchen die Taylorentwicklung einzusetzten. 
+\TODO{Beispiel}
+
 
 % -------------------------- Folgen --------------------------
 
-\section{Folgen}
+\section*{Folgen}
 
 \begin{method}{Definition Konvergenz}
 Folge $a_n$ is konvergent, falls $\exists l \in \mathbb{R}$ so dass $\forall \epsilon > 0$ die Menge $\{n \in \mathbb{N}^+: a_n \not \in (l-\epsilon, l + \epsilon)\}$ endlich ist. \\
@@ -297,52 +386,6 @@ $$L-\epsilon < b_n \leq a_n \leq c_n < L + \epsilon \implies L - \epsilon < a_n 
 
 \textbf{Beispiel (Sandwich)}
 $\limm \frac{n + \cos(n)}{n^2 -1}$. Wenn es absolut konv. dann auch absolut. Sicher gilt somit : $0 \leq \left|\frac{n + \cos(n)}{n^2 -1}\right|$ Nun schätzen wir nach oben ab: $\left|\frac{n + \cos(n)}{n^2 -1}\right| \leq \frac{n+1}{n^2 - 1} = \frac{n+1}{(n+1)(n-1)} = \frac{1}{n-1}$. Es gilt $\limm \frac{1}{n-1} = 0$, somit gilt $\limm \left|\frac{n + \cos(n)}{n^2 -1}\right| = 0$. (da Sandwich)
-
-
-\TODO{List von bekannten Grenzwerten und deren Beweis}
-
-\begin{method}{Bernoulli - de l’Hospital}
-	Wenn wir zwei differenzierbare Funktionen $f$ $g$ haben mit $g'(a)\not = 0$ dann gilt falls:
-	\begin{itemize}
-		\item entweder $\lim_{x \to a} f(x) = \lim_{x \to a} g(x) = 0 $
-		\item oder $\lim_{x \to a} f(x) = \lim_{x \to a} g(x) = \infty $
-	\end{itemize}
-dann gilt:
-\begin{equation*}
-	\lim_{x \to a} \frac{f(x)}{g(x)} = 	\lim_{x \to a} \frac{f'(x)}{g'(x)}
-\end{equation*}
-\end{method}
-\begin{itemize}
-	\item \textbf{Typ 1: $\frac{0}{0}$ oder $\frac{\infty}{\infty}$}\\
-	\textit{Beispiele:}
-	\begin{itemize}
-		\item $\limx{0^+}\sqrt{\frac{1- \cos(x)}{2x}} = \sqrt{\limx{0^+}\frac{1- \cos(x)}{2x}} =  \sqrt{\limx{0^+}\frac{\sin(x)}{2}} = 0$, wobei wir die Stetigkeit nutzten.
-		\item $\limx{0^+} \frac{e^{-\frac{1}{x}}}{x} = \limx{0^+} \frac{\frac{1}{x}}{e^{-\frac{1}{x}}} = \frac{-\frac{1}{x^2}}{-\frac{1}{x^2}e^{\frac{1}{x}}} = \limx{0^+} e^{- \frac{1}{x}} = 0$
-		\item $\limx{0} \frac{\sin(\pi\cos(x))}{x\sin(x)} = \limx{0} \frac{-\sin(x)\pi\cos(\pi\cos(x))}{x\cos(x)+\sin(x)} = \limx{0} \frac{-\pi\cos(\pi\cos(x))}{\frac{x}{\sin(x)}\cos(x)+1} = \limx{0} \frac{-\pi\cos(\pi\cos(x))}{1+1} = \frac{-\pi\cos(\pi)}{2} = \frac{\pi}{2}$
-	\end{itemize}
-	\item \textbf{Typ 2: $0 \cdot \infty$} Wenn wir einen Grenzwert wie $\lim\limits_{x \to a} f(x)g(x)$ haben dann können wir den umformen in:
-\begin{align*}
-	\lim_{x \to a}f(x) g(x) &= \lim_{x\to a} \frac{f(x)}{\frac{1}{g(x)}}\\
-		\lim_{x \to a}f(x) g(x) &= \lim_{x\to a} \frac{g(x)}{\frac{1}{f(x)}}
-\end{align*}
-\textit{Beispiele:}
-\begin{itemize}
-	\item $\limx{0^+} x\ln(x) = \limx{0^+} \frac{\ln(x)}{\frac{1}{x}} = \limx{0^+} \frac{\frac{1}{x}}{-\frac{1}{x^2}} = \limx{0^+} -\frac{x^2}{x} = 0$
-	\item $\limx{\frac{\pi}{2}^-} \left( \tan(x) - \frac{1}{\cos(x)} \right) = \limx{\frac{\pi}{2}^-} \left(\frac{\sin(x)}{\cos(x)}- \frac{1}{\cos(x)} \right) = \limx{\frac{\pi}{2}^-} \frac{\sin(x) -1}{\cos(x)} = \limx{\frac{\pi}{2}^-} \frac{\cos(x)}{-\sin(x)} = \frac{\cos(\frac{\pi}{2})}{-\sin(\frac{\pi}{2})} = \frac{0}{-1} = 0$
-	\item $\limx{+ \infty} x \left( \sqrt[x]{e} -1 \right) = \limx{+ \infty} \frac{e^{-\frac{1}{x}}-1}{\frac{1}{x}} = \limx{+ \infty} \frac{\frac{1}{-x^2}e^{-\frac{1}{x}}}{\frac{1}{-x^2}} = \limx{+ \infty} e^{-\frac{1}{x}} = 0$
-\end{itemize}
-	
-	
-	\item \textbf{Typ 3: $f(x)^{g(x)}$} Wenn wir Grenzwerte des Types $ \limx{a} f(x)^{g(x)}$ haben, dann schreiben wir es wie folgt:
-	\begin{align*}
-		\limx{a} f(x)^{g(x)} &= \limx{a} e^{\ln(f(x))\cdot g(x)} = e^{\limx{a} \ln(f(x))\cdot g(x)}
-	\end{align*}
-	\textit{Beispiele:}
-	\begin{itemize}
-		\item $\limx{0^+} x^{\sin(x)} = e^{\limx{0^+} \sin(x)\ln(x)}$. Nun schauen wir den Exponenten an: $\limx{0^+} \sin(x)\ln(x) = \limx{0^+} \frac{\ln(x)}{\frac{1}{\sin(x)}} = \limx{0^+} \frac{\frac{1}{x}}{\frac{-\cos(x)}{\sin^2(x)}} = \limx{0^+} \frac{\sin^2(x)}{- x\cos(x)} = \limx{0^+} -\frac{\sin(x)}{x} \cdot\frac{\sin(x)}{\cos(c)} = 1 \cdot 0 = 0$. Wir haben somit $e^0 = 1$.
-		\item $\limx{0^+} \left( \sqrt{x^2 + 1} \right)^{\frac{1}{\sin^2(x)}} = e^{\left(\limx{0^+} \frac{\ln(\sqrt{x^2 + 1})}{\sin^2(x)} \right)}$. Nun schauen wir den Exponenten an: $\limx{0^+} \frac{\ln(\sqrt{x^2 + 1})}{\sin^2(x)} = \limx{0^+} \frac{\ln(x^2 + 1)}{2\sin^2(x)} = \limx{0^+} \frac{\ln(x^2 + 1)}{2\sin^2(x)} = \limx{0^+} \frac{\frac{1}{x^2+1}\cdot 2x}{4\sin(x)\cos(x)} = \limx{0^+} \frac{1}{2}\cdot \frac{x}{\sin(x)} \cdot \frac{1}{(x^2 + 1) \cos(x)} = \frac{1}{2}$. Somit haben wir somit $e^{\frac{1}{2}}$.
-	\end{itemize}
-\end{itemize}
 
 
 
@@ -442,7 +485,7 @@ Es gilt $a_N = S_N - S_{N-1}$. Somit $\limm a_n = \limm (S_n - S_{n-1}) = \limm 
 Sei $c = \sup \{\sqrt[k]{|a_k|}\}$ und $ < q< 1$ mit $\limm c_n = \limsup_{n\to \infty} \sqrt[k]{|a_k|} < q <1$. Dann $\exists N \geq 1$ mit $ c_N = \sup\{ \sqrt[k]{|a_k|}: k\geq N \} \leq q$ was uns $|a_n| \leq q^n$ gibt. Somit ist eine geometrische Reihe eine Majorante.
 
 
-\begin{method}{Integralkriterium} Wenn $\sum_{n=p}^{\infty} a_n$ sowohl $a_n \geq 0$ und $a_{n+1} \leq a_n$ (monot. fall.), dann gilt:
+\begin{method}{Integralkriterium (Mc. Laurin)} Wenn $\sum_{n=p}^{\infty} a_n$ sowohl $a_n \geq 0$ und $a_{n+1} \leq a_n$ (monot. fall.), dann gilt:
 $$\sum_{n=p}^{\infty} a_n \text{ konv. } \iff \int_{p}^{\infty} a(x) dx \text{ konv.}$$
 \end{method}
 
