@@ -941,7 +941,165 @@ Sei $f\in C^m ([a,b])$ auf $(a,b)$ $m+1$ mal differenzierbar. Dann exisitert $\e
 % -------------------------- Integration --------------------------
 
 
-\section{Integration}
+\section*{Integration (Theorie)}
+
+
+
+\begin{method}{Partition}
+	Eine Partition von $I = [a,b]$ ist eine endliche Teilmenge $P \subsetneq [a,b]$ mit $\{a,b\} \subseteq P$. Insbesondere gilt: $ a = x_0 < x_1 < \ldots < x_{n} = b$.\\
+	Wir definieren $\delta = x_i - x_{i-1}$ als die Länge des Teilintervalls $[x_{i-1} , x_i]$
+\end{method}
+
+\begin{method}{Obersumme \& Untersumme}\\
+Untersumme: wobei $f_i = \inf_{x_{i-1} \leq x \leq x_i} $
+$$s(f,P) = \sum_{i=1}^{n} f_i \delta _i$$ 
+
+Obersumme: wobei $F_i = \sup_{x_{i-1} \leq x \leq x_i} $
+$$s(f,P) = \sum_{i=1}^{n} F_i \delta _i$$ 
+
+Zudem definieren wir:
+\begin{align*}
+	s(f) &= \sup_{P \in \mathcal{P}(I)} s(f,P)\\
+	S(f) &= \inf_{P \in \mathcal{P}(I)} S(f,P)
+\end{align*}
+\end{method}
+
+\begin{method}{Riemann Integrierbarkeit}
+Eine beschränkte Funktion $f:[a,b] \to \R$ ist Riemann integrierbar falls $s(f) = S(f)$. In diesem fall bezeichnen wir den gemeinsamen Wert von $s(f)$ und $S(f)$ mit 
+$$\int_{a}^b f(x) dx$$
+
+\textbf{Dazu gibt es Satz 5.4:} Eine beschränkte Funktion ist genau dann Riemann integrierbar, falls
+$$\forall \epsilon > 0 \ \exists P \in \mathcal{P}(I) \ \text{ mit } \ S(f,P) - s(f,P) < \epsilon$$
+\textit{Beweis:} Angenommen $\forall \epsilon > 0 \ \exists P_1, P_2$ mit $S(f,P_2) - S(f,P_1) < \epsilon$. Für $P = P_1 \cup P_2$ folgt :
+$S(f,P_2)\geq S(f,P) \geq s(f,P) \geq s(f,P_1)$ woraus $S(f,P)- s(f,P) < \epsilon$ folgt. Die Umkehrung ist klar.
+\end{method}
+
+\TODO{satz 5.4}
+
+\TODO{manuell integrieren}
+
+\begin{method}{Gleichmässige Stetigkeit}
+	Eine Funktion $f:D \to \R$, $D \subseteq \R$ ist auf $D$ gleichmässig falls $\forall \epsilon \ \exists \delta \ \forall x,y \in D$:
+	$$ |x-y| < \delta \implies |f(x) - f(y)| < \epsilon $$
+\end{method}
+
+\begin{method}{Stetig auf kompakten Intervall $\implies$ gleichmässig stetig / (Heine)}
+Sei $f : [a,b] \to \R$ stetig in dem kompakten Intervall $[a,b]$. Dann ist $f$ in $[a,b]$ gleichmässig stetig.
+\end{method}
+
+
+
+
+
+
+\TODO{glm stetigkeit beweise hinzufügen}
+
+\begin{method}{Integrierbarkeit}
+	\begin{itemize}
+		\item $f:[a,b]\to \R$ stetig, dann ist $f$ integrierbar. \\
+		\textit{Beweis:} $f$ beschränkt nach MinMax Satz. Wenn $\delta(P) < \delta$, dann gilt wegen der Stetigkeit $F_i - f_i \leq \epsilon$. Nun via def: $S(f,P) - s(f,P) = \ldots \leq (b-a)\epsilon$
+		\item $f:[a,b]\to \R$ monoton, dann ist $f$ integrierbar. \\
+		\textit{Beiweis:} Sei $f$ monoton steigend mit $f(a) \leq f(x) \leq f(b)$ und insbesondere sei $f$ beschränkt. Sei $0 \leq (f(b) - f(a) )\frac{b-a}{n} < \epsilon$. Partition mit $x_i = a + \frac{b-a}{n}\cdot i $ . Bemerke es gilt $F_i = f_{i+1}$. Somit: $S(f,P) - s(f,P) =  \sum_{i=1}^{n}( (F_i - f_i)\frac{b-a}{n} ) = (f(b) - f(a)) (\frac{b-a}{n}) < \epsilon$.
+	\end{itemize}
+\end{method}
+
+
+
+\subsection*{Ungleichungen und Mittelwertsatz}
+
+\begin{method}{Ungleichungen} Seien $f,g :[a,b] \to \R$ beschränkt und $f(x) \leq g(x) \ \forall x \in [a,b]$ so gilt $\int_{a}^{b} f(x) dx \leq \int_{a}^{b} g(x) dx$.\\
+	\textit{Beweis} Wir zeigen äquivalent dazu $\int_{a}^{b} g(x) - f(x) dx \geq 0$. Für jede Partition gilt sicherlich $S(g-f,P) \geq s(g-f,P) \geq 0$, somit folgt $\int_{a}^{b} g(x) - f(x) dx \geq 0$\\
+	
+	\textbf{Korollar (Absolutbetrag)} Für $f:[a,b]\to \R$ beschränkt, integrierbar gilt $\left| \int_{a}^{b} f(x) dx \right| \leq \int_{a}^{b} |f(x)| dx $.\\
+	\textit{Beweis:} Sicherlich gilt $-|f(x)| \leq f(x) \leq |f(x)|$, nun wenden wir den obigen Satz darauf an.
+\end{method}
+
+
+\TODO{CAUCHY SCHWARZ BEWIES -> verstehen mit ABC formel}
+\begin{method}{Cauchy, Schwarz, Bunjakovsky}
+\end{method}
+\TODO{MWS Integral}
+\begin{method}{Mittelwertsatz (Cauchy)}
+	
+\end{method}
+
+
+\subsection*{Fundamentalsatz}
+\begin{method}{Stammfunktion}
+Die Funktion $F(x) = \int_{a}^{x} f(t) dt$ ist in $[a,b]$ stetig und differenzierbar mit $F' = f$ wenn $a<b$ und $f:[a,b]\to R$ stetig ist. \\
+\textit{Beweis:} Aus additivität folgt: $\int_{a}^{x_0} f(t) dt$ + $\int_{x_0}^{x} f(t) dt = \int_{a}^{x} f(t) dt$. Also $F(x) - F(x_0) = \int_{x_0}^{x} f(t) dt$. Per Mittelwertsatz sehen wir nun, dass es ein $\xi \in [x,x_0]$ gibt mit $\int_{x_0}^{x} f(t) dt = f(\xi) (x-x_0) $. Für $x \not = x_0$ folgt somit $\frac{F(x) - F(x_0)}{x-x_0} = f(\xi)$. Wegen der Stetigkeit von $f$ folgt: $\lim_{(x\to x_0)} \frac{F(x) - F(x_0)}{x-x_0} = f(x_0)$. \qed
+\end{method}
+
+
+\begin{method}{Fundamentalsatz der Differentialrechnung}
+Sei $f:[a,b] \to \R$ stetig. Dann gibt es eine Stammfunktion $F$ von $f$, die bis auf eine additive Konstante eindeutig bestimmt ist und es gilt:
+$$\int_{a}^{b} f(x) dx = F(b) - F(a)$$
+\textit{Beweis:} Existenz folgt aus Stammfunktionssatz. Seien $F_1, F_2$ Stammfkt., dann gilt $F_1' - F_2' = 0$. Somit ist $F_1 - F_2 = C$ mit $F(x) = C + \int_{a}^{x} f(t) dt$. Es folgt auch $F(a) = \int_{a}^{a} f(t) dt + C$ und somit $F(a) = C$. Es folgt daraus $F(b)-F(a) = \int_{a}^{b} f(t) dt$ \qed 
+\end{method}
+
+
+\section*{Integrale Ausrechnen}
+
+\TODO{ADD EXAMPLES TO EVERY VARIANT}
+
+\subsection*{Elementare Integrale}
+Siehe Tabelle
+
+\subsection*{Direkte Integrale}
+Diese sind vom Typ $\int f(g(x)) g'(x) dx = F(g(x))$.
+
+\subsection*{Partielle Integration}
+\begin{method}{Partielle Integration}
+\begin{align*}
+	\int f' \cdot g dx = f \cdot g - \int f \cdot g' dx
+\end{align*}
+\end{method}
+\textbf{Beispiele}:
+
+
+\subsection*{Integrale rationaler Funktionen}
+\begin{method}{Partielle Integration}
+	$$\int \frac{p(x)}{q(x)} dx$$
+	Wenn nun $\deg(p) \geq \deg(q)$ dann machen wir eine Polynomdivision $p:q$, sonst mache eine Parzialbruchzerlegung
+\end{method}
+
+\subsection*{Substitutionsregel}
+\begin{method}{Substitutionsregel}
+Ist $f$ stetig und $g$ erfüllt:
+\begin{align*}
+	y = g(x) \iff x = g^{-1}(y)
+\end{align*}
+Dann gilt:
+\begin{align*}
+\int_a ^b f(g(x))g'(x) dx &= \int_{g(a)}^{g(b)} f(y) dy
+\end{align*}
+Als Merksatz gilt $dy = g'(x) dx$ respektive $dx = \frac{1}{t} dt$
+\end{method}
+
+\subsubsection*{Integrale der Form $\int F(e^x, \sinh(x), \cosh(x)) dx$}
+Substituiere mit $e^x = t$, ($dx = \frac{1}{t} dt$)
+
+\subsubsection*{Integrale der Form $\int F(\log(x)) dx$}
+Substituiere mit $\log(x) = t$, ($dx = e^t dt$)
+
+\subsubsection*{Integrale der Form $\int F(e^x, \sinh(x), \cosh(x))$}
+
+
+
+
+\subsubsection*{Integrale der Form $\int F(e^x, \sinh(x), \cosh(x))$}
+\subsubsection*{Integrale der Form $\int F(e^x, \sinh(x), \cosh(x))$}
+\subsubsection*{Integrale der Form $\int F(e^x, \sinh(x), \cosh(x))$}
+\subsubsection*{Integrale der Form $\int F(e^x, \sinh(x), \cosh(x))$}
+
+
+
+% ------------------------ Euler-Mc-Laurin Summation \& Bernoullizahlen ------------------------
+
+\section*{Euler-Mc-Laurin Summation \& Bernoullizahlen}
+
+
+
 
 
 % -------------------------- Sonstiges --------------------------
@@ -958,6 +1116,13 @@ Sei $f\in C^m ([a,b])$ auf $(a,b)$ $m+1$ mal differenzierbar. Dann exisitert $\e
 \begin{method}{Binomialsatz}
 	$\forall x,y \in \mathbb{C}$, $n \geq 1$ gilt:
 	$$(x+y)^n = \sum_{k=0}^{n} \binom{n}{k}x^k y^{n-k}$$
+\end{method}
+
+\begin{method}{ABC / Mitternachtsformel}
+	\begin{align*}
+		\text{Gegeben: } & ax^2 + bx + c = 0\\
+		\text{Lösung: } & x_{1,2} = \frac{-b \pm \sqrt{b^2 -4ac}}{2a}
+	\end{align*}
 \end{method}
 
 
