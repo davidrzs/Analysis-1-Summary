@@ -189,8 +189,29 @@ Dann gibt es $c \in \R$ mit $\forall a \in A : a \leq c$ und $\forall b \in B : 
 Korollar von Ordnungsvollständigkeit. Sei $x\in \R$ mit $x>0$ und $y \in \R$, dann gibt es $n\in \N$ mit $y \leq nx$
 \end{method}
 
-\subsection*{Youngsche Ungleichung}
-$\forall \epsilon > 0 , \forall x,y\in \R$ gilt: $2 |xy| \leq \epsilon x^2 + \frac{1}{\epsilon} y^2$. Beweis per Expansion von $\left( \sqrt{\epsilon} |x| - \frac{1}{\sqrt{\epsilon}} |y| \right) ^2 \geq 0$
+
+\subsection*{Wichtige Ungleichungen}
+
+\begin{method}{Cauchy Schwarz}
+	$\forall x,y\in \R^n$ gilt $|\langle x,y\rangle| \leq ||x||\cdot||y||$.
+\end{method}
+
+\begin{method}{Youngsche Ungleichung}
+$\forall \epsilon > 0 , \forall x,y\in \R$ gilt: $2 |xy| \leq \epsilon x^2 + \frac{1}{\epsilon} y^2$. Beweis per Expansion von $\left( \sqrt{\epsilon} |x| - \frac{1}{\sqrt{\epsilon}} |y| \right) ^2 \geq 0$\\
+\textbf{In Integralform:}  Wenn $f$ stetig strikt monoton wachsend:
+$$ab \leq \int_{0}^{a} f(x) dx + \int_{0}^{b} f^{-1}(y) dy$$
+Wenn wir $f(x) = x^{p-1}$, so gilt $ab \leq \frac{a^p}{p} + \frac{b^q}{q}$ mit $\frac{1}{q} + \frac{1}{p} = 1$.
+\end{method}
+
+\begin{method}{Hölder Ungleichung}
+	Seien $p,q>1$ mit $\frac{1}{q} + \frac{1}{p} = 1$, dann gilt für alle stetigen $f,g:[a,b]\to \R$
+	\begin{align*}
+		\int_{a}^{b} |f(x) g(x)| dx \leq || f||_p ||g||_q
+	\end{align*}
+	Wobei $$||f||_p := \left( \int_{a}^{b} |f(x) |^p dx \right) ^{1/p}$$
+\end{method}
+
+\subsection*{Supremum \& Infimum}
 
 \begin{method}{Existenz des Supremums}
 Sei $A \subset \R$, $A \not = \varnothing$. Sei $A$ nach oben beschränkt, dann gibt es eine kleinste obere Schranke von $A$, $c = \sup A$, genannt Supremum von $A$. Um dies zu Beweisen nutzt man die Ordnungsvollständigkeit und definiert $B$ als die Menge der oberen Schranken.
@@ -201,9 +222,6 @@ Nach Archimedes: $\forall \epsilon > 0,\exists n_0 : 1/n \leq \epsilon \ \forall
 $$\frac{n}{n+1} = \frac{1}{1 + \frac{1}{n}} =\geq \frac{1}{1 + \epsilon} = 1 - \frac{\epsilon}{1 + \epsilon}$$
 Wir erreichen $1$ sicher nie da sonst $1 = 0$, aber wir können beliebig nahe kommen. Somit $\sup M = 1$ aber $\neg \exists \max M$
 
-\begin{method}{Cauchy Schwarz}
-$\forall x,y\in \R^n$ gilt $|\langle x,y\rangle| \leq ||x||\cdot||y||$.
-\end{method}
 
 
 \begin{method}{Komplexe Zahlen}\\
@@ -279,6 +297,9 @@ $$L-\epsilon < b_n \leq a_n \leq c_n < L + \epsilon \implies L - \epsilon < a_n 
 
 \textbf{Beispiel (Sandwich)}
 $\limm \frac{n + \cos(n)}{n^2 -1}$. Wenn es absolut konv. dann auch absolut. Sicher gilt somit : $0 \leq \left|\frac{n + \cos(n)}{n^2 -1}\right|$ Nun schätzen wir nach oben ab: $\left|\frac{n + \cos(n)}{n^2 -1}\right| \leq \frac{n+1}{n^2 - 1} = \frac{n+1}{(n+1)(n-1)} = \frac{1}{n-1}$. Es gilt $\limm \frac{1}{n-1} = 0$, somit gilt $\limm \left|\frac{n + \cos(n)}{n^2 -1}\right| = 0$. (da Sandwich)
+
+
+\TODO{List von bekannten Grenzwerten und deren Beweis}
 
 \begin{method}{Bernoulli - de l’Hospital}
 	Wenn wir zwei differenzierbare Funktionen $f$ $g$ haben mit $g'(a)\not = 0$ dann gilt falls:
@@ -1082,15 +1103,84 @@ Substituiere mit $e^x = t$, ($dx = \frac{1}{t} dt$)
 \subsubsection*{Integrale der Form $\int F(\log(x)) dx$}
 Substituiere mit $\log(x) = t$, ($dx = e^t dt$)
 
-\subsubsection*{Integrale der Form $\int F(e^x, \sinh(x), \cosh(x))$}
+\subsubsection*{Integrale der Form $\int F(\sqrt[\alpha]{Ax + B}) dx$}
+Substituiere mit $t = \sqrt[\alpha]{Ax + B}$
+
+
+
+\subsubsection*{Integrale die $\sin, \cos, \tan$ in geraden Potenzen enthalten}
+Substituiere mit $\tan(x) = t$, ($dx = \frac{1}{1+t^2} dt$). Es gilt zudem:
+
+\begin{align*}
+\sin^2(x) &= \frac{t^2}{1+t^2} & \cos^2(x) &= \frac{1}{1+t^2}
+\end{align*}
+
+
+\subsubsection*{Integrale die $\sin, \cos, \tan$ in ungeraden Potenzen enthalten}
+Substituiere mit $\tan(\frac{x}{2}) = t$, ($dx = \frac{2}{1+t^2} dt$). Es gilt zudem:
+
+\begin{align*}
+\sin(x) &= \frac{2t}{1+t^2} & \cos(x) &= \frac{1-t^2}{1+t^2}
+\end{align*}
+
+
+\subsubsection*{Integrale mit $\sqrt{Ax^2 + Bx + C}$ im Nenner}
+Mithilfe quadratischer Ergänzung auf einen der folgenden Fälle zurückführen:
+\begin{align*}
+\int \frac{1}{\sqrt{1-x^2}} dx &= \arcsin(x) + C\\
+\int \frac{1}{\sqrt{x^2-1}} dx &= \operatorname{arcosh}(x) + C\\
+\int \frac{1}{\sqrt{1+x^2}} dx &= \operatorname{arcsinh}(x) + C
+\end{align*}
 
 
 
 
-\subsubsection*{Integrale der Form $\int F(e^x, \sinh(x), \cosh(x))$}
-\subsubsection*{Integrale der Form $\int F(e^x, \sinh(x), \cosh(x))$}
-\subsubsection*{Integrale der Form $\int F(e^x, \sinh(x), \cosh(x))$}
-\subsubsection*{Integrale der Form $\int F(e^x, \sinh(x), \cosh(x))$}
+\subsubsection*{Integrale mit $\sqrt{Ax^2 + Bx + C}$ im Zähler}
+Mithilfe quadratischer Ergänzung auf einen der folgenden Fälle zurückführen, dann substituieren
+\begin{align*}
+\int {\sqrt{1-x^2}} dx \quad &\text{subsitution: } x = \sin(t) \Leftarrow dx = \cos(t) dt\\
+\int {\sqrt{x^2-1}} dx \quad &\text{subsitution: } x = \cosh(t) \Leftarrow dx = \sinh(t) dt \\
+\int {\sqrt{1+x^2}} dx \quad &\text{subsitution: } x = \sinh(t) \Leftarrow dx = \cosh(t) dt
+\end{align*}
+
+
+
+
+% -------------------------- Uneigentliche Integrale --------------------------
+
+\section*{Uneigentliche Integrale}
+
+
+Es gibt zwei Arten von uneigentlichen Integralen, man interessiert sic dafür ob die Integrale konvergieren oder nicht. Für beide Arten braucht man die gleichen Techniken:
+
+\begin{enumerate}
+	\item[] \textbf{Typ 1:} $f(x)$ auf $[a,\infty)$ stetig. Dann setzt man $\int_{a}^{\infty} f(x) dx = \lim_{R \to \infty} \int_{a}^{R} f(x) dx$ falls der Grenzwert existiert.
+	\item[] \textbf{Typ 2:} $f(x)$ auf $(a,b]$ stetig. Dann setzt man $\int_{a}^{b} f(x) dx= \lim_{\epsilon \to 0^+} \int_{a+\epsilon}^{b} f(x) dx$ falls der Grenzwert existiert.
+\end{enumerate}
+
+\TODO{EXAMPLES}
+
+\subsection*{Definition + direkte Berechung}
+Setze die Definition ein (replace $\infty$ with $R$) und berechne dann das Integral. Lasse nun $R$ nach $\infty$ laufen.
+
+\subsection*{Vergleichskriterium}
+ Seien $f,g$ auf dem Integrationsgebiet stetig mit $0 \leq f(x) \leq g(x)$ für alle $x$. Dann gilt:
+ \begin{enumerate}
+ 	\item Ist $\int_{a}^{\infty} g(x) dx$ konvergent, so auch $\int_{a}^{\infty} f(x) dx$
+ 	\item Ist $\int_{a}^{\infty} f(x) dx$ divergent, so auch $\int_{a}^{\infty} g(x) dx$
+ \end{enumerate}
+ Oft braucht man $\int_{1}^{infty} \frac{1}{x^p} dx$ als Vergleichsmittel welches für $p>1$ konvergiert, für $p \leq 1$ ist es divergent.
+
+
+
+\subsection*{Absolute Konvergenz}
+$$ \int_{a}^{\infty} \left| f(x) \right| dx <\infty \implies \int_{a}^{\infty}f(x) dx < \infty $$
+Das ist nützlich bei trigonometrischen Teilen.
+
+
+\subsection*{Mc. Laurin Konvergenzkriterium}
+Sei $f:[1,\infty) \to [0,\infty)$ monoton fallend.
+$$\sum_{n=1}^{\infty} f(n) \ \text{konv.}  \iff    \int_{1}^{\infty} f(x) dx \ \text{konv.}$$
 
 
 
@@ -1100,6 +1190,23 @@ Substituiere mit $\log(x) = t$, ($dx = e^t dt$)
 
 
 
+% -------------------------- Gamma Funktion --------------------------
+
+\section*{Gamma Funktion}
+
+Die Gamma Funktion ist definiert als $\Gamma (s) := \int_{0} ^{\infty} e^{-x} x^{s-1} dx$.
+
+Sie erfüllt:
+\begin{itemize}
+	\item $\Gamma(1) = 1$
+	\item $\Gamma(s+1) = s\Gamma(s) \ \forall s > 0$
+	\item $\Gamma$ ist logarithmisch konvex: $\Gamma(\lambda x + (1-\lambda)y) \leq \Gamma(x)^\lambda \Gamma(y)^{1-\lambda}$
+\end{itemize}
+Wir zeigen nun die zweite Eigenschaft mittels partieller Integration:
+\begin{align*}
+	\int_{0}^{b} x^n e^{-x} dx &= -b^n e^{-b} + n \int_{0}^{b} x^{n-1}e^{-x}
+\end{align*}
+Da $\lim_{b \to \infty}  -b^n e^{-b} = 0$ folgt: $\int_{0}^{\infty} x^n e^{-x} dx =n \int_{0}^{\infty} x^{n-1}e^{-x}$
 
 
 % -------------------------- Sonstiges --------------------------
@@ -1124,6 +1231,9 @@ Substituiere mit $\log(x) = t$, ($dx = e^t dt$)
 		\text{Lösung: } & x_{1,2} = \frac{-b \pm \sqrt{b^2 -4ac}}{2a}
 	\end{align*}
 \end{method}
+
+
+
 
 
 \newpage
