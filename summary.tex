@@ -190,7 +190,7 @@ Korollar von Ordnungsvollständigkeit. Sei $x\in \R$ mit $x>0$ und $y \in \R$, d
 
 
 \subsection*{Wichtige Ungleichungen}
-\TODO{check if in lecture notes}
+
 \begin{method}{Bernoulli Ungleichung}
 	Wenn $x\in \R$ mit $x > -1$ sowie $n \in \mathbb{Z}$ mit $n >0$, dann gilt:
 	\begin{align*}
@@ -279,7 +279,7 @@ Sowie für $x \to 0^+$
 
 
 \subsubsection*{Wurzeltrick}
-\TODO{Beispiel}
+\TODO{Beispiel - Serie 13 oder 14 hat eins}
 
 
 \begin{method}{Fundamentallimes}
@@ -454,8 +454,12 @@ $|a_n - a_m| = |\frac{n-1}{2n} - \frac{m-1}{2m}| = |\frac{nm-m-nm+n}{2nm}| = |\f
 	\end{align*}
 \end{method}
 
-\begin{method}{Konvergenz mit $\lim\limits_{n \to \infty } a_n = 0$}
-$$\sum_{n=0}^{\infty} a_0 \text{ konvergiert } \implies \lim\limits_{n \to \infty } a_n = 0 $$
+\begin{method}{Konvergenz mit $\lim\limits_{n \to \infty } a_n = 0$ (Nullfolge)}
+
+\begin{align*}
+\sum_{n=0}^{\infty} a_0 \text{ konvergiert } \implies \lim\limits_{n \to \infty } a_n = 0\\
+\lim\limits_{n \to \infty } a_n \not = 0 \implies \sum_{n=0}^{\infty} a_0 \text{ divergiert }
+\end{align*}
 \end{method}
 
 \textbf{Beweis (Nullfolge)} Wenn $\sum_{n = 0}^{\infty} a_n$ konvergent ist, dann ist $\limm a_n = 0$.
@@ -572,7 +576,7 @@ $\sum_{k=0}^{\infty} \left(\sum_{j=0}^{n} a_{n-j} b_j\right) = \left(\sum_{i=0}^
 	\end{enumerate}
 \end{method}
 
-\TODO{ Skript Übung 2.60 Cuahcy Produkt divergiert.}
+\TODO{ Skript Übung 2.60 Cauchy Produkt divergiert.}
 
 
 \begin{method}{Potenzreihe / Konvergenzradius}
@@ -614,8 +618,7 @@ In Praxis:
 
 
 \textbf{Beispiel (Punktweise Konvergenz)}
-Sei $D:[0,1]$ und $f_n = x^n$. Dann gilt $\limm f_n(x) = 0 \quad 0 \leq x < 1$
-. Für $x=1$ gilt $ \limm f_n(1) = 1$. Somit konvergiert $f_n$ punktweise gegen 
+Sei $D:[0,1]$ und $f_n = x^n$. Dann gilt $\limm f_n(x) = 0 \quad, 0 \leq x < 1$. Für $x=1$ gilt $ \limm f_n(1) = 1$. Somit konvergiert $f_n$ punktweise gegen 
 $
 f(x)=
 \begin{cases}
@@ -628,8 +631,19 @@ $ Leider ist $f$ nicht stetig in $1$.\\
 Konvergiert $f_n(x) = \frac{nx}{1+n^2 x^2}$ gleichmässig auf $\left[0,1 \right]$?\\
 \textit{Pkt-Konv:} $f(x) = \limm \frac{nx}{1+n^2 x^2} = \limm \frac{\frac{x}{n}}{\frac{1}{n^2}+x^2} = 0$\\
 \textit{Glm-Konv:} Wir berechnen zuerst $\sup _{x\in [0,1]} | f_n(x) -f(x) | = \sup _{x\in [0,1]} |\frac{nx}{1+n^2 x^2}|$. Wir leiten den Term nach $x$ ab und setzen zu 0. Das Maximum leigt bei $x = \frac{1}{n}$. Dies setzen wir ein:
-$\sup _{x\in [0,1]} \left|\frac{n\frac{1}{n}}{1+n^2 \frac{1}{n^2}}\right| = \frac{1}{2}$. Somit nicht glm konv auf $[0,1]$. Beachte aber dass es auf $[1,\infty)$ glm. Konv. ist da das Max dann bei $\frac{1}{1}$ angenommen wird und dann $\sup _{x\in [1,\infty)} \left|\frac{n}{1+n^2}\right|$ mit $\limm \left|\frac{n}{1+n^2}\right| = 0$
-
+$\sup _{x\in [0,1]} \left|\frac{n\frac{1}{n}}{1+n^2 \frac{1}{n^2}}\right| = \frac{1}{2}$. Somit nicht glm konv auf $[0,1]$. Beachte aber dass es auf $[1,\infty)$ glm. Konv. ist da das Max dann bei $\frac{1}{1}$ angenommen wird und dann $\sup _{x\in [1,\infty)} \left|\frac{n}{1+n^2}\right|$ mit $\limm \left|\frac{n}{1+n^2}\right| = 0$\\
+\textbf{Beispiel (Punktweise aber nicht Gleichmässig)} Wir haben 
+$$
+f_n(x)=
+\begin{cases}
+n^2 x + 1 , 0\leq x \leq \frac{2}{n}\\
+1, \frac{1}{n}<x
+\end{cases}
+$$
+\textit{Punktmässig:} Für $x=0$: $n^2 \cdot 0 +1 = 1$, sonstige $x$ haben wir $f(x) = 1$\\
+\textit{Gleichmässig:} Für $x=\frac{1}{n}$ gilt $f(\frac{1}{n}) = n^2 \cdot \frac{1}{n} + 1 = n+1$, somit folgt \begin{align*}
+	\forall n > 0 \quad \sup\limits_{x \in [0,1]}|f_n(x) -f(x)|\geq |(n+1) -1| =n \quad \text{ no glm konv.}
+\end{align*}
 
 
 \begin{method}{Stetig Funktionenfolge gleichmässige Konvergenz}
@@ -660,7 +674,7 @@ Daraus folgt: $$|f(x) - f(x_0)| = |f(x) - f_N(x_0) + f_N(x) - f_N(x_0) + f_N(x_0
 	\begin{itemize}
 		\item Sei $D \subseteq \mathbb{R}$, $x_0 \in D$. Die Funktion $f:D \to \R$ \textit{ist in $x_0$ stetig}, falls $\forall \epsilon > 0 \ \exists \delta > 0$, so dass für alle $x$ die Implikation $$|x-x_0| < \delta \implies |f(x) - f(x_0)| < \epsilon$$
 		
-		\item Daraus leitet sich ab: Sei $x_0 \in D \subseteq \R$ und $f:D \to \R$, $f$ ist genau dann in $x_0$ stetig, falls für \textsc{jede} Folge $(a_n)_{n \geq 1}$ in $D$ die Implikation gilt:$$\lim\limits_{n \to \infty} a_n = x_0 \implies \limm f(a_n) = f(x_0)$$
+		\item Daraus leitet sich ab: Sei $x_0 \in D \subseteq \R$ und $f:D \to \R$, $f$ ist genau dann in $x_0$ stetig, falls für \textbf{jede} Folge $(a_n)_{n \geq 1}$ in $D$ die Implikation gilt:$$\lim\limits_{n \to \infty} a_n = x_0 \implies \limm f(a_n) = f(x_0)$$
 	\end{itemize}
 
 \end{method}
@@ -674,11 +688,12 @@ Daraus folgt: $$|f(x) - f(x_0)| = |f(x) - f_N(x_0) + f_N(x) - f_N(x_0) + f_N(x_0
 \begin{method}{Rechenregeln für Stetige Funktionen}
 Falls $f,g:\Omega \to \mathbb{R}$ stetig, dann sind folgende auch stetig:
 $$f + g \quad f-g \quad fg \quad \frac{f}{g} \text{ falls } g \not = 0$$
-Das Maximum zweier stetigen Funktionen ist auch stetig.
+Das Maximum und die Zusammensetzung zweier stetigen Funktionen ist auch stetig.
 \end{method}
 
-\begin{method}{Zwischenwertsatz (Bolzano)}
-	Sei $I \in \R$ ein Intervall, $f: I \to \R$ eine stetige Funktion un $a,b \in I$. Dann gilt: Für alle $c$ zwischen $f(a)$ und $f(b)$ exisitert ein $z$ zwischen $a$ und $b$ so dass $f(z) = c$.
+
+\begin{method}{ {\Large Zwischenwertsatz (Bolzano)} }
+	Sei $I \in \R$ ein Intervall, $f: I \to \R$ eine stetige Funktion und $a,b \in I$. Dann gilt: Für alle $c$ zwischen $f(a)$ und $f(b)$ exisitert ein $z$ zwischen $a$ und $b$ so dass $f(z) = c$.
 \end{method}
 
 \textbf{Beispiel (Zwischenwertsatz)}
@@ -703,13 +718,12 @@ Das Maximum zweier stetigen Funktionen ist auch stetig.
 \end{method}
 
 
-\begin{method}{Stetigkeit der Verknüpfung}
-Seien $D_1, D_2 \subseteq \R$ zwei Teilmengen, $f: D_1 \to D_2$, $g:D_2 \to \R$ Funktionen, sowie $x_0 \in D_1$. Falls $f$ in $x_0$ und $g$ in $f(x_0)$ stetig sind, so ist $g \circ f : D_1 \to \R$ in $x_0$ stetig.
+\begin{method}{Stetigkeit der Verknüpfung} Wenn $f,g$ auf passenden Intervallen stetig, dann $(f \circ g)$ das auch. Sei $x_0 \in [a,b]$ beliebig und $(x_n)_n$ eine Folge mit $\lim\limits_{n\to\infty} x_n = x_0$, dann gilt\\ $\lim\limits_{n\to\infty} (f \circ g) (x_n) = (f \circ g) (x_0)$ was die Folgenstetigkeit zeigen würde.
 \end{method}
 
 \textbf{Beweis (Stetigkeit der Verknüpfung)}
+$\lim\limits_{n\to\infty} (f\circ g)(x_n) = \lim\limits_{n\to\infty} (f(g(x_n))  = f(\lim\limits_{n\to\infty} g(x_n)) = f(g( \lim\limits_{n\to\infty} x_n))  = (f \circ g) (\lim\limits_{n\to\infty} x_n) = f(g( \lim\limits_{n\to\infty} x_n))  = (f \circ g) (x_0)$
 
-Sei $(a_n)_n$ eine beliebige Folge in $D_1$ mit $\lim a_n = x_0$, dann gilt da $f$ stetig ist $\limm f(a_n) = f(x_0)$. Da auch $g$ stetig ist gilt desweiteren $\limm g(f(a_n)) = g(f(x_0))$. (Man kann ja z.B. $f(a_n)=f_n$ als neue Folge sehen.)
 
 
 \begin{method}{Stetigkeit der Umkehrabbildung}
@@ -721,9 +735,9 @@ Sei $(a_n)_n$ eine beliebige Folge in $D_1$ mit $\lim a_n = x_0$, dann gilt da $
 \section{Exponentialfunktion \& Sinus \& Kosinus}
 
 \begin{align*}
-	\operatorname{exp}(x) &:=\sum_{n=0}^{\infty} \frac{x}{n!} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \ldots\\
-	\operatorname{sin}(x) &:=\sum_{n=0}^{\infty} \frac{(-1)^n z^{2n+1}}{(2n+1)!} = x - \frac{x^3}{3!}+ \frac{x^5}{5!} - \frac{x^7}{7!} + \ldots\\
-	\operatorname{cos}(x) &:=\sum_{n=0}^{\infty} \frac{(-1)^n x^{2n}}{(2n)!} = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} -\frac{x^6}{6!} + \ldots 
+	\operatorname{exp}(x) &:=\sum_{n=0}^{\infty} \frac{x^n}{n!} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} +  \ldots\\
+	\operatorname{sin}(x) &:=\sum_{n=0}^{\infty} \frac{(-1)^n z^{2n+1}}{(2n+1)!} = x - \frac{x^3}{3!}+ \frac{x^5}{5!} - \frac{x^7}{7!} +  \frac{x^9}{9!} - \ldots\\
+	\operatorname{cos}(x) &:=\sum_{n=0}^{\infty} \frac{(-1)^n x^{2n}}{(2n)!} = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} -\frac{x^6}{6!} + \frac{x^8}{8!} -\ldots 
 \end{align*}
 Dabei gilt:
 \begin{align*}
@@ -880,6 +894,7 @@ Dann gilt $\phi(x_0) = f'(x_0)$. Dies folgt direkt aus (2) indem man $\phi(x) :=
 		(f^{-1})' (y_0) &= \frac{1}{f'(x_0)}	
 	\end{align*}
 \end{method}
+\textbf{Beispiel (Ableitung der Umkehrfunktion)} 1 + 1 = 2
 
 
 \begin{method}{Satz von Cauchy}
@@ -923,9 +938,9 @@ Sei $f\in C^m ([a,b])$ auf $(a,b)$ $m+1$ mal differenzierbar. Dann exisitert $\e
  \textbf{Beziehungsweise:}\\
 	Sei $f:[a,b] \to \R$ stetig und in $(a,b)$ (n+1) mal differenzierbar. Für jedes $a<x\leq b$ gibt es $\xi \in (a,x)$ mit
 	\begin{align*}
-	f(x) &= \sum_{k=0}^n \frac{f^{(k)}(a)}{k!} (x-a)^k + \frac{f^{(n+1)(\xi)}}{(n+1)!} (x-a)^{n+1}
+	f(x) &= \sum_{k=0}^n \frac{f^{(k)}(a)}{k!} (x-a)^k + \frac{f^{(n+1)}(\xi)}{(n+1)!} (x-a)^{n+1}
 	\end{align*}
-
+Oder Alternativ $|R_N f(x;a)| \leq \sup\limits_{a < \xi < x} |f^{(n+1)} (\xi)|  \frac{(x-a)^{n+1}}{(n+1)!}$
 \end{method}
 
 \textbf{Beispiel (Taylorapproximation)}
@@ -991,9 +1006,16 @@ Sei $f\in C^m ([a,b])$ auf $(a,b)$ $m+1$ mal differenzierbar. Dann exisitert $\e
 
 	\item $\boxed{\arctan(x)}$ Für alle $x\in [-1,1]$ gilt:
 	\begin{align*}
-	\l\arctan(x) &= x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \frac{x^9}{9} - \cdots \\
+	\arctan(x) &= x - \frac{x^3}{3} + \frac{x^5}{5} - \frac{x^7}{7} + \frac{x^9}{9} - \cdots \\
 	&= \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n+1}}{2n+1}
 	\end{align*}
+
+	\item $\boxed{(1 + x)^\alpha}$ Für alle $x\in \R$ gilt:
+	\begin{align*}
+	(1 + x)^\alpha &=  1 + \alpha x + \frac{\alpha(\alpha-1)}{2!} x^2 + \cdots \\
+	 &= \sum_{k=0}^{\infty} \; {\alpha \choose k} \; x^k 
+	\end{align*}
+	
 
 	
 \end{itemize}
@@ -1117,7 +1139,7 @@ Diese sind vom Typ $\int f(g(x)) g'(x) dx = F(g(x))$.
 \subsection*{Partielle Integration}
 \begin{method}{Partielle Integration}
 \begin{align*}
-	\int f' \cdot g dx = f \cdot g - \int f \cdot g' dx
+	\int f' \cdot g dx = f \cdot g - \int f \cdot g' \  dx
 \end{align*}
 \end{method}
 \textbf{Beispiele}:
