@@ -245,7 +245,16 @@ z_1 \cdot z_2 &= r_1 \cdot r_2 \left(\cos(\theta_1 + \theta_2) + i\sin(\theta_1 
 \frac{z_1}{z_2} &= \frac{r_1}{r_2}\left(\cos(\theta_1 - \theta_2) + i\sin(\theta_1 - \theta_2)\right)
 \end{align*}
 Zudem folgt durch Induktion:
-$$z^n = r^n (\cos(n\theta) + i \sin(n \theta))$$
+\begin{align*}
+	z^n = r^n (\cos(n\theta) + i \sin(n \theta))
+\end{align*}
+
+\textbf{Komplexe Nullstellen:} Die $n$-te Wurzel von $x$ berechnen wir (es gibt $n$ davon):
+\begin{align*}
+	\sqrt[n]{z} &= \sqrt[n]{r} e^{i \left( \frac{\phi_0}{n} + \frac{2k\pi}{n}\right)}\\
+	&= \sqrt[n]{r} \left(\cos\left( \frac{\phi_0}{n} + \frac{2k\pi}{n}\right) + i \sin\left( \frac{\phi_0}{n} + \frac{2k\pi}{n}\right)\right)
+\end{align*}
+
 \end{method}
 
 
@@ -730,9 +739,10 @@ $\lim\limits_{n\to\infty} (f\circ g)(x_n) = \lim\limits_{n\to\infty} (f(g(x_n)) 
 	Sei $I \subset \R$ ein intervall und $f:I \to R$ stetig, streng monoton. Dann ist $J = f(I) \subseteq \R$ ein intervall und $f^{-1} : J \to I$ stetig und bijektiv
 \end{method}
 
+\vfill\null
+\columnbreak
 
-
-\section{Exponentialfunktion \& Sinus \& Kosinus}
+\section*{Exponentialfunktion \& Sinus \& Kosinus}
 
 \begin{align*}
 	\operatorname{exp}(x) &:=\sum_{n=0}^{\infty} \frac{x^n}{n!} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} +  \ldots\\
@@ -747,7 +757,8 @@ Dabei gilt:
 \sin(z+w) &= \sin(z) \cos(w) + \cos(z) \sin(w) \\
 \cos(z + w) &= \cos(z) \cos(w) - \sin(z) \sin(w)\\
 \sin(x) - \sin(y) &=  2 \sin \left(\frac{x-y}{2}\right) \cos \left(\frac{x+y}{2}\right)\\
-\cos(x) - \cos(y) &= - 2 \sin \left(\frac{x-y}{2}\right) \sin \left(\frac{x+y}{2}\right)
+\cos(x) - \cos(y) &= - 2 \sin \left(\frac{x-y}{2}\right) \sin \left(\frac{x+y}{2}\right)\\
+\sin(2x) &= 2\sin(x)\cos(x) &  \cos(2x) &= 1 - 2\sin^2(x)
 \end{align*}
 
 \begin{tikzpicture}
@@ -798,7 +809,7 @@ Dies gibt die folgenden Zusammenhänge:
 \includegraphics[width=0.7\linewidth]{p2Trig.png}
 
 
-\newpage
+
 % -------------------------- Ableitung --------------------------
 
 
@@ -1139,7 +1150,7 @@ Diese sind vom Typ $\int f(g(x)) g'(x) dx = F(g(x))$.
 \subsection*{Partielle Integration}
 \begin{method}{Partielle Integration}
 \begin{align*}
-	\int f' \cdot g dx = f \cdot g - \int f \cdot g' \  dx
+	\int f' \cdot g \ dx = f \cdot g - \int f \cdot g' \  dx
 \end{align*}
 \end{method}
 \textbf{Beispiele}:
@@ -1191,6 +1202,40 @@ Substituiere mit $\tan(\frac{x}{2}) = t$, ($dx = \frac{2}{1+t^2} dt$). Es gilt z
 \end{align*}
 
 
+\subsection*{Quadratisch Ergänzen}
+\begin{method}{Quadratisch ergänzen} Für den Ausdruck $\sqrt{ax^2 + bx + x}$ definieren wie $\beta = - \frac{b}{2a}$. Es gibt nun zwei Optionen:
+
+\begin{itemize}
+	\item Falls $b^2 - 4ac > 0$. So setzte $\alpha = \frac{\sqrt{b^2 - 4ac}}{2a}$. Dies gibt uns dann:
+	\begin{align*}
+		ax^2 + bx + c = \left(\frac{b^2 -4ac}{2a}\right)\left(u^2 - 1\right)
+	\end{align*}
+	
+	\item Falls $b^2 - 4ac < 0$. So setzte $\alpha = \frac{\sqrt{4ac - b^2}}{2a}$. Dies gibt uns dann:
+	\begin{align*}
+	ax^2 + bx + c = \left(\frac{4ac - b^2}{2a}\right)\left(u^2 - 1\right)
+	\end{align*}
+\end{itemize}
+
+\end{method}
+
+\begin{method}{Ekelhafte Zahlen}
+	
+	\begin{itemize}
+	\item $\int \frac{1}{a^2 + x^2} dx$ lösen wir mit $x=a\cdot u$, $dx = a \ du$, dies gibt uns:
+	\begin{align*}
+		\int \frac{1}{a^2 + x^2} = \int\frac{1}{a^2 (1 + u^2)} a \ du = \frac{1}{a} \arctan(u) = \frac{1}{a} \arctan\left(\frac{x}{a}\right)
+	\end{align*}
+	
+	\item $\int \sqrt{r^2 - x^2} dx$ lösen wir mit $x = r \sin \phi$, $dx = d r \cos \phi \ d\phi$ :
+	\begin{align*}
+\int \sqrt{r^2 - x^2} dx = \int \sqrt{r^2 (1-\sin^2 \phi)} r \cos \phi \ d\phi = r^2 \int \cos^2(\phi) \ d\phi
+\end{align*}
+Wir können nun die Winkelverdopplungsregel anwenden.
+	\end{itemize}
+	
+\end{method}
+
 \subsubsection*{Integrale mit $\sqrt{Ax^2 + Bx + C}$ im Nenner}
 Mithilfe quadratischer Ergänzung auf einen der folgenden Fälle zurückführen:
 \begin{align*}
@@ -1211,6 +1256,20 @@ Mithilfe quadratischer Ergänzung auf einen der folgenden Fälle zurückführen,
 \end{align*}
 
 
+% -------------------------- Partialbruchzerlegung ------------------------------
+
+\subsection*{Rationale Funktionen (Partialbruchzerlegung)}
+
+Wenn wir $\frac{P(x)}{Q(x)}$ integrieren wollen und $\deg(P(x)) \geq \deg(Q(x))$, dann führen wir eine Polynomdivision durch:
+
+\includegraphics[width=0.7\linewidth]{img/polyDiv.png}\\
+Andernfalls machen wir eine Partialbruchzerlegung:
+
+\begin{align*}
+	\frac{t+2}{t^2(t^2 + 2)} &= \frac{A}{t^2} + \frac{B}{t} + \frac{Ct + D}{t^2 + 2}\\
+	\frac{t}{t^3 + t^2 - t - 1} &= \frac{A}{(t+1)} + \frac{B}{(t+1)^2} + \frac{C}{t-1} \quad \text{first polyDiv}\\
+	\frac{t^4 + 1}{(t^2 + 1)^2} &= 1 + \frac{-2t}{(t^2 + 1)^2} = 1 + \ldots + \frac{At + B}{t^2 + 1} + \frac{Ct + D}{(t^2 + 1)^2}
+\end{align*}
 
 
 % -------------------------- Uneigentliche Integrale --------------------------
@@ -1218,7 +1277,7 @@ Mithilfe quadratischer Ergänzung auf einen der folgenden Fälle zurückführen,
 \section*{Uneigentliche Integrale}
 
 
-Es gibt zwei Arten von uneigentlichen Integralen, man interessiert sic dafür ob die Integrale konvergieren oder nicht. Für beide Arten braucht man die gleichen Techniken:
+Es gibt zwei Arten von uneigentlichen Integralen, man interessiert sich dafür ob die Integrale konvergieren oder nicht. Für beide Arten braucht man die gleichen Techniken:
 
 \begin{enumerate}
 	\item[] \textbf{Typ 1:} $f(x)$ auf $[a,\infty)$ stetig. Dann setzt man $\int_{a}^{\infty} f(x) dx = \lim_{R \to \infty} \int_{a}^{R} f(x) dx$ falls der Grenzwert existiert.
@@ -1255,6 +1314,25 @@ $$\sum_{n=1}^{\infty} f(n) \ \text{konv.}  \iff    \int_{1}^{\infty} f(x) dx \ \
 
 \section*{Euler-Mc-Laurin Summation \& Bernoullizahlen}
 
+\textbf{Bernoulli Zahlen} Rekursiv definiert als $\sum_{i=0}^{k-1} {k \choose i}  B_i = 0$. Die ersten paar Bernoulli Zahlen sind:
+\begin{align*}
+ &{\tfrac {1}{1}},{\tfrac {-1}{2}},{\tfrac {1}{6}},{\tfrac {0}{1}},{\tfrac {-1}{30}},{\tfrac {0}{1}},{\tfrac {1}{42}},{\tfrac {0}{1}},{\tfrac {-1}{30}},{\tfrac {0}{1}},{\tfrac {5}{66}},{\tfrac {0}{1}},{\tfrac {-691}{2730}},{\tfrac {0}{1}},{\tfrac {7}{6}},{\tfrac {0}{1}},{\tfrac {-3617}{510}},{\tfrac {0}{1}},{\tfrac {43867}{798}},\\ 
+ &{\tfrac {0}{1}},{\tfrac {-174611}{330}},{\tfrac {0}{1}},{\tfrac {854513}{138}},{\tfrac {0}{1}},{\tfrac {-236364091}{2730}},{\tfrac {0}{1}},{\tfrac {8553103}{6}},{\tfrac {0}{1}},{\tfrac {-23749461029}{870}},{\tfrac {0}{1}},\ldots
+\end{align*}
+
+\includegraphics[width=1\linewidth]{img/berThm.png}\\
+Wobei die Bernoulli Polynome wie folgt definiert sind:
+\begin{align*}
+	B_k (x) = \sum_{i=0}^{k} {k \choose i} B_i x^{k-i} 
+\end{align*}
+bzw. $B_k (x) =k!P_k (x)$ mit $P'_k = P_{k-1}$ sowie $\int_{0}^{1} P_k (x) dx = 0$.\\
+Zudem gilt:
+\begin{align*}
+	1^l + 2^l + \ldots + n^l = \frac{1}{l+1} \sum_{j=0}^{l} (-1)^j B_j { l+1 \choose j } n^{l+1-j}
+\end{align*}
+
+
+
 
 
 % -------------------------- Gamma Funktion --------------------------
@@ -1286,7 +1364,7 @@ Da $\lim_{b \to \infty}  -b^n e^{-b} = 0$ folgt: $\int_{0}^{\infty} x^n e^{-x} d
 
 
 
-\section{Sonstiges}
+\section*{Sonstiges}
 \begin{method}{Binomialsatz}
 	$\forall x,y \in \mathbb{C}$, $n \geq 1$ gilt:
 	$$(x+y)^n = \sum_{k=0}^{n} \binom{n}{k}x^k y^{n-k}$$
