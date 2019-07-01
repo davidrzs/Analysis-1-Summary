@@ -288,7 +288,13 @@ Sowie für $x \to 0^+$
 
 
 \subsubsection*{Wurzeltrick}
-\TODO{Beispiel - Serie 13 oder 14 hat eins}
+\begin{align*}
+	\lim\limits_{x \to \infty } \left( \sqrt{x^2 + x} -x \right) &= \lim\limits_{x \to \infty } \left( \sqrt{x^2 + x} -x \right)  \cdot \frac{  -\sqrt{x^2 + x} -x  }{ -\sqrt{x^2 + x} -x }\\
+	&= 	\lim\limits_{x \to \infty } \frac{- \sqrt{x^2 + x} ^2 + x^2}{ -\sqrt{x^2 + x} -x}\\
+	&= 	\lim\limits_{x \to \infty } \frac{x^2 + x - x^2}{ \sqrt{x^2 + x} +x}\\
+	&=  \lim\limits_{x \to \infty}  \frac{1}{\sqrt{1 + \frac{1}{x}} + 1} = \frac{1}{2}
+\end{align*}
+
 
 
 \begin{method}{Fundamentallimes}
@@ -424,7 +430,10 @@ $\limm \frac{n + \cos(n)}{n^2 -1}$. Wenn es absolut konv. dann auch absolut. Sic
 	Die Folge $(a_n)_n$ ist genau dann konvergent, falls $\forall  \epsilon > 0 \ \exists N \geq 1 \text{ so dass } |a_n - a_m| < \epsilon \quad \forall n,m \geq N$
 \end{method}
 
-\TODO{Beweis von Cauchy}
+\textbf{Beweis (Cauchy Kriterium)} Seien $|a_n - a |< \epsilon$ sowie $|a_m - a| < \epsilon$, mit $n,m \geq N$ wie in der Def. Es folgt: 
+\begin{align*}
+	|a_n - a_m| &= |(a_n-a) + (a - a_m)| < |a_n - a| + |a_m - a| < 2\epsilon
+\end{align*}
 
 \textbf{Beispiel (Cauchy Kriterium)}
 Sei $a_n = \frac{n-1}{2n}$ eine Folge. Wir versuchen Konvergenz mittels Cauchy zu zeigen:\\
