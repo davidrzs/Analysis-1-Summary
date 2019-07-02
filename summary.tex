@@ -149,6 +149,14 @@
 	{ 
 	\end{mdframed}
 }
+
+\newenvironment{important}{\begin{mdframed}[backgroundcolor=red!50,innertopmargin=15pt, innerbottommargin=15pt, nobreak=true]
+		\Large
+	}
+	{ 
+	\end{mdframed}
+}
+
 \usepackage{todonotes}
 \newcommand{\TODO}[1]{\todo[inline]{\Large TODO:  #1}}
 
@@ -1148,7 +1156,9 @@ $$\int_{a}^{b} f(x) dx = F(b) - F(a)$$
 
 \section*{Integrale Ausrechnen}
 
-\TODO{ADD EXAMPLES TO EVERY VARIANT}
+\begin{important}
+Integrationskonstante $C$ nicht vergessen!
+\end{important}
 
 \subsection*{Elementare Integrale}
 Siehe Tabelle
@@ -1185,21 +1195,37 @@ Als Merksatz gilt $dy = g'(x) dx$ respektive $dx = \frac{1}{t} dt$
 \end{method}
 
 \subsubsection*{Integrale der Form $\int F(e^x, \sinh(x), \cosh(x)) dx$}
-Substituiere mit $e^x = t$, ($dx = \frac{1}{t} dt$)
+Substituiere mit $e^x = t$, ($dx = \frac{1}{t} dt$)\\
+\textbf{Beispiel:}
+\begin{align*}
+	\int \frac{e^{2x}}{e^x + 1} dx &= \int \frac{t^2}{t + 1 } \frac{1}{t} dt = \int\frac{t +1 - 1}{t+1} dt\\
+	\int \frac{1}{\cosh(x)} dx &= \int \frac{1}{\frac{1}{2} (e^x + e^{-x})} dx = \int \frac{2}{t + \frac{1}{t}} \frac{1}{t} dt = \frac{2}{t^2 + 1} dt
+\end{align*}
 
 \subsubsection*{Integrale der Form $\int F(\log(x)) dx$}
-Substituiere mit $\log(x) = t$, ($dx = e^t dt$)
+Substituiere mit $\log(x) = t$, ($dx = e^t dt$)\\
+\textbf{Beispiel:}
+\begin{align*}
+	\int (\log(x))^2 dx &= \int t^2 e^t dt = t^2 e^t - \int 2t e^t dt  = x(\log(x))^2 -2x\log(x) + 2x + C
+\end{align*}
 
 \subsubsection*{Integrale der Form $\int F(\sqrt[\alpha]{Ax + B}) dx$}
-Substituiere mit $t = \sqrt[\alpha]{Ax + B}$
-
-
+Substituiere mit $t = \sqrt[\alpha]{Ax + B}$\\
+\textbf{Beispiel:}
+\begin{align*}
+	\int \frac{1}{\sqrt{x} \sqrt{1-x}} &= \int \frac{1}{t \sqrt{1-t^2}} 2t dt = \int \frac{2}{\sqrt{1-t^2}}
+\end{align*}
 
 \subsubsection*{Integrale die $\sin, \cos, \tan$ in geraden Potenzen enthalten}
 Substituiere mit $\tan(x) = t$, ($dx = \frac{1}{1+t^2} dt$). Es gilt zudem:
 
 \begin{align*}
 \sin^2(x) &= \frac{t^2}{1+t^2} & \cos^2(x) &= \frac{1}{1+t^2}
+\end{align*}
+
+\textbf{Beispiel:}
+\begin{align*}
+	\int \frac{1}{\sin^2(x) + 1} dx &= \int \frac{1}{\frac{t^2}{1+t^2} + 1} \frac{1}{t^2 + 1} dt = \int \frac{1}{1+2t^2} dt\\ &= \frac{1}{\sqrt{2}} \int  \frac{\sqrt{2}}{1 + (\sqrt{2}t)^2} dt = \frac{1}{\sqrt{2}} \arctan(\sqrt{2}t)
 \end{align*}
 
 
@@ -1210,6 +1236,10 @@ Substituiere mit $\tan(\frac{x}{2}) = t$, ($dx = \frac{2}{1+t^2} dt$). Es gilt z
 \sin(x) &= \frac{2t}{1+t^2} & \cos(x) &= \frac{1-t^2}{1+t^2}
 \end{align*}
 
+\textbf{Beispiel:}
+\begin{align*}
+	\int \frac{1}{\cos(x)} dx &= \int \frac{1}{\frac{1-t^2}{1+t^2}} \frac{2}{1+t^2} dt = \int \frac{2}{1-t^2} dt
+\end{align*}
 
 \subsection*{Quadratisch Ergänzen}
 \begin{method}{Quadratisch ergänzen} Für den Ausdruck $\sqrt{ax^2 + bx + x}$ definieren wie $\beta = - \frac{b}{2a}$. Es gibt nun zwei Optionen:
