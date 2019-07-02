@@ -565,6 +565,17 @@ Sei $c = \sup \{\sqrt[k]{|a_k|}\}$ und $ < q< 1$ mit $\limm c_n = \limsup_{n\to 
 \textbf{Beispiel (CauchyKondens):} $\sum_{n=1}^{\infty} \frac{1}{n}$ konv wenn $\sum_{n=1}^{\infty} 2^n \frac{1}{2^n}$ konv., da $\frac{1}{n}\geq 0$ und monot. fallend. 
 
 
+\begin{method}{Grenzwert mittels Riemann Summe (nicht in VL!)}
+	Es gilt 
+	\begin{align*}
+		\lim\limits_{n \to \infty} \frac{1}{n} \sum_{k=1}^{n} f \left( \frac{k}{n} \right) = \int_{0}^{1} f(x) dx
+	\end{align*}	
+\end{method}
+\textbf{Beispiele (GW mit R.Summe)}
+\begin{itemize}
+	\item $\lim\limits_{n \to \infty} \sum_{k=1}^{n} \frac{1}{\sqrt{k^2 + n^2}} = \lim\limits_{n \to \infty} \frac{1}{n} \sum_{k=1}^{n} \frac{1}{\sqrt{\left(\frac{k}{n}\right)^2 + 1}} = \int_0 ^1 \frac{1}{\sqrt{x^2 + 1}} dx$. 
+\end{itemize}
+
 \begin{method}{Leibnitzkriterium} Eine Reihe $\sum_n (-1)^n a_n$ konvergiert falls $a_n \geq 0$ , $\lim\limits_{n \to \infty } a_n = 0$ und $a_n$ monoton fallend ist.
 \end{method}
 
@@ -1103,25 +1114,19 @@ $$\forall \epsilon > 0 \ \exists P \in \mathcal{P}(I) \ \text{ mit } \ S(f,P) - 
 $S(f,P_2)\geq S(f,P) \geq s(f,P) \geq s(f,P_1)$ woraus $S(f,P)- s(f,P) < \epsilon$ folgt. Die Umkehrung ist klar.
 \end{method}
 
-\TODO{satz 5.4}
-
-\TODO{manuell integrieren}
 
 \begin{method}{Gleichmässige Stetigkeit}
 	Eine Funktion $f:D \to \R$, $D \subseteq \R$ ist auf $D$ gleichmässig falls $\forall \epsilon \ \exists \delta \ \forall x,y \in D$:
-	$$ |x-y| < \delta \implies |f(x) - f(y)| < \epsilon $$
+	\begin{align*}
+			|x-y| < \delta \implies |f(x) - f(y)| < \epsilon
+	\end{align*}
 \end{method}
 
 \begin{method}{Stetig auf kompakten Intervall $\implies$ gleichmässig stetig / (Heine)}
 Sei $f : [a,b] \to \R$ stetig in dem kompakten Intervall $[a,b]$. Dann ist $f$ in $[a,b]$ gleichmässig stetig.
 \end{method}
 
-
-
-
-
-
-\TODO{glm stetigkeit beweise hinzufügen}
+\textbf{Beispiel (Gleichmässige Stetigkeit)} Zeige $f:[0,\infty) \to \R$, $x \mapsto \sqrt{x}$ ist gleichmässig stetig: Wir benutzen dass $|\sqrt{x} - \sqrt{y}| \leq \sqrt{x - y}$. Nun setzen wir $ \sqrt{x - y} < \epsilon$, so folgt dass wenn $|x-y|< \epsilon^2 =: \delta$, dass $f(x)$ gleichmässig stetig ist.
 
 \begin{method}{Integrierbarkeit}
 	\begin{itemize}
@@ -1349,7 +1354,6 @@ Es gibt zwei Arten von uneigentlichen Integralen, man interessiert sich dafür o
 	\item[] \textbf{Typ 2:} $f(x)$ auf $(a,b]$ stetig. Dann setzt man $\int_{a}^{b} f(x) dx= \lim_{\epsilon \to 0^+} \int_{a+\epsilon}^{b} f(x) dx$ falls der Grenzwert existiert.
 \end{enumerate}
 
-\TODO{EXAMPLES}
 
 \subsection*{Definition + direkte Berechung}
 Setze die Definition ein (replace $\infty$ with $R$) und berechne dann das Integral. Lasse nun $R$ nach $\infty$ laufen.
@@ -1360,14 +1364,22 @@ Setze die Definition ein (replace $\infty$ with $R$) und berechne dann das Integ
  	\item Ist $\int_{a}^{\infty} g(x) dx$ konvergent, so auch $\int_{a}^{\infty} f(x) dx$
  	\item Ist $\int_{a}^{\infty} f(x) dx$ divergent, so auch $\int_{a}^{\infty} g(x) dx$
  \end{enumerate}
- Oft braucht man $\int_{1}^{infty} \frac{1}{x^p} dx$ als Vergleichsmittel welches für $p>1$ konvergiert, für $p \leq 1$ ist es divergent.
-
+ Oft braucht man $\int_{1}^{\infty} \frac{1}{x^p} dx$ als Vergleichsmittel welches für $p>1$ konvergiert, für $p \leq 1$ ist es divergent.\\
+\textbf{Beispiel (Vergleich)} 
+\begin{itemize}
+	\item $\int_{1}^{\infty} \frac{1 + e^x}{x} dx$, von unten durch $\int_{1}^{\infty} \frac{1}{x} dx$ abschätzen, dann divergent.
+	\item $\int_1 ^\infty \sin^2\left(\frac{1}{x}\right) dx$, beachte dass wenn $x \geq 0$, $\sin(x) \leq x$ gilt. Somit haben wir Majorante $\int_{1}^{\infty} \frac{1}{x^2} dx$ und konvergent. 
+\end{itemize}
 
 
 \subsection*{Absolute Konvergenz}
 $$ \int_{a}^{\infty} \left| f(x) \right| dx <\infty \implies \int_{a}^{\infty}f(x) dx < \infty $$
-Das ist nützlich bei trigonometrischen Teilen.
-
+Das ist nützlich bei trigonometrischen Teilen.\\
+\textbf{Beispiel (Absolute Konvergenz)} 
+\begin{itemize}
+	\item $\int_{1}^{\infty} \frac{\cos^2(x)}{x^2} dx$. Es gilt $\left| \frac{\cos^2(x)}{x^2}\right|\leq \frac{1}{x^2}$, somit konvergent.
+	\item $\int_0 ^\infty x\sin(4x)e^{-2x} dx$. Es gilt $|x\sin(4x)e^{-2x}| \leq xe^{-2x}$ wenn $x\geq 0$, per partieller Integration konvergiert das zweite. Somit konvergent.
+\end{itemize}
 
 \subsection*{Mc. Laurin Konvergenzkriterium}
 Sei $f:[1,\infty) \to [0,\infty)$ monoton fallend.
@@ -1451,7 +1463,16 @@ Da $\lim_{b \to \infty}  -b^n e^{-b} = 0$ folgt: $\int_{0}^{\infty} x^n e^{-x} d
 \end{method}
 
 
-
+\begin{method}{Injektiv}
+	\begin{align*}
+			&\forall x_1,x_2 \in M : f(x_1) = f(x_2) \implies x_1 = x_2\\
+			\text{or }  &x_1 \not = x_2 \implies f(x_1) \not = f(x_2)
+	\end{align*}
+	\textbf{Surjektiv}
+	\begin{align*}
+	\forall y \in N \exists x \in M : y = f(x)
+	\end{align*}
+\end{method}
 
 
 \subsection*{Ableitungsregeln}
@@ -1470,7 +1491,8 @@ Da $\lim_{b \to \infty}  -b^n e^{-b} = 0$ folgt: $\int_{0}^{\infty} x^n e^{-x} d
 			$e^x$ & $e^x$ & \\
 			$a^x$ & $\ln(a) \cdot a^x$& \\
 			$x^x = e^{x\log(x)}$ & $x^x \cdot (\log(x) + 1)$ & Kettenregel $e^{x\log(x)}$\\
-			$\ln(x)$ & $\frac{1}{x}$ & \\ \midrule
+			$\ln(x)$ & $\frac{1}{x}$ & \\
+			$x\ln(x) - x$ & $\ln(x)$ &  \\ \midrule
 			$\sin(x)$ & $\cos(x)$ & \\
 			$\cos(x)$ & $- \sin(x)$ & \\ 
 			$\tan(x) = \frac{\sin(x)}{\cos(x)}$ & $\frac{1}{\cos^2(x)} = 1 + \tan^2(x)$ &\\
