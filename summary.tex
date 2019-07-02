@@ -375,6 +375,9 @@ Wenn das alles nicht funktioniert kann man versuchen die Taylorentwicklung einzu
 	&= \lim\limits_{x \to 0 } \frac{- \frac{1}{3!}+ \frac{x^2}{5!} - \frac{x^4}{7!} + \ldots}{1 + \frac{x}{2!} + \frac{x^2}{3!} + \ldots}\\
 	&= - \frac{1}{6}
 \end{align*}
+\begin{important}
+Kann auch sinnvoll sein Audruck wie $\sqrt{x} = t$ zu subsituieren und dann neuer Limes.
+\end{important}
 
 
 
@@ -627,6 +630,11 @@ $\sum_{k=0}^{\infty} \left(\sum_{j=0}^{n} a_{n-j} b_j\right) = \left(\sum_{i=0}^
 \end{method}
 
 
+\begin{important}
+Zeige immer auch was auf dem Konvergenzradius $\pm \rho$ passiert.
+\end{important}
+
+
 \begin{method}{Potenzreihe / Konvergenzradius}
 	Potenzreihe hat Form $f(x) = \sum_{n=0}^{\infty} a_n x^n$.
 	Die Menge aller $x$ für welche $f(x)$ konvergiert nennt man Konvergenzbereich. Der Konvergenzradius (dessen Grenze) ist definiert:
@@ -784,7 +792,7 @@ $\lim\limits_{n\to\infty} (f\circ g)(x_n) = \lim\limits_{n\to\infty} (f(g(x_n)) 
 \section*{Exponentialfunktion \& Sinus \& Kosinus}
 
 \begin{align*}
-	\operatorname{exp}(x) &:=\sum_{n=0}^{\infty} \frac{x^n}{n!} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} +  \ldots\\
+	\operatorname{exp}(x) &:=\sum_{n=0}^{\infty} \frac{x^n}{n!} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} +  \ldots = \lim_{n \to \infty} \left( 1 + \frac xn \right)^n\\
 	\operatorname{sin}(x) &:=\sum_{n=0}^{\infty} \frac{(-1)^n z^{2n+1}}{(2n+1)!} = x - \frac{x^3}{3!}+ \frac{x^5}{5!} - \frac{x^7}{7!} +  \frac{x^9}{9!} - \ldots\\
 	\operatorname{cos}(x) &:=\sum_{n=0}^{\infty} \frac{(-1)^n x^{2n}}{(2n)!} = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} -\frac{x^6}{6!} + \frac{x^8}{8!} -\ldots 
 \end{align*}
@@ -828,6 +836,12 @@ Wenn $x = 0$ dann folgt sofort $\sin(0) = 0$. Für $x\geq 1$ folgt auch $\sin(x)
 
 
 
+\subsection*{Wertetabelle}
+\includegraphics[width=0.7\linewidth]{p1Trig.png}\\
+\includegraphics[width=0.7\linewidth]{p2Trig.png}
+
+
+
 \subsection*{Hyperbolische Funktionen}
 \begin{align*}
 \cosh(x) &= \frac{e^x + e^{-x}}{2}\\
@@ -841,18 +855,19 @@ Dies gibt die folgenden Zusammenhänge:
 \cosh(x) - \sinh(x) &= e^{-x}
 \end{align*}
 
+Sowie die Reihendarstellungen:
+
+\begin{align*}
+\sinh(z)&=z+{\frac {z^{3}}{3!}}+{\frac {z^{5}}{5!}}+{\frac {z^{7}}{7!}}+\dots =\sum _{n=0}^{\infty }{\frac {z^{2n+1}}{(2n+1)!}}\\
+\cosh(z)&=1+{\frac {z^{2}}{2!}}+{\frac {z^{4}}{4!}}+{\frac {z^{6}}{6!}}+\dots =\sum _{n=0}^{\infty }{\frac {z^{2n}}{(2n)!}}
+\end{align*}
 
 
-\subsection*{Wertetabelle}
-\includegraphics[width=0.7\linewidth]{p1Trig.png}\\
-\includegraphics[width=0.7\linewidth]{p2Trig.png}
+
 
 
 
 % -------------------------- Ableitung --------------------------
-
-
-
 
 
 
@@ -1237,7 +1252,8 @@ Substituiere mit $e^x = t$, ($dx = \frac{1}{t} dt$)\\
 Substituiere mit $\log(x) = t$, ($dx = e^t dt$)\\
 \textbf{Beispiel:}
 \begin{align*}
-	\int (\log(x))^2 dx &= \int t^2 e^t dt = t^2 e^t - \int 2t e^t dt  = x(\log(x))^2 -2x\log(x) + 2x + C
+	\int (\log(x))^2 dx &= \int t^2 e^t dt = t^2 e^t - \int 2t e^t dt  \\
+	&= x(\log(x))^2 -2x\log(x) + 2x + C
 \end{align*}
 
 \subsubsection*{Integrale der Form $\int F(\sqrt[\alpha]{Ax + B}) dx$}
@@ -1273,18 +1289,19 @@ Substituiere mit $\tan(\frac{x}{2}) = t$, ($dx = \frac{2}{1+t^2} dt$). Es gilt z
 \end{align*}
 
 \subsection*{Quadratisch Ergänzen}
-\begin{method}{Quadratisch ergänzen} Für den Ausdruck $\sqrt{ax^2 + bx + x}$ definieren wie $\beta = - \frac{b}{2a}$. Es gibt nun zwei Optionen:
+\begin{method}{Quadratisch ergänzen} Für den Ausdruck $\sqrt{ax^2 + bx + x}$ definieren wie $\beta = - \frac{b}{2a}$. Es gibt nun zwei Optionen (mit dem Ziel $x= \alpha u + \beta$):
 
 \begin{itemize}
-	\item Falls $b^2 - 4ac > 0$. So setzte $\alpha = \frac{\sqrt{b^2 - 4ac}}{2a}$. Dies gibt uns dann:
+	\item Falls $b^2 - 4ac > 0$. So setze $\alpha = \frac{\sqrt{b^2 - 4ac}}{2a}$. Dies gibt uns dann:
 	\begin{align*}
-		ax^2 + bx + c = \left(\frac{b^2 -4ac}{2a}\right)\left(u^2 - 1\right)
+		ax^2 + bx + c = \left(\frac{b^2 -4ac}{4a}\right)\left(u^2 - 1\right)
 	\end{align*}
 	
-	\item Falls $b^2 - 4ac < 0$. So setzte $\alpha = \frac{\sqrt{4ac - b^2}}{2a}$. Dies gibt uns dann:
+	\item Falls $b^2 - 4ac < 0$. So setze $\alpha = \frac{\sqrt{4ac - b^2}}{2a}$. Dies gibt uns dann:
 	\begin{align*}
-	ax^2 + bx + c = \left(\frac{4ac - b^2}{2a}\right)\left(u^2 - 1\right)
+	ax^2 + bx + c = \left(\frac{4ac - b^2}{4a}\right)\left(u^2 + 1\right)
 	\end{align*}
+	Falls dies in einem Integral ist kann man nun mit $u=\sinh(t)$, $du = \cosh(t) dt$ ersetzen.
 \end{itemize}
 
 \end{method}
