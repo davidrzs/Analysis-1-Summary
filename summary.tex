@@ -1200,6 +1200,14 @@ $$\int_{a}^{b} f(x) dx = F(b) - F(a)$$
 \end{method}
 
 
+\subsection*{Ableitung des Integrals}
+Mit der Kettenregel folgt aus dem Fundamentalsatz:
+\begin{align*}
+\frac{d}{dx} \left( \int_{u(x)}^{v(x)} f(t)  dt \right) &= f(v)\frac{dv}{dx} - f(u)\frac{du}{dx}
+\end{align*}
+\textbf{Beispiel:} Finde die Ableitung von $f(x) = \int_{x}^{2} \frac{e^{t^2}}{t} dt + \log(\frac{x}{2})$. Somit ist $f'(x) = -\frac{e^{x^2}}{x} + \frac{1}{x}$. Bemerke dass $f'(x) = \frac{1-e^{x^2}}{x}<0$ für $x \in (0, \infty)$ und somit umkehrbar.
+Wir können auch das Taylorpolynom 1ter Ordnung von $f'^{-1}(x)$ um $x_0 = 0$ berechnen. Es gilt $f(2) = 0$, sowie $(f^{-1})'(0) = \frac{1}{f'(f^{-1}(0))} = \frac{1}{f'(2)} = \frac{2}{1-e^4}$.
+
 \section*{Integrale Ausrechnen}
 
 \begin{important}
