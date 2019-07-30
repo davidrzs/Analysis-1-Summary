@@ -241,7 +241,12 @@ Wir erreichen $1$ sicher nie da sonst $1 = 0$, aber wir können beliebig nahe ko
 
 
 \begin{method}{Komplexe Zahlen} ${\displaystyle \varphi =\arg(z)}$\\
-\includegraphics[scale=1.4]{complex.jpg}\\
+\begin{empheq}[box=\fbox]{align*}
+	z &= x + iy & z &= r(\cos(\phi) + i\sin(\phi)) & z &= re^{i\phi}
+\end{empheq}
+\begin{empheq}[box=\fbox]{align*}
+x &= r \cos \phi &  y &= r\sin \phi & r &= \sqrt{x^2 + y^2} & \phi &= \arctan\left(\frac{x}{y}\right) 
+\end{empheq}
 \textsc{Division:} Es gilt $z^{-1} = \frac{\bar{z}}{||z||^2}$ wenn $z \not = 0$\\
 \textsc{Polarform} Wenn \begin{align*}
 z_1 &= r_1(\cos(\theta_1) + i\sin(\theta_1))\\
@@ -413,7 +418,7 @@ Beweise dass $\limm \frac{3n^2 + 4}{2n^2 + 1} = \frac{3}{2}$. Sei $\epsilon > 0$
 \end{itemize}
 
 \begin{method}{Satz von Weierstrass}
-	Wenn $a_n$ nach oben (nach unten) konvergent ist und monoton wachsend (fallend), dann ist $a_n$ konvergent.
+	Wenn $a_n$ nach oben (nach unten) beschränkt ist und monoton wachsend (fallend), dann ist $a_n$ konvergent mit $\lim a_n = \sup \ldots$ bzw $inf$.
 \end{method}
 
 \textbf{Beispiel (Induktive Folge mit Weierstrass)}: 
@@ -493,6 +498,18 @@ $|a_n - a_m| = |\frac{n-1}{2n} - \frac{m-1}{2m}| = |\frac{nm-m-nm+n}{2nm}| = |\f
 
 \textbf{Beweis (Nullfolge)} Wenn $\sum_{n = 0}^{\infty} a_n$ konvergent ist, dann ist $\limm a_n = 0$.
 Es gilt $a_N = S_N - S_{N-1}$. Somit $\limm a_n = \limm (S_n - S_{n-1}) = \limm S_n - \limm S_{n-1} = S-S = 0$
+
+\begin{important}{
+	\small \textbf{Wichtige Reihen}
+	\begin{itemize}
+		\item $\sum_{i=1}^{\infty} \frac{1}{i^2}$ konvergiert da $\frac{1}{i^2} \leq \frac{1}{k(k-1)}$ Die letzte Summe PBZ dann $1 + \sum \left( \frac{1}{k-1} - \frac{1}{k}\right)$ Es gilt $\sum_{i=1}^{\infty} \frac{1}{i^2} = \frac{\pi^2}{6}$
+		\item $\sum_{i=1}^{\infty} x^i = \frac{1}{1-x}$
+		\item $\sum_{i=1}^{\infty} \frac{(-1)^{i+1}}{i} = \ln(2)$.
+		\item $\sum_{n=0}^{\infty} \frac{x^n}{n!} = e^x$
+	\end{itemize}
+}\end{important}
+
+
 
 \begin{method}{Majorantenkriterium}
 	Fall $a_n \geq b_n \forall n \geq n_0$ für ein $n_0$. Dann gilt $\sum_n a_n \text{ konvergiert } \implies \sum_{n} b_n$ konvergiert.
@@ -1083,8 +1100,19 @@ Oder Alternativ $|R_N f(x;a)| \leq \sup\limits_{a < \xi < x} |f^{(n+1)} (\xi)|  
 	 &= \sum_{k=0}^{\infty} \; {\alpha \choose k} \; x^k 
 	\end{align*}
 	
-
+	\item $\boxed{\sinh(x)}$ Für alle $x\in \R$ gilt:
+	\begin{align*}
+	\sinh(x) &= x + \frac{x^3}{6} + \frac{x^5}{120} + \mathcal{O}(x^7)\\
+	&= \sum_{k=0}^{\infty}\frac{x^{1+2k}}{(1+2k)!}
+	\end{align*}
 	
+	\item $\boxed{\cosh(x)}$ Für alle $x\in \R$ gilt:
+	\begin{align*}
+	\cosh(x) &= 1 + \frac{x^2}{2} + \frac{x^4}{24} + \frac{x^6}{720} +  \mathcal{O}(x^7)\\
+	&= \sum_{k=0}^{\infty}\frac{x^{2k}}{(2k)!}
+	\end{align*}
+	
+
 \end{itemize}
 
 
@@ -1106,11 +1134,11 @@ Oder Alternativ $|R_N f(x;a)| \leq \sup\limits_{a < \xi < x} |f^{(n+1)} (\xi)|  
 \end{method}
 
 \begin{method}{Obersumme \& Untersumme}\\
-Untersumme: wobei $f_i = \inf_{x_{i-1} \leq x \leq x_i} $
+Untersumme: wobei $f_i = \inf_{x_{i-1} \leq x \leq x_i} f(x) $
 $$s(f,P) = \sum_{i=1}^{n} f_i \delta _i$$ 
 
-Obersumme: wobei $F_i = \sup_{x_{i-1} \leq x \leq x_i} $
-$$s(f,P) = \sum_{i=1}^{n} F_i \delta _i$$ 
+Obersumme: wobei $F_i = \sup_{x_{i-1} \leq x \leq x_i} f(x) $
+$$S(f,P) = \sum_{i=1}^{n} F_i \delta _i$$ 
 
 Zudem definieren wir:
 \begin{align*}
@@ -1488,6 +1516,17 @@ Da $\lim_{b \to \infty}  -b^n e^{-b} = 0$ folgt: $\int_{0}^{\infty} x^n e^{-x} d
 \end{method}
 
 
+\begin{method}{Gerade \& Ungerade Funktion}
+Eine Funktion heisst:
+\begin{itemize}
+	\item \textsc{Gerade} wenn $f(-x) = f(x)$
+	\item \textsc{Ungerade} wenn $f(-x) = - f(x)$
+\end{itemize}
+Dabei sind $f(x) = 1$, $f(x) = |x|$, $f(x)=x^2$, $f(x) = \cos(x)$ alles gerade Funktionen.\\
+Im Gegenzug sind $f(x) = sgn(x)$, $f(x) = x$, $f(x) = \tan(x)$, $f(x) = \sin(x)$ ungerade Funktionen.
+\end{method}
+
+
 \begin{method}{Injektiv}
 	\begin{align*}
 			&\forall x_1,x_2 \in M : f(x_1) = f(x_2) \implies x_1 = x_2\\
@@ -1513,6 +1552,7 @@ Da $\lim_{b \to \infty}  -b^n e^{-b} = 0$ folgt: $\int_{0}^{\infty} x^n e^{-x} d
 			$x^n$& $n\cdot x^{n-1}$ & $n \in \R$  \\
 			$\frac{1}{x} = x^{-1}$ & $- \frac{1}{x^2}$ & \\
 			$\sqrt{x} = x^{\frac{1}{2}}$ & $\frac{1}{2\sqrt{x}}$ & \\ 
+			$\sqrt[n]{x} = x^{\frac{1}{n}}$ & $\frac{x^{\frac{1}{n} -1 }}{n}$ &  $\int x^{1/n} dx = \frac{n x^{1/n + 1}}{n+1} + C$\\ 
 			$e^x$ & $e^x$ & \\
 			$a^x$ & $\ln(a) \cdot a^x$& \\
 			$x^x = e^{x\log(x)}$ & $x^x \cdot (\log(x) + 1)$ & Kettenregel $e^{x\log(x)}$\\
