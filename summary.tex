@@ -849,11 +849,12 @@ xticklabels={$-\pi$,$-\frac{\pi}{2}$,$0$, $\frac{\pi}{2}$,$\pi$,$\frac{3}{2}\pi$
 
 
 \textbf{Zeige $\sin(x) < x$ für $x \geq 0$}
-Wenn $x = 0$ dann folgt sofort $\sin(0) = 0$. Für $x\geq 1$ folgt auch $\sin(x) \leq 1 \leq x$. Es bleibt $x \in (0,1)$. Per Mittelwertsatz gibt es nun ein $c \in (0,x)$ für welches $\cos(x) = \frac{\sin(x) - \sin(0)}{x - 0}$. Daraus folgt $\frac{\sin(x)}{x} \leq 1$ was $\sin(x) \leq x$ impliziert.
+Wenn $x = 0$ dann folgt sofort $\sin(0) = 0$. Für $x\geq 1$ folgt auch $\sin(x) \leq 1 \leq x$. Es bleibt $x \in (0,1)$. Per Mittelwertsatz gibt es nun ein $c \in (0,x)$ für welches $\cos(c) = \frac{\sin(x) - \sin(0)}{x - 0}$. Daraus folgt $\frac{\sin(x)}{x} \leq 1$ was $\sin(x) \leq x$ impliziert.
 
 
 
 \subsection*{Wertetabelle}
+
 \includegraphics[width=0.7\linewidth]{p1Trig.png}\\
 \includegraphics[width=0.7\linewidth]{p2Trig.png}
 
@@ -955,11 +956,11 @@ Dann gilt $\phi(x_0) = f'(x_0)$. Dies folgt direkt aus (2) indem man $\phi(x) :=
 \textbf{Beweis (Satz von Rolle)} Aus dem Min-Max Satz folgt $\exists u,v \in [a,b]$ mit $f(u) \leq f(x) \leq f(v) \ \forall x \in [a,b]$. Falls einer der beiden in $(a,b)$ liegt nennen wir es $\xi$. Sonst gilt $f(a) = f(b)$ und dann $\xi = a$.
 
 
-\begin{method}{Satz von Lagrange}
+\begin{method}{Satz von Lagrange / Mittelwertsatz}
 	Sei $f:[a,b] \to \R$ stetig mit $(a,b)$ differenzierbar. Dann gibt es $\xi \in (a,b)$ mit $$f(b) - f(a) = f'(\xi) (b-a)$$
 	Dieser Satz ist auch bekannt als Mittelwertsatz. Die Aussage ist äquivalent zu: 
 	\begin{align*}
-		\exists x \in (a,b) : \quad f'(c) = \frac{f(b) -f(a) }{b-a}
+		\exists x \in (a,b) : \quad f'(x) = \frac{f(b) -f(a) }{b-a}
 	\end{align*}
 \end{method}
 \textbf{Beispiele (Lagrange)}
@@ -1450,7 +1451,22 @@ $$\sum_{n=1}^{\infty} f(n) \ \text{konv.}  \iff    \int_{1}^{\infty} f(x) dx \ \
  &{\tfrac {0}{1}},{\tfrac {-174611}{330}},{\tfrac {0}{1}},{\tfrac {854513}{138}},{\tfrac {0}{1}},{\tfrac {-236364091}{2730}},{\tfrac {0}{1}},{\tfrac {8553103}{6}},{\tfrac {0}{1}},{\tfrac {-23749461029}{870}},{\tfrac {0}{1}},\ldots
 \end{align*}
 
-\includegraphics[width=1\linewidth]{img/berThm.png}\\
+\begin{method}{bern}
+	\footnotesize
+	Sei $f:[0,n] \to \R$ $k$-mal stetig differenzierbar, $k\geq 1$. Dann gilt:
+	\begin{enumerate}
+	\item Für $k = 1$:
+	\begin{align*}
+		\sum_{i=1}^{n} f(i) &= \int_{0}^{n} f(x) dx + \frac{1}{2} (f(n) - f(0)) + \int_{0}^{n} \widetilde{B_1}(x)f'(x) dx  
+	\end{align*}
+	\item Für $k \geq 2$:
+	\begin{align*}
+		\sum_{i=1}^{n} f(i) &= \int_{0}^{n} f(x) dx + \frac{1}{2}(f(n) - f(0)) + \sum_{j=2}^{k} \frac{(-1)^j B_j}{j!}(f^{(j-1)}(n) - f^{(j-1)}(0)) + \widetilde{R_k}
+	\end{align*}
+	wobei $\widetilde{R}_k = \frac{(-1)^{k-1}}{k!} \int_{0}^{n} \widetilde{B}_k (x) f^{(k)} (x) dx$
+	\end{enumerate}
+\end{method}
+
 Wobei die Bernoulli Polynome wie folgt definiert sind:
 \begin{align*}
 	B_k (x) = \sum_{i=0}^{k} {k \choose i} B_i x^{k-i} 
