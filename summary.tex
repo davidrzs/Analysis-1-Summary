@@ -39,7 +39,7 @@
  bottom=50mm,
  }
 \usepackage{array}   % for \newcolumntype macro
-\newcolumntype{L}{>{$}l<{$}} % math-mode version of "l" column type
+\newcolumntype{L}{>{$}m{5.5cm}<{$}} % math-mode version of "l" column type
 
 %BEGIN LISTINGDEF
 
@@ -424,6 +424,9 @@ Beweise dass $\limm \frac{3n^2 + 4}{2n^2 + 1} = \frac{3}{2}$. Sei $\epsilon > 0$
 	\item $\limm  \frac{(\frac{1}{n} + n^2 )^3}{1 + n^6} = \limm \frac{n^6}{n^6} \frac{(\frac{1}{n^3} + 1 )^3}{\frac{1}{n^6} + 1} = \limm \frac{(\frac{1}{n^3} + 1 )^3}{\frac{1}{n^6} + 1} = 1$
 	
 	\item $\limm \sqrt{n} (\sqrt{n + 2} - \sqrt{n}) \stackrel{\text{Wurzeltrick}}{=} \limm \frac{2 \sqrt{2}}{\sqrt{n+2} + \sqrt{n}} = \limm  \frac{2}{\sqrt{1 + \frac{2}{n}} + 1} = 1$
+	
+	\item $ \limm \sqrt[n]{3^n + 7^n} = \limm \sqrt[n]{7^n ( \frac{3^n}{7^n} + 1)} = \limm 7 \sqrt[n]{ (\frac{3^n}{7^n} + 1)} = 7$
+	
 \end{itemize}
 
 \begin{method}{Satz von Weierstrass}
@@ -739,6 +742,14 @@ Daraus folgt: $$|f(x) - f(x_0)| = |f(x) - f_N(x_0) + f_N(x) - f_N(x_0) + f_N(x_0
 
 
 
+\begin{important}{
+		\small \textbf{Integration und Funktionenfolgen}
+Sei $f_n : [a,b]\to \R$ eine Folge von beschränlten und Integrierbaren Funktionen die gleichmässig gegen eine Funktion $f:[a,b]\to  \R$ konvergiert. Dann ist $f$ beschränkt integrierbar und:
+\begin{align*}
+	\lim\limits_{n\to \infty} \int_{a}^{b} f_n (x) dx &= \int_{a}^{b} f(x) dx
+\end{align*}
+}\end{important}
+
 
 
 
@@ -834,6 +845,8 @@ Dabei gilt:
 \sin(2x) &= 2\sin(x)\cos(x) &  \cos(2x) &= 1 - 2\sin^2(x)
 \end{align*}
 
+Zudem: $\sin(\arccos(t)) = \sqrt{1 - t^2}$ sowie $\cos(\arcsin(t)) = \sqrt{1-t^2}$
+
 \begin{tikzpicture}
 \begin{axis}[
 clip=false,
@@ -866,30 +879,36 @@ Wenn $x = 0$ dann folgt sofort $\sin(0) = 0$. Für $x\geq 1$ folgt auch $\sin(x)
 
 
 
-\begin{multicols}{2}
 \begin{center}
-	\begin{tabular}{ L  | L | L  }
-		\sin(\phi) & \cos(\phi) & \tan(\phi) \\ \hline \hline
-		\sin(0) = 0 & \cos(0) = 1 & \tan(0) = 0 \\ 
-		cell4 & cell5 & cell6 \\  
-		cell7 & cell8 & cell9    
+	\begin{tabular}{ p{5cm} | p{5cm}  | p{5cm} | p{5cm}  }
+		Value $\phi$ & $\sin(\phi)$ & $\cos(\phi)$ & $\tan(\phi)$ \\[0.75ex] \hline \hline 
+		$0$ & $0$ & $1$ & $0$ \\  \hline
+		$\frac{\pi}{12}$ & $\frac{\sqrt{3} -1}{2\sqrt{2}}$ & $\frac{1 + \sqrt{3}}{2\sqrt{2}}$ & $2 - \sqrt{3}$ \\ \hline
+		$\frac{\pi}{6}$ & $\frac{1}{2}$ & $\frac{\sqrt{3}}{2}$ & $\frac{1}{\sqrt{3}}$	\\  \hline
+		$\frac{\pi}{4}$ & $\frac{1}{\sqrt{2}}$ & $\frac{1}{\sqrt{2}}$ & $1$ \\  \hline
+		$\frac{\pi}{3}$ & $\frac{\sqrt{3}}{2}$ & $\frac{1}{2}$ & $\sqrt{3}$\\  \hline
+		$\frac{5\pi}{12}$ & $\frac{1 + \sqrt{3}}{2\sqrt{2}}$ & $\frac{\sqrt{3} - 1}{2\sqrt{2}}$ & $2 + \sqrt{3}$\\  \hline
+		$\frac{\pi}{2}$ & $1$ & $0$ & $\infty$\\\hline
+		$\frac{7\pi}{12}$ & $\frac{1+\sqrt{3}}{2\sqrt{2}}$ & $ -\frac{\sqrt{3}-1}{2\sqrt{2}}$ & $-2-\sqrt{3}$\\  \hline
+		$\frac{2\pi}{3}$ & $\frac{\sqrt{3}}{2}$ & $- \frac{1}{2}$ & $-\sqrt{3}$\\ \hline
+		$\frac{3\pi}{4}$ & $\frac{1}{\sqrt{2}}$ & $-\frac{1}{\sqrt{2}}$ & $-1$\\  \hline
+		$\frac{5\pi}{6}$ & $\frac{1}{2}$ & $- \frac{\sqrt{3}}{2}$ & $- \frac{1}{\sqrt{3}}$ \\ \hline
+		$\frac{11\pi}{12}$ & $\frac{\sqrt{3} -1}{2\sqrt{2}}$ & $-\frac{1+\sqrt{3}}{2\sqrt{2}}$ & $\sqrt{3} -2$\\ \hline
+		$\pi$ & $0$ & $-1$ & $0$ \\ \hline
+		$\frac{13\pi}{12}$ & $-\frac{\sqrt{3} -1}{2\sqrt{2}}$ & $- \frac{1 + \sqrt{3}}{2\sqrt{2}}$ & $2 - \sqrt{3}$\\ \hline
+		$\frac{7\pi}{6}$ & $-\frac{1}{2}$ & $-\frac{\sqrt{3}}{2}$ & $\frac{1}{\sqrt{3}}$\\ \hline
+		$\frac{5\pi}{4}$ & $-\frac{1}{\sqrt{2}}$ & $-\frac{1}{\sqrt{2}}$ & $1$ \\ \hline
+		$\frac{4 \pi}{3}$ & $- \frac{\sqrt{3}}{2}$ & $-\frac{1}{2}$ & $\sqrt{3}$\\  \hline
+		$\frac{17\pi}{12}$ & $-\frac{1+\sqrt{3}}{2\sqrt{2}}$ & - $\frac{\sqrt{3}-1}{2\sqrt{2}}$ & $2+ \sqrt{3}$\\ \hline
+		$\frac{3\pi}{2}$ & $-1$ & $0$ & $\infty$ \\ \hline
+		$\frac{19\pi}{12}$ & $-\frac{1+\sqrt{3}}{2\sqrt{2}}$ & $\frac{\sqrt{3} -1}{2\sqrt{2}}$ & $-2-\sqrt{3}$\\ \hline
+		$\frac{5\pi}{3}$ & $-\frac{\sqrt{3}}{2}$ & $\frac{1}{2}$ & $-\sqrt{3}$\\ \hline
+		$\frac{7\pi}{4}$ & $-\frac{1}{\sqrt{2}}$ & $\frac{1}{\sqrt{2}}$ & $-1$\\  \hline
+		$\frac{11\pi}{6}$ & $- \frac{1}{2}$ & $\frac{\sqrt{3}}{2}$ & $- \frac{1}{\sqrt{3}}$\\  \hline
+		$\frac{23\pi}{12}$ & $-\frac{\sqrt{3} - 1}{2\sqrt{2}}$ & $\frac{1+\sqrt{3}}{2\sqrt{2}}$ & $\sqrt{3} - 2$ \\  \hline
+		$2\pi$ & $0$ & $1$ & $0$ \\  \hline
 	\end{tabular}
 \end{center}
-\begin{center}
-	\begin{tabular}{ L  | L | L  }
-		\sin(\phi) & \cos(\phi) & \tan(\phi) \\ \hline \hline
-		cell1 & cell2 & cell3 \\ 
-		cell4 & cell5 & cell6 \\  
-		cell7 & cell8 & cell9    
-	\end{tabular}
-\end{center}
-\end{multicols}
-
-
-
-\includegraphics[width=0.7\linewidth]{p1Trig.png}\\
-\includegraphics[width=0.7\linewidth]{p2Trig.png}
-
 
 
 \subsection*{Hyperbolische Funktionen}
@@ -912,6 +931,7 @@ Sowie die Reihendarstellungen:
 \cosh(z)&=1+{\frac {z^{2}}{2!}}+{\frac {z^{4}}{4!}}+{\frac {z^{6}}{6!}}+\dots =\sum _{n=0}^{\infty }{\frac {z^{2n}}{(2n)!}}
 \end{align*}
 
+Zudem gilt für $x \in (-1,1)$: $\operatorname{arctanh}(x) = \frac{1}{2} \ln \left( \frac{1+x}{1-x} \right)$
 
 
 
@@ -1009,6 +1029,10 @@ Dann gilt $\phi(x_0) = f'(x_0)$. Dies folgt direkt aus (2) indem man $\phi(x) :=
 		(f^{{-1}})'(y_0) &= {\frac  {1}{f'(f^{{-1}}(y_0))}}={\frac  {1}{f'(x_0)}}.
 	\end{align*}
 \end{method}
+
+\textbf{Zweite Ableitung der Umkehrfunktion} $(f^{-1})''(y) = \left(\frac{1}{f' \circ f^{-1}}\right)(y)$ mit Kettenregel.  
+
+
 \textbf{Beispiel (Ableitung der Umkehrfunktion)} Sei $f^{-1}(y) = \ln(y)$. Dann gilt $f(x) = e^x$, es folgt $f'(x)= e^x$ woraus $(f^{-1})'(y) = \frac{1}{f'(f^{-1}(y))}$ sowie $(f^{-1})'(y) = \frac{1}{y}$ folgt. 
 
 \begin{method}{Satz von Cauchy}
@@ -1045,7 +1069,7 @@ sowie:
 \section*{Taylorapproximation}
 
 \begin{method}{Taylorapproximation}
-Sei $f\in C^m ([a,b])$ auf $(a,b)$ $m+1$ mal differenzierbar. Dann exisitert $\epsilon \in (a,b)$ mit 
+Sei $f\in C^m ([a,b])$ auf $(a,b)$ $m+1$ mal differenzierbar. Dann exisitert $\xi \in (a,b)$ mit 
 \begin{align*}
 	f(x) =& f(a) + f'(a)(x-a) + \ldots + \frac{1}{m!} f^{(m)} (a) (x-a)^m\\ &+ \frac{1}{(m+1)!} f^{(m+1)}(\xi) (x-a)^{m+1}
 \end{align*} 
@@ -1483,27 +1507,22 @@ $$\sum_{n=1}^{\infty} f(n) \ \text{konv.}  \iff    \int_{1}^{\infty} f(x) dx \ \
  &{\tfrac {0}{1}},{\tfrac {-174611}{330}},{\tfrac {0}{1}},{\tfrac {854513}{138}},{\tfrac {0}{1}},{\tfrac {-236364091}{2730}},{\tfrac {0}{1}},{\tfrac {8553103}{6}},{\tfrac {0}{1}},{\tfrac {-23749461029}{870}},{\tfrac {0}{1}},\ldots
 \end{align*}
 
-\begin{lemma}{Satz 5.44 - Bernoullipolynome}
-	\footnotesize
-	c..dsafkjsda klasd j 
-\end{lemma}
-
-\includegraphics[width=1\linewidth]{img/berThm.png}\\
-\begin{method}{bern}
-	\footnotesize
-	Sei $f:[0,n] \to \R$ $k$-mal stetig differenzierbar, $k\geq 1$. Dann gilt:
-	\begin{enumerate}
+\begin{lemma}{\textbf{\small Satz 5.44 - Bernoullipolynome}\\}
+	\small
+Sei $f:[0,n] \to \R$ $k$-mal stetig differenzierbar, $k\geq 1$. Dann gilt:
+\begin{enumerate}
 	\item Für $k = 1$:
 	\begin{align*}
-		\sum_{i=1}^{n} f(i) &= \int_{0}^{n} f(x) dx + \frac{1}{2} (f(n) - f(0)) + \int_{0}^{n} \widetilde{B_1}(x)f'(x) dx  
+	\sum_{i=1}^{n} f(i) &= \int_{0}^{n} f(x) dx + \frac{1}{2} (f(n) - f(0)) + \int_{0}^{n} \widetilde{B_1}(x)f'(x) dx  
 	\end{align*}
 	\item Für $k \geq 2$:
 	\begin{align*}
-		\sum_{i=1}^{n} f(i) &= \int_{0}^{n} f(x) dx + \frac{1}{2}(f(n) - f(0)) + \sum_{j=2}^{k} \frac{(-1)^j B_j}{j!}(f^{(j-1)}(n) - f^{(j-1)}(0)) + \widetilde{R_k}
+	\sum_{i=1}^{n} f(i) &= \int_{0}^{n} f(x) dx + \frac{1}{2}(f(n) - f(0)) + \sum_{j=2}^{k} \frac{(-1)^j B_j}{j!}(f^{(j-1)}(n) - f^{(j-1)}(0)) + \widetilde{R_k}
 	\end{align*}
 	wobei $\widetilde{R}_k = \frac{(-1)^{k-1}}{k!} \int_{0}^{n} \widetilde{B}_k (x) f^{(k)} (x) dx$
-	\end{enumerate}
-\end{method}
+\end{enumerate}
+\end{lemma}
+
 
 Wobei die Bernoulli Polynome wie folgt definiert sind:
 \begin{align*}
@@ -1561,6 +1580,12 @@ Da $\lim_{b \to \infty}  -b^n e^{-b} = 0$ folgt: $\int_{0}^{\infty} x^n e^{-x} d
 	\end{align*}
 \end{method}
 
+
+\begin{method}{Logarithmus Regeln}
+${\displaystyle \log _{b}(x\cdot y)=\log _{b}(x)+\log _{b}(y)}$
+\end{method}
+
+
 \begin{method}{Summenformeln}
 	\begin{align*}
 	\sum _{{k=1}}^{n}k &= {\frac  {n(n+1)}{2}}\\
@@ -1592,8 +1617,12 @@ Im Gegenzug sind $f(x) = sgn(x)$, $f(x) = x$, $f(x) = \tan(x)$, $f(x) = \sin(x)$
 	\end{align*}
 \end{method}
 
+\textbf{Umkehrsatz - Beispiel} Zeige dass $x + e^x$ bijektiv von $\R$ auf $\R$ abbildet. Es gilt $f'(x) = 1 + e^x > 0$, somit ist $f$ streng monoton wachsend in $\R$ und Umkehrbar. Weil $\lim_{x \to -\infty} f(x) = - \infty$ und $\lim_{x \to \infty} f(x) = \infty$ ist $f$ bijektiv von $\R$ nach $\R$
 
-\subsection*{Ableitungsregeln}
+
+\vfill\null
+\columnbreak
+
 % to have more vertical space in the table.
 
 {\renewcommand{\arraystretch}{1.5}
