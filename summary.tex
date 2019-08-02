@@ -38,8 +38,8 @@
  top=5mm,
  bottom=50mm,
  }
-
-
+\usepackage{array}   % for \newcolumntype macro
+\newcolumntype{L}{>{$}l<{$}} % math-mode version of "l" column type
 
 %BEGIN LISTINGDEF
 
@@ -156,6 +156,15 @@
 	{ 
 	\end{mdframed}
 }
+
+\newenvironment{lemma}{\begin{mdframed}[backgroundcolor=gray!50,innertopmargin=15pt, innerbottommargin=15pt, nobreak=true]
+		\Large
+	}
+	{ 
+	\end{mdframed}
+}
+
+
 
 \usepackage{todonotes}
 \newcommand{\TODO}[1]{\todo[inline]{\Large TODO:  #1}}
@@ -837,6 +846,30 @@ Wenn $x = 0$ dann folgt sofort $\sin(0) = 0$. Für $x\geq 1$ folgt auch $\sin(x)
 
 
 \subsection*{Wertetabelle}
+
+
+
+\begin{multicols}{2}
+\begin{center}
+	\begin{tabular}{ L  | L | L  }
+		\sin(\phi) & \cos(\phi) & \tan(\phi) \\ \hline \hline
+		\sin(0) = 0 & \cos(0) = 1 & \tan(0) = 0 \\ 
+		cell4 & cell5 & cell6 \\  
+		cell7 & cell8 & cell9    
+	\end{tabular}
+\end{center}
+\begin{center}
+	\begin{tabular}{ L  | L | L  }
+		\sin(\phi) & \cos(\phi) & \tan(\phi) \\ \hline \hline
+		cell1 & cell2 & cell3 \\ 
+		cell4 & cell5 & cell6 \\  
+		cell7 & cell8 & cell9    
+	\end{tabular}
+\end{center}
+\end{multicols}
+
+
+
 \includegraphics[width=0.7\linewidth]{p1Trig.png}\\
 \includegraphics[width=0.7\linewidth]{p2Trig.png}
 
@@ -1421,6 +1454,11 @@ $$\sum_{n=1}^{\infty} f(n) \ \text{konv.}  \iff    \int_{1}^{\infty} f(x) dx \ \
  &{\tfrac {1}{1}},{\tfrac {-1}{2}},{\tfrac {1}{6}},{\tfrac {0}{1}},{\tfrac {-1}{30}},{\tfrac {0}{1}},{\tfrac {1}{42}},{\tfrac {0}{1}},{\tfrac {-1}{30}},{\tfrac {0}{1}},{\tfrac {5}{66}},{\tfrac {0}{1}},{\tfrac {-691}{2730}},{\tfrac {0}{1}},{\tfrac {7}{6}},{\tfrac {0}{1}},{\tfrac {-3617}{510}},{\tfrac {0}{1}},{\tfrac {43867}{798}},\\ 
  &{\tfrac {0}{1}},{\tfrac {-174611}{330}},{\tfrac {0}{1}},{\tfrac {854513}{138}},{\tfrac {0}{1}},{\tfrac {-236364091}{2730}},{\tfrac {0}{1}},{\tfrac {8553103}{6}},{\tfrac {0}{1}},{\tfrac {-23749461029}{870}},{\tfrac {0}{1}},\ldots
 \end{align*}
+
+\begin{lemma}{Satz 5.44 - Bernoullipolynome}
+	\footnotesize
+	c..dsafkjsda klasd j 
+\end{lemma}
 
 \includegraphics[width=1\linewidth]{img/berThm.png}\\
 Wobei die Bernoulli Polynome wie folgt definiert sind:
