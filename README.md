@@ -1,9 +1,15 @@
-# Analysis 1 Summary - Please read me!
-
-The following repo contains an Analysis 1 summary. I will continue to fix bugs over the course of the next month, hence things might still change. 
+# Analysis Summaries - Please read me!
 
 
-## Important Notice: 
+The following repo contains two summaries:
+
+- an Analysis 1 summary for the spring 2019 analysis 1 lecture taught by Prof. Burger
+- an Analysis 2 summary for the fall 2019 analysis 2 lecture taught by Prof. Kowalski
+
+I will continue to fix bugs over the course of the next months, hence things might still change.
+
+
+## Important Notice:
 
 **Do not use this as your exam summary - feel free to take my source code and apply a different design as well as add and remove some parts or copy parts out of my summary, but as far as I know the summaries must be self-written (can also be digital) and I wouldn't wanna get problems if they check on exam day that everyone has their own summary).**
 
