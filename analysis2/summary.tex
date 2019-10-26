@@ -19,7 +19,6 @@
 \usepackage{gensymb}
 \usepackage[utf8]{inputenc}
 \usepackage{empheq}
-\usepackage{mathtools}
 
 \usepackage{pgfplots}
 \pgfplotsset{width=11cm,compat=1.9}
@@ -45,61 +44,6 @@
 
 
 
-\usepackage{listings}
-\usepackage{sourcecodepro}
-\definecolor{listing-background}{rgb}{0.97,0.97,0.97}
-\definecolor{listing-rule}{HTML}{B3B2B3}
-\definecolor{listing-numbers}{HTML}{B3B2B3}
-\definecolor{listing-text-color}{HTML}{000000}
-\definecolor{listing-keyword}{HTML}{435489}
-\definecolor{listing-identifier}{HTML}{435489}
-\definecolor{listing-string}{HTML}{00999a}
-\definecolor{listing-comment}{HTML}{8e8e8e}
-\definecolor{listing-javadoc-comment}{HTML}{006CA9}
-
-\lstdefinestyle{eisvogellistingstyle}{
-	language=java,
-	numbers=left,
-	backgroundcolor=\color{listing-background},
-	basicstyle=\color{listing-text-color}\small\ttfamily{}, % print whole listing small
-	xleftmargin=0.8em, % 2.8 with line numbers
-	breaklines=true,
-	frame=single,
-	framesep=0.6mm,
-	rulecolor=\color{listing-rule},
-	frameround=ffff,
-	framexleftmargin=0.4em, % 2.4 with line numbers | 0.4 without them
-	tabsize=4, %width of tabs
-	numberstyle=\color{listing-numbers},
-	aboveskip=1.0em,
-	keywordstyle=\color{listing-keyword}\bfseries, % underlined bold black keywords
-	classoffset=0,
-	sensitive=true,
-	identifierstyle=\color{listing-identifier}, % nothing happens
-	commentstyle=\color{listing-comment}, % white comments
-	morecomment=[s][\color{listing-javadoc-comment}]{/**}{*/},
-	stringstyle=\color{listing-string}, % typewriter type for strings
-	showstringspaces=false, % no special string spaces
-	escapeinside={/*@}{@*/}, % for comments
-	literate=
-	{á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
-	{Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
-	{à}{{\`a}}1 {è}{{\'e}}1 {ì}{{\`i}}1 {ò}{{\`o}}1 {ù}{{\`u}}1
-	{À}{{\`A}}1 {È}{{\'E}}1 {Ì}{{\`I}}1 {Ò}{{\`O}}1 {Ù}{{\`U}}1
-	{ä}{{\"a}}1 {ë}{{\"e}}1 {ï}{{\"i}}1 {ö}{{\"o}}1 {ü}{{\"u}}1
-	{Ä}{{\"A}}1 {Ë}{{\"E}}1 {Ï}{{\"I}}1 {Ö}{{\"O}}1 {Ü}{{\"U}}1
-	{â}{{\^a}}1 {ê}{{\^e}}1 {î}{{\^i}}1 {ô}{{\^o}}1 {û}{{\^u}}1
-	{Â}{{\^A}}1 {Ê}{{\^E}}1 {Î}{{\^I}}1 {Ô}{{\^O}}1 {Û}{{\^U}}1
-	{œ}{{\oe}}1 {Œ}{{\OE}}1 {æ}{{\ae}}1 {Æ}{{\AE}}1 {ß}{{\ss}}1
-	{ç}{{\c c}}1 {Ç}{{\c C}}1 {ø}{{\o}}1 {å}{{\r a}}1 {Å}{{\r A}}1
-	{€}{{\EUR}}1 {£}{{\pounds}}1 {«}{{\guillemotleft}}1
-	{»}{{\guillemotright}}1 {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {¿}{{?`}}1
-}
-\lstset{style=eisvogellistingstyle}
-
-
-
-%END LISTINGDEF
 
 
 \newcommand*\widefbox[1]{\fbox{\hspace{2em}#1\hspace{2em}}}
@@ -130,7 +74,7 @@
 %END TITLE
 
 \usepackage{palatino}
-
+\usepackage{eulervm}
 % begin custom commands
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
@@ -141,7 +85,7 @@
 
 \newtheorem{thm}{Thm}[section]
 
-
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 \usepackage[framemethod=TikZ]{mdframed}
 \newenvironment{method}[1]{\begin{mdframed}[backgroundcolor=blue!10,innertopmargin=15pt, innerbottommargin=15pt, nobreak=true]
 		\textbf{#1 }
@@ -170,21 +114,22 @@
 \newcommand{\TODO}[1]{\todo[inline]{\Large TODO:  #1}}
 
 
-
+\usepackage{mathpazo}
 
 
 \DeclarePairedDelimiter\abs{\left|}{\right|}%
-\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+
 
 
 \setlength\abovedisplayskip{0pt}
 
+\renewcommand{\familydefault}{\rmdefault}
 
 % end custom commands
 
 \begin{document}
 
-\fontfamily{ppl}\selectfont
+
 
 
 
@@ -211,21 +156,6 @@
 
 \begin{method}{Cauchy Schwarz}
 	$\forall x,y\in \R^n$ gilt $|\langle x,y\rangle| \leq ||x||\cdot||y||$.
-\end{method}
-
-\begin{method}{Youngsche Ungleichung}
-$\forall \epsilon > 0 , \forall x,y\in \R$ gilt: $2 |xy| \leq \epsilon x^2 + \frac{1}{\epsilon} y^2$. Beweis per Expansion von $\left( \sqrt{\epsilon} |x| - \frac{1}{\sqrt{\epsilon}} |y| \right) ^2 \geq 0$\\
-\textbf{In Integralform:}  Wenn $f$ stetig strikt monoton wachsend:
-$$ab \leq \int_{0}^{a} f(x) dx + \int_{0}^{b} f^{-1}(y) dy$$
-Wenn wir $f(x) = x^{p-1}$, so gilt $ab \leq \frac{a^p}{p} + \frac{b^q}{q}$ mit $\frac{1}{q} + \frac{1}{p} = 1$.
-\end{method}
-
-\begin{method}{Hölder Ungleichung}
-	Seien $p,q>1$ mit $\frac{1}{q} + \frac{1}{p} = 1$, dann gilt für alle stetigen $f,g:[a,b]\to \R$
-	\begin{align*}
-		\int_{a}^{b} |f(x) g(x)| dx \leq || f||_p ||g||_q
-	\end{align*}
-	Wobei $$||f||_p := \left( \int_{a}^{b} |f(x) |^p dx \right) ^{1/p}$$
 \end{method}
 
 
@@ -268,17 +198,6 @@ Zudem folgt durch Induktion:
 Wir sagen dass $f$ an der Stelle $a$ den Grenzwert $L\in \R$ hat, geschrieben $\lim\limits_{x \to a} f(x) = L$ falls $\forall \epsilon > 0 \ \exists \delta > 0 $ sodass für alle $|x-a|<\delta$ gilt $|f(x)-L|< \epsilon$
 
 
-\begin{method}{Grenzwert mittels Dominanz}
-Grundsätzlich gelten die folgenden Dominanzen: \\
-Für $x \to + \infty$:
-\begin{align*}
-	\ldots < \log(\log(x)) < \log(x) < x^\alpha < e^x < \alpha^x < x! < x^x
-\end{align*}
-Sowie für $x \to 0^+$
-\begin{align*}
-\ldots < \log(\log(x)) < \log(x) < \left(\frac{1}{x}\right)^\alpha
-\end{align*}
-\end{method}
 
 
 \subsubsection*{Wurzeltrick}
@@ -498,33 +417,12 @@ Es gilt $a_N = S_N - S_{N-1}$. Somit $\limm a_n = \limm (S_n - S_{n-1}) = \limm 
 	\item Hat $e^{2x} - \log (1+x) = 2$ eine Lösung in $[0,1]$?. Wir def. $h(x) = e^{2x} - \log (1+x) -2$. Bemerke $h(x)$ ist stetig. Es gilt $h(0) = 1 - 0 - 2 = -1$, sowie $h(1) = e^2 - \log(2) -2 \geq 0$. Somit existiert $x_0 \in [0,1]$ mit $h(x_0) = 0$. Somit exisiter Lösung in $[0,1]$.
 \end{itemize}
 
-\begin{method}{Min-Max Satz}
-\begin{itemize}
-	\item  Jede auf einem kompakten Intervall $\displaystyle [a,b]\subset \mathbb {R} \;(a\leq b) $ definierte stetige Funktion ist dort beschränkt und nimmt dort ein Maximum und ein Minimum an. Insbesondere ist $f$ beschränkt.
-	\item Ist ${\displaystyle f\colon [a,b]\to \mathbb {R} }$ eine stetige Funktion auf einem kompakten Intervall $I$, dann gitb es $u,v\in I$ mit $$f(u) \leq f(x) \leq f(v) \quad \forall x \in I$$
-	\end{itemize}
-\end{method}
-
 
 \begin{method}{Kompaktheit}
 	Wir nennen ein Intervall $I \subseteq R$ kompakt, wenn es die Form $[a,b], a \leq b$ hat.
 \end{method}
 
 
-\begin{method}{Stetigkeit der Verknüpfung} Wenn $f,g$ auf passenden Intervallen stetig, dann $(f \circ g)$ das auch. Sei $x_0 \in [a,b]$ beliebig und $(x_n)_n$ eine Folge mit $\lim\limits_{n\to\infty} x_n = x_0$, dann gilt\\ $\lim\limits_{n\to\infty} (f \circ g) (x_n) = (f \circ g) (x_0)$ was die Folgenstetigkeit zeigen würde.
-\end{method}
-
-\textbf{Beweis (Stetigkeit der Verknüpfung)}
-$\lim\limits_{n\to\infty} (f\circ g)(x_n) = \lim\limits_{n\to\infty} (f(g(x_n))  = f(\lim\limits_{n\to\infty} g(x_n)) = f(g( \lim\limits_{n\to\infty} x_n))  = (f \circ g) (\lim\limits_{n\to\infty} x_n) = f(g( \lim\limits_{n\to\infty} x_n))  = (f \circ g) (x_0)$
-
-
-
-\begin{method}{Stetigkeit der Umkehrabbildung}
-	Sei $I \subset \R$ ein intervall und $f:I \to R$ stetig, streng monoton. Dann ist $J = f(I) \subseteq \R$ ein intervall und $f^{-1} : J \to I$ stetig und bijektiv
-\end{method}
-
-\vfill\null
-\columnbreak
 
 \section*{Exponentialfunktion \& Sinus \& Kosinus}
 
@@ -1217,12 +1115,6 @@ Im Gegenzug sind $f(x) = sgn(x)$, $f(x) = x$, $f(x) = \tan(x)$, $f(x) = \sin(x)$
 
 
 
-
-\vfill\null
-\columnbreak
-
-
-
 \subsection*{Wichtige Integrale}
 
 \begin{itemize}
@@ -1234,10 +1126,6 @@ Im Gegenzug sind $f(x) = sgn(x)$, $f(x) = x$, $f(x) = \tan(x)$, $f(x) = \sin(x)$
 
 
 
-\newpage
-
-
-
 
 
 
@@ -1245,7 +1133,7 @@ Im Gegenzug sind $f(x) = sgn(x)$, $f(x) = x$, $f(x) = \tan(x)$, $f(x) = \sin(x)$
 
 %----------------------------
 
-%                       _           _       ___  
+%                      _           _       ___  
 %    /\               | |         (_)     |__ \ 
 %   /  \   _ __   __ _| |_   _ ___ _ ___     ) |
 %  / /\ \ | '_ \ / _` | | | | / __| / __|   / / 
@@ -1269,11 +1157,212 @@ Im Gegenzug sind $f(x) = sgn(x)$, $f(x) = x$, $f(x) = \tan(x)$, $f(x) = \sin(x)$
 
 
 
+\section*{First order differential Equations}
+
+
+
+\begin{method}{Trennung der Variablen} Wenn wir eine ODE der Form $y' = h(x)y + b(x)$ haben so lösen wir das homogene Problem $y' = h(x)y$ mittels Trennung der Variablen.
+	
+Sei nun somit $y' = \frac{dy}{dx} = h(x)\cdot g(y)$ so schreiben wir es als 
+
+\begin{align*}
+	\frac{dy}{g(y)} &= h(x)dx\\
+	\int \frac{dy}{g(y)} &= \int h(x)dx
+\end{align*}
+um, was wir dann nach $y$ auflösen können.
+\end{method}
+
+
+\TODO{beispiele}
+
+
+\begin{method}{Variation der Konstanten} Wenn wir eine ODE der Form $y' = h(x)y + b(x)$ haben, so gilt dass $y(x) = y_{hom} + y_{part}$. Dafür lösen wir zuerst das homogene Problem mittels Trennung der Variablen.
+	content...
+\end{method}
+
+
+
+\section*{Lineare DGL $n$-ter Ordnung}
+
+Wir lösen das homogene Problem vor dem inhomogenen!
+
+\begin{method}{Homogene Lineare DGL $n$-ter Ordnung}
+
+Wenn wir eine Gleichung der Form
+\begin{align*}
+a_ny^{(n)} + a_{n-1}y^{(n-1)} + \ldots + a_0 y &= 0
+\end{align*}
+dann nehmen wir den Euler-Ansatz $y(x) = e^{\lambda x}$ und finden $\lambda$ mit
+\begin{align*}
+a_n \lambda^n + a_{n-1}\lambda^{n-1} + a_0 &= 0
+\end{align*}
+Nun finden wir die Nullstellen $\lambda$ des charakteristischen Polynoms. Wir bauen uns nun eine Basis aus $e^{\lambda_i x}$ Wenn eine Nullstelle $m$ mal Vorkommt nehmen wir
+\begin{align*}
+e^{\lambda x},e^{\lambda x}, \ldots , x^{m-1} e^{\lambda x} 
+\end{align*}
+Das gibt uns ein Fundamentalsystem. Die Allgemeine Lösung ist eine Linearkombination der Basis (basierend auf den Anfangswerten).
+\end{method}
+
+Wenn die NS $\lambda = \beta + i\gamma$ nicht reell ist, so ist (bei rellen DGL) auch $\beta -i\gamma$ auch eine NS. Wir konnen dann $e^{x(\beta + i\gamma)}$, $e^{x(\beta - i\gamma)}$ auswechseln durch $e^{x\beta}\cos(\gamma x)$ sowie $e^{x\beta}\cos(\gamma x)$ austauschen.
+
+
+
+\TODO{beisiele}
+
+
+
+\section*{Continuity in $\R^n$}
+\begin{method}{Convergence of sequence in $\R^n$}
+	Let $(x_n)_n$ be a sequence  in $\R^n$. We say that a sequence converges to $y$ if for all $\epsilon > 0$, there exists $N \geq 1$ such that for all $n \geq N$ we have $\norm{x_n-y}\leq \epsilon$
+\end{method}
+
+\begin{method}{Continuity in $\R^n$}
+	\begin{itemize}
+		\item 	Let $x_0\in X$, we say that $f$ is continuous at $x_0$ if for all $\epsilon> 0$, there exists $\delta > 0$ such that if $x\in X$ satisfies $\norm{x-x_0}<\delta$ then $\norm{f(x) -f(x_0)}<\epsilon$.
+		\item The function $f:X\to \R^m$ is continuous at $x_0$ if and only if, for every sequence $(x_n)_n$ in $X$ such that $x_k\to x_0$ as $k \to \infty$ the sequence $(f(x_k))_k$ converges to $f(x_0)$
+	\end{itemize}
+\end{method}
+
+
+\section*{Topology of $\R^n$}
+
+
+\begin{method}{Bounded, Closed \& Compact}
+	\begin{itemize}
+		\item A subset $X\subseteq \R^n$ is bounded if the set of TODO
+		\item A subset $X \subseteq \in \R^n$ is closed if for every sequence $(x_k)_k$ in $X$ that converges to some $y\in \R^n$, we have $y \in X$.
+		\item A subset $X \subseteq \R^n$ is compact if it is bounded and closed.
+	\end{itemize}
+\end{method}
+\textbf{Examples:}
+\TODO{add examples}
+
+\section*{Differentiability in $\R^n$}
+It turns out that the existence of partial derivatives is not enough to show differentiability of a function. An example is the function $f(x,y) = \begin{cases} 
+0 \ \text{ if } (x,y) = (0,0)\\
+\frac{xy}{x^2+y^2} \ \text{ else}
+\end{cases}$. Using the polar coordinate trick one can see that the function is not continuous, however both partial derivatives give $\partial_{x} f(0,0) = \partial_{y}f(0,0) = 0$, nevertheless, there exists no differential of $f$ at $(0,0)$ since it is not continuous there.
+\begin{method}{Differentiable in $\R^n$}
+	\begin{itemize}
+		\item 	Let $X\subseteq \R^n$ be open and $f: X \to \R^n$ be a function. Let $u$ be a linear map $\R^n \to \R^m$ and $x_0 \in X$. We say $f$ is \textit{differentiable} at $x_0$ with differential $u$ if
+		\begin{align*}
+		\lim\limits_{\substack{x\to x_0 \\x \not = x_0}} \frac{1}{\norm{x-x_0}} (f(x) -f(x_0) - u(x-x_0) ) = 0
+		\end{align*}
+		where the limit is in $\R^n$. We then denote $df(x_0) = u$
+		If $f$ is differentiable at every $x_0 \in X$, then we say that $f$ is differentiable on $X$.
+		\item Let $X \subseteq \R^n$ open, $f:\ X to \R^m$ a function on $X$: If:
+		\begin{itemize}
+			\item $f$ has all partial derivatives on $X$
+			\item and if all the partial derivatives are continuous on $X$
+		\end{itemize}
+	then $f$ is differentiable on $X$, then the Jabobi matrix of $f$ at $x_0$ is $df(x_0)$ with respect to the canonical basis of $\R^n$
+	\end{itemize}
+\end{method}
+
+\subsection*{Rules for differentiation in $\R^n$}
+
+\begin{method}{Directional Derivative}
+	Let $f:X\subseteq \R^n$, the directional derivative $w$ in direction $v$ at $x_0$ is defined by the derivative of $g(t) = f(x_0+t+v_0)$ at $t = 0$. 
+	
+	We have \begin{align*}
+		D_u f(a) &= \frac{d}{dt} (f(a+tu))_{|t=0}\\
+		D_u f(a) &= df(a) \cdot u
+	\end{align*}
+\end{method}
+\textbf{Examples:}
+We would like to find $d_u f((0,1))$ in direction $\frac{1}{\sqrt{17}}(-1,4)$:
+\TODO{add example b from series 5}
+\begin{itemize}
+	\item \textsc{Using the definition:} 
+	\item \textsc{Using the total derivative:}
+\end{itemize}
 
 
 
 
+\begin{method}{Gradient Vector}
+	If $f:X\subseteq \R^n \to \R$ then we define $\nabla f(x_0)$:
+	\begin{align*}
+		\nabla f(x_0) &= 	\begin{pmatrix}
+		\partial_{x_1} f(x_1)\\
+		\ldots\\
+		\partial_{x_n} f(x_0)
+		\end{pmatrix}
+	\end{align*}
+\end{method}
 
+\begin{method}{Jacobi Matrix}
+	If $f(x) = (f_1(x),\ldots f_m(x))$ then we define
+	\begin{align*}
+		J_f(x) = \begin{pmatrix}
+		\frac{\partial f_1}{\partial x_1}(x) & \ldots & \frac{\partial f_1}{\partial x_n}(x) \\
+		\vdots & \ddots & \vdots \\
+		\frac{\partial f_m}{\partial x_1}(x) & \ldots & \frac{\partial f_m}{\partial x_n}(x)	
+		\end{pmatrix}
+	\end{align*}
+\end{method}
+
+\begin{method}{Chain Rule}
+	We have 
+	\begin{align*}
+		d(g \circ f)(x) &= d(g(f(x)) = dg(f(x))\cdot df(x)\\
+		J_{g\circ f}(x) &= J_{g}(f(x)) \cdot J_{f} (x)
+	\end{align*}
+	The order of the matrices is IMPORTANT.
+\end{method}
+\textbf{Example}
+\begin{itemize}
+	\item Let $f(x,y,z)\mapsto (xy,y+z)$ and $g(x,y) \mapsto (e^x,xy)$.
+	We have $dg(x,y) = \begin{bmatrix}
+	e^x & 0 \\ y & x
+	\end{bmatrix}$ as well as $df(x) = \begin{bmatrix}
+	y & x & 0 \\ 0 & 1 & 1
+	\end{bmatrix}$. From $dg$ we can find $dg(f) = \begin{bmatrix}
+	e^{xy} & 0 \\ y+z & xy
+	\end{bmatrix}$ This gives us for $d(g(f(x))) = dg(f(x))\cdot df(x)$:
+	\begin{align*} \begin{bmatrix}
+	e^{xy} & 0 \\ y+z & xy
+	\end{bmatrix} \cdot \begin{bmatrix}
+	y & x & 0 \\ 0 & 1 & 1
+	\end{bmatrix} = 
+	\begin{bmatrix}
+	ye^{xy} & xe^{xy} & 0 \\ y^2+yz & 2xy +zx & xy
+	\end{bmatrix}
+	\end{align*}
+	
+	\item Let $f(x,y)\mapsto (e^x + \sin(xy), x+y^2x)$ and $g = f\circ f \circ f$. Find $dg(0,0)$: We have first notice that:
+	\begin{align*}
+		f(0,0) &= \begin{bmatrix}
+		e^0 + \sin(0\cdot 0) & 0 + 0^2\cdot 0
+		\end{bmatrix} = \begin{bmatrix}
+		1 & 0
+		\end{bmatrix}\\
+		f(f(0,0)) &= f(1,0) = \begin{bmatrix}
+		e^1 + \sin(1\cdot 0) & 1 + 0^2\cdot 1
+		\end{bmatrix} = \begin{bmatrix}
+		e & 1
+		\end{bmatrix}
+	\end{align*}
+	Now we can use these results:
+	\begin{align*}
+		df(x,y) &= \begin{bmatrix}
+		e^{x} + y\cos(xy) & x\cos(xy) \\1+y^2 & 2xy
+		\end{bmatrix}\\
+		df(0,0) &= \begin{bmatrix} 1 & 0 \\ 1 & 0
+		\end{bmatrix}\\
+		df(f(0,0)) &= df(1,0) = \begin{bmatrix}
+		e & 1 \\ 1& 0
+		\end{bmatrix}\\
+		df(f(f(0,0))) &= df(e,1) =  \begin{bmatrix}
+		e^e + \cos(e) & e\cos(e) \\ 2 & 2e
+		\end{bmatrix}
+	\end{align*}
+	We can now insert these results: (calculating matrix product omitted)
+	\begin{align*}
+		dg(0,0) &= df(f(f(0,0)))\cdot df(f(0,0)) \cdot df(0,0) \\
+		&= df(e,1) \cdot df(1,0)\cdot df(0,0)
+	\end{align*}
+\end{itemize}
 
 \end{multicols}
 \end{document}
