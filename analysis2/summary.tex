@@ -1259,10 +1259,62 @@ It turns out that the existence of partial derivatives is not enough to show dif
 	\end{itemize}
 \end{method}
 
+\textbf{Examples}
+
+\begin{itemize}
+	\item \textbf{Show that $\frac{\partial^2 f}{\partial y \partial x}(0,0)$ and $\frac{\partial^2 f}{\partial y \partial x}(0,0)$ exist but are not equal with $f(0,0) = 0$ and $f(x,y) = \frac{xy(x^2-y^2)}{x^2 + y^2}$:}
+	lalala
+	
+\end{itemize}
+\TODO{...}
+
+
+\textbf{Example (Total Differentiability)}
+Let $f(0,0) = 0$ and $f(x,y) = \frac{x^2 y^2}{x^2+y^2}$ for $(x,y)\neq (0,0)$. Show that $f \in C^1$. We first show that $f$ is continuous at $(0,0)$, for this we use the polar coordinates trick:
+\begin{align*}
+	\lim\limits_{(x,y)\to(0,0)} \frac{x^2 y^2}{x^2+y^2} &= \lim\limits_{r\to 0} \frac{r^4 \sin^2(\phi)\cos^2(\phi)}{\sin^2(\phi) + \cos^2(\phi)} = 0
+\end{align*}
+
+As a second step we show differentiability at $(0,0)$: We will use two methods:
+
+\textbf{Direct Method:}
+We calculate the Jacobi Matrix at $(0,0)$ and plug it into the definition of differentability:
+\begin{align*}
+	\frac{\partial f}{\partial x}(0,0) &= \lim\limits_{h \to 0}\frac{f(0+h,0) -f(0,0)}{h} = \lim\limits_{h \to 0} \frac{\frac{0h^2}{h^2 + 0} - 0}{h} = 0\\
+	\frac{\partial f}{\partial y}(0,0) &= \lim\limits_{h \to 0}\frac{f(0,0+h) -f(0,0)}{h} = \lim\limits_{h \to 0} \frac{\frac{h^2 0}{0+h^2} - 0}{h} = 0
+\end{align*}
+Hence we have $J_f (0,0) = \left[0,0\right]$. Now we calculate:
+\begin{align*}
+&\lim\limits_{\substack{(x,y)\to (0,0)}} \frac{\left(f\left(\begin{bmatrix}
+	x \\ y
+	\end{bmatrix}\right) -f\left(\begin{bmatrix}
+	0 \\ 0
+	\end{bmatrix}\right) - J_f(0,0)\begin{bmatrix}
+	x-0 \\ y -0
+	\end{bmatrix}\right)}{\norm{\begin{bmatrix}
+		x -0 \\ y -0
+		\end{bmatrix}}} \\
+	&= \lim\limits_{\substack{(x,y)\to (0,0)}} \frac{\frac{x^2 y^2}{x^2 + y^2} - 0 - \left[0,0\right] \begin{bmatrix}
+x-0 \\ y -0
+\end{bmatrix}}{ \sqrt{x^2 + y^2} }\\
+&= \lim\limits_{\substack{(x,y)\to (0,0)}} \frac{\frac{x^2 y^2}{x^2 + y^2}}{ \sqrt{x^2 + y^2} }\\
+&=  \lim\limits_{\substack{r \to 0}} \frac{r^4 \sin^2(\phi) \cos^2(\phi) }{r^3} = 0
+\end{align*}
+Since this fulfills the definition $f$ is differentiable in all of $\R^2$.
+
+\textbf{Direct Method:} Via partial derivatives:
+
+\begin{align*}
+	\frac{\partial f}{\partial x} &= \frac{2xy^2}{x^2 +y^2} - \frac{2x^3 y^2}{(x^2+y^2)^2}\\
+	\frac{\partial f}{\partial y} &= \frac{2x^2y}{x^2 +y^2} - \frac{2x^2 y^3}{(x^2+y^2)^2}\\
+\end{align*}
+We now calculate $\lim\limits_{(x,y)\to(0,0)} \frac{\partial f}{\partial x}$ and  $\lim\limits_{(x,y)\to(0,0)} \frac{\partial f}{\partial y}$ using the polar coordinates trick and get the same result as above. 
+
+
 \subsection*{Rules for differentiation in $\R^n$}
 
 \begin{method}{Directional Derivative}
-	Let $f:X\subseteq \R^n$, the directional derivative $w$ in direction $v$ at $x_0$ is defined by the derivative of $g(t) = f(x_0+t+v_0)$ at $t = 0$. 
+	Let $f:X\subseteq \R^n$, the directional derivative $w$ in direction $v$ at $x_0$ is defined by the derivative of $g(t) = f(x_0+t\cdot v)$ at $t = 0$. 
 	
 	We have \begin{align*}
 		D_u f(a) &= \frac{d}{dt} (f(a+tu))_{|t=0}\\
@@ -1363,6 +1415,32 @@ We would like to find $d_u f((0,1))$ in direction $\frac{1}{\sqrt{17}}(-1,4)$:
 		&= df(e,1) \cdot df(1,0)\cdot df(0,0)
 	\end{align*}
 \end{itemize}
+
+\begin{method}{Tangential Plane}
+	content...
+\end{method}
+
+
+
+
+\section{pseudosectionbreak - insert above me}
+
+
+
+\subsection{Change of Variable}
+
+
+todo
+
+	
+	
+	
+	\item Find the Taylor series of $f(x,y) = \cos(xy)$ at $(0,0)$.
+\end{itemize}
+
+
+
+
 
 \end{multicols}
 \end{document}
