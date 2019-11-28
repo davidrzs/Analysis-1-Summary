@@ -25,10 +25,10 @@ Excellent. Please be so kind and clone this project and add the fix yourself, th
 
 All the theory and some examples have been taken from the following sources:
 
-- [Analysis 1 for computer scientists lecture notes by Prof. Marc Burger](https://metaphor.ethz.ch/x/2019/hs/401-0213-16L/skript-analysis-I.pdf)
-- [Analysis 2 for computer scientists lecture notes by Prof. Emmanuel Kowalski](https://metaphor.ethz.ch/x/2019/hs/401-0213-16L/script-analysis-II.pdf)
-- [Analysis 1 - Examples for mathematicians and physicists](https://www.eth-store.ch/buecher/shop/product/250746)
-- [Analysis 2 - Examples for mathematicians and physicists](https://www.eth-store.ch/buecher/shop/product/275418)
+- [Analysis 1 - lecture notes for computer scientists by Prof. Marc Burger](https://metaphor.ethz.ch/x/2019/hs/401-0213-16L/skript-analysis-I.pdf)
+- [Analysis 2 - lecture notes for computer scientists by Prof. Emmanuel Kowalski](https://metaphor.ethz.ch/x/2019/hs/401-0213-16L/script-analysis-II.pdf)
+- [Analysis 1 - examples for mathematicians and physicists by Thomas Michaels](https://www.eth-store.ch/buecher/shop/product/250746)
+- [Analysis 2 - examples for mathematicians and physicists by Thomas Michaels](https://www.eth-store.ch/buecher/shop/product/275418)
 
 ### Screenshot Sources:
 
