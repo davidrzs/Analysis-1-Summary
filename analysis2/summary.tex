@@ -198,17 +198,6 @@ Zudem folgt durch Induktion:
 Wir sagen dass $f$ an der Stelle $a$ den Grenzwert $L\in \R$ hat, geschrieben $\lim\limits_{x \to a} f(x) = L$ falls $\forall \epsilon > 0 \ \exists \delta > 0 $ sodass für alle $|x-a|<\delta$ gilt $|f(x)-L|< \epsilon$
 
 
-\begin{method}{Grenzwert mittels Dominanz}
-Grundsätzlich gelten die folgenden Dominanzen: \\
-Für $x \to + \infty$:
-\begin{align*}
-	\ldots < \log(\log(x)) < \log(x) < x^\alpha < e^x < \alpha^x < x! < x^x
-\end{align*}
-Sowie für $x \to 0^+$
-\begin{align*}
-\ldots < \log(\log(x)) < \log(x) < \left(\frac{1}{x}\right)^\alpha
-\end{align*}
-\end{method}
 
 
 \subsubsection*{Wurzeltrick}
@@ -1126,12 +1115,6 @@ Im Gegenzug sind $f(x) = sgn(x)$, $f(x) = x$, $f(x) = \tan(x)$, $f(x) = \sin(x)$
 
 
 
-
-\vfill\null
-\columnbreak
-
-
-
 \subsection*{Wichtige Integrale}
 
 \begin{itemize}
@@ -1143,7 +1126,34 @@ Im Gegenzug sind $f(x) = sgn(x)$, $f(x) = x$, $f(x) = \tan(x)$, $f(x) = \sin(x)$
 
 
 
-\newpage
+
+
+
+
+
+%----------------------------
+
+%                      _           _       ___  
+%    /\               | |         (_)     |__ \ 
+%   /  \   _ __   __ _| |_   _ ___ _ ___     ) |
+%  / /\ \ | '_ \ / _` | | | | / __| / __|   / / 
+% / ____ \| | | | (_| | | |_| \__ \ \__ \  / /_ 
+%/_/    \_\_| |_|\__,_|_|\__, |___/_|___/ |____|
+%                         __/ |                 
+%						  |___/                  
+
+%----------------------------
+
+
+\section{Differential Equations}
+
+% TODO
+
+
+
+
+
+
 
 
 
@@ -1201,12 +1211,6 @@ Wenn die NS $\lambda = \beta + i\gamma$ nicht reell ist, so ist (bei rellen DGL)
 
 
 
-
-
-
-
-\newpage
-
 \section*{Continuity in $\R^n$}
 \begin{method}{Convergence of sequence in $\R^n$}
 	Let $(x_n)_n$ be a sequence  in $\R^n$. We say that a sequence converges to $y$ if for all $\epsilon > 0$, there exists $N \geq 1$ such that for all $n \geq N$ we have $\norm{x_n-y}\leq \epsilon$
@@ -1219,9 +1223,114 @@ Wenn die NS $\lambda = \beta + i\gamma$ nicht reell ist, so ist (bei rellen DGL)
 	\end{itemize}
 \end{method}
 
+
+\section*{Topology of $\R^n$}
+
+
+\begin{method}{Bounded, Closed \& Compact}
+	\begin{itemize}
+		\item A subset $X\subseteq \R^n$ is bounded if the set of TODO
+		\item A subset $X \subseteq \in \R^n$ is closed if for every sequence $(x_k)_k$ in $X$ that converges to some $y\in \R^n$, we have $y \in X$.
+		\item A subset $X \subseteq \R^n$ is compact if it is bounded and closed.
+	\end{itemize}
+\end{method}
+\textbf{Examples:}
+\TODO{add examples}
+
 \section*{Differentiability in $\R^n$}
+It turns out that the existence of partial derivatives is not enough to show differentiability of a function. An example is the function $f(x,y) = \begin{cases} 
+0 \ \text{ if } (x,y) = (0,0)\\
+\frac{xy}{x^2+y^2} \ \text{ else}
+\end{cases}$. Using the polar coordinate trick one can see that the function is not continuous, however both partial derivatives give $\partial_{x} f(0,0) = \partial_{y}f(0,0) = 0$, nevertheless, there exists no differential of $f$ at $(0,0)$ since it is not continuous there.
+\begin{method}{Differentiable in $\R^n$}
+	\begin{itemize}
+		\item 	Let $X\subseteq \R^n$ be open and $f: X \to \R^n$ be a function. Let $u$ be a linear map $\R^n \to \R^m$ and $x_0 \in X$. We say $f$ is \textit{differentiable} at $x_0$ with differential $u$ if
+		\begin{align*}
+		\lim\limits_{\substack{x\to x_0 \\x \not = x_0}} \frac{1}{\norm{x-x_0}} (f(x) -f(x_0) - u(x-x_0) ) = 0
+		\end{align*}
+		where the limit is in $\R^n$. We then denote $df(x_0) = u$
+		If $f$ is differentiable at every $x_0 \in X$, then we say that $f$ is differentiable on $X$.
+		\item Let $X \subseteq \R^n$ open, $f:\ X to \R^m$ a function on $X$: If:
+		\begin{itemize}
+			\item $f$ has all partial derivatives on $X$
+			\item and if all the partial derivatives are continuous on $X$
+		\end{itemize}
+	then $f$ is differentiable on $X$, then the Jabobi matrix of $f$ at $x_0$ is $df(x_0)$ with respect to the canonical basis of $\R^n$
+	\end{itemize}
+\end{method}
+
+\textbf{Examples}
+
+\begin{itemize}
+	\item \textbf{Show that $\frac{\partial^2 f}{\partial y \partial x}(0,0)$ and $\frac{\partial^2 f}{\partial y \partial x}(0,0)$ exist but are not equal with $f(0,0) = 0$ and $f(x,y) = \frac{xy(x^2-y^2)}{x^2 + y^2}$:}
+	lalala
+	
+\end{itemize}
+\TODO{...}
+
+
+\textbf{Example (Total Differentiability)}
+Let $f(0,0) = 0$ and $f(x,y) = \frac{x^2 y^2}{x^2+y^2}$ for $(x,y)\neq (0,0)$. Show that $f \in C^1$. We first show that $f$ is continuous at $(0,0)$, for this we use the polar coordinates trick:
+\begin{align*}
+	\lim\limits_{(x,y)\to(0,0)} \frac{x^2 y^2}{x^2+y^2} &= \lim\limits_{r\to 0} \frac{r^4 \sin^2(\phi)\cos^2(\phi)}{\sin^2(\phi) + \cos^2(\phi)} = 0
+\end{align*}
+
+As a second step we show differentiability at $(0,0)$: We will use two methods:
+
+\textbf{Direct Method:}
+We calculate the Jacobi Matrix at $(0,0)$ and plug it into the definition of differentability:
+\begin{align*}
+	\frac{\partial f}{\partial x}(0,0) &= \lim\limits_{h \to 0}\frac{f(0+h,0) -f(0,0)}{h} = \lim\limits_{h \to 0} \frac{\frac{0h^2}{h^2 + 0} - 0}{h} = 0\\
+	\frac{\partial f}{\partial y}(0,0) &= \lim\limits_{h \to 0}\frac{f(0,0+h) -f(0,0)}{h} = \lim\limits_{h \to 0} \frac{\frac{h^2 0}{0+h^2} - 0}{h} = 0
+\end{align*}
+Hence we have $J_f (0,0) = \left[0,0\right]$. Now we calculate:
+\begin{align*}
+&\lim\limits_{\substack{(x,y)\to (0,0)}} \frac{\left(f\left(\begin{bmatrix}
+	x \\ y
+	\end{bmatrix}\right) -f\left(\begin{bmatrix}
+	0 \\ 0
+	\end{bmatrix}\right) - J_f(0,0)\begin{bmatrix}
+	x-0 \\ y -0
+	\end{bmatrix}\right)}{\norm{\begin{bmatrix}
+		x -0 \\ y -0
+		\end{bmatrix}}} \\
+	&= \lim\limits_{\substack{(x,y)\to (0,0)}} \frac{\frac{x^2 y^2}{x^2 + y^2} - 0 - \left[0,0\right] \begin{bmatrix}
+x-0 \\ y -0
+\end{bmatrix}}{ \sqrt{x^2 + y^2} }\\
+&= \lim\limits_{\substack{(x,y)\to (0,0)}} \frac{\frac{x^2 y^2}{x^2 + y^2}}{ \sqrt{x^2 + y^2} }\\
+&=  \lim\limits_{\substack{r \to 0}} \frac{r^4 \sin^2(\phi) \cos^2(\phi) }{r^3} = 0
+\end{align*}
+Since this fulfills the definition $f$ is differentiable in all of $\R^2$.
+
+\textbf{Direct Method:} Via partial derivatives:
+
+\begin{align*}
+	\frac{\partial f}{\partial x} &= \frac{2xy^2}{x^2 +y^2} - \frac{2x^3 y^2}{(x^2+y^2)^2}\\
+	\frac{\partial f}{\partial y} &= \frac{2x^2y}{x^2 +y^2} - \frac{2x^2 y^3}{(x^2+y^2)^2}\\
+\end{align*}
+We now calculate $\lim\limits_{(x,y)\to(0,0)} \frac{\partial f}{\partial x}$ and  $\lim\limits_{(x,y)\to(0,0)} \frac{\partial f}{\partial y}$ using the polar coordinates trick and get the same result as above. 
+
 
 \subsection*{Rules for differentiation in $\R^n$}
+
+\begin{method}{Directional Derivative}
+	Let $f:X\subseteq \R^n$, the directional derivative $w$ in direction $v$ at $x_0$ is defined by the derivative of $g(t) = f(x_0+t\cdot v)$ at $t = 0$. 
+	
+	We have \begin{align*}
+		D_u f(a) &= \frac{d}{dt} (f(a+tu))_{|t=0}\\
+		D_u f(a) &= df(a) \cdot u
+	\end{align*}
+\end{method}
+\textbf{Examples:}
+We would like to find $d_u f((0,1))$ in direction $\frac{1}{\sqrt{17}}(-1,4)$:
+\TODO{add example b from series 5}
+\begin{itemize}
+	\item \textsc{Using the definition:} 
+	\item \textsc{Using the total derivative:}
+\end{itemize}
+
+
+
 
 \begin{method}{Gradient Vector}
 	If $f:X\subseteq \R^n \to \R$ then we define $\nabla f(x_0)$:
@@ -1248,8 +1357,10 @@ Wenn die NS $\lambda = \beta + i\gamma$ nicht reell ist, so ist (bei rellen DGL)
 \begin{method}{Chain Rule}
 	We have 
 	\begin{align*}
-		d(g \circ f)(x) = d(g(f(x)) = dg(f(x))\cdot df(x)
+		d(g \circ f)(x) &= d(g(f(x)) = dg(f(x))\cdot df(x)\\
+		J_{g\circ f}(x) &= J_{g}(f(x)) \cdot J_{f} (x)
 	\end{align*}
+	The order of the matrices is IMPORTANT.
 \end{method}
 \textbf{Example}
 \begin{itemize}
@@ -1305,7 +1416,65 @@ Wenn die NS $\lambda = \beta + i\gamma$ nicht reell ist, so ist (bei rellen DGL)
 	\end{align*}
 \end{itemize}
 
-\section*{Topology of $\R^n$}
+\begin{method}{Tangential Plane}
+	content...
+\end{method}
+
+
+
+
+\section{pseudosectionbreak - insert above me}
+
+
+
+\subsection{Change of Variable}
+
+
+todo
+
+
+
+\section*{Taylor Approximation in $\R^n$}
+
+We have: (using the convention $\Delta x = x-x_0$ and $\Delta y = y-y_0$)TODO : CHECK THE FORMULAS
+
+\begin{align*}
+	&f(x,y) = f(x_0,y_0) + \frac{\partial f}{\partial x} \Delta x + \frac{\partial f}{\partial y} \Delta y\\
+	&+ \frac{1}{2}\left(  \frac{\partial^2 f}{\partial^2 x} (\Delta x)^2  +  2\frac{\partial^2 f}{\partial x \partial y} \Delta x \Delta y +     \frac{\partial^2 f}{\partial^2 y} (\Delta y)^2   \right)\\
+	&+ \frac{1}{3!}\left(    \frac{\partial^3 f}{\partial^3 x} (\Delta x)^3    + 3\frac{\partial^3 f}{\partial^2 x \partial y } (\Delta x)^2 \Delta y  +3\frac{\partial^3 f}{\partial x \partial^2 y } \Delta x (\Delta y)^2 +  \frac{\partial^3 f}{\partial^3 y} (\Delta y)^3 \right) 
+\end{align*}
+
+\TODO{add official definition and examples}
+
+\begin{important}
+If possible use $1$-dimensional Taylor series as starting point!
+\end{important}
+
+\textbf{Use $1$-Dimensional Taylor Approximation}
+\begin{itemize}
+	\item \textbf{Find the fourth order Taylor approximation of $f(x,y) = \cos(x)\cdot \frac{1}{1-y^2}$ at $(0,0)$:} Recall that
+	\begin{align*}
+			\cos(x) &= 1 - \frac{x^2}{2} + \frac{x^4}{4!} - \ldots \\
+			\frac{1}{1-y^2} &= 1 -y^2 + y^4 + \ldots 
+	\end{align*}
+	Hence we have:
+	\begin{align*}
+	f(x,y) &= \cos(x) \cdot \frac{1}{1-y^2} = \left( 1 - \frac{x^2}{2} + \frac{x^4}{4!} \right) \cdot \left( 1 -y^2 + y^4   \right)\\
+	&= 1 - \frac{x^2}{2} - y^2 + \frac{x^2 y^2}{2} + \frac{x^4}{4!} + y^4 + \ldots
+	\end{align*}
+	
+	
+	
+	\item \textbf{Find the Taylor series of $f(x,y) = \cos(xy)$ at $(0,0)$:} Recall that:
+	\begin{align*}
+		\cos(x) &= 1 - \frac{x^2}{2} + \frac{x^4}{4!} - \ldots = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n}}{(2n)!}
+	\end{align*}
+	We now replace $x$ by $xy$ and get
+	\begin{align*}
+	f(xy) &= \cos(xy) = \sum_{n=0}^{\infty} \frac{(-1)^n x^{2n} y^{2n}}{(2n)!}
+	\end{align*}
+\end{itemize}
+
 
 % todo
 
