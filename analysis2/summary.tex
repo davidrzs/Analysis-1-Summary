@@ -1495,6 +1495,32 @@ If possible use $1$-dimensional Taylor series as starting point!
 \end{itemize}
 
 
+% todo
+
+
+\section*{Path Integrals}
+
+\begin{method}{Calculating Path Integrals}
+	Given a vector field $\vec{v} \in C^1$ and a curve $\gamma \in C^1$. We are looking for $\int_{\gamma} \vec{v} \cdot ds$. 
+	\begin{enumerate}
+		\item Parametrize $\gamma$, find $\vec{\gamma} :[a,b]\to \R^n , t \to \gamma(t)$.
+		\item Calculate $\vec{\gamma'}(t) = \frac{d}{dt} \vec{\gamma}(t)$ (derivative in $t$ of every component)
+		\item Use the formula $\int_{\gamma} \vec{v} \cdot ds = \int_{a}^{b} \vec{v}(\vec{\gamma}(t))\cdot \vec{\gamma'}(t) dt$
+	\end{enumerate}
+\end{method}
+
+\textbf{Examples}:
+%todo
+
+
+\begin{method}{Conservative Vector Fields}
+	 \begin{itemize}
+	 	\item 	A vector field $f(x)$ is conservative if the value $\int_{\gamma} f(s)\cdot ds$ does not depend on $\gamma$. 
+	 	\item $f(x)$ is conservative on an open set $X$ if there exists $g\in C^1$ on $X$ such that $f = \nabla g$.
+	 	\item  $f(x) = (f_1(x),\ldots f_n(x))$ on $X$ star shaped is conservative if for any integers $i\neq j$ we have $\frac{\partial f_i}{\partial x_j} = \frac{\partial f_j}{\partial x_i}$. If $f$ is conservative this holds even if $X$ is not star shaped.
+	 \end{itemize}	
+\end{method}
+\textbf{Examples}
 
 
 
