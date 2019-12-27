@@ -1498,19 +1498,62 @@ If possible use $1$-dimensional Taylor series as starting point!
 % todo
 
 
-\section*{Path Integrals}
 
-\begin{method}{Calculating Path Integrals}
-	Given a vector field $\vec{v} \in C^1$ and a curve $\gamma \in C^1$. We are looking for $\int_{\gamma} \vec{v} \cdot ds$. 
-	\begin{enumerate}
-		\item Parametrize $\gamma$, find $\vec{\gamma} :[a,b]\to \R^n , t \to \gamma(t)$.
-		\item Calculate $\vec{\gamma'}(t) = \frac{d}{dt} \vec{\gamma}(t)$ (derivative in $t$ of every component)
-		\item Use the formula $\int_{\gamma} \vec{v} \cdot ds = \int_{a}^{b} \vec{v}(\vec{\gamma}(t))\cdot \vec{\gamma'}(t) dt$
-	\end{enumerate}
+
+\newpage
+
+
+\section*{Wegintegrale}
+
+\begin{method}{Wegintegral}
+	Sei $f:\Omega \subset \R^n \to \R^n$ ein stetig differenzierbares Vektorfeld und $\gamma:[a,b]\to \R^n$ eine stückweise stetig differenzierbare Kurve. Der Ausdruck
+	
+	\begin{align*}
+		\int_\gamma f \cdot ds &:= \int_{a}^{b} f(\gamma(t)) \cdot \gamma'(t) dt
+	\end{align*}
+	heistt das Wegitnergal von $f$ entlang $\gamma$. Da dies alles Vektoren sind ist die Multiplikation das Skalarprodukt.
+	
+	Es gilt $\gamma  \in C^1_{pw}$ wobei pw = piece wise.
 \end{method}
 
-\textbf{Examples}:
-%todo
+\begin{method}{Länge einer Kurve}
+	Sei $\gamma$ eine reguläre Kurve $\gamma : [a,b]\to \R^n$ mit $t \mapsto \gamma(t)$ , dann ist die Länge von $\gamma$ gegeben durch $L(\gamma) = \int_{a}^{b} |\gamma'(t)| dt$. Der Betrag ist dabei die euklidische Norm.
+\end{method}
+
+\begin{method}{Rezept für Wegintegrale}
+	Gegeben ein Vektorfeld $f \in C^1$ und eine Kurve $\gamma \in C^1_{pw}$, gesucht $\int_\gamma f\cdot ds$.
+	\begin{itemize}
+		\item \textbf{Schritt 1:} Parametrisiere $\gamma$, d.h. finde Abbildung $\gamma(t):[a,b]\to\R^n,t\mapsto\gamma(t)$
+		\item \textbf{Schritt 2:} Berechne $\gamma'(t) = \frac{d}{dt} \gamma(t)$, jede Komponente einzeln ableiten.
+		\item \textbf{Schritt 3:} Berechne Wegintegral durch $\int_\gamma f\cdot ds := \int_{a}^{b} f(\gamma(t)) \cdot \gamma' (t) dt$
+	\end{itemize}
+	
+\end{method}
+
+
+\begin{method}{Potenzialfeld}
+	Ein Vektorfeld $v:\Omega\subset \R^n \to \R^n$ heisst Potenzialfeld, falls eine stetig differenzierbare Abbildung $\phi:\Omega \subset \R^n \to \R$ existiert so dass $v = \nabla \phi$. Wir nennen $\phi$ das Potential von $v$. Dabei ist wichtig:
+	\begin{itemize}
+		\item Das Potential ist nicht eindeutig: $\phi = \overline{\phi} + C$
+		\item Sehr viele Vektorfelder lassen sich nicht als Gradienten eines skalaren Feldes schreiben.
+	\end{itemize}
+\end{method}
+
+\begin{method}{Existenz eines Potentialfeldes}
+	Ist $v : \Omega \subset \R^n \to \R^n$ ein Potentialfeld (d.h. $\exists \phi : \nabla \phi = v$), so gelten die Integrabilitätsbedingungen $\frac{\partial v_i}{\partial x_j} = \frac{\partial v_j}{x_i}$ für $i\neq j$ , $i,j\in\{1,\ldots,n\}$. Wenn $\Omega$ sternförmig ist, so gilt auch die Umkehrung. d.h. wenn die Integrabilitätsbedinungen erfüllt sind so gibt es ein Potential.
+	
+	Folgende Aussagen sind äquivalent:
+	
+	\begin{itemize}
+		\item $v$ ist konservativ
+		\item $v$ ist ein Potentialfeld  (d.h. $\exists \phi : \nabla \phi = v$)
+		\item Für alle geschlossenen Kurven $\gamma$ gilt $\int_\gamma v\cdot ds = 0$
+		\item Das Integral $\int_\gamma v\cdot ds$ ist unabhängig vom Weg.
+		\item $v$ erfüllt die Integrabilitätsbedingungen $\nabla \times v = 0$ in $\R^3$
+	\end{itemize}
+	
+\end{method}
+
 
 
 \begin{method}{Conservative Vector Fields}
@@ -1520,8 +1563,44 @@ If possible use $1$-dimensional Taylor series as starting point!
 	 	\item  $f(x) = (f_1(x),\ldots f_n(x))$ on $X$ star shaped is conservative if for any integers $i\neq j$ we have $\frac{\partial f_i}{\partial x_j} = \frac{\partial f_j}{\partial x_i}$. If $f$ is conservative this holds even if $X$ is not star shaped.
 	 \end{itemize}	
 \end{method}
+
+
+
+
+
+\section{Mehrdimensionale Integrale}
+
+\begin{method}{Satz von Fubini}
+	Sei $Q=[a_1,b_1]\times \ldots \times [a_n,b_n]$ ein Quader und $f:Q\to \R$ mit $f\in C^0(Q)$ gegeben, so gilt:
+	
+	\begin{align*}
+		\int_Q f(x) d\mu(x) &= \int_{a_1}^{b_1} dx_1 \ldots \int_{a_n}^{b_n} dx_n f(x_1,\ldots x_n)
+	\end{align*}
+	wobei wir die Integrationsreihenfolge Vertauschen dürfen.
+\end{method}
+
+
+\begin{method}{Normalenbereich}
+	Die beschränkte Teilmenge $\Omega \subset \R^n$ heisst $y$ Normalenbereich, falls sich $\Omega$ wie folgt darstellen lässt:
+	
+	\begin{align*}
+		\Omega &= \{(x,y)\in\R^2 | a \leq x \leq b, f(x)\leq y \leq g(x)\}
+	\end{align*}
+	wobei $f,g$ stetig sind.
+	
+	\includegraphics[width=\textwidth]{normBe.png}
+	
+\end{method}
+
+
 \textbf{Examples}
 
+
+
+kreuzproduckt
+
+
+integrale mit sin2cos etc.
 
 
 \end{multicols}
