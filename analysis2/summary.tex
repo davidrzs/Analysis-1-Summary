@@ -17,7 +17,7 @@
 \usepackage{tikz}
 \usepackage{wrapfig}
 \usepackage{gensymb}
-\usepackage[utf8]{inputenc}
+
 \usepackage{empheq}
 
 \usepackage{pgfplots}
@@ -74,7 +74,8 @@
 %END TITLE
 
 \usepackage{palatino}
-\usepackage{eulervm}
+%\usepackage{eulervm}
+\usepackage{mathpazo}
 % begin custom commands
 \newcommand{\Q}{\mathbb{Q}}
 \newcommand{\R}{\mathbb{R}}
@@ -114,7 +115,7 @@
 \newcommand{\TODO}[1]{\todo[inline]{\Large TODO:  #1}}
 
 
-\usepackage{mathpazo}
+
 
 
 \DeclarePairedDelimiter\abs{\left|}{\right|}%
@@ -1555,7 +1556,7 @@ If possible use $1$-dimensional Taylor series as starting point!
 \end{method}
 
 
-
+\ifx
 \begin{method}{Conservative Vector Fields}
 	 \begin{itemize}
 	 	\item 	A vector field $f(x)$ is conservative if the value $\int_{\gamma} f(s)\cdot ds$ does not depend on $\gamma$. 
@@ -1563,7 +1564,7 @@ If possible use $1$-dimensional Taylor series as starting point!
 	 	\item  $f(x) = (f_1(x),\ldots f_n(x))$ on $X$ star shaped is conservative if for any integers $i\neq j$ we have $\frac{\partial f_i}{\partial x_j} = \frac{\partial f_j}{\partial x_i}$. If $f$ is conservative this holds even if $X$ is not star shaped.
 	 \end{itemize}	
 \end{method}
-
+\fi
 
 
 
@@ -1599,12 +1600,70 @@ If possible use $1$-dimensional Taylor series as starting point!
 	dabei werte immer das innere Integral zuerst aus.
 \end{method}
 
+\subsection*{Koordinatentransformationen}
+\TODO{needs proofreading}
+\textbf{Polarkoordinaten $\R^2$}
 
-\textbf{Examples}
+\begin{align*}
+	x &= r\cos\phi  & 0 \leq &r < \infty & dxdy &= rdrd\phi\\
+	y &= r\sin\phi  & 0 \leq &\phi < 2\pi & & 
+\end{align*}
 
 
+\textbf{Elliptische Koordinaten $\R^2$}
+
+\begin{align*}
+	x &= ar\cos\phi  & 0 \leq &r < \infty & dxdy &= abrdrd\phi\\
+	y &= br\sin\phi  & 0 \leq &\phi < 2\pi & & 
+\end{align*}
+
+
+\textbf{Zylinderkoordinaten $\R^3$}
+
+\begin{align*}
+x &= r\cos\phi  & 0 \leq &r < \infty & dxdydz &= r dr d\phi dz\\
+y &= r\sin\phi  & 0 \leq &\phi < 2\pi & & \\
+z &= z  &   -\infty < &z < \infty & & 
+\end{align*}
+
+\textbf{Kugelkoordinaten $\R^3$}
+
+\begin{align*}
+x &= r\sin\theta\cos\phi  & 0 \leq &r < \infty & dxdydz&=r^2 \sin \theta drd\theta d\phi\\
+y &=r\sin\theta\sin\phi  & 0 \leq &\theta < \pi & & \\
+z &= r\cos\theta  &  0 \leq &\phi < 2\pi & & 
+\end{align*}
+
+
+
+\begin{method}{Masse, Schwerpunkt}
+	Sei $\Omega$ ein 2-dimensionales Gebiet mit Massendichte $\rho(x,y)$, welche die Massenverteilung auf $\Omega$ beschreibt.
+	
+	\begin{itemize}
+		\item \textbf{Masse:} $M(\Omega) = \int_{\Omega} \rho(x,y) dx dy$
+		\item \textbf{Schwerpunkt:} \begin{align*}x_s &= \frac{1}{M} \int_{\Omega} x\rho(x,y) dx dy \\ y_s &= \frac{1}{M} \int_{\Omega} y\rho(x,y) dx dy \end{align*}
+	\end{itemize}
+	 Die Masse von $\Omega$ ist dann
+	 
+	 Das Konzept geht analog für $n$ Dimensionen.
+\end{method}
+
+
+
+\begin{method}{Oberfläche}
+	\begin{itemize}
+		\item \textbf{$1$-dim:}  $\int_{a}^{b} \sqrt{a+f'(x)^2} dx$
+		\item \textbf{$2$-dim:} $\int_{a}^{b} \int_{c}^{d} \sqrt{1 + (\partial_{x} f(x,y))^2 + (\partial_{y} f(x,y))^2} dx dy$
+	\end{itemize}
+\end{method}
+
+
+
+\newpage
 
 kreuzproduckt
+
+\textbf{Examples}
 
 
 integrale mit sin2cos etc.
