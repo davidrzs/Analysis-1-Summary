@@ -1497,9 +1497,29 @@ z &= r\cos\theta  &  0 \leq &\phi < 2\pi & &
 
 
 \begin{method}{Satz von Gauss-Ostrogradski}
-	
+	Sei $V$ ein beschränkter räumlicher Bereich mit Rand $\partial V \in C^1_{pw}$ gegeben. Sei das Vektorfeld $\vec{v}$ auf ganz $V$ definiert und stetig differenzierbar. Dann gilt:
+	\begin{align*}
+		\int_{\partial V} \vec{v} \cdot \vec{n} \ do &= \int_{V} \vec{\nabla} \cdot \vec{v} \ d\mu
+	\end{align*}
+	wobei $\vec{n}$ der Normalenvektor entlang $\partial V$ ist, $do$ das zweidimensionale Integrationselement über die Fläche und $d\mu$ das dreidimensionale Integrationselement über das Volumen.
 \end{method}
+
 \textbf{Intuitive Erklärung: } Ändert sich das Vektorfeld im Innern, so muss sich dies beim Einfluss und Ausfluss bemerkbar machen.
+
+
+\subsection*{Oberflächenintegral}
+\textbf{Parametrisierung einer Fläche $F$} ist ein Diffeomorphismus $$\phi:b \to \R^3, (u,v)\to\phi(u,v) = \begin{pmatrix}
+x(u,v)\\y(u,v)\\z(u,v)
+\end{pmatrix}$$ sodass $\phi(B) = F$ gilt. Wir definieren $\phi_u = \frac{\partial \phi}{\partial u}$ sowie 
+$\phi_v = \frac{\partial \phi}{\partial v}$ und definieren den Normalenvektor $\vec{n}$:
+
+$$\vec{n} = \pm \frac{\phi_u \times \phi_v}{|\phi_u \times \phi_v|}$$
+
+\begin{method}{Oberflächenmass}
+Das Flächenelement bezüglich der Parametrisierung $\phi$ ist 
+
+$$do = |\phi_u \times \phi_v|dudv = |\operatorname{det}(d\phi)|dudv$$ Um die Oberfläche zu kriegen berechne $\int do$	
+\end{method}
 
 \ifx
 
