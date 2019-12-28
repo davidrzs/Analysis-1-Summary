@@ -220,14 +220,6 @@ Wir sagen dass $f$ an der Stelle $a$ den Grenzwert $L\in \R$ hat, geschrieben $\
 	\end{align*}
 \end{method}
 
-
-\begin{method}{Variablenwechsel für Grenzwert}
-	Seien $f,g$ Funktionen wobei $f$ stetig in $y_0$ und $g$ stetig in $x_0$ mit $y_0 = \lim\limits_{x \to x_0} g(x)$ ist. Dann gilt:
-	\begin{align*}
-		\lim_{(x\to x_0)}f(g(x)) = \lim_{(y\to y_0)} f(y)
-	\end{align*}
-\end{method}
-
 \begin{method}{Bernoulli - de l’Hospital}
 	Wenn wir zwei differenzierbare Funktionen $f$, $g$ haben mit $g'(a)\not = 0$ dann gilt falls:
 	\begin{itemize}
@@ -258,7 +250,7 @@ Wir sagen dass $f$ an der Stelle $a$ den Grenzwert $L\in \R$ hat, geschrieben $\
 \end{itemize}
 
 \subsection*{Taylor (als letzte Hoffung)}
-Wenn das alles nicht funktioniert kann man versuchen die Taylorentwicklung einzusetzten. \\
+
 
 % -------------------------- Folgen --------------------------
 
@@ -284,7 +276,7 @@ Folge $a_n$ is konvergent, falls $\exists l \in \mathbb{R}$ so dass $\forall \ep
 
 
 
-\begin{method}{ {\Large Zwischenwertsatz (Bolzano)} }
+\begin{method}{  Zwischenwertsatz (Bolzano)} 
 	Sei $I \in \R$ ein Intervall, $f: I \to \R$ eine stetige Funktion und $a,b \in I$. Dann gilt: Für alle $c$ zwischen $f(a)$ und $f(b)$ exisitert ein $z$ zwischen $a$ und $b$ so dass $f(z) = c$.
 \end{method}
 
@@ -418,13 +410,6 @@ Zudem gilt für $x \in (-1,1)$: $\operatorname{arctanh}(x) = \frac{1}{2} \ln \le
 
 \section{Ableitung}
 
-\begin{method}{Häufungspunkt} 
-	$x_0 \in \R$ ist ein Häufungspunkt der Menge $D$ falls $\forall \delta > 0$:
-	$(]x_0 - \delta, x_0 + \delta [ \setminus x_0) \cap D \not = \emptyset$
-\end{method}
-\textbf{Beispiel (Häufungspunkt)} Sei $D = {0} \cup ] 1,2 [$, dann ist die Menge der Häufungspunkte von $D$, $D' = [1,2]$.
-
-
 \begin{method}{Ableitung}
 	Sei $D \subset \R$ , $f:D \to  \R$ und $x_0$ ein Häufungspunkt von $D$. $f$ ist in $x_0$ differenzierbar, falls der Grenzwert 
 	$$ \lim\limits_{x \to x_0} \frac{f(x) -f(x_0)}{x-x_0}$$
@@ -447,11 +432,6 @@ Sei $f : D \to \R$, $x_0$ ein Häufungspunkt von $D$, dann sind folgende Aussage
 	\end{enumerate}
 Falls dies zutrifft ist $c=f'(x_0)$ eindeutig bestimmt.
 \end{enumerate}
-
-\textbf{Wir können die zweite Aussage leicht abändern:}\\
-$f:D \to \R$ ist genau dann in $x_0$ differenzierbar, falls es eine Funktion $\phi : D \cup \{x_0\} \to \R$ gibt die stetig in $x_0$ ist und so dass 
-$$f(x) = f(x_0) + \phi(x)(x-x_0) \quad \forall x \in D$$:
-Dann gilt $\phi(x_0) = f'(x_0)$. Dies folgt direkt aus (2) indem man $\phi(x) := f'(x_0) + r(x)$ setzt.
 \end{method}
 
 \textbf{(Beispiel) Per Definition Ableiten}
@@ -462,16 +442,6 @@ Dann gilt $\phi(x_0) = f'(x_0)$. Dies folgt direkt aus (2) indem man $\phi(x) :=
 		\frac{f(x) - f(x_0)}{x-x_0} &= 	\frac{x^2 - x_{0}^2}{x-x_0} = \frac{(x-x_0) (x+x_0)}{x-x_0} = x + x_0\\
 		\lim_{x \to x_0} \frac{f(x)-f(x_0)}{x-x_0} &= \lim_{(x\to x_0)} x + x_0 = 2x_0
 	\end{align*}
-	
-	\item $f(x) = \exp(x)$:
-	\begin{align*}
-		\frac{\exp(x_0 + h ) - \exp(x_0)}{h} &= \frac{\exp(x_0)\exp(h) -\exp(x_0)}{h} = \exp(x_0) \frac{\exp(h) - 1}{h}
-	\end{align*}
-	Nun schätzen wir $\frac{\exp(h) - 1}{h}$ ab: Es gilt $\exp(h) = 1 + h + \frac{h^2}{2!} + \frac{h^3}{3!}$, somit gilt 
-	$\frac{\exp(h) - 1}{h} = 1 + \frac{h}{2!} + \frac{h^2}{3!}$
-	Somit gilt dann $\lim_{h \to 0} \frac{\exp(h) - 1}{h} = 1$. Dies impliziert:
-	$\exp'(x_0) = \ldots = \exp(x_0) \lim_{h \to 0} \frac{\exp(h) - 1}{h} = \exp(x_0) \cdot 1$
-	\item {\footnotesize $\sin(x)$: Nutze $\sin(x_0 + h ) = \sin(x_0)\cos(h) + \cos(x_0)\sin(h)$ sowie Entwicklung vom $\cos$}
 \end{itemize}
 
 
@@ -938,9 +908,7 @@ $$\sum_{n=1}^{\infty} f(n) \ \text{konv.}  \iff    \int_{1}^{\infty} f(x) dx \ \
 %----------------------------
 
 
-\section{Differential Equations}
-
-% TODO
+\section*{Differentialgleichungen}
 
 
 
@@ -948,13 +916,10 @@ $$\sum_{n=1}^{\infty} f(n) \ \text{konv.}  \iff    \int_{1}^{\infty} f(x) dx \ \
 
 
 
+\subsection*{Differenzialgleichungen erster Ordnung}
 
 
-\section*{First order differential Equations}
-
-
-
-\begin{method}{Trennung der Variablen} Wenn wir eine ODE der Form $y' = h(x)y + b(x)$ haben so lösen wir das homogene Problem $y' = h(x)y$ mittels Trennung der Variablen.
+\begin{method}{Trennung der Variablen} Wenn wir eine ODE der Form $y' = h(x)g(y) + b(x)$ haben so lösen wir das homogene Problem $y' = h(x)g(y)$ mittels Trennung der Variablen.
 	
 Sei nun somit $y' = \frac{dy}{dx} = h(x)\cdot g(y)$ so schreiben wir es als 
 
@@ -966,16 +931,31 @@ um, was wir dann nach $y$ auflösen können.
 \end{method}
 
 
-\TODO{beispiele}
 
 
-\begin{method}{Variation der Konstanten} Wenn wir eine ODE der Form $y' = h(x)y + b(x)$ haben, so gilt dass $y(x) = y_{hom} + y_{part}$. Dafür lösen wir zuerst das homogene Problem mittels Trennung der Variablen.
-	content...
+\begin{method}{Variation der Konstanten (1te Ord.)} Wenn wir eine ODE der Form $y' = h(x)y + b(x)$ haben, so gilt dass $y(x) = y_{hom} + y_{part}$
+\begin{itemize}
+	\item \textbf{Schritt 1: } Löse homogenes Problem mittels Trennung der Variablen
+	\item \textbf{Schritt 2: } Die Integrationskonstante $C$ aus Schritt 1 fassen wir als eine von $x$ abhängige Funktion $C(x)$ auf.
+	\item \textbf{Schritt 3: } Die enstandene Funktion $y_p(x)$, die homogene Lösung mit $C(x)$ anstatt $C$ setzte als Ansatz in die Differentialgleichung ein und löse nach $C(x)$ ein. Dies gibt die partikuläre Lösung.
+	\item \textbf{Schritt 4: } Setzte $y(x) = y_h(x) + y_p(x)$.
+\end{itemize}
+	
 \end{method}
 
+\TODO{beispiele}
 
+\begin{method}{Variation der Konstanten (1te Ord.)} Wenn wir eine ODE der Form $y' = h(x)y + b(x)$ haben, so gilt dass $y(x) = y_{hom} + y_{part}$
+	\begin{itemize}
+		\item \textbf{Schritt 1: } Löse homogenes Problem mittels Trennung der Variablen
+		\item \textbf{Schritt 2: } Die Integrationskonstante $C$ aus Schritt 1 fassen wir als eine von $x$ abhängige Funktion $C(x)$ auf.
+		\item \textbf{Schritt 3: } Die enstandene Funktion $y_p(x)$, die homogene Lösung mit $C(x)$ anstatt $C$ setzte als Ansatz in die Differentialgleichung ein und löse nach $C(x)$ ein. Dies gibt die partikuläre Lösung.
+		\item \textbf{Schritt 4: } Setzte $y(x) = y_h(x) + y_p(x)$.
+	\end{itemize}
+	
+\end{method}
 
-\section*{Lineare DGL $n$-ter Ordnung}
+\subsection*{Lineare DGL $n$-ter Ordnung}
 
 Wir lösen das homogene Problem vor dem inhomogenen!
 
@@ -996,11 +976,30 @@ e^{\lambda x},e^{\lambda x}, \ldots , x^{m-1} e^{\lambda x}
 Das gibt uns ein Fundamentalsystem. Die Allgemeine Lösung ist eine Linearkombination der Basis (basierend auf den Anfangswerten).
 \end{method}
 
-Wenn die NS $\lambda = \beta + i\gamma$ nicht reell ist, so ist (bei rellen DGL) auch $\beta -i\gamma$ auch eine NS. Wir konnen dann $e^{x(\beta + i\gamma)}$, $e^{x(\beta - i\gamma)}$ auswechseln durch $e^{x\beta}\cos(\gamma x)$ sowie $e^{x\beta}\cos(\gamma x)$ austauschen.
+Wenn die NS $\lambda = \beta + i\gamma$ nicht reell ist, so ist (bei rellen DGL) auch $\beta -i\gamma$ auch eine NS. Wir konnen dann $e^{x(\beta + i\gamma)}$, $e^{x(\beta - i\gamma)}$ auswechseln durch $f_1 = e^{x\beta}\cos(\gamma x)$ sowie $f_2 = e^{x\beta}\sin(\gamma x)$ austauschen. Erinnere dass $e^\lambda x$
 
 
 
 \TODO{beisiele}
+
+\subsection*{Variabelwechsel}
+Nutze eine Substitution und brauche dann die Methode des direkten Ansatzes:
+\begin{itemize}
+	\item $\boxed{y' = h\left(\frac{y}{x}\right)}$, setzte $z(x) = \frac{y(x)}{x}$ respektive $y(x) = xz(x)$, dann wird $y' = z+xz'$.
+	\item $\boxed{y' = h(ax+by+c)}$, setzte $z(x) = ax + by(x)+c$, respektive $y = \frac{z-ax-c}{b}$, dann wird $y' = \frac{z' -a}{b}$.
+	\item $\boxed{y' = h \left(\frac{ax+by+c}{dx+ey+f}\right) }$, Wir wollen $x,y(x)$ ersetzten, dafür lösen wir das Gleichungssystem $\left\{
+	\begin{array}{ll}
+	ax + by+c = 0 \\
+	dx+ey+f 
+	\end{array}
+	\right.$, wir wollen eine Eindeutige Lösung $(x_0,y_0)$, desshalb fordern wir $\operatorname{det}\begin{pmatrix}
+	a & b \\ d & e
+	\end{pmatrix} \neq 0$, dann setzten wir $z = y-y_0$ sowie $t = x-x_0$, damit wird: $y' = \frac{dy}{dx} = \frac{d(z+y_0)}{d(t+x_0)} = \frac{dz}{dt} = z'$.
+	\item $\boxed{y' = \frac{y}{x} h(xy)}$, setzte $z(x) = xy(x)$, respektive $y = \frac{z(x)}{x}$ dann wird $y' = \frac{xz' - z}{x^2}$.
+\end{itemize}
+
+
+
 
 
 
@@ -1614,8 +1613,11 @@ $$do = |\phi_u \times \phi_v|dudv = |\operatorname{det}(d\phi)|dudv$$ Um die Obe
 
 \textbf{Examples}
 
-
+\TODO{todo}
 integrale mit sin2cos etc.
+
+
+
 \newpage
 
 \end{multicols}
