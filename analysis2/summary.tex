@@ -260,12 +260,6 @@ Wir sagen dass $f$ an der Stelle $a$ den Grenzwert $L\in \R$ hat, geschrieben $\
 \subsection*{Taylor (als letzte Hoffung)}
 Wenn das alles nicht funktioniert kann man versuchen die Taylorentwicklung einzusetzten. \\
 
-\begin{important}
-Kann auch sinnvoll sein Audruck wie $\sqrt{x} = t$ zu subsituieren und dann neuer Limes.
-\end{important}
-
-
-
 % -------------------------- Folgen --------------------------
 
 \section*{Folgen}
@@ -274,124 +268,6 @@ Kann auch sinnvoll sein Audruck wie $\sqrt{x} = t$ zu subsituieren und dann neue
 Folge $a_n$ is konvergent, falls $\exists l \in \mathbb{R}$ so dass $\forall \epsilon > 0$ die Menge $\{n \in \mathbb{N}^+: a_n \not \in (l-\epsilon, l + \epsilon)\}$ endlich ist. \\
 Äquivalent: $\forall \epsilon > 0 \ \exists N \in \N $ so dass $ \forall n \geq N$ gilt $|a_n - l|< \epsilon$.
 \end{method}
-
-\textbf{Beispiel (Konvergenz mit Definition)}: 
-Beweise dass $\limm \frac{3n^2 + 4}{2n^2 + 1} = \frac{3}{2}$. Sei $\epsilon > 0$. Dann muss gelten $|a_n - a | < \epsilon$. Somit $\left| \frac{3n^2 + 4}{2n^2 + 1} -  \frac{3}{2}\right| = \left| \frac{6n^2 + 8 - 6n^2 -3}{4n^2 + 2} \right| = \frac{5}{4n^2 + 2} < \epsilon$. Gibt $4n^2 + 2 > \frac{5}{\epsilon}$, äquiv zu $n > \sqrt{\frac{5}{4 \epsilon} - \frac{1}{2}}$. Wir definieren $N = \lfloor \sqrt{\frac{5}{4 \epsilon} - \frac{1}{2}} \rfloor$. Nun gilt $\forall n \geq N : |a_n - a | < \epsilon$.
-
-
-
-
-\begin{method}{Rechnen mit Grenzwerten} $(a_n)_n$ und $(b_n)_n$ konvergent mit GW $a,b$. Dann gilt:
-	\begin{itemize}
-		\item $\lim \limits_{n \to \infty} (a_n + b_n) = a + b$	
-		\item $\lim \limits_{n \to \infty} (a_n \cdot b_n) = a \cdot b$
-		\item  Falls $b_n, b \not = 0$, so gilt $\lim \limits_{n \to \infty} \frac{a_n}{b_n} = \frac{a}{b}$
-		\item Falls $a_n \leq b_n$ $\forall n \in \mathbb{N}$, so gilt $a \leq b$
-	\end{itemize}
-\end{method}
-
-\textbf{Beispiel (Rechnen mit Grenzwerten)}: 
-\begin{itemize}
-	\item $\limm  \frac{(\frac{1}{n} + n^2 )^3}{1 + n^6} = \limm \frac{n^6}{n^6} \frac{(\frac{1}{n^3} + 1 )^3}{\frac{1}{n^6} + 1} = \limm \frac{(\frac{1}{n^3} + 1 )^3}{\frac{1}{n^6} + 1} = 1$
-	
-	\item $\limm \sqrt{n} (\sqrt{n + 2} - \sqrt{n}) \stackrel{\text{Wurzeltrick}}{=} \limm \frac{2 \sqrt{2}}{\sqrt{n+2} + \sqrt{n}} = \limm  \frac{2}{\sqrt{1 + \frac{2}{n}} + 1} = 1$
-	
-	\item $ \limm \sqrt[n]{3^n + 7^n} = \limm \sqrt[n]{7^n ( \frac{3^n}{7^n} + 1)} = \limm 7 \sqrt[n]{ (\frac{3^n}{7^n} + 1)} = 7$
-	
-\end{itemize}
-
-
-\begin{method}{Sandwich Theorem}
-Seien $b_n \leq a_n \leq c_n$. Falls $b_n$ und $c_n$ konvergent sind mit $\lim \limits_{n \to \infty } b_n = \lim \limits_{n \to \infty } c_n = L$, so ist $a_n$ auch konv. mit $\lim \limits_{n \to \infty } a_n = L$
-\end{method}
-\textbf{Beweis (Sandwich Theorem)}: 
-Da $b_n$, $c_n$ konvergent mit GW $L$:
-$$\forall \epsilon > 0 \exists N_1 : \forall n \geq N_1 : L-\epsilon < b_n + \epsilon$$
-Analog  $ \exists N_2$, setze $N = \max\{N_1, N_2\}$, dann gilt $\forall \epsilon > 0 \exists N$:
-$$L-\epsilon < b_n \leq a_n \leq c_n < L + \epsilon \implies L - \epsilon < a_n < L + \epsilon$$
-
-
-\textbf{Beispiel (Sandwich)}
-$\limm \frac{n + \cos(n)}{n^2 -1}$. Wenn es absolut konv. dann auch absolut. Sicher gilt somit : $0 \leq \left|\frac{n + \cos(n)}{n^2 -1}\right|$ Nun schätzen wir nach oben ab: $\left|\frac{n + \cos(n)}{n^2 -1}\right| \leq \frac{n+1}{n^2 - 1} = \frac{n+1}{(n+1)(n-1)} = \frac{1}{n-1}$. Es gilt $\limm \frac{1}{n-1} = 0$, somit gilt $\limm \left|\frac{n + \cos(n)}{n^2 -1}\right| = 0$. (da Sandwich)
-
-
-
-\begin{method}{Cauchy Kriterium}
-	Die Folge $(a_n)_n$ ist genau dann konvergent, falls $\forall  \epsilon > 0 \ \exists N \geq 1 \text{ so dass } |a_n - a_m| < \epsilon \quad \forall n,m \geq N$
-\end{method}
-
-\textbf{Beweis (Cauchy Kriterium)} Seien $|a_n - a |< \epsilon$ sowie $|a_m - a| < \epsilon$, mit $n,m \geq N$ wie in der Def. Es folgt: 
-\begin{align*}
-	|a_n - a_m| &= |(a_n-a) + (a - a_m)| < |a_n - a| + |a_m - a| < 2\epsilon
-\end{align*}
-
-\textbf{Beispiel (Cauchy Kriterium)}
-Sei $a_n = \frac{n-1}{2n}$ eine Folge. Wir versuchen Konvergenz mittels Cauchy zu zeigen:\\
-$|a_n - a_m| = |\frac{n-1}{2n} - \frac{m-1}{2m}| = |\frac{nm-m-nm+n}{2nm}| = |\frac{n-m}{2nm}| = \frac{1}{2n} - \frac{1}{2m} \stackrel{m\geq n}{\leq} \frac{1}{2n} < \epsilon$. Für alle $n \geq N = \lceil \frac{1}{2\epsilon} \rceil$ haben wir $|a_n - a_m| < \epsilon$. Nach Cauchy ist $a_n$ somit konvergent.
-
-\begin{method}{Satz von Bolzano Weierstrass}
-	Jede beschränkte Folge besitzt eine konvergente Teilfolge.
-\end{method}
-
-
-% -------------------------- Reihen --------------------------
-
-\section{Reihen}
-
-\begin{method}{Konvergenz mit Definition} Eine Reihe konvergiert wenn der Grenzwert der Partialsummen existiert:
-	\begin{align*}
-			\sum_{n=0}^{\infty} a_n  = \lim\limits_{N\to\infty} S_n = \lim\limits_{N\to\infty} \sum_{n=0}^{\infty} a_n
-	\end{align*}
-\end{method}
-
-\textbf{Beispiel (Konvergenz mit Definition)}
-\begin{itemize}
-	\item $\sum_{n = 0}^{\infty} \frac{1}{n(n+1)} = \frac{1}{n} - \frac{1}{n+1}$. Es gilt somit $S_n = 1 - \frac{1}{2} + \frac{1}{2} - \frac{1}{3} \ldots - \frac{1}{n+1}$ Somit $S_n = 1-\frac{1}{n+1}$. Es gilt $\limm S_n = \limm 1 - \frac{1}{n+1} = 1$, somit ist die Reihe konvergent mit Grenzwert 1.
-	\item $\sum_{n = 0}^{\infty} \frac{1}{\sqrt{n} + \sqrt{n+1}} $ Zuerst nutzen wir den Wurzeltrick: $\frac{1}{\sqrt{n} + \sqrt{n+1}} = \sqrt{n+1} - \sqrt{n}$. Wir bemerken $S_n = 1 - 0 + \sqrt{2} - 1 \ldots + \sqrt{n+1} - \sqrt{n} = \sqrt{n+1}$. Da aber $\limm S_n =  \limm \sqrt{n+1} = \infty$ divergiert die Reihe.
-\end{itemize}
-
-\begin{method}{Geometrische Reihen}
-	Für geometrische Reihen gilt:
-	$$\sum _{k=0}^{n-1}ar^{k}=a\left({\frac {1-r^{n}}{1-r}}\right)$$
-	\textit{Beweis:}
-	\begin{align*}
-	s&=a+ar+ar^{2}+ar^{3}+\cdots +ar^{n-1}\\
-	rs&=ar+ar^{2}+ar^{3}+ar^{4}+\cdots +ar^{n}\\
-	s-rs&=a-ar^{n}\\
-	s(1-r)&=a(1-r^{n})
-	\end{align*}
-\end{method}
-
-\begin{method}{Konvergenz mit $\lim\limits_{n \to \infty } a_n = 0$ (Nullfolge)}
-
-\begin{align*}
-\sum_{n=0}^{\infty} a_0 \text{ konvergiert } \implies \lim\limits_{n \to \infty } a_n = 0\\
-\lim\limits_{n \to \infty } a_n \not = 0 \implies \sum_{n=0}^{\infty} a_0 \text{ divergiert }
-\end{align*}
-\end{method}
-
-\textbf{Beweis (Nullfolge)} Wenn $\sum_{n = 0}^{\infty} a_n$ konvergent ist, dann ist $\limm a_n = 0$.
-Es gilt $a_N = S_N - S_{N-1}$. Somit $\limm a_n = \limm (S_n - S_{n-1}) = \limm S_n - \limm S_{n-1} = S-S = 0$
-
-\begin{important}{
-	\small \textbf{Wichtige Reihen}
-	\begin{itemize}
-		\item $\sum_{i=1}^{\infty} \frac{1}{i^2}$ konvergiert da $\frac{1}{i^2} \leq \frac{1}{k(k-1)}$ Die letzte Summe PBZ dann $1 + \sum \left( \frac{1}{k-1} - \frac{1}{k}\right)$ Es gilt $\sum_{i=1}^{\infty} \frac{1}{i^2} = \frac{\pi^2}{6}$
-		\item $\sum_{i=1}^{\infty} x^i = \frac{1}{1-x}$
-		\item $\sum_{i=1}^{\infty} \frac{(-1)^{i+1}}{i} = \ln(2)$.
-		\item $\sum_{n=0}^{\infty} \frac{x^n}{n!} = e^x$
-	\end{itemize}
-}\end{important}
-
-
-
-\vfill\null
-\columnbreak
-
-
-
-
-
 
 % -------------------------- Stetigkeit --------------------------
 
@@ -414,7 +290,6 @@ Es gilt $a_N = S_N - S_{N-1}$. Somit $\limm a_n = \limm (S_n - S_{n-1}) = \limm 
 
 \textbf{Beispiel (Zwischenwertsatz)}
 \begin{itemize}
-	\item Sei $f:[a,b]\to [a,b]$ stetig. Zeige $f$ hat Fixpunkt. Wir def. die stetige Fkt. $h(x) = f(x)-x$. Es gilt $h(a) = f(a)-a \geq 0$ da $f(a) \in [a,b]$. Analog $h(b) = f(b)-b\leq 0$. Somit exisitert $x_0$ mit $h(x_0) = 0$ resp. $f(x_0) = x_0$.
 	\item Hat $e^{2x} - \log (1+x) = 2$ eine Lösung in $[0,1]$?. Wir def. $h(x) = e^{2x} - \log (1+x) -2$. Bemerke $h(x)$ ist stetig. Es gilt $h(0) = 1 - 0 - 2 = -1$, sowie $h(1) = e^2 - \log(2) -2 \geq 0$. Somit existiert $x_0 \in [0,1]$ mit $h(x_0) = 0$. Somit exisiter Lösung in $[0,1]$.
 \end{itemize}
 
@@ -986,89 +861,6 @@ $$\sum_{n=1}^{\infty} f(n) \ \text{konv.}  \iff    \int_{1}^{\infty} f(x) dx \ \
 
 
 
-
-% -------------------------- Gamma Funktion --------------------------
-
-\section*{Gamma Funktion}
-
-Die Gamma Funktion ist definiert als $\Gamma (s) := \int_{0} ^{\infty} e^{-x} x^{s-1} dx$.
-
-Sie erfüllt:
-\begin{itemize}
-	\item $\Gamma(1) = 1$
-	\item $\Gamma(s+1) = s\Gamma(s) \ \forall s > 0$
-	\item $\Gamma$ ist logarithmisch konvex: $\Gamma(\lambda x + (1-\lambda)y) \leq \Gamma(x)^\lambda \Gamma(y)^{1-\lambda}$
-\end{itemize}
-Wir zeigen nun die zweite Eigenschaft mittels partieller Integration:
-\begin{align*}
-	\int_{0}^{b} x^n e^{-x} dx &= -b^n e^{-b} + n \int_{0}^{b} x^{n-1}e^{-x}
-\end{align*}
-Da $\lim_{b \to \infty}  -b^n e^{-b} = 0$ folgt: $\int_{0}^{\infty} x^n e^{-x} dx =n \int_{0}^{\infty} x^{n-1}e^{-x}$
-
-
-% -------------------------- Sonstiges --------------------------
-
-
-
-
-
-
-
-
-
-\section*{Sonstiges}
-\begin{method}{Binomialsatz}
-	$\forall x,y \in \mathbb{C}$, $n \geq 1$ gilt:
-	$$(x+y)^n = \sum_{k=0}^{n} \binom{n}{k}x^k y^{n-k}$$
-\end{method}
-
-\begin{method}{ABC / Mitternachtsformel}
-	\begin{align*}
-		\text{Gegeben: } & ax^2 + bx + c = 0\\
-		\text{Lösung: } & x_{1,2} = \frac{-b \pm \sqrt{b^2 -4ac}}{2a}
-	\end{align*}
-\end{method}
-
-
-\begin{method}{Logarithmus Regeln}
-${\displaystyle \log _{b}(x\cdot y)=\log _{b}(x)+\log _{b}(y)}$
-\end{method}
-
-
-\begin{method}{Summenformeln}
-	\begin{align*}
-	\sum _{{k=1}}^{n}k &= {\frac  {n(n+1)}{2}}\\
-	\sum_{k=1}^n (2k-1) &= n^2\\
-\sum _{{k=1}}^{n}k^{2} &= {\frac  {n(n+1)(2n+1)}{6}}
-	\end{align*}
-\end{method}
-
-
-\begin{method}{Gerade \& Ungerade Funktion}
-Eine Funktion heisst:
-\begin{itemize}
-	\item \textsc{Gerade} wenn $f(-x) = f(x)$
-	\item \textsc{Ungerade} wenn $f(-x) = - f(x)$
-\end{itemize}
-Dabei sind $f(x) = 1$, $f(x) = |x|$, $f(x)=x^2$, $f(x) = \cos(x)$ alles gerade Funktionen.\\
-Im Gegenzug sind $f(x) = sgn(x)$, $f(x) = x$, $f(x) = \tan(x)$, $f(x) = \sin(x)$ ungerade Funktionen.
-\end{method}
-
-
-\begin{method}{Injektiv}
-	\begin{align*}
-			&\forall x_1,x_2 \in M : f(x_1) = f(x_2) \implies x_1 = x_2\\
-			\text{or }  &x_1 \not = x_2 \implies f(x_1) \not = f(x_2)
-	\end{align*}
-	\textbf{Surjektiv}
-	\begin{align*}
-	\forall y \in N \exists x \in M : y = f(x)
-	\end{align*}
-\end{method}
-
-\textbf{Umkehrsatz - Beispiel} Zeige dass $x + e^x$ bijektiv von $\R$ auf $\R$ abbildet. Es gilt $f'(x) = 1 + e^x > 0$, somit ist $f$ streng monoton wachsend in $\R$ und Umkehrbar. Weil $\lim_{x \to -\infty} f(x) = - \infty$ und $\lim_{x \to \infty} f(x) = \infty$ ist $f$ bijektiv von $\R$ nach $\R$
-
-
 \vfill\null
 \columnbreak
 
@@ -1569,7 +1361,7 @@ If possible use $1$-dimensional Taylor series as starting point!
 
 
 
-\section{Mehrdimensionale Integrale}
+\section*{Mehrdimensionale Integrale}
 
 \begin{method}{Satz von Fubini}
 	Sei $Q=[a_1,b_1]\times \ldots \times [a_n,b_n]$ ein Quader und $f:Q\to \R$ mit $f\in C^0(Q)$ gegeben, so gilt:
@@ -1591,7 +1383,7 @@ If possible use $1$-dimensional Taylor series as starting point!
 	
 	\includegraphics[width=\textwidth]{normBe.png}
 	
-	Selbstverständlich können wir über den Normalenberiech integriere und es gilt:
+	Selbstverständlich können wir über den Normalenbereich integriere und es gilt:
 	
 	\begin{align*}
 		\int_Omega F d\mu &= \int_{a}^{b} dx \int_{f(x)}^{g(x)} dy F(x,y)
@@ -1599,6 +1391,28 @@ If possible use $1$-dimensional Taylor series as starting point!
 	
 	dabei werte immer das innere Integral zuerst aus.
 \end{method}
+
+
+\subsection*{Substitution}
+
+\begin{method}{Substitutionsregel}
+	\begin{itemize}
+		\item \textbf{$1$-dimensional:} Sei $f$ Riemann-integrierbar, so gilt für die Substitution $x = g(u)$ mit $dx = g'(u)du$ dass
+		$$\int_{a}^{b} f(x) dx = \int_{g^{-1}(a)}^{g^{-1}(b)} f(g(u))g'(u)du$$
+		\item \textbf{$n$-dimensional:} Sei $f$ Riemann-integrierbar auf $\Omega \subset \R^n$ und die Substitution $(x_1,\ldots,x_n) = \phi(u_1,\ldots,u_n)$ oder in Komponenten $	\begin{pmatrix}
+x_1\\ \vdots\\x_n
+		\end{pmatrix} = \phi(u) = 	\begin{pmatrix}
+		g_1(u_1,\ldots,u_n)\\
+		\vdots \\
+		g_n(u_1,\ldots,u_n)
+		\end{pmatrix}$ wobei $\phi$ in $C^1$ Diffeomorphismus ist. Dann gilt
+		\begin{align*}
+			\int_\Omega &f(x_1,\ldots , x_n) dx_1\ldots dx_n \\ &= \int_{\overline{\Omega}} f(g_1(x_1),\ldots , g_n(x_n)) |\operatorname{det}(d\phi) | du_1\ldots du_n
+		\end{align*}
+		mit $\overline{\Omega} = \phi^{-1}(\Omega)$
+	\end{itemize}
+\end{method}
+
 
 \subsection*{Koordinatentransformationen}
 \TODO{needs proofreading}
@@ -1658,16 +1472,131 @@ z &= r\cos\theta  &  0 \leq &\phi < 2\pi & &
 \end{method}
 
 
+\begin{method}{Rotationskörper}
+	Sei $R = \{(x,y,z) \in \R^3 | a \leq z \leq b, x^2 + y^2 \leq f^2(z)  \}$, dann ist $\operatorname{Vol}(R) = \pi \int_{a}^{b} dz f^2(z)$
+\end{method}
 
-\newpage
 
-kreuzproduckt
+\section*{Integralsätze}
+
+\begin{method}{Satz von Green}
+	$\vec{v} = (v_1,v_2)$ ein stetiges Vektorfeld auf $\Omega \subset \R^2$ und $C\subset \R^2$ ein beschränkter Bereich mit Rand $\gamma = \partial C$ in $C_{pw}^1$ der sich nicht selbst schneidet (also called simple closed parameterized curve mit $\gamma(t)\not=\gamma(s)$ für $s\neq t$). Dann gilt:
+	$$\int_{\gamma = \partial C} \vec{v} \cdot d\vec{s} = \int_{C} \left( \frac{\partial v_2}{\partial x} -  \frac{\partial v_1}{\partial y}\right)dxdy$$
+\end{method}
+
+\begin{method}{Flächen mit dem Satz von Green berechnen}
+	Gegeben ein Gebiet $C\subset \R^2$ beschränkt mit $C_{pw}^1$ Rand $\partial C$, gesucht Fläche $F(C)$
+	\begin{itemize}
+		\item \textbf{Schritt 1:} Parametrisiere den Rand von $C$ mit einer Kurve $\gamma:[a,b]\to \R^2$, $t\mapsto \gamma(t)$. Die Parametrisierung muss in positiver Richtung sein, d.h. das Gebiet links der Kurve sein.
+		\item \textbf{Schritt 2:} Berechne $\gamma'$
+		\item \textbf{Schritt 1:} Wähle ein geeignetes Vektorfeld wie z.B: $\vec{v} = (0,x)$ oder $\vec{v} = (-y/2,x/2)$ oder $\vec{v} = (-y,0)$ und wende dafür den Satz von Green an: $F(C) = \int_{\gamma=\partial C} \vec{v}\cdot d\vec{s}$
+	\end{itemize}
+\end{method}
+
+
+
+
+\begin{method}{Satz von Gauss-Ostrogradski}
+	
+\end{method}
+\textbf{Intuitive Erklärung: } Ändert sich das Vektorfeld im Innern, so muss sich dies beim Einfluss und Ausfluss bemerkbar machen.
+
+\ifx
+
+\begin{important}
+	Satz von Stokes und Pappus nicht Prüfungsrelevant!
+\end{important}
+
+\begin{method}{Satz von Stokes}
+	Sei $\vec{v} = (v_1,v_2,v_3)$ ein stetig differenzierbares Vektorfeld auf $\Omega\subset \R^3$ und $C\subset \Omega$ eine offene Fläche durch die geschlossene Kurve $\gamma = \partial C$ in $C_{pw}^1$ berandet, dann gilt:
+	$$\int_{\gamma = \partial C} \vec{v}\cdot d\vec{s} = \int_{C} (\vec{\nabla}\times \vec{v}) \cdot\vec{n} do$$ wobei $\vec{n}$ der nach aussen gerichtete Normalenvektor entlang $C$ ist und $do$ das zweidimensionale Integrationselement über die Fläche bezeichnet. Der Weg $\gamma$ muss positiv orientiert sein.
+\end{method}
+
+\fi
+
+
+
+% -------------------------- Sonstiges --------------------------
+
+
+
+
+
+
+
+
+
+\section*{Sonstiges}
+\begin{method}{Binomialsatz}
+	$\forall x,y \in \mathbb{C}$, $n \geq 1$ gilt:
+	$$(x+y)^n = \sum_{k=0}^{n} \binom{n}{k}x^k y^{n-k}$$
+\end{method}
+
+\begin{method}{ABC / Mitternachtsformel}
+	\begin{align*}
+	\text{Gegeben: } & ax^2 + bx + c = 0\\
+	\text{Lösung: } & x_{1,2} = \frac{-b \pm \sqrt{b^2 -4ac}}{2a}
+	\end{align*}
+\end{method}
+
+
+\begin{method}{Logarithmus Regeln}
+	${\displaystyle \log _{b}(x\cdot y)=\log _{b}(x)+\log _{b}(y)}$
+\end{method}
+
+
+\begin{method}{Summenformeln}
+	\begin{align*}
+	\sum _{{k=1}}^{n}k &= {\frac  {n(n+1)}{2}}\\
+	\sum_{k=1}^n (2k-1) &= n^2\\
+	\sum _{{k=1}}^{n}k^{2} &= {\frac  {n(n+1)(2n+1)}{6}}
+	\end{align*}
+\end{method}
+
+
+\begin{method}{Gerade \& Ungerade Funktion}
+	Eine Funktion heisst:
+	\begin{itemize}
+		\item \textsc{Gerade} wenn $f(-x) = f(x)$
+		\item \textsc{Ungerade} wenn $f(-x) = - f(x)$
+	\end{itemize}
+	Dabei sind $f(x) = 1$, $f(x) = |x|$, $f(x)=x^2$, $f(x) = \cos(x)$ alles gerade Funktionen.\\
+	Im Gegenzug sind $f(x) = sgn(x)$, $f(x) = x$, $f(x) = \tan(x)$, $f(x) = \sin(x)$ ungerade Funktionen.
+\end{method}
+
+
+\begin{method}{Injektiv}
+	\begin{align*}
+	&\forall x_1,x_2 \in M : f(x_1) = f(x_2) \implies x_1 = x_2\\
+	\text{or }  &x_1 \not = x_2 \implies f(x_1) \not = f(x_2)
+	\end{align*}
+	\textbf{Surjektiv}
+	\begin{align*}
+	\forall y \in N \exists x \in M : y = f(x)
+	\end{align*}
+\end{method}
+
+\textbf{Umkehrsatz - Beispiel} Zeige dass $x + e^x$ bijektiv von $\R$ auf $\R$ abbildet. Es gilt $f'(x) = 1 + e^x > 0$, somit ist $f$ streng monoton wachsend in $\R$ und Umkehrbar. Weil $\lim_{x \to -\infty} f(x) = - \infty$ und $\lim_{x \to \infty} f(x) = \infty$ ist $f$ bijektiv von $\R$ nach $\R$
+
+
+
+\begin{method}{Kreuzprodukt}
+	\begin{align*}
+	\vec{a}\times\vec{b}=	\begin{pmatrix}a_1 \\ a_2 \\ a_3\end{pmatrix}
+	\times
+	\begin{pmatrix}b_1 \\ b_2 \\ b_3 \end{pmatrix} &=	\begin{pmatrix}
+	a_2b_3 - a_3b_2 \\
+	a_3b_1 - a_1b_3 \\
+	a_1b_2 - a_2b_1
+	\end{pmatrix}
+	\end{align*}
+\end{method}
 
 \textbf{Examples}
 
 
 integrale mit sin2cos etc.
-
+\newpage
 
 \end{multicols}
 \end{document}

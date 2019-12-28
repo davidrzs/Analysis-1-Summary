@@ -13,7 +13,7 @@ I will continue to fix bugs over the course of the next months, hence things mig
 
 ## Compiling
 
-This summary requires a ton of packages. It works on a complete texlive distribution on linux as well as Miktex on Windows (it will automatically download missing packages in the background, so the first time you compile it might take a while). Alternatively you can also just copy the whole repo into an Overleaf project and use their online compiler.
+This summary requires a ton of packages. It works on a complete Texlive distribution on linux as well as Miktex on Windows (it will automatically download missing packages in the background, so the first time you compile it might take a while). Alternatively you can also just copy the whole repo into an Overleaf project and use their online compiler.
 
 ## I found a mistake? What do I do?
 
@@ -29,8 +29,10 @@ All the theory and some examples have been taken from the following sources:
 - [Analysis 2 - lecture notes for computer scientists by Prof. Emmanuel Kowalski](https://metaphor.ethz.ch/x/2019/hs/401-0213-16L/script-analysis-II.pdf)
 - [Analysis 1 - examples for mathematicians and physicists by Thomas Michaels](https://www.eth-store.ch/buecher/shop/product/250746)
 - [Analysis 2 - examples for mathematicians and physicists by Thomas Michaels](https://www.eth-store.ch/buecher/shop/product/275418)
+- [Analysis TA notes by Bruno Eckmann](https://n.ethz.ch/~breckman/download/)
 
 ### Screenshot Sources:
 
 - complex numbers: https://www.bradford.ac.uk/academic-skills/media/academicskillsadvice/documents/mathsresources/summarysheets/complesnumbers/complex-numbers-summary.pdf
 - trigononemtric functions values: https://www.wolfram.com/mathematica/new-in-10/inactive-objects/HTMLImages.en/display-common-trigonometric-values/O_12.png
+- normalenbereich: https://n.ethz.ch/~breckman/download/AnalysisII-INFK-Serie10.pdf
