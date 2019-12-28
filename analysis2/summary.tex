@@ -955,6 +955,30 @@ um, was wir dann nach $y$ auflösen können.
 	
 \end{method}
 
+\begin{method}{Variation der Konstanten (2te Ord.)} Wir haben eine ODE der Form $y'' + a_1 y' + a_0 y = g(x)$:
+	\begin{itemize}
+		\item \textbf{Schritt 1: } Löse homogenes Problem mittels Euleransatz
+		\item \textbf{Schritt 2: } Suche nun eine Lösung der Form $y_p(x) = C_1 (x)y_1 (x) +c_2(x)y_2(x)$ wobei $y_1$ und $y_2$ aus dem Euler Ansatz kommen und das System  $\left\{
+		\begin{array}{ll}
+		C_1'(x) y_1(x) + C_2'(x)y_2(x) = 0 \\
+		C_1'(x) y_1'(x) + C_2'(x)y_2'(x) = g(x)
+		\end{array}
+		\right.$ erfüllt sein muss. Dafür darf Determinante des Systems nicht verschwinden. Sonst keine eindeutige Lösung.
+		\item \textbf{Schritt 3: } Nun finden wir $C_1$ und $C_2$ durch 
+		\begin{align*}
+			\begin{pmatrix}
+			C_1'(x)\\C_2'(x)
+			\end{pmatrix} &= \frac{1}{y_1(x) y_2'(x) - y_2(x) y_1'(x)} 	\begin{pmatrix}
+			-y_2(x) g(x)\\ y_1(x) g(x)
+			\end{pmatrix} 
+		\end{align*}
+		\item \textbf{Schritt 4: } Finde $C_1 = \int C_1' dx$ sowie $C_2$. Dann baue $y_p(x) = C_1 (x)y_1 (x) +C_2(x)y_2(x)$.
+		\item \textbf{Schritt 5: } Setzte $y(x) = y_h(x) + y_p(x)$.
+	\end{itemize}
+	
+\end{method}
+
+
 \subsection*{Lineare DGL $n$-ter Ordnung}
 
 Wir lösen das homogene Problem vor dem inhomogenen!
@@ -980,7 +1004,21 @@ Wenn die NS $\lambda = \beta + i\gamma$ nicht reell ist, so ist (bei rellen DGL)
 
 
 
-\TODO{beisiele}
+\TODO{beispiele}
+
+\begin{method}{Direkter Ansatz nichthomogene DLG $n$-ter Ordnung}
+	Für DLGs der Form $$a_n y^{(n)} + a_{n-1} y^{(n-1)} + \cdots + a_0 y = b(x)$$
+	mit dem Euler Ansatz lösen wir das homogene Problem. Die partikuläre Lösung finden wir mit der Idee, dass $y_p(x)$ die slebe Form wie $b(x)$ hat.
+	
+	\includegraphics[width=\textwidth]{ansatz.png}
+	
+	Dabei gilt:
+	\begin{itemize}
+		\item Verschiedene Ansätze können kombiniert werden. So wählt man für $b(x) = 5x + \sin(x)2^{3x}$ als Ansatz $Ax+B + (C + \sin(x) + D\cos(x))e^{3x}$
+		\item Wenn ein Teil der zu wählenden Funktion für $y_p(x)$ bereits in $y_h(x)$ drin ist, so Multipliziere den Ansatz mit $x$. So wählt man für $y_h(x) = Ax + B$ anstelle des Ansatzes $y_p(x) = Ax+B$ den Ansatz $y_p(x) = x(Ax + b)$
+	\end{itemize}
+\end{method}
+
 
 \subsection*{Variabelwechsel}
 Nutze eine Substitution und brauche dann die Methode des direkten Ansatzes:
