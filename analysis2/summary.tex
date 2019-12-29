@@ -1341,10 +1341,19 @@ If possible use $1$-dimensional Taylor series as starting point!
 	\begin{align*}
 		\int_\gamma f \cdot ds &:= \int_{a}^{b} f(\gamma(t)) \cdot \gamma'(t) dt
 	\end{align*}
-	heistt das Wegitnergal von $f$ entlang $\gamma$. Da dies alles Vektoren sind ist die Multiplikation das Skalarprodukt.
+	heistt das Wegintegral von $f$ entlang $\gamma$. Da dies alles Vektoren sind ist die Multiplikation das Skalarprodukt.
 	
 	Es gilt $\gamma  \in C^1_{pw}$ wobei pw = piece wise.
 \end{method}
+
+\textbf{Parametrisieren von Wegen / Kurven}
+\begin{itemize}
+	\item \textbf{Parabel $y=x^2$}, ganz einfach als $\gamma(t)\mapsto (t,t^2)$
+	\item \textbf{Ellipse mit $(x-3)^2+4y^2 = 4$}, schreibe als $a^2 + b^2 = r^2$ mit $a = r\cos(t)$ und $b = r\sin(t)$. In unserem Fall ist $a = x-3$, $b=2y$ sowie $r = 2$. Dies gibt die Parametrisierung $\gamma(t) \mapsto (3+2\cos(t),\sin(t))$
+\end{itemize}
+
+
+
 
 \begin{method}{Länge einer Kurve}
 	Sei $\gamma$ eine reguläre Kurve $\gamma : [a,b]\to \R^n$ mit $t \mapsto \gamma(t)$ , dann ist die Länge von $\gamma$ gegeben durch $L(\gamma) = \int_{a}^{b} |\gamma'(t)| dt$. Der Betrag ist dabei die euklidische Norm.
@@ -1438,6 +1447,19 @@ If possible use $1$-dimensional Taylor series as starting point!
 	
 	dabei werte immer das innere Integral zuerst aus.
 \end{method}
+
+\textbf{Beispiele}
+
+\begin{itemize}
+	\item $\{(x,y)\in\R^2 | y \geq 0 , x-y + 1 \geq 0 , x + 2y -4 \leq 0\}$ Wir bemerken dass $x\leq 4-2y$ und $x\geq y-1$, wir suchen eine obere Schranke für $y$, dafür muss $4-2y = y-1$ gelten. Demnach integrieren wir $\int_{0}^{\frac{5}{3}} \int_{y-1}^{4-2y} dx dy$
+	\item 
+	\TODO{check!!!}
+	Wir definieren $A_1$ und $A_2$. Die Schnittpunkte sind bei $(\frac{1}{\sqrt{b}}, \sqrt{b})$ sowie $(\frac{1}{\sqrt{a}}, \sqrt{a})$. Demnach ist $\int_A d\mu = \int_{0}^{\sqrt{a}} \int_{\frac{y}{b}}^{\frac{y}{a}} dx dy + \int_{\sqrt{a}}^{\sqrt{b}} \int_{\frac{y}{b}}^{\frac{1}{y}} dx dy$
+	\includegraphics[width=\linewidth]{serie13.png}
+\end{itemize}
+
+
+
 
 
 \subsection*{Substitution}
