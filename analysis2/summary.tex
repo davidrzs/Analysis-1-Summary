@@ -1370,7 +1370,7 @@ If possible use $1$-dimensional Taylor series as starting point!
 \end{method}
 
 \begin{method}{Existenz eines Potentialfeldes}
-	Ist $v : \Omega \subset \R^n \to \R^n$ ein Potentialfeld (d.h. $\exists \phi : \nabla \phi = v$), so gelten die Integrabilitätsbedingungen $\frac{\partial v_i}{\partial x_j} = \frac{\partial v_j}{x_i}$ für $i\neq j$ , $i,j\in\{1,\ldots,n\}$. Wenn $\Omega$ sternförmig ist, so gilt auch die Umkehrung. d.h. wenn die Integrabilitätsbedinungen erfüllt sind so gibt es ein Potential.
+	Ist $v : \Omega \subset \R^n \to \R^n$ ein Potentialfeld (d.h. $\exists \phi : \nabla \phi = v$), so gelten die Integrabilitätsbedingungen $\frac{\partial v_i}{\partial x_j} = \frac{\partial v_j}{\partial x_i}$ für $i\neq j$ , $i,j\in\{1,\ldots,n\}$. Wenn $\Omega$ sternförmig ist, so gilt auch die Umkehrung. d.h. wenn die Integrabilitätsbedinungen erfüllt sind so gibt es ein Potential.
 	
 	Folgende Aussagen sind äquivalent:
 	
@@ -1400,6 +1400,16 @@ If possible use $1$-dimensional Taylor series as starting point!
 
 \section*{Mehrdimensionale Integrale}
 
+\begin{method}{Negligible subset}
+	A subset $B \subset \R^n$ is called negligible if $\exists k \in \N$ and paremeterized $m_i$ sets $f_i:X_i \to \R^n$ such that $X\subset f_1(x_1) \cup \ldots \cup f_k(X_k)$.  A parameterized $m$-set in $\R^n$ $\approx$ $m$-dimensional subset of $R^n$.
+\end{method}
+\textbf{Examples:}
+
+\begin{itemize}
+	\item $\{(i,j,k)\in\R^3 | i,j,k\in\mathbb{Z} , i^2 + j^2 + k^2 < 2019\}$ is negligible since we can just build finitely many constant maps from $[0,1]$ to these finitely many distinct points.
+	\item $\{(x,y,z)\in\R^3 | x+y+z=1 ,x,y\in\left[0,1\right]\}$ is also negligible since we just need the map $(x,y)\to (x,y,1-x-y)$ from $\left[0,1\right]\to\R^3$
+\end{itemize}
+
 \begin{method}{Satz von Fubini}
 	Sei $Q=[a_1,b_1]\times \ldots \times [a_n,b_n]$ ein Quader und $f:Q\to \R$ mit $f\in C^0(Q)$ gegeben, so gilt:
 	
@@ -1423,7 +1433,7 @@ If possible use $1$-dimensional Taylor series as starting point!
 	Selbstverständlich können wir über den Normalenbereich integriere und es gilt:
 	
 	\begin{align*}
-		\int_Omega F d\mu &= \int_{a}^{b} dx \int_{f(x)}^{g(x)} dy F(x,y)
+		\int_\Omega F d\mu &= \int_{a}^{b} dx \int_{f(x)}^{g(x)} dy F(x,y)
 	\end{align*}
 	
 	dabei werte immer das innere Integral zuerst aus.
@@ -1442,7 +1452,7 @@ x_1\\ \vdots\\x_n
 		g_1(u_1,\ldots,u_n)\\
 		\vdots \\
 		g_n(u_1,\ldots,u_n)
-		\end{pmatrix}$ wobei $\phi$ in $C^1$ Diffeomorphismus ist. Dann gilt
+		\end{pmatrix}$ wobei $\phi$ ein $C^1$ Diffeomorphismus ist. Dann gilt
 		\begin{align*}
 			\int_\Omega &f(x_1,\ldots , x_n) dx_1\ldots dx_n \\ &= \int_{\overline{\Omega}} f(g_1(x_1),\ldots , g_n(x_n)) |\operatorname{det}(d\phi) | du_1\ldots du_n
 		\end{align*}
