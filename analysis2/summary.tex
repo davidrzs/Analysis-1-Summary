@@ -878,21 +878,6 @@ $$\sum_{n=1}^{\infty} f(n) \ \text{konv.}  \iff    \int_{1}^{\infty} f(x) dx \ \
 
 
 
-\subsection*{Wichtige Integrale}
-
-\begin{itemize}
-	\item $\int \cos^2()x dx = \frac{\cos(x)\sin(x) + x}{2} + C$
-	\item $\int \cos(x) \sin(x) dx = \frac{\sin^2(x)}{2}+C $
-	\item $\int \sin^2(x) dx = \frac{x - \sin(x)\cos(x)}{2} + C$
-	\item $\int \sqrt{1-x^2} dx = \frac{\arcsin(x) + x \sqrt{1-x^2}}{2} + C$
-\end{itemize}
-
-
-
-
-
-
-
 
 %----------------------------
 
@@ -1246,22 +1231,83 @@ We would like to find $d_u f((0,1))$ in direction $\frac{1}{\sqrt{17}}(-1,4)$:
 	\end{align*}
 \end{itemize}
 
-\begin{method}{Tangential Plane}
-	content...
+\begin{method}{Tangential Plane via Definition}
+	Wir wollen die Tangentialebene am Punkt $(x_0,y_0)$ der Fläche $f(x,y)$ finden. 
+	\begin{itemize}
+		\item Definiere $F(x,y) = (x,y,f(x,y))$ und berechne $$dF(x_0,y_0) = \begin{bmatrix}
+\frac{\partial F_1}{\partial x} (x_0,y_0) & \frac{\partial F_1}{\partial y} (x_0,y_0)\\
+\frac{\partial F_2}{\partial x} (x_0,y_0) & \frac{\partial F_2}{\partial y} (x_0,y_0)\\
+\frac{\partial F_3}{\partial x} (x_0,y_0) & \frac{\partial F_3}{\partial y} (x_0,y_0)
+		\end{bmatrix} = \begin{bmatrix}
+		u_1 & v_1 \\ u_2 & v_2 \\ u_3 & v_3 
+		\end{bmatrix}$$
+		\item Nun berechnen wir den Normalenvektor $n = u \times v$
+		$$\begin{bmatrix}
+		u_1\\u_2\\u_3
+		\end{bmatrix} \times \begin{bmatrix}
+		v_1\\v_2\\v_3
+		\end{bmatrix} = \begin{bmatrix}
+		a \\ b \\ c
+		\end{bmatrix}$$
+		Nun berechnen wir $d$ mit $p = (x_0,y_0,f(x_0,y_0))$ mit $d=p\cdot n$
+		\item Zum Schluss fassen wir die Gleichung zu $ax + by + cz = d$ zusammen.
+	\end{itemize}
+\end{method}
+
+\begin{method}{Tangential Plane via Taylor Approximation}
+	Wir approximieren $f$ im Punkt $(x_0,y_0)$ durch ein Taylorpolynom ersten Grades:
+	$$z = f(x_0,y_0) + \frac{\partial f}{\partial x} (x_0,y_0) \cdot (x-x_0) + \frac{\partial f}{\partial y} (x_0,y_0) \cdot (y-y_0)$$
 \end{method}
 
 
+\textbf{Example:}
+Determine a constant $c\in\R$ such that the vector $(c,0,1)^T$ is perpendicular to the surface of $\mathcal{G}(f)$ at the point $(\frac{\pi}{2},0,1)\in\mathcal{G}(f)$ with $f(x,y) = \sin(x) -y^3 + y^2$
+
+\TODO{finish ex. serie 6.3.b)}
+
+\begin{method}{Hessian}
+	For the twice differentiable function $f: \Omega \subset \R^n \to \R$, the Hessian is defined as:
+	\begin{align*}
+	\begin{bmatrix}
+	\frac{\partial ^2 f}{\partial x_1 ^2}(x) &\cdots &\frac{\partial ^2 f}{\partial x_1  \partial x_n}(x)\\
+	\vdots & \ddots & \vdots \\
+	\frac{\partial ^2 f}{\partial x_n \partial x_1}(x) &\cdots &\frac{\partial ^2 f}{\partial x_n ^2}(x)
+	\end{bmatrix}
+	\end{align*}
+\end{method}
+
+\begin{method}{Satz von Schwarz}
+	Ist $f$ zweimal stetig partiell Ableitbar so gilt $\frac{\partial ^2 f}{\partial x \partial y} = \frac{\partial ^2 f}{\partial y \partial x} $
+\end{method}
+
+\begin{method}{Minimum / Maxinmum finden:}
+	\begin{itemize}
+		\item \textbf{Schritt 1:} Berechne Gradient und setzte null. $\nabla \cdot f = df = 0$, diese Punkte nennen wir critical points.
+		\item \textbf{Schritt 2:} Berechne $\operatorname{Hess}(x_0)$:\begin{itemize}
+			\item $\operatorname{Hess}(x_0)$ pos. def. dann $x_0$ lokales Minimum
+			\item $\operatorname{Hess}(x_0)$ neg. def. dann $x_0$ lokales Maximum
+			\item $\operatorname{Hess}(x_0)$ indef. dann $x_0$ Sattelpunkt
+		\end{itemize}
+	\end{itemize}
+\end{method}
+
+\begin{method}{Definitheit}
+	Dabei sind $A_1, \ldots, A_n $ die Hauptminoren der Matrix.
+	\begin{itemize}
+		\item \textbf{Positiv Definit} Alle Eigenwerte strikt grösser als $0$, $A_1 > 0 , A_2 > 0, A_3 > 0, \ldots $
+		\item \textbf{Negativ Definit} Alle Eigenwerte strikt kleiner als $0$, $A_1 < 0, A_2 > 0, A_3 < 0,\ldots$
+	\end{itemize}
+\end{method}
+Dabei ist \begin{align*}
+	A_1 &= \operatorname{det}\begin{pmatrix}
+	a_{11}
+	\end{pmatrix} &  A_2 &= \operatorname{det}\begin{pmatrix}
+	a_{11} & a_{12} \\ a_{21} & a_{22}
+	\end{pmatrix}
+\end{align*}
 
 
-\section{pseudosectionbreak - insert above me}
-
-
-
-
-\subsection{Hesse Matrices and }
-
-
-\subsection{Change of Variable}
+\subsection*{Change of Variable}
 
 
 todo
@@ -1328,9 +1374,6 @@ If possible use $1$-dimensional Taylor series as starting point!
 % todo
 
 
-
-
-\newpage
 
 
 \section*{Wegintegrale}
@@ -1685,6 +1728,96 @@ $$do = |\phi_u \times \phi_v|dudv = |\operatorname{det}(d\phi)|dudv$$ Um die Obe
 
 \TODO{todo}
 integrale mit sin2cos etc.
+
+
+
+
+
+
+
+\subsection*{Wichtige Integrale}
+
+\begin{itemize}
+	\item $\int \cos^2()x dx = \frac{\cos(x)\sin(x) + x}{2} + C$
+	\item $\int \cos(x) \sin(x) dx = \frac{\sin^2(x)}{2}+C $
+	\item $\int \sin^2(x) dx = \frac{x - \sin(x)\cos(x)}{2} + C$
+	\item $\int \sqrt{1-x^2} dx = \frac{\arcsin(x) + x \sqrt{1-x^2}}{2} + C$
+\end{itemize}
+
+\subsubsection{Integralregeln}
+Es gelte: $\int f(x) \, dx = F(x)$
+\begin{itemize}
+	\item $\int u'\cdot v dx = uv - \int u \cdot v' dx$
+	\item $\int f(x) dx = \int f(g(t)) \cdot g'(t) dt, \; x=g(t), dx = g'(t) dt$
+	\item $\int f(a + x) \,dx = F(a + x)$
+	\item $\int f(a - x) \,dx = -F(a-x)$
+	\item $\int f(-x) \,dx = -F(-x)$
+	\item $\int f(\alpha x) \,dx = \frac{1}{\alpha}F(\alpha x)$
+	\item $\int \frac{g'(x)}{g(x)} \, dx = \ln|g(x)|$
+	\item $\int g(x)g'(x) \, dx = \frac{1}{2}g(x)^2$
+	\item $|\int f(x)| \leq \int |f(x)|$ (wenn f, Riemann-Integrable ist)
+\end{itemize}
+
+\subsubsection{typische Integrale}
+\begin{itemize}
+	\item $\int \frac{1}{x} \,dx = \ln |x|$
+	\item $\int \frac{1}{x^2} \,dx = -\frac{1}{x}$
+	\item $\int \frac{1}{x+a} \,dx = \ln |x+a|$
+	\item $\int \ln(x) \,dx = x(\ln(x) - 1)$
+	\item $\int \ln(ax + b) \,dx = \frac{(a x+b) \ln (a x+b)-a x}{a}$
+	\item $\int \frac{1}{(x+a)^2} \,dx = - \frac{1}{x+a}$
+	\item $\int \frac{1}{\sqrt{x}} \,dx = 2 \sqrt{x}$
+	\item $\int \frac{1}{ax+b} \,dx = \frac{1}{a} \ln |ax+b|$
+	\item $\int \frac{1}{1 + x^2} \,dx = \frac{1}{2} \ln |1 + x^2|$
+	\item $\int(ax + b)^n \,dx = \frac{(ax + b)^{n+1}}{(n + 1)a}, (n \neq -1)$
+	\item $\int x(ax+b)^n \,dx = \frac{(ax + b)^{n+2}}{(n+2)a^2} -
+	\frac{b(ax+b)^{n+1}}{(n+1)a^2}$
+	\item $\int \frac{ax + b}{px + q} \,dx = \frac{ax}{p} + \frac{bp - aq}{p^2} \ln
+	|pq+q|$
+	\item $\int \frac{1}{a^2 + x^2} \,dx = \frac{1}{a} \arctan(\frac{x}{a})$
+	\item $\int \frac{1}{a^2 - x^2} \,dx = \frac{1}{2a} \ln \left | \frac{a+x}{a-x}
+	\right |$
+	\item $\int \sqrt{x} \,dx = \frac{2}{3}\sqrt{x^3}$
+	%mühsamer kerl der teilweise in prüfungen verwendet wird. Kann man über subsitution von x mit sin(u) lösen.
+	\item $\int \sqrt{1-x^2} \,dx = \frac{1}{2}\left( x\sqrt{1-x^2}+\frac{1}{\sin(x)} \right)$
+	\item $\int a^{xb + c} \,dx = \frac{a^{bx + c}}{b \log(a)}$
+\end{itemize}
+
+\subsubsection{trionometrische Funktionen}
+\begin{itemize}
+	\item $\int \sin(ax) \,dx = -\frac{1}{a}\cos(ax)$
+	\item $\int \cos(ax) \,dx = \frac{1}{a}\sin(ax)$
+	\item $\int \sin(ax)^2 \,dx = \frac{x}{2} - \frac{sin(2ax)}{4a}$
+	\item $\int \frac{1}{\sin^2 x} \,dx = -\cot x$
+	\item $\int x \sin(ax) \,dx = \frac{\sin(ax)}{a^2} - \frac{x \cos(ax)}{a}$
+	\item $\int \cos^2(ax) \,dx = \frac{x}{2} + \frac{\sin(2ax)}{4a}$
+	\item $\int \frac{1}{\cos^2(x)} \,dx = \tan x$
+	\item $\int \cos(ax) \,dx = \frac{\cos(ax)}{a^2} + \frac{x \sin(ax)}{a}$
+	\item $\int \sin(ax) \cos(ax) \,dx = -\frac{\cos^2(ax)}{2a}$
+	\item $\int \tan(ax) \,dx = - \frac{1}{a} \ln | \cos(ax) |$
+	\item $\int \arcsin(x) \,dx = x \arcsin(x) + \sqrt{1 - x^2}$
+	\item $\int \arccos(x) \,dx = x \arccos(x) - \sqrt(1-x^2)$
+	\item $\int \arctan(x) \,dx = x \arctan(x) - \frac{1}{2} \ln(1+x^2)$
+\end{itemize}
+
+\subsubsection{Hyperbelfunktionen}
+\begin{itemize}
+	\item $\int \sinh(ax + b) \,dx = \frac{\cosh(ax + b)}{a}$; $\int \sinh(x) \,dx
+	= \cosh(x)$
+	\item $\int \cosh(ax + b) \,dx = \frac{\sinh(ax + b)}{a}$; $\int \cosh(x) \,dx
+	= \sinh(x)$
+	\item $\int \tan(ax + b) \,dx = \frac{\log(\cosh(ax+b))}{a}$; $\int \tan(x)
+	\,dx = \log(\cosh(x))$
+\end{itemize}
+
+\subsubsection{Exponentialfunktion}
+\begin{itemize}
+	\item $\int e^{ax} \,dx = \frac{1}{a} e^{ax}$ 
+	\item $\int x e^{ax} \,dx = e^{ax} \cdot \left ( \frac{ax - 1}{a^2} \right )$
+	\item $\int x \ln(x) \,dx = \frac{1}{2} x^2 (\ln(x) - \frac{1}{2})$
+	\item $\int_{-\infty}^\infty e^{-\frac{1}{a}x^2} \,dx = \sqrt{a \pi}$
+\end{itemize}
+
 
 
 
