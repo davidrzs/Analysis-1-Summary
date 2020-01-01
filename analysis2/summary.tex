@@ -1560,7 +1560,7 @@ y &=r\sin\theta\sin\phi  & 0 \leq &\theta < \pi & & \\
 z &= r\cos\theta  &  0 \leq &\phi < 2\pi & & 
 \end{align*}
 
-
+\TODO{off centered ball}.
 
 \begin{method}{Masse, Schwerpunkt}
 	Sei $\Omega$ ein 2-dimensionales Gebiet mit Massendichte $\rho(x,y)$, welche die Massenverteilung auf $\Omega$ beschreibt.
@@ -1724,39 +1724,40 @@ $$do = |\phi_u \times \phi_v|dudv = |\operatorname{det}(d\phi)|dudv$$ Um die Obe
 	\end{align*}
 \end{method}
 
-\textbf{Examples}
-
-\TODO{todo}
-integrale mit sin2cos etc.
-
-
-
-
-
 
 
 \subsection*{Wichtige Integrale}
 
-\begin{itemize}
-	\item $\int \cos^2()x dx = \frac{\cos(x)\sin(x) + x}{2} + C$
-	\item $\int \cos(x) \sin(x) dx = \frac{\sin^2(x)}{2}+C $
-	\item $\int \sin^2(x) dx = \frac{x - \sin(x)\cos(x)}{2} + C$
-	\item $\int \sqrt{1-x^2} dx = \frac{\arcsin(x) + x \sqrt{1-x^2}}{2} + C$
+\begin{itemize}	
+	
+	\item ${\displaystyle \int \sin ^{2}{ax}\,dx={\frac {x}{2}}-{\frac {1}{4a}}\sin 2ax+C={\frac {x}{2}}-{\frac {1}{2a}}\sin ax\cos ax+C}$
+	
+	\item ${\displaystyle \int \sin ^{n}{ax}\,dx=-{\frac {\sin ^{n-1}ax\cos ax}{na}}+{\frac {n-1}{n}}\int \sin ^{n-2}ax\,dx\qquad {\mbox{(for }}n>0{\mbox{)}}}$
+	
+	\item ${\displaystyle {\begin{aligned}\int x^{n}\sin ax\,dx&=-{\frac {x^{n}}{a}}\cos ax+{\frac {n}{a}}\int x^{n-1}\cos ax\,dx\end{aligned}}}$
+	
+	\item ${\displaystyle \int \cos ^{2}{ax}\,dx={\frac {x}{2}}+{\frac {1}{4a}}\sin 2ax+C={\frac {x}{2}}+{\frac {1}{2a}}\sin ax\cos ax+C}$
+	
+	\item ${\displaystyle \int \cos ^{n}ax\,dx={\frac {\cos ^{n-1}ax\sin ax}{na}}+{\frac {n-1}{n}}\int \cos ^{n-2}ax\,dx\qquad {\mbox{(for }}n>0{\mbox{)}}}$
+	
+	\item ${\displaystyle {\begin{aligned}\int x^{n}\cos ax\,dx&={\frac {x^{n}\sin ax}{a}}-{\frac {n}{a}}\int x^{n-1}\sin ax\,dx\end{aligned}}}$
+	
+	
+	
+	
+	
+	\item ${\displaystyle \int (\sin ax)(\cos ax)\,dx={\frac {1}{2a}}\sin ^{2}ax+C}$
+	
+	\item ${\displaystyle \int (\sin ^{n}ax)(\cos ax)\,dx={\frac {1}{a(n+1)}}\sin ^{n+1}ax+C\qquad {\mbox{(for }}n\neq -1{\mbox{)}}}$
+	
+	\item ${\displaystyle \int (\sin ax)(\cos ^{n}ax)\,dx=-{\frac {1}{a(n+1)}}\cos ^{n+1}ax+C\qquad {\mbox{(for }}n\neq -1{\mbox{)}}}$
+	
+	\item $ {\displaystyle {\begin{aligned}\int (\sin ^{n}ax)(\cos ^{m}ax)\,dx&=-{\frac {(\sin ^{n-1}ax)(\cos ^{m+1}ax)}{a(n+m)}}\\&+{\frac {n-1}{n+m}}\int (\sin ^{n-2}ax)(\cos ^{m}ax)\,dx\qquad {\mbox{(for }}m,n>0{\mbox{)}}\end{aligned}}} $
+	
+	
 \end{itemize}
 
 \subsubsection{Integralregeln}
-Es gelte: $\int f(x) \, dx = F(x)$
-\begin{itemize}
-	\item $\int u'\cdot v dx = uv - \int u \cdot v' dx$
-	\item $\int f(x) dx = \int f(g(t)) \cdot g'(t) dt, \; x=g(t), dx = g'(t) dt$
-	\item $\int f(a + x) \,dx = F(a + x)$
-	\item $\int f(a - x) \,dx = -F(a-x)$
-	\item $\int f(-x) \,dx = -F(-x)$
-	\item $\int f(\alpha x) \,dx = \frac{1}{\alpha}F(\alpha x)$
-	\item $\int \frac{g'(x)}{g(x)} \, dx = \ln|g(x)|$
-	\item $\int g(x)g'(x) \, dx = \frac{1}{2}g(x)^2$
-	\item $|\int f(x)| \leq \int |f(x)|$ (wenn f, Riemann-Integrable ist)
-\end{itemize}
 
 \subsubsection{typische Integrale}
 \begin{itemize}
@@ -1767,6 +1768,7 @@ Es gelte: $\int f(x) \, dx = F(x)$
 	\item $\int \ln(ax + b) \,dx = \frac{(a x+b) \ln (a x+b)-a x}{a}$
 	\item $\int \frac{1}{(x+a)^2} \,dx = - \frac{1}{x+a}$
 	\item $\int \frac{1}{\sqrt{x}} \,dx = 2 \sqrt{x}$
+	\item $\int \sqrt{1-x^2} dx = \frac{\arcsin(x) + x \sqrt{1-x^2}}{2} + C$
 	\item $\int \frac{1}{ax+b} \,dx = \frac{1}{a} \ln |ax+b|$
 	\item $\int \frac{1}{1 + x^2} \,dx = \frac{1}{2} \ln |1 + x^2|$
 	\item $\int(ax + b)^n \,dx = \frac{(ax + b)^{n+1}}{(n + 1)a}, (n \neq -1)$
@@ -1795,19 +1797,6 @@ Es gelte: $\int f(x) \, dx = F(x)$
 	\item $\int \cos(ax) \,dx = \frac{\cos(ax)}{a^2} + \frac{x \sin(ax)}{a}$
 	\item $\int \sin(ax) \cos(ax) \,dx = -\frac{\cos^2(ax)}{2a}$
 	\item $\int \tan(ax) \,dx = - \frac{1}{a} \ln | \cos(ax) |$
-	\item $\int \arcsin(x) \,dx = x \arcsin(x) + \sqrt{1 - x^2}$
-	\item $\int \arccos(x) \,dx = x \arccos(x) - \sqrt(1-x^2)$
-	\item $\int \arctan(x) \,dx = x \arctan(x) - \frac{1}{2} \ln(1+x^2)$
-\end{itemize}
-
-\subsubsection{Hyperbelfunktionen}
-\begin{itemize}
-	\item $\int \sinh(ax + b) \,dx = \frac{\cosh(ax + b)}{a}$; $\int \sinh(x) \,dx
-	= \cosh(x)$
-	\item $\int \cosh(ax + b) \,dx = \frac{\sinh(ax + b)}{a}$; $\int \cosh(x) \,dx
-	= \sinh(x)$
-	\item $\int \tan(ax + b) \,dx = \frac{\log(\cosh(ax+b))}{a}$; $\int \tan(x)
-	\,dx = \log(\cosh(x))$
 \end{itemize}
 
 \subsubsection{Exponentialfunktion}
