@@ -109,6 +109,12 @@
 	\end{mdframed}
 }
 
+\newenvironment{trick}[1]{\begin{mdframed}[backgroundcolor=PineGreen!50,innertopmargin=15pt, innerbottommargin=15pt, nobreak=true]
+			\textbf{#1 }
+	}
+	{ 
+	\end{mdframed}
+}
 
 
 \usepackage{todonotes}
@@ -928,8 +934,6 @@ um, was wir dann nach $y$ auflösen können.
 	
 \end{method}
 
-\TODO{beispiele}
-
 \begin{method}{Variation der Konstanten (1te Ord.)} Wenn wir eine ODE der Form $y' = h(x)y + b(x)$ haben, so gilt dass $y(x) = y_{hom} + y_{part}$
 	\begin{itemize}
 		\item \textbf{Schritt 1: } Löse homogenes Problem mittels Trennung der Variablen
@@ -939,6 +943,22 @@ um, was wir dann nach $y$ auflösen können.
 	\end{itemize}
 	
 \end{method}
+
+
+\textbf{Beispiel $(\sin(x))y' = (\cos(x))y = e^x$}. Zuerst homogen:
+\begin{align*}
+(\sin(x))y' = (\cos(x))y &\Rightarrow \frac{dy}{dx} = - \frac{\cos(x)}{\sin(x)}y. \text{ check nicht } f=0\\	
+\frac{dy}{y} = \frac{\cos(x)}{\sin(x)}dx &\Rightarrow \log|y| = -\log|\sin(x)| + C\\
+y_{hom}= \frac{C}{\sin(x)}
+\end{align*}
+Nun partikul. $y_p = \frac{C(x)}{\sin(x)}$
+\begin{align*}
+\sin(x) \left(\frac{C'}{\sin(x)} - \frac{C\cos(x)}{\sin^2(x)}\right) + \cos(x)\frac{C}{\sin(x)} &= e^x\\
+C' = e^x \Rightarrow C(x) = e^x &\Rightarrow y_p = \frac{e^x}{\sin(x)}
+\end{align*}
+Dies gibt $y(x) = \frac{C}{\sin(x)} + \frac{e^x}{\sin(x)}$
+
+
 
 \begin{method}{Variation der Konstanten (2te Ord.)} Wir haben eine ODE der Form $y'' + a_1 y' + a_0 y = g(x)$:
 	\begin{itemize}
@@ -988,8 +1008,9 @@ Das gibt uns ein Fundamentalsystem. Die Allgemeine Lösung ist eine Linearkombin
 Wenn die NS $\lambda = \beta + i\gamma$ nicht reell ist, so ist (bei rellen DGL) auch $\beta -i\gamma$ auch eine NS. Wir konnen dann $e^{x(\beta + i\gamma)}$, $e^{x(\beta - i\gamma)}$ auswechseln durch $f_1 = e^{x\beta}\cos(\gamma x)$ sowie $f_2 = e^{x\beta}\sin(\gamma x)$ austauschen. Erinnere dass $e^\lambda x$
 
 
+\textbf{Beispiel $y'' - 4y' + 13y = xe^x$} Mit dem Euler Ansatz kriegen wir $\lambda^2 - 4 \lambda + 13 = 0$. Dies gibt $y_{hom} = Ae^{(2+3i)x} + Ae^{(2-3i)x}$ wir nutzen aber $y_{hom} = e^{2x}(C\sin(3x) + D\cos(3x))$. Nun wollen wir $e^x(ax + b)$ als Ansatz für $y_p$ nehmen. Dann setzte ein und finde Konstanten $a,b$ mit Koeff.vergleich. Dann setzte $y = y_{hom} + y_p$. Also $y = e^{2x}(C\sin(3x) + D\cos(3x)) + \left(\frac{x}{10} + \frac{1}{50}\right)$.
 
-\TODO{beispiele}
+
 
 \begin{method}{Direkter Ansatz nichthomogene DLG $n$-ter Ordnung}
 	Für DLGs der Form $$a_n y^{(n)} + a_{n-1} y^{(n-1)} + \cdots + a_0 y = b(x)$$
@@ -1075,7 +1096,7 @@ It turns out that the existence of partial derivatives is not enough to show dif
 		\end{align*}
 		where the limit is in $\R^n$. We then denote $df(x_0) = u$
 		If $f$ is differentiable at every $x_0 \in X$, then we say that $f$ is differentiable on $X$.
-		\item Let $X \subseteq \R^n$ open, $f:\ X to \R^m$ a function on $X$: If:
+		\item Let $X \subseteq \R^n$ open, $f:\ X \to \R^m$ a function on $X$: If:
 		\begin{itemize}
 			\item $f$ has all partial derivatives on $X$
 			\item and if all the partial derivatives are continuous on $X$
@@ -1110,18 +1131,18 @@ We calculate the Jacobi Matrix at $(0,0)$ and plug it into the definition of dif
 \end{align*}
 Hence we have $J_f (0,0) = \left[0,0\right]$. Now we calculate:
 \begin{align*}
-&\lim\limits_{\substack{(x,y)\to (0,0)}} \frac{\left(f\left(\begin{bmatrix}
+&\lim\limits_{\substack{(x,y)\to (0,0)}} \frac{\left(f\left(\begin{pmatrix}
 	x \\ y
-	\end{bmatrix}\right) -f\left(\begin{bmatrix}
+	\end{pmatrix}\right) -f\left(\begin{pmatrix}
 	0 \\ 0
-	\end{bmatrix}\right) - J_f(0,0)\begin{bmatrix}
+	\end{pmatrix}\right) - J_f(0,0)\begin{pmatrix}
 	x-0 \\ y -0
-	\end{bmatrix}\right)}{\norm{\begin{bmatrix}
+	\end{pmatrix}\right)}{\norm{\begin{pmatrix}
 		x -0 \\ y -0
-		\end{bmatrix}}} \\
-	&= \lim\limits_{\substack{(x,y)\to (0,0)}} \frac{\frac{x^2 y^2}{x^2 + y^2} - 0 - \left[0,0\right] \begin{bmatrix}
+		\end{pmatrix}}} \\
+	&= \lim\limits_{\substack{(x,y)\to (0,0)}} \frac{\frac{x^2 y^2}{x^2 + y^2} - 0 - \left[0,0\right] \begin{pmatrix}
 x-0 \\ y -0
-\end{bmatrix}}{ \sqrt{x^2 + y^2} }\\
+\end{pmatrix}}{ \sqrt{x^2 + y^2} }\\
 &= \lim\limits_{\substack{(x,y)\to (0,0)}} \frac{\frac{x^2 y^2}{x^2 + y^2}}{ \sqrt{x^2 + y^2} }\\
 &=  \lim\limits_{\substack{r \to 0}} \frac{r^4 \sin^2(\phi) \cos^2(\phi) }{r^3} = 0
 \end{align*}
@@ -1190,49 +1211,49 @@ We would like to find $D_u f((0,1))$ in direction $\frac{1}{\sqrt{17}}(-1,4)$ of
 \textbf{Example}
 \begin{itemize}
 	\item Let $f(x,y,z)\mapsto (xy,y+z)$ and $g(x,y) \mapsto (e^x,xy)$.
-	We have $dg(x,y) = \begin{bmatrix}
+	We have $dg(x,y) = \begin{pmatrix}
 	e^x & 0 \\ y & x
-	\end{bmatrix}$ as well as $df(x) = \begin{bmatrix}
+	\end{pmatrix}$ as well as $df(x) = \begin{pmatrix}
 	y & x & 0 \\ 0 & 1 & 1
-	\end{bmatrix}$. From $dg$ we can find $dg(f) = \begin{bmatrix}
+	\end{pmatrix}$. From $dg$ we can find $dg(f) = \begin{pmatrix}
 	e^{xy} & 0 \\ y+z & xy
-	\end{bmatrix}$ This gives us for $d(g(f(x))) = dg(f(x))\cdot df(x)$:
-	\begin{align*} \begin{bmatrix}
+	\end{pmatrix}$ This gives us for $d(g(f(x))) = dg(f(x))\cdot df(x)$:
+	\begin{align*} \begin{pmatrix}
 	e^{xy} & 0 \\ y+z & xy
-	\end{bmatrix} \cdot \begin{bmatrix}
+	\end{pmatrix} \cdot \begin{pmatrix}
 	y & x & 0 \\ 0 & 1 & 1
-	\end{bmatrix} = 
-	\begin{bmatrix}
+	\end{pmatrix} = 
+	\begin{pmatrix}
 	ye^{xy} & xe^{xy} & 0 \\ y^2+yz & 2xy +zx & xy
-	\end{bmatrix}
+	\end{pmatrix}
 	\end{align*}
 	
 	\item Let $f(x,y)\mapsto (e^x + \sin(xy), x+y^2x)$ and $g = f\circ f \circ f$. Find $dg(0,0)$: We have first notice that:
 	\begin{align*}
-		f(0,0) &= \begin{bmatrix}
+		f(0,0) &= \begin{pmatrix}
 		e^0 + \sin(0\cdot 0) & 0 + 0^2\cdot 0
-		\end{bmatrix} = \begin{bmatrix}
+		\end{pmatrix} = \begin{pmatrix}
 		1 & 0
-		\end{bmatrix}\\
-		f(f(0,0)) &= f(1,0) = \begin{bmatrix}
+		\end{pmatrix}\\
+		f(f(0,0)) &= f(1,0) = \begin{pmatrix}
 		e^1 + \sin(1\cdot 0) & 1 + 0^2\cdot 1
-		\end{bmatrix} = \begin{bmatrix}
+		\end{pmatrix} = \begin{pmatrix}
 		e & 1
-		\end{bmatrix}
+		\end{pmatrix}
 	\end{align*}
 	Now we can use these results:
 	\begin{align*}
-		df(x,y) &= \begin{bmatrix}
+		df(x,y) &= \begin{pmatrix}
 		e^{x} + y\cos(xy) & x\cos(xy) \\1+y^2 & 2xy
-		\end{bmatrix}\\
-		df(0,0) &= \begin{bmatrix} 1 & 0 \\ 1 & 0
-		\end{bmatrix}\\
-		df(f(0,0)) &= df(1,0) = \begin{bmatrix}
+		\end{pmatrix}\\
+		df(0,0) &= \begin{pmatrix} 1 & 0 \\ 1 & 0
+		\end{pmatrix}\\
+		df(f(0,0)) &= df(1,0) = \begin{pmatrix}
 		e & 1 \\ 1& 0
-		\end{bmatrix}\\
-		df(f(f(0,0))) &= df(e,1) =  \begin{bmatrix}
+		\end{pmatrix}\\
+		df(f(f(0,0))) &= df(e,1) =  \begin{pmatrix}
 		e^e + \cos(e) & e\cos(e) \\ 2 & 2e
-		\end{bmatrix}
+		\end{pmatrix}
 	\end{align*}
 	We can now insert these results: (calculating matrix product omitted)
 	\begin{align*}
@@ -1244,21 +1265,21 @@ We would like to find $D_u f((0,1))$ in direction $\frac{1}{\sqrt{17}}(-1,4)$ of
 \begin{method}{Tangential Plane via Definition}
 	Wir wollen die Tangentialebene am Punkt $(x_0,y_0)$ der Fläche $f(x,y)$ finden. 
 	\begin{itemize}
-		\item Definiere $F(x,y) = (x,y,f(x,y))$ und berechne $$dF(x_0,y_0) = \begin{bmatrix}
+		\item Definiere $F(x,y) = (x,y,f(x,y))$ und berechne $$dF(x_0,y_0) = \begin{pmatrix}
 \frac{\partial F_1}{\partial x} (x_0,y_0) & \frac{\partial F_1}{\partial y} (x_0,y_0)\\
 \frac{\partial F_2}{\partial x} (x_0,y_0) & \frac{\partial F_2}{\partial y} (x_0,y_0)\\
 \frac{\partial F_3}{\partial x} (x_0,y_0) & \frac{\partial F_3}{\partial y} (x_0,y_0)
-		\end{bmatrix} = \begin{bmatrix}
+		\end{pmatrix} = \begin{pmatrix}
 		u_1 & v_1 \\ u_2 & v_2 \\ u_3 & v_3 
-		\end{bmatrix}$$
+		\end{pmatrix}$$
 		\item Nun berechnen wir den Normalenvektor $n = u \times v$
-		$$\begin{bmatrix}
+		$$\begin{pmatrix}
 		u_1\\u_2\\u_3
-		\end{bmatrix} \times \begin{bmatrix}
+		\end{pmatrix} \times \begin{pmatrix}
 		v_1\\v_2\\v_3
-		\end{bmatrix} = \begin{bmatrix}
+		\end{pmatrix} = \begin{pmatrix}
 		a \\ b \\ c
-		\end{bmatrix}$$
+		\end{pmatrix}$$
 		Nun berechnen wir $d$ mit $p = (x_0,y_0,f(x_0,y_0))$ mit $d=p\cdot n$
 		\item Zum Schluss fassen wir die Gleichung zu $ax + by + cz = d$ zusammen.
 	\end{itemize}
@@ -1271,18 +1292,30 @@ We would like to find $D_u f((0,1))$ in direction $\frac{1}{\sqrt{17}}(-1,4)$ of
 
 
 \textbf{Example:}
-Determine a constant $c\in\R$ such that the vector $(c,0,1)^T$ is perpendicular to the surface of $\mathcal{G}(f)$ at the point $(\frac{\pi}{2},0,1)\in\mathcal{G}(f)$ with $f(x,y) = \sin(x) -y^3 + y^2$
+Determine a constant $c\in\R$ such that the vector $(c,0,1)^T$ is perpendicular to the surface of $\mathcal{G}(f)$ at the point $(\frac{\pi}{2},0,1)\in\mathcal{G}(f)$ with $f(x,y) = \sin(x) -y^3 + y^2$. We see that $$dF(x_0,y_0) = \begin{pmatrix}
+1 & 0 \\
+0 & 1 \\
+0 & 0
+\end{pmatrix} = \begin{pmatrix}
+u_1 & v_1 \\ u_2 & v_2 \\ u_3 & v_3 
+\end{pmatrix}$$ with $v$ and $u$ basis vectors of the tangential plane. Since we are looking for perpend. to surface we get $\begin{pmatrix}
+	1 \\0 \\ 0 
+\end{pmatrix} \times \begin{pmatrix}
+0 \\ 1 \\ 0 
+\end{pmatrix} = \begin{pmatrix}
+0 \\ 0 \\ 1
+\end{pmatrix}$. hence $c = 0$.
 
-\TODO{finish ex. serie 6.3.b)}
+
 
 \begin{method}{Hessian}
 	For the twice differentiable function $f: \Omega \subset \R^n \to \R$, the Hessian is defined as:
 	\begin{align*}
-	\begin{bmatrix}
+	\begin{pmatrix}
 	\frac{\partial ^2 f}{\partial x_1 ^2}(x) &\cdots &\frac{\partial ^2 f}{\partial x_1  \partial x_n}(x)\\
 	\vdots & \ddots & \vdots \\
 	\frac{\partial ^2 f}{\partial x_n \partial x_1}(x) &\cdots &\frac{\partial ^2 f}{\partial x_n ^2}(x)
-	\end{bmatrix}
+	\end{pmatrix}
 	\end{align*}
 \end{method}
 
@@ -1320,8 +1353,7 @@ Dabei ist \begin{align*}
 \subsection*{Change of Variable}
 
 
-todo
-
+\TODO{change of variable \& abuse of notation}
 
 
 \section*{Taylor Approximation in $\R^n$}
@@ -1336,12 +1368,17 @@ todo
 	\begin{align*}
 		T_{k} f(y;x_0) &= \sum_{|m|\leq k} \frac{1}{m!} \partial^{m}_{x} f(x_0) y^m
 	\end{align*}
-	Where we have used multi index notation with $|m| = m_1 + \ldots + m_n$ and $y^m = y_{1}^{m_1} \cdots y_{n}^{m_n}$
+	Where we have used multi index notation with $|m| = m_1 + \ldots + m_n$ and $y^m = y_{1}^{m_1} \cdots y_{n}^{m_n}$\\
+	
+	Alternatively also directly:
+	\begin{align*}
+		  T_2f(\vec{x},\vec{a}) &= f(\vec{a}) + Df(\vec{a}) (\vec{x}-\vec{a}) +  \frac{1}{2} (\vec{x}-\vec{a})^T Hf(\vec{a}) (\vec{x}-\vec{a})
+	\end{align*}
 	
 \end{method}
 
 
-We have: (using the convention $\Delta x = x-x_0$ and $\Delta y = y-y_0$)TODO : CHECK THE FORMULAS
+We have: (using the convention $\Delta x = x-x_0$ and $\Delta y = y-y_0$)
 
 \begin{align*}
 	&f(x,y) = f(x_0,y_0) + \frac{\partial f}{\partial x} \Delta x + \frac{\partial f}{\partial y} \Delta y\\
@@ -1349,11 +1386,19 @@ We have: (using the convention $\Delta x = x-x_0$ and $\Delta y = y-y_0$)TODO : 
 	&+ \frac{1}{3!}\left(    \frac{\partial^3 f}{\partial^3 x} (\Delta x)^3    + 3\frac{\partial^3 f}{\partial^2 x \partial y } (\Delta x)^2 \Delta y  +3\frac{\partial^3 f}{\partial x \partial^2 y } \Delta x (\Delta y)^2 +  \frac{\partial^3 f}{\partial^3 y} (\Delta y)^3 \right) 
 \end{align*}
 
-\TODO{add official definition and examples}
+
 
 \begin{important}
 If possible use $1$-dimensional Taylor series as starting point!
 \end{important}
+
+\textbf{Gerechnetes Beispiel $f(x,y,z) = e^{x,y,z}$}. Wir wollen zweite Ordnung in $(0,0,0)$
+\begin{align*}
+	T_2 f(x,(0,0,0)) &= f(0,0,0) + x\frac{\partial f}{\partial x} (0,0,0) + y\frac{\partial f}{\partial y} (0,0,0) +  z\frac{\partial f}{\partial z} (0,0,0)\\
+	&+ \frac{1}{2} \biggl( x^2\frac{\partial^2 f}{\partial x^2} (0) + y^2\frac{\partial^2 f}{\partial y^2} (0) + z^2\frac{\partial^2 f}{\partial z^2} (0)  \\
+	&+ 2xy \frac{\partial^2 f}{\partial x \partial y} 0 + 2yz \frac{\partial^2 f}{\partial y \partial z} 0 + 2xz \frac{\partial^2 f}{\partial x \partial z} 0 \biggr) + \ldots 
+\end{align*}
+
 
 \textbf{Use $1$-Dimensional Taylor Approximation}
 \begin{itemize}
@@ -1767,9 +1812,10 @@ $$do = |\phi_u \times \phi_v|dudv = |\operatorname{det}(d\phi)|dudv$$ Um die Obe
 	
 \end{itemize}
 
-\subsubsection{Integralregeln}
 
-\subsubsection{typische Integrale}
+
+\subsubsection*{typische Integrale}
+
 \begin{itemize}
 	\item $\int \frac{1}{x} \,dx = \ln |x|$
 	\item $\int \frac{1}{x^2} \,dx = -\frac{1}{x}$
@@ -1795,7 +1841,7 @@ $$do = |\phi_u \times \phi_v|dudv = |\operatorname{det}(d\phi)|dudv$$ Um die Obe
 	\item $\int a^{xb + c} \,dx = \frac{a^{bx + c}}{b \log(a)}$
 \end{itemize}
 
-\subsubsection{trionometrische Funktionen}
+\subsubsection*{trionometrische Funktionen}
 \begin{itemize}
 	\item $\int \sin(ax) \,dx = -\frac{1}{a}\cos(ax)$
 	\item $\int \cos(ax) \,dx = \frac{1}{a}\sin(ax)$
@@ -1809,7 +1855,7 @@ $$do = |\phi_u \times \phi_v|dudv = |\operatorname{det}(d\phi)|dudv$$ Um die Obe
 	\item $\int \tan(ax) \,dx = - \frac{1}{a} \ln | \cos(ax) |$
 \end{itemize}
 
-\subsubsection{Exponentialfunktion}
+\subsubsection*{Exponentialfunktion}
 \begin{itemize}
 	\item $\int e^{ax} \,dx = \frac{1}{a} e^{ax}$ 
 	\item $\int x e^{ax} \,dx = e^{ax} \cdot \left ( \frac{ax - 1}{a^2} \right )$
