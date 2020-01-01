@@ -1044,13 +1044,23 @@ Nutze eine Substitution und brauche dann die Methode des direkten Ansatzes:
 
 \begin{method}{Bounded, Closed \& Compact}
 	\begin{itemize}
-		\item A subset $X\subseteq \R^n$ is bounded if the set of TODO
+		\item A subset $X\subseteq \R^n$ is bounded if the set is contained in a ball of finite radius. (Altern. if $\exists$ lower and upper bounds not in set).
 		\item A subset $X \subseteq \in \R^n$ is closed if for every sequence $(x_k)_k$ in $X$ that converges to some $y\in \R^n$, we have $y \in X$.
 		\item A subset $X \subseteq \R^n$ is compact if it is bounded and closed.
 	\end{itemize}
 \end{method}
 \textbf{Examples:}
-\TODO{add examples}
+\begin{itemize}
+	\item $\{(x,y) \in \R^2 | x^2 + y^2 < 2019\}$ is bounded but not closed since boundary not included.
+	
+	\item $\{ (a,b,c) \in \mathbb{Z}^3  | a^2 + b^2 + c^2 < 2019 \}$ is compact since finite.
+	
+	\item $\{(x,f(x)) \in \R^2  | x \in \left(0,1\right], f(x) = \sin\frac{1}{x} \}$ not closed since $(0,0)$ not contained but $(\frac{1}{2k\pi},0)$ is $\forall k$.
+	
+	\item $\{ (\cos\phi,\sin\phi) \in\R^2 | \phi \in \mathbb{Q} \}$ is not closed since $(1,1)$ can be approximated but never reached.
+	
+	\item $\{(x,y,z) \in \R^3 | x^2 + y^ + z^2 \leq 2 \}$ closed and bounded, hence compact.
+\end{itemize}
 
 \section*{Differentiability in $\R^n$}
 It turns out that the existence of partial derivatives is not enough to show differentiability of a function. An example is the function $f(x,y) = \begin{cases} 
@@ -1137,13 +1147,13 @@ We now calculate $\lim\limits_{(x,y)\to(0,0)} \frac{\partial f}{\partial x}$ and
 	\end{align*}
 \end{method}
 \textbf{Examples:}
-We would like to find $d_u f((0,1))$ in direction $\frac{1}{\sqrt{17}}(-1,4)$:
-\TODO{add example b from series 5}
+We would like to find $D_u f((0,1))$ in direction $\frac{1}{\sqrt{17}}(-1,4)$ of the function $f(x,y) = e^{-x} \log(y)$:
 \begin{itemize}
-	\item \textsc{Using the definition:} 
-	\item \textsc{Using the total derivative:}
+	\item \textsc{Using the definition:} We find $f(a+tu) = e^{\frac{t}{\sqrt{17}}} \log\left(1 + \frac{4t}{\sqrt{17}}\right)$ By diff: $D_u f(a) = \lim\limits_{t \to 0} \frac{e^{\frac{t}{\sqrt{17}}}}{\sqrt{17}} \log\left(1 + \frac{4t}{\sqrt{17}}\right) + \frac{4e^{\frac{t}{\sqrt{17}}}}{\sqrt{17}(1 + \frac{4t}{\sqrt{17}})} = \frac{\log(1) + 4}{\sqrt{17}} = \frac{4}{\sqrt{17}}$
+	
+	
+	\item \textsc{Using the total derivative:} We known $D_u f(a) = df(a) \cdot u$, we get $df(x,y) = (-e^{-x}\log(y), \frac{e^{-x}}{y})$ hence $df(0,1) = (0,1)$. By multiplication we get $\frac{1}{\sqrt{17}}(-1,4) \cdot (0,1) = \frac{4}{\sqrt{17}}$.
 \end{itemize}
-
 
 
 
@@ -1527,7 +1537,7 @@ x_1\\ \vdots\\x_n
 
 
 \subsection*{Koordinatentransformationen}
-\TODO{needs proofreading}
+
 \textbf{Polarkoordinaten $\R^2$}
 
 \begin{align*}
