@@ -168,10 +168,10 @@
 
 \begin{method}{Komplexe Zahlen} ${\displaystyle \varphi =\arg(z)}$\\
 \begin{empheq}[box=\fbox]{align*}
-	z &= x + iy & z &= r(\cos(\phi) + i\sin(\phi)) & z &= re^{i\phi}
+	z &= x + iy & z &= r(\cos(\varphi) + i\sin(\varphi)) & z &= re^{i\varphi}
 \end{empheq}
 \begin{empheq}[box=\fbox]{align*}
-x &= r \cos \phi &  y &= r\sin \phi & r &= \sqrt{x^2 + y^2} & \phi &= \arctan\left(\frac{y}{x}\right) 
+x &= r \cos \varphi &  y &= r\sin \varphi & r &= \sqrt{x^2 + y^2} & \varphi &= \arctan\left(\frac{y}{x}\right) 
 \end{empheq}
 \textsc{Division:} Es gilt $z^{-1} = \frac{\bar{z}}{||z||^2}$ wenn $z \not = 0$\\
 \textsc{Polarform} Wenn \begin{align*}
@@ -190,8 +190,8 @@ Zudem folgt durch Induktion:
 
 \textbf{Komplexe Nullstellen:} Die $n$-te Wurzel von $x$ berechnen wir (es gibt $n$ davon):
 \begin{align*}
-	\sqrt[n]{z} &= \sqrt[n]{r} e^{i \left( \frac{\phi_0}{n} + \frac{2k\pi}{n}\right)}\\
-	&= \sqrt[n]{r} \left(\cos\left( \frac{\phi_0}{n} + \frac{2k\pi}{n}\right) + i \sin\left( \frac{\phi_0}{n} + \frac{2k\pi}{n}\right)\right)
+	\sqrt[n]{z} &= \sqrt[n]{r} e^{i \left( \frac{\varphi_0}{n} + \frac{2k\pi}{n}\right)}\\
+	&= \sqrt[n]{r} \left(\cos\left( \frac{\varphi_0}{n} + \frac{2k\pi}{n}\right) + i \sin\left( \frac{\varphi_0}{n} + \frac{2k\pi}{n}\right)\right)
 \end{align*}
 
 \end{method}
@@ -294,7 +294,7 @@ Wenn $x = 0$ dann folgt sofort $\sin(0) = 0$. Für $x\geq 1$ folgt auch $\sin(x)
 
 \begin{center}
 	\begin{tabular}{ p{5cm} | p{5cm}  | p{5cm} | p{5cm}  }
-		Value $\phi$ & $\sin(\phi)$ & $\cos(\phi)$ & $\tan(\phi)$ \\[0.75ex] \hline \hline 
+		Value $\varphi$ & $\sin(\varphi)$ & $\cos(\varphi)$ & $\tan(\varphi)$ \\[0.75ex] \hline \hline 
 		$0$ & $0$ & $1$ & $0$ \\  \hline
 		$\frac{\pi}{12}$ & $\frac{\sqrt{3} -1}{2\sqrt{2}}$ & $\frac{1 + \sqrt{3}}{2\sqrt{2}}$ & $2 - \sqrt{3}$ \\ \hline
 		$\frac{\pi}{6}$ & $\frac{1}{2}$ & $\frac{\sqrt{3}}{2}$ & $\frac{1}{\sqrt{3}}$	\\  \hline
@@ -875,7 +875,7 @@ Nutze eine Substitution und brauche dann die Methode des direkten Ansatzes:
 	
 	\item $\{(x,f(x)) \in \R^2  | x \in \left(0,1\right], f(x) = \sin\frac{1}{x} \}$ not closed since $(0,0)$ not contained but $(\frac{1}{2k\pi},0)$ is $\forall k$.
 	
-	\item $\{ (\cos\phi,\sin\phi) \in\R^2 | \phi \in \mathbb{Q} \}$ is not closed since $(1,1)$ can be approximated but never reached.
+	\item $\{ (\cos\varphi,\sin\varphi) \in\R^2 | \varphi \in \mathbb{Q} \}$ is not closed since $(1,1)$ can be approximated but never reached.
 	
 	\item $\{(x,y,z) \in \R^3 | x^2 + y^ + z^2 \leq 2 \}$ closed and bounded, hence compact.
 \end{itemize}
@@ -915,7 +915,7 @@ It turns out that the existence of partial derivatives is not enough to show dif
 \textbf{Example (Total Differentiability)}
 Let $f(0,0) = 0$ and $f(x,y) = \frac{x^2 y^2}{x^2+y^2}$ for $(x,y)\neq (0,0)$. Show that $f \in C^1$. We first show that $f$ is continuous at $(0,0)$, for this we use the polar coordinates trick:
 \begin{align*}
-	\lim\limits_{(x,y)\to(0,0)} \frac{x^2 y^2}{x^2+y^2} &= \lim\limits_{r\to 0} \frac{r^4 \sin^2(\phi)\cos^2(\phi)}{\sin^2(\phi) + \cos^2(\phi)} = 0
+	\lim\limits_{(x,y)\to(0,0)} \frac{x^2 y^2}{x^2+y^2} &= \lim\limits_{r\to 0} \frac{r^4 \sin^2(\varphi)\cos^2(\varphi)}{\sin^2(\varphi) + \cos^2(\varphi)} = 0
 \end{align*}
 
 As a second step we show differentiability at $(0,0)$: We will use two methods:
@@ -941,7 +941,7 @@ Hence we have $J_f (0,0) = \left[0,0\right]$. Now we calculate:
 x-0 \\ y -0
 \end{pmatrix}}{ \sqrt{x^2 + y^2} }\\
 &= \lim\limits_{\substack{(x,y)\to (0,0)}} \frac{\frac{x^2 y^2}{x^2 + y^2}}{ \sqrt{x^2 + y^2} }\\
-&=  \lim\limits_{\substack{r \to 0}} \frac{r^4 \sin^2(\phi) \cos^2(\phi) }{r^3} = 0
+&=  \lim\limits_{\substack{r \to 0}} \frac{r^4 \sin^2(\varphi) \cos^2(\varphi) }{r^3} = 0
 \end{align*}
 Since this fulfills the definition $f$ is differentiable in all of $\R^2$.
 
@@ -963,6 +963,7 @@ We now calculate $\lim\limits_{(x,y)\to(0,0)} \frac{\partial f}{\partial x}$ and
 		D_u f(a) &= \frac{d}{dt} (f(a+tu))_{|t=0}\\
 		D_u f(a) &= df(a) \cdot u
 	\end{align*}
+	Ideally $||u|| = 1$
 \end{method}
 \textbf{Examples:}
 We would like to find $D_u f((0,1))$ in direction $\frac{1}{\sqrt{17}}(-1,4)$ of the function $f(x,y) = e^{-x} \log(y)$:
@@ -1266,21 +1267,21 @@ If possible use $1$-dimensional Taylor series as starting point!
 
 
 \begin{method}{Potenzialfeld}
-	Ein Vektorfeld $v:\Omega\subset \R^n \to \R^n$ heisst Potenzialfeld, falls eine stetig differenzierbare Abbildung $\phi:\Omega \subset \R^n \to \R$ existiert so dass $v = \nabla \phi$. Wir nennen $\phi$ das Potential von $v$. Dabei ist wichtig:
+	Ein Vektorfeld $v:\Omega\subset \R^n \to \R^n$ heisst Potenzialfeld, falls eine stetig differenzierbare Abbildung $\varphi:\Omega \subset \R^n \to \R$ existiert so dass $v = \nabla \varphi$. Wir nennen $\varphi$ das Potential von $v$. Dabei ist wichtig:
 	\begin{itemize}
-		\item Das Potential ist nicht eindeutig: $\phi = \overline{\phi} + C$
+		\item Das Potential ist nicht eindeutig: $\varphi = \overline{\varphi} + C$
 		\item Sehr viele Vektorfelder lassen sich nicht als Gradienten eines skalaren Feldes schreiben.
 	\end{itemize}
 \end{method}
 
 \begin{method}{Existenz eines Potentialfeldes}
-	Ist $v : \Omega \subset \R^n \to \R^n$ ein Potentialfeld (d.h. $\exists \phi : \nabla \phi = v$), so gelten die Integrabilitätsbedingungen $\frac{\partial v_i}{\partial x_j} = \frac{\partial v_j}{\partial x_i}$ für $i\neq j$ , $i,j\in\{1,\ldots,n\}$. Wenn $\Omega$ sternförmig ist, so gilt auch die Umkehrung. d.h. wenn die Integrabilitätsbedinungen erfüllt sind so gibt es ein Potential.
+	Ist $v : \Omega \subset \R^n \to \R^n$ ein Potentialfeld (d.h. $\exists \varphi : \nabla \varphi = v$), so gelten die Integrabilitätsbedingungen $\frac{\partial v_i}{\partial x_j} = \frac{\partial v_j}{\partial x_i}$ für $i\neq j$ , $i,j\in\{1,\ldots,n\}$. Wenn $\Omega$ sternförmig ist, so gilt auch die Umkehrung. d.h. wenn die Integrabilitätsbedinungen erfüllt sind so gibt es ein Potential.
 	
 	Folgende Aussagen sind äquivalent:
 	
 	\begin{itemize}
 		\item $v$ ist konservativ
-		\item $v$ ist ein Potentialfeld  (d.h. $\exists \phi : \nabla \phi = v$)
+		\item $v$ ist ein Potentialfeld  (d.h. $\exists \varphi : \nabla \varphi = v$)
 		\item Für alle geschlossenen Kurven $\gamma$ gilt $\int_\gamma v\cdot ds = 0$
 		\item Das Integral $\int_\gamma v\cdot ds$ ist unabhängig vom Weg.
 		\item $v$ erfüllt die Integrabilitätsbedingungen $\nabla \times v = 0$ in $\R^3$
@@ -1332,8 +1333,6 @@ If possible use $1$-dimensional Taylor series as starting point!
 	\end{align*}
 	wobei $f,g$ stetig sind.
 	
-	\includegraphics[width=\textwidth]{normBe.png}
-	
 	Selbstverständlich können wir über den Normalenbereich integriere und es gilt:
 	
 	\begin{align*}
@@ -1363,17 +1362,17 @@ If possible use $1$-dimensional Taylor series as starting point!
 	\begin{itemize}
 		\item \textbf{$1$-dimensional:} Sei $f$ Riemann-integrierbar, so gilt für die Substitution $x = g(u)$ mit $dx = g'(u)du$ dass
 		$$\int_{a}^{b} f(x) dx = \int_{g^{-1}(a)}^{g^{-1}(b)} f(g(u))g'(u)du$$
-		\item \textbf{$n$-dimensional:} Sei $f$ Riemann-integrierbar auf $\Omega \subset \R^n$ und die Substitution $(x_1,\ldots,x_n) = \phi(u_1,\ldots,u_n)$ oder in Komponenten $	\begin{pmatrix}
+		\item \textbf{$n$-dimensional:} Sei $f$ Riemann-integrierbar auf $\Omega \subset \R^n$ und die Substitution $(x_1,\ldots,x_n) = \varphi(u_1,\ldots,u_n)$ oder in Komponenten $	\begin{pmatrix}
 x_1\\ \vdots\\x_n
-		\end{pmatrix} = \phi(u) = 	\begin{pmatrix}
+		\end{pmatrix} = \varphi(u) = 	\begin{pmatrix}
 		g_1(u_1,\ldots,u_n)\\
 		\vdots \\
 		g_n(u_1,\ldots,u_n)
-		\end{pmatrix}$ wobei $\phi$ ein $C^1$ Diffeomorphismus ist. Dann gilt
+		\end{pmatrix}$ wobei $\varphi$ ein $C^1$ Diffeomorphismus ist. Dann gilt
 		\begin{align*}
-			\int_\Omega &f(x_1,\ldots , x_n) dx_1\ldots dx_n \\ &= \int_{\overline{\Omega}} f(g_1(x_1),\ldots , g_n(x_n)) |\operatorname{det}(d\phi) | du_1\ldots du_n
+			\int_\Omega &f(x_1,\ldots , x_n) dx_1\ldots dx_n \\ &= \int_{\overline{\Omega}} f(g_1(x_1),\ldots , g_n(x_n)) |\operatorname{det}(d\varphi) | du_1\ldots du_n
 		\end{align*}
-		mit $\overline{\Omega} = \phi^{-1}(\Omega)$
+		mit $\overline{\Omega} = \varphi^{-1}(\Omega)$
 	\end{itemize}
 \end{method}
 
@@ -1383,36 +1382,35 @@ x_1\\ \vdots\\x_n
 \textbf{Polarkoordinaten $\R^2$}
 
 \begin{align*}
-	x &= r\cos\phi  & 0 \leq &r < \infty & dxdy &= rdrd\phi\\
-	y &= r\sin\phi  & 0 \leq &\phi < 2\pi & & 
+	x &= r\cos\varphi  & 0 \leq &r < \infty & dxdy &= rdrd\varphi\\
+	y &= r\sin\varphi  & 0 \leq &\varphi < 2\pi & & 
 \end{align*}
 
 
 \textbf{Elliptische Koordinaten $\R^2$}
 
 \begin{align*}
-	x &= ar\cos\phi  & 0 \leq &r < \infty & dxdy &= abrdrd\phi\\
-	y &= br\sin\phi  & 0 \leq &\phi < 2\pi & & 
+	x &= ar\cos\varphi  & 0 \leq &r < \infty & dxdy &= abrdrd\varphi\\
+	y &= br\sin\varphi  & 0 \leq &\varphi < 2\pi & & 
 \end{align*}
 
 
 \textbf{Zylinderkoordinaten $\R^3$}
 
 \begin{align*}
-x &= r\cos\phi  & 0 \leq &r < \infty & dxdydz &= r dr d\phi dz\\
-y &= r\sin\phi  & 0 \leq &\phi < 2\pi & & \\
+x &= r\cos\varphi  & 0 \leq &r < \infty & dxdydz &= r dr d\varphi dz\\
+y &= r\sin\varphi  & 0 \leq &\varphi < 2\pi & & \\
 z &= z  &   -\infty < &z < \infty & & 
 \end{align*}
 
 \textbf{Kugelkoordinaten $\R^3$}
 
 \begin{align*}
-x &= r\sin\theta\cos\phi  & 0 \leq &r < \infty & dxdydz&=r^2 \sin \theta drd\theta d\phi\\
-y &=r\sin\theta\sin\phi  & 0 \leq &\theta < \pi & & \\
-z &= r\cos\theta  &  0 \leq &\phi < 2\pi & & 
+x &= r\sin\theta\cos\varphi  & 0 \leq &r < \infty & dxdydz&=r^2 \sin \theta drd\theta d\varphi\\
+y &=r\sin\theta\sin\varphi  & 0 \leq &\theta < \pi & & \\
+z &= r\cos\theta  &  0 \leq &\varphi < 2\pi & & 
 \end{align*}
 
-\TODO{off centered ball}.
 
 \begin{method}{Masse, Schwerpunkt}
 	Sei $\Omega$ ein 2-dimensionales Gebiet mit Massendichte $\rho(x,y)$, welche die Massenverteilung auf $\Omega$ beschreibt.
@@ -1463,7 +1461,7 @@ z &= r\cos\theta  &  0 \leq &\phi < 2\pi & &
 \begin{method}{Satz von Gauss-Ostrogradski}
 	Sei $V$ ein beschränkter räumlicher Bereich mit Rand $\partial V \in C^1_{pw}$ gegeben. Sei das Vektorfeld $\vec{v}$ auf ganz $V$ definiert und stetig differenzierbar. Dann gilt:
 	\begin{align*}
-		\int_{\partial V} \vec{v} \cdot \vec{n} \ do &= \int_{V} \vec{\nabla} \cdot \vec{v} \ d\mu
+		\int_{\partial V} \vec{v} \cdot \vec{n} \ d\sigma &= \int_{V} \vec{\nabla} \cdot \vec{v} \ d\mu = \int_V \operatorname{div} (f) dx dy dz
 	\end{align*}
 	wobei $\vec{n}$ der Normalenvektor entlang $\partial V$ ist, $do$ das zweidimensionale Integrationselement über die Fläche und $d\mu$ das dreidimensionale Integrationselement über das Volumen.
 \end{method}
@@ -1472,17 +1470,17 @@ z &= r\cos\theta  &  0 \leq &\phi < 2\pi & &
 
 
 \subsection*{Oberflächenintegral}
-\textbf{Parametrisierung einer Fläche $F$} ist ein Diffeomorphismus $$\phi:b \to \R^3, (u,v)\to\phi(u,v) = \begin{pmatrix}
+\textbf{Parametrisierung einer Fläche $F$} ist ein Diffeomorphismus $$\varphi:b \to \R^3, (u,v)\to\varphi(u,v) = \begin{pmatrix}
 x(u,v)\\y(u,v)\\z(u,v)
-\end{pmatrix}$$ sodass $\phi(B) = F$ gilt. Wir definieren $\phi_u = \frac{\partial \phi}{\partial u}$ sowie 
-$\phi_v = \frac{\partial \phi}{\partial v}$ und definieren den Normalenvektor $\vec{n}$:
+\end{pmatrix}$$ sodass $\varphi(B) = F$ gilt. Wir definieren $\varphi_u = \frac{\partial \varphi}{\partial u}$ sowie 
+$\varphi_v = \frac{\partial \varphi}{\partial v}$ und definieren den Normalenvektor $\vec{n}$:
 
-$$\vec{n} = \pm \frac{\phi_u \times \phi_v}{|\phi_u \times \phi_v|}$$
+$$\vec{n} = \pm \frac{\varphi_u \times \varphi_v}{|\varphi_u \times \varphi_v|}$$
 
 \begin{method}{Oberflächenmass}
-Das Flächenelement bezüglich der Parametrisierung $\phi$ ist 
+Das Flächenelement bezüglich der Parametrisierung $\varphi$ ist 
 
-$$do = |\phi_u \times \phi_v|dudv = |\operatorname{det}(d\phi)|dudv$$ Um die Oberfläche zu kriegen berechne $\int do$	
+$$do = |\varphi_u \times \varphi_v|dudv = |\operatorname{det}(d\varphi)|dudv$$ Um die Oberfläche zu kriegen berechne $\int do$	
 \end{method}
 
 \ifx
@@ -1611,7 +1609,7 @@ $$do = |\phi_u \times \phi_v|dudv = |\operatorname{det}(d\phi)|dudv$$ Um die Obe
 
 
 
-\subsubsection*{typische Integrale}
+\subsubsection*{Typische Integrale}
 
 \begin{itemize}
 	\item $\int \frac{1}{x} \,dx = \ln |x|$
@@ -1638,7 +1636,7 @@ $$do = |\phi_u \times \phi_v|dudv = |\operatorname{det}(d\phi)|dudv$$ Um die Obe
 	\item $\int a^{xb + c} \,dx = \frac{a^{bx + c}}{b \log(a)}$
 \end{itemize}
 
-\subsubsection*{trionometrische Funktionen}
+\subsubsection*{Trionometrische Funktionen}
 \begin{itemize}
 	\item $\int \sin(ax) \,dx = -\frac{1}{a}\cos(ax)$
 	\item $\int \cos(ax) \,dx = \frac{1}{a}\sin(ax)$
