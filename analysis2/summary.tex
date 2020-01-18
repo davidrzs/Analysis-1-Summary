@@ -201,7 +201,7 @@ Zudem folgt durch Induktion:
 
 % -------------------------- Grenzwerte --------------------------
 
-\section*{Grenzwerte}
+\section*{Grenzwerte \& Folgen}
 Wir sagen dass $f$ an der Stelle $a$ den Grenzwert $L\in \R$ hat, geschrieben $\lim\limits_{x \to a} f(x) = L$ falls $\forall \epsilon > 0 \ \exists \delta > 0 $ sodass für alle $|x-a|<\delta$ gilt $|f(x)-L|< \epsilon$
 
 
@@ -209,13 +209,8 @@ Wir sagen dass $f$ an der Stelle $a$ den Grenzwert $L\in \R$ hat, geschrieben $\
 
 \subsubsection*{Wurzeltrick}
 \begin{align*}
-	\lim\limits_{x \to \infty } \left( \sqrt{x^2 + x} -x \right) &= \lim\limits_{x \to \infty } \left( \sqrt{x^2 + x} -x \right)  \cdot \frac{  -\sqrt{x^2 + x} -x  }{ -\sqrt{x^2 + x} -x }\\
-	&= 	\lim\limits_{x \to \infty } \frac{- \sqrt{x^2 + x} ^2 + x^2}{ -\sqrt{x^2 + x} -x}\\
-	&= 	\lim\limits_{x \to \infty } \frac{x^2 + x - x^2}{ \sqrt{x^2 + x} +x}\\
-	&=  \lim\limits_{x \to \infty}  \frac{1}{\sqrt{1 + \frac{1}{x}} + 1} = \frac{1}{2}
+	\lim\limits_{x \to \infty } \left( \sqrt{x^2 + x} -x \right) &= \lim\limits_{x \to \infty } \left( \sqrt{x^2 + x} -x \right)  \cdot \frac{  -\sqrt{x^2 + x} -x  }{ -\sqrt{x^2 + x} -x }
 \end{align*}
-
-
 
 \begin{method}{Fundamentallimes}
 	Oft kann man einen dieser Limits verwenden:
@@ -226,42 +221,6 @@ Wir sagen dass $f$ an der Stelle $a$ den Grenzwert $L\in \R$ hat, geschrieben $\
 	\end{align*}
 \end{method}
 
-\begin{method}{Bernoulli - de l’Hospital}
-	Wenn wir zwei differenzierbare Funktionen $f$, $g$ haben mit $g'(a)\not = 0$ dann gilt falls:
-	\begin{itemize}
-		\item entweder $\lim_{x \to a} f(x) = \lim_{x \to a} g(x) = 0 $
-		\item oder $\lim_{x \to a} f(x) = \lim_{x \to a} g(x) = \infty $
-	\end{itemize}
-	dann gilt:
-	\begin{equation*}
-	\lim_{x \to a} \frac{f(x)}{g(x)} = 	\lim_{x \to a} \frac{f'(x)}{g'(x)}
-	\end{equation*}
-\end{method}
-\begin{itemize}
-	\item \textbf{Typ 1: $\frac{0}{0}$ oder $\frac{\infty}{\infty}$}\\
-	
-	\item \textbf{Typ 2: $0 \cdot \infty$} Wenn wir einen Grenzwert wie $\lim\limits_{x \to a} f(x)g(x)$ haben dann können wir den umformen in:
-	\begin{align*}
-	\lim_{x \to a}f(x) g(x) &= \lim_{x\to a} \frac{f(x)}{\frac{1}{g(x)}}\\
-	\lim_{x \to a}f(x) g(x) &= \lim_{x\to a} \frac{g(x)}{\frac{1}{f(x)}}
-	\end{align*}
-
-	
-	
-	\item \textbf{Typ 3: $f(x)^{g(x)}$} Wenn wir Grenzwerte des Types $ \limx{a} f(x)^{g(x)}$ haben, dann schreiben wir es wie folgt:
-	\begin{align*}
-	\limx{a} f(x)^{g(x)} &= \limx{a} e^{\ln(f(x))\cdot g(x)} = e^{\limx{a} \ln(f(x))\cdot g(x)}
-	\end{align*}
-
-\end{itemize}
-
-\subsection*{Taylor (als letzte Hoffung)}
-
-
-% -------------------------- Folgen --------------------------
-
-\section*{Folgen}
-
 \begin{method}{Definition Konvergenz}
 Folge $a_n$ is konvergent, falls $\exists l \in \mathbb{R}$ so dass $\forall \epsilon > 0$ die Menge $\{n \in \mathbb{N}^+: a_n \not \in (l-\epsilon, l + \epsilon)\}$ endlich ist. \\
 Äquivalent: $\forall \epsilon > 0 \ \exists N \in \N $ so dass $ \forall n \geq N$ gilt $|a_n - l|< \epsilon$.
@@ -270,7 +229,7 @@ Folge $a_n$ is konvergent, falls $\exists l \in \mathbb{R}$ so dass $\forall \ep
 % -------------------------- Stetigkeit --------------------------
 
 
-\section{Stetigkeit}
+\section*{Stetigkeit}
 \begin{method}{Definition (Stetigkeit)}
 	\begin{itemize}
 		\item Sei $D \subseteq \mathbb{R}$, $x_0 \in D$. Die Funktion $f:D \to \R$ \textit{ist in $x_0$ stetig}, falls $\forall \epsilon > 0 \ \exists \delta > 0$, so dass für alle $x$ die Implikation $$|x-x_0| < \delta \implies |f(x) - f(x_0)| < \epsilon$$
@@ -286,11 +245,6 @@ Folge $a_n$ is konvergent, falls $\exists l \in \mathbb{R}$ so dass $\forall \ep
 	Sei $I \in \R$ ein Intervall, $f: I \to \R$ eine stetige Funktion und $a,b \in I$. Dann gilt: Für alle $c$ zwischen $f(a)$ und $f(b)$ exisitert ein $z$ zwischen $a$ und $b$ so dass $f(z) = c$.
 \end{method}
 
-\textbf{Beispiel (Zwischenwertsatz)}
-\begin{itemize}
-	\item Hat $e^{2x} - \log (1+x) = 2$ eine Lösung in $[0,1]$?. Wir def. $h(x) = e^{2x} - \log (1+x) -2$. Bemerke $h(x)$ ist stetig. Es gilt $h(0) = 1 - 0 - 2 = -1$, sowie $h(1) = e^2 - \log(2) -2 \geq 0$. Somit existiert $x_0 \in [0,1]$ mit $h(x_0) = 0$. Somit exisiter Lösung in $[0,1]$.
-\end{itemize}
-
 
 \begin{method}{Kompaktheit}
 	Wir nennen ein Intervall $I \subseteq R$ kompakt, wenn es die Form $[a,b], a \leq b$ hat.
@@ -305,36 +259,23 @@ Folge $a_n$ is konvergent, falls $\exists l \in \mathbb{R}$ so dass $\forall \ep
 	\operatorname{sin}(x) &:=\sum_{n=0}^{\infty} \frac{(-1)^n z^{2n+1}}{(2n+1)!} = x - \frac{x^3}{3!}+ \frac{x^5}{5!} - \frac{x^7}{7!} +  \frac{x^9}{9!} - \ldots\\
 	\operatorname{cos}(x) &:=\sum_{n=0}^{\infty} \frac{(-1)^n x^{2n}}{(2n)!} = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} -\frac{x^6}{6!} + \frac{x^8}{8!} -\ldots 
 \end{align*}
-Dabei gilt:
+
 \begin{align*}
-\operatorname{exp}(iz) &= \cos (z) + i\sin(z) &  \cos(z) ^2 &+ \sin(z)^2 = 1\\
-\cos(z) &= \cos(-z) & \sin (-z) &= - \sin(z) \\
-\sin (z) &= \frac{e^{iz} - e^{-iz}}{2i} & \cos (z) &= \frac{e^{iz} + e^{-iz}}{2}\\
+\operatorname{exp}(iz) &= \cos (z) + i\sin(z) \\
+\cos(z) ^2 &+ \sin(z)^2 = 1\\
+\cos(z) &= \cos(-z)\\
+\sin (-z) &= - \sin(z) \\
+\sin (z) &= \frac{e^{iz} - e^{-iz}}{2i}\\
+\cos (z) &= \frac{e^{iz} + e^{-iz}}{2}\\
 \sin(z+w) &= \sin(z) \cos(w) + \cos(z) \sin(w) \\
 \cos(z + w) &= \cos(z) \cos(w) - \sin(z) \sin(w)\\
 \sin(x) - \sin(y) &=  2 \sin \left(\frac{x-y}{2}\right) \cos \left(\frac{x+y}{2}\right)\\
 \cos(x) - \cos(y) &= - 2 \sin \left(\frac{x-y}{2}\right) \sin \left(\frac{x+y}{2}\right)\\
-\sin(2x) &= 2\sin(x)\cos(x) &  \cos(2x) &= 1 - 2\sin^2(x)
+\sin(2x) &= 2\sin(x)\cos(x)\\
+\cos(2x) &= 1 - 2\sin^2(x)
 \end{align*}
 
 Zudem: $\sin(\arccos(t)) = \sqrt{1 - t^2}$ sowie $\cos(\arcsin(t)) = \sqrt{1-t^2}$
-
-\begin{tikzpicture}
-\begin{axis}[
-clip=false,
-xmin=-pi,xmax=2*pi,
-%axis lines=left,
-%axis x line=middle,
-%axis y line=left,
-xtick={-3.14,-1.57,0,1.57,3.14,4.71,6.28},
-xticklabels={$-\pi$,$-\frac{\pi}{2}$,$0$, $\frac{\pi}{2}$,$\pi$,$\frac{3}{2}\pi$,$2\pi$}
-]
-\addplot[domain=-1*pi:2*pi,samples=400,red]{sin(deg(x))};
-\addlegendentry{$\sin(x)$}
-\addplot[domain=-1*pi:2*pi,samples=400,blue]{cos(deg(x))};
-\addlegendentry{$\cos(x)$}
-\end{axis}
-\end{tikzpicture}
 
 
 \subsection*{Einige Trigonometrische Ungleichungen}
@@ -472,20 +413,6 @@ Falls dies zutrifft ist $c=f'(x_0)$ eindeutig bestimmt.
 	\item \textit{Beweise: falls $f'(x) = 0 \ \forall x$, dann ist $f(x)$ auf $[a,b]$ konstant:} Aus Lagrange folgt dass für $x_1,x_2\in (a,b)$ beliebig: $0 = \frac{f(x_2)-f(x_1)}{x_2-x_1}$ dies impliziert $f(x_1) = f(x_2)$ $\forall x_1,x_2 \in (a,b)$.
 \end{itemize}
 
-
-\begin{method}{Ableitung der Umkehrfunktion}
-	Sei $f: D \to E$ eine bijektive Funktion, $x_0 \in D$ ein Häufungspunkt. Sei $f$ in $x_0$ differenzierbar und $f'(x_0) \not = 0$, dann ist $y_0$ ein Häufungspunkt von $E$, $f^{-1}(y_0)$ differenzierbar und es gilt
-	\begin{align*}
-		(f^{{-1}})'(y_0) &= {\frac  {1}{f'(f^{{-1}}(y_0))}}={\frac  {1}{f'(x_0)}}.
-	\end{align*}
-\end{method}
-
-\textbf{Zweite Ableitung der Umkehrfunktion} $(f^{-1})''(y) = \left(\frac{1}{f' \circ f^{-1}}\right)(y)$ mit Kettenregel.  
-
-
-\textbf{Beispiel (Ableitung der Umkehrfunktion)} Sei $f^{-1}(y) = \ln(y)$. Dann gilt $f(x) = e^x$, es folgt $f'(x)= e^x$ woraus $(f^{-1})'(y) = \frac{1}{f'(f^{-1}(y))}$ sowie $(f^{-1})'(y) = \frac{1}{y}$ folgt. 
-
-
 \subsection*{Konvexität}
 
 \begin{method}{Konvex}
@@ -514,37 +441,6 @@ Sei $f\in C^m ([a,b])$ auf $(a,b)$ $m+1$ mal differenzierbar. Dann exisitert $\x
 	\end{align*}
 Oder Alternativ $|R_N f(x;a)| \leq \sup\limits_{a < \xi < x} |f^{(n+1)} (\xi)|  \frac{(x-a)^{n+1}}{(n+1)!}$
 \end{method}
-
-\textbf{Beispiel (Taylorapproximation)}
-\begin{itemize}
-	\item \textit{Finde $P_3 ^0 (x)$ von $f(x) = \sin(x)e^x$} Wir berechnen zuerst die Ableitungen:
-	\begin{align*}
-	    f(x) &= \sin(x)e^x & f(0) &= 0\\
-		f'(x) &= e^x (\sin(x) + \cos(x)) & f'(0) &= 1\\
-		f''(x) &= 2e^x \cos(x) & f''(0) &= 2\\
-		f'''(x) &= 2e^x (\cos(x) - \sin(x)) & f'''(0) &=2 \\
-		f''''(x) &= -4e^x\sin(x)
-	\end{align*} 
-	Dies gibt uns: 
-	\begin{align*}
-		P_3 ^0 (x) &= f(0) + f'(0)\cdot x + \frac{f''(x)}{2!} x^2 + \frac{f'''(x)}{3!}x^3\\
-		&= 0 + 1 \cdot x + \frac{1}{2} \cdot 2 \cdot x^2 + 2 \frac{1}{3!}x^3\\
-		&= x + x^2 + \frac{x^3}{3}
-	\end{align*}
-	Nun wollen wir den Fehler abschätzen auf $[-\frac{1}{2},\frac{1}{2}]$:
-	\begin{align*}
-		|R_3 ^0 (x)| &= \left| \frac{-4e^c \sin(c)}{4!} x^4\right|\\
-		&= \frac{e^c |\sin(c)|}{3!} x^4 \leq \frac{e^c}{3!} x^4
-	\end{align*}
-	Da nun $c \in (0,x)$ und $x \in [-\frac{1}{2}, \frac{1}{2}]$ folgt: $\frac{e^c}{3!} x^4 \leq \frac{e^{1/2}}{6}x^4$
-	\item \textbf{Taylorreihe von $\frac{x^2}{2+x}$} Wir wissen dass $\frac{1}{1-x} = 1 + x + x^2 + \ldots = \sum_{n=0}^{\infty} x^n$ ist. Somit folgt:
-	\begin{align*}
-		\frac{x^2}{2+x} &= x^2 \frac{1}{2+x} = \frac{x^2}{2} \frac{1}{1 - (-\frac{x}{2})} \\
-		&= \frac{x^2}{2} \left( 1 - \frac{x}{2} + \left(\frac{x}{2}\right)^2+ \ldots \right)\\
-		&= \frac{x^2}{2} - \frac{x^3}{4} + \frac{x^4}{8} + \ldots = \sum_{n=0}^{\infty} \frac{(-1)^n x^{n+2}}{2^{n+1}}
-	\end{align*}
-\end{itemize}
-
 
 
 \subsection*{Wichtige Taylorapproximationen um $x=0$}
@@ -630,17 +526,12 @@ Mit der Kettenregel folgt aus dem Fundamentalsatz:
 \begin{align*}
 \frac{d}{dx} \left( \int_{u(x)}^{v(x)} f(t)  dt \right) &= f(v)\frac{dv}{dx} - f(u)\frac{du}{dx}
 \end{align*}
-\textbf{Beispiel:} Finde die Ableitung von $f(x) = \int_{x}^{2} \frac{e^{t^2}}{t} dt + \log(\frac{x}{2})$. Somit ist $f'(x) = -\frac{e^{x^2}}{x} + \frac{1}{x}$. Bemerke dass $f'(x) = \frac{1-e^{x^2}}{x}<0$ für $x \in (0, \infty)$ und somit umkehrbar.
-Wir können auch das Taylorpolynom 1ter Ordnung von $f'^{-1}(x)$ um $x_0 = 0$ berechnen. Es gilt $f(2) = 0$, sowie $(f^{-1})'(0) = \frac{1}{f'(f^{-1}(0))} = \frac{1}{f'(2)} = \frac{2}{1-e^4}$.
 
 \section*{Integrale Ausrechnen}
 
 \begin{important}
 Integrationskonstante $C$ nicht vergessen!
 \end{important}
-
-\subsection*{Elementare Integrale}
-Siehe Tabelle
 
 \subsection*{Direkte Integrale}
 Diese sind vom Typ $\int f(g(x)) g'(x) dx = F(g(x))$.
@@ -651,7 +542,7 @@ Diese sind vom Typ $\int f(g(x)) g'(x) dx = F(g(x))$.
 	\int f' \cdot g \ dx = f \cdot g - \int f \cdot g' \  dx
 \end{align*}
 \end{method}
-\textbf{Beispiele}:
+
 
 
 \subsection*{Integrale rationaler Funktionen}
@@ -703,12 +594,6 @@ Substituiere mit $\tan(x) = t$, ($dx = \frac{1}{1+t^2} dt$). Es gilt zudem:
 \sin^2(x) &= \frac{t^2}{1+t^2} & \cos^2(x) &= \frac{1}{1+t^2}
 \end{align*}
 
-\textbf{Beispiel:}
-\begin{align*}
-	\int \frac{1}{\sin^2(x) + 1} dx &= \int \frac{1}{\frac{t^2}{1+t^2} + 1} \frac{1}{t^2 + 1} dt = \int \frac{1}{1+2t^2} dt\\ &= \frac{1}{\sqrt{2}} \int  \frac{\sqrt{2}}{1 + (\sqrt{2}t)^2} dt = \frac{1}{\sqrt{2}} \arctan(\sqrt{2}t)
-\end{align*}
-
-
 \subsubsection*{Integrale die $\sin, \cos, \tan$ in ungeraden Potenzen enthalten}
 Substituiere mit $\tan(\frac{x}{2}) = t$, ($dx = \frac{2}{1+t^2} dt$). Es gilt zudem:
 
@@ -716,45 +601,7 @@ Substituiere mit $\tan(\frac{x}{2}) = t$, ($dx = \frac{2}{1+t^2} dt$). Es gilt z
 \sin(x) &= \frac{2t}{1+t^2} & \cos(x) &= \frac{1-t^2}{1+t^2}
 \end{align*}
 
-\textbf{Beispiel:}
-\begin{align*}
-	\int \frac{1}{\cos(x)} dx &= \int \frac{1}{\frac{1-t^2}{1+t^2}} \frac{2}{1+t^2} dt = \int \frac{2}{1-t^2} dt
-\end{align*}
 
-\subsection*{Quadratisch Ergänzen}
-\begin{method}{Quadratisch ergänzen} Für den Ausdruck $\sqrt{ax^2 + bx + x}$ definieren wie $\beta = - \frac{b}{2a}$. Es gibt nun zwei Optionen (mit dem Ziel $x= \alpha u + \beta$):
-
-\begin{itemize}
-	\item Falls $b^2 - 4ac > 0$. So setze $\alpha = \frac{\sqrt{b^2 - 4ac}}{2a}$. Dies gibt uns dann:
-	\begin{align*}
-		ax^2 + bx + c = \left(\frac{b^2 -4ac}{4a}\right)\left(u^2 - 1\right)
-	\end{align*}
-	
-	\item Falls $b^2 - 4ac < 0$. So setze $\alpha = \frac{\sqrt{4ac - b^2}}{2a}$. Dies gibt uns dann:
-	\begin{align*}
-	ax^2 + bx + c = \left(\frac{4ac - b^2}{4a}\right)\left(u^2 + 1\right)
-	\end{align*}
-	Falls dies in einem Integral ist kann man nun mit $u=\sinh(t)$, $du = \cosh(t) dt$ ersetzen.
-\end{itemize}
-
-\end{method}
-
-\begin{method}{Ekelhafte Zahlen}
-	
-	\begin{itemize}
-	\item $\int \frac{1}{a^2 + x^2} dx$ lösen wir mit $x=a\cdot u$, $dx = a \ du$, dies gibt uns:
-	\begin{align*}
-		\int \frac{1}{a^2 + x^2} = \int\frac{1}{a^2 (1 + u^2)} a \ du = \frac{1}{a} \arctan(u) = \frac{1}{a} \arctan\left(\frac{x}{a}\right)
-	\end{align*}
-	
-	\item $\int \sqrt{r^2 - x^2} dx$ lösen wir mit $x = r \sin \phi$, $dx = r \cos \phi \ d\phi$ :
-	\begin{align*}
-\int \sqrt{r^2 - x^2} dx = \int \sqrt{r^2 (1-\sin^2 \phi)} r \cos \phi \ d\phi = r^2 \int \cos^2(\phi) \ d\phi
-\end{align*}
-Wir können nun die Winkelverdopplungsregel anwenden.
-	\end{itemize}
-	
-\end{method}
 
 \subsubsection*{Integrale mit $\sqrt{Ax^2 + Bx + C}$ im Nenner}
 Mithilfe quadratischer Ergänzung auf einen der folgenden Fälle zurückführen:
@@ -790,50 +637,6 @@ Andernfalls machen wir eine Partialbruchzerlegung:
 	\frac{t}{t^3 + t^2 - t - 1} &= \frac{A}{(t+1)} + \frac{B}{(t+1)^2} + \frac{C}{t-1} \quad \text{first polyDiv}\\
 	\frac{t^4 + 1}{(t^2 + 1)^2} &= 1 + \frac{-2t}{(t^2 + 1)^2} = 1 + \ldots + \frac{At + B}{t^2 + 1} + \frac{Ct + D}{(t^2 + 1)^2}
 \end{align*}
-
-
-% -------------------------- Uneigentliche Integrale --------------------------
-
-\section*{Uneigentliche Integrale}
-
-
-Es gibt zwei Arten von uneigentlichen Integralen, man interessiert sich dafür ob die Integrale konvergieren oder nicht. Für beide Arten braucht man die gleichen Techniken:
-
-\begin{enumerate}
-	\item[] \textbf{Typ 1:} $f(x)$ auf $[a,\infty)$ stetig. Dann setzt man $\int_{a}^{\infty} f(x) dx = \lim_{R \to \infty} \int_{a}^{R} f(x) dx$ falls der Grenzwert existiert.
-	\item[] \textbf{Typ 2:} $f(x)$ auf $(a,b]$ stetig. Dann setzt man $\int_{a}^{b} f(x) dx= \lim_{\epsilon \to 0^+} \int_{a+\epsilon}^{b} f(x) dx$ falls der Grenzwert existiert.
-\end{enumerate}
-
-
-\subsection*{Definition + direkte Berechung}
-Setze die Definition ein (replace $\infty$ with $R$) und berechne dann das Integral. Lasse nun $R$ nach $\infty$ laufen.
-
-\subsection*{Vergleichskriterium}
- Seien $f,g$ auf dem Integrationsgebiet stetig mit $0 \leq f(x) \leq g(x)$ für alle $x$. Dann gilt:
- \begin{enumerate}
- 	\item Ist $\int_{a}^{\infty} g(x) dx$ konvergent, so auch $\int_{a}^{\infty} f(x) dx$
- 	\item Ist $\int_{a}^{\infty} f(x) dx$ divergent, so auch $\int_{a}^{\infty} g(x) dx$
- \end{enumerate}
- Oft braucht man $\int_{1}^{\infty} \frac{1}{x^p} dx$ als Vergleichsmittel welches für $p>1$ konvergiert, für $p \leq 1$ ist es divergent.\\
-\textbf{Beispiel (Vergleich)} 
-\begin{itemize}
-	\item $\int_{1}^{\infty} \frac{1 + e^x}{x} dx$, von unten durch $\int_{1}^{\infty} \frac{1}{x} dx$ abschätzen, dann divergent.
-	\item $\int_1 ^\infty \sin^2\left(\frac{1}{x}\right) dx$, beachte dass wenn $x \geq 0$, $\sin(x) \leq x$ gilt. Somit haben wir Majorante $\int_{1}^{\infty} \frac{1}{x^2} dx$ und konvergent. 
-\end{itemize}
-
-
-\subsection*{Absolute Konvergenz}
-$$ \int_{a}^{\infty} \left| f(x) \right| dx <\infty \implies \int_{a}^{\infty}f(x) dx < \infty $$
-Das ist nützlich bei trigonometrischen Teilen.\\
-\textbf{Beispiel (Absolute Konvergenz)} 
-\begin{itemize}
-	\item $\int_{1}^{\infty} \frac{\cos^2(x)}{x^2} dx$. Es gilt $\left| \frac{\cos^2(x)}{x^2}\right|\leq \frac{1}{x^2}$, somit konvergent.
-	\item $\int_0 ^\infty x\sin(4x)e^{-2x} dx$. Es gilt $|x\sin(4x)e^{-2x}| \leq xe^{-2x}$ wenn $x\geq 0$, per partieller Integration konvergiert das zweite. Somit konvergent.
-\end{itemize}
-
-\subsection*{Mc. Laurin Konvergenzkriterium}
-Sei $f:[1,\infty) \to [0,\infty)$ monoton fallend.
-$$\sum_{n=1}^{\infty} f(n) \ \text{konv.}  \iff    \int_{1}^{\infty} f(x) dx \ \text{konv.}$$
 
 
 
@@ -934,15 +737,7 @@ um, was wir dann nach $y$ auflösen können.
 	
 \end{method}
 
-\begin{method}{Variation der Konstanten (1te Ord.)} Wenn wir eine ODE der Form $y' = h(x)y + b(x)$ haben, so gilt dass $y(x) = y_{hom} + y_{part}$
-	\begin{itemize}
-		\item \textbf{Schritt 1: } Löse homogenes Problem mittels Trennung der Variablen
-		\item \textbf{Schritt 2: } Die Integrationskonstante $C$ aus Schritt 1 fassen wir als eine von $x$ abhängige Funktion $C(x)$ auf.
-		\item \textbf{Schritt 3: } Die enstandene Funktion $y_p(x)$, die homogene Lösung mit $C(x)$ anstatt $C$ setzte als Ansatz in die Differentialgleichung ein und löse nach $C(x)$ ein. Dies gibt die partikuläre Lösung.
-		\item \textbf{Schritt 4: } Setzte $y(x) = y_h(x) + y_p(x)$.
-	\end{itemize}
-	
-\end{method}
+
 
 
 \textbf{Beispiel $(\sin(x))y' = (\cos(x))y = e^x$}. Zuerst homogen:
@@ -1016,7 +811,9 @@ Wenn die NS $\lambda = \beta + i\gamma$ nicht reell ist, so ist (bei rellen DGL)
 	Für DLGs der Form $$a_n y^{(n)} + a_{n-1} y^{(n-1)} + \cdots + a_0 y = b(x)$$
 	mit dem Euler Ansatz lösen wir das homogene Problem. Die partikuläre Lösung finden wir mit der Idee, dass $y_p(x)$ die slebe Form wie $b(x)$ hat.
 	
-	\includegraphics[width=\textwidth]{ansatz.png}
+%	\includegraphics[width=\textwidth]{ansatz.png}
+
+\vspace{6cm}
 	
 	Dabei gilt:
 	\begin{itemize}
