@@ -889,7 +889,8 @@ It turns out that the existence of partial derivatives is not enough to show dif
 	\begin{itemize}
 		\item 	Let $X\subseteq \R^n$ be open and $f: X \to \R^n$ be a function. Let $u$ be a linear map $\R^n \to \R^m$ and $x_0 \in X$. We say $f$ is \textit{differentiable} at $x_0$ with differential $u$ if
 		\begin{align*}
-		\lim\limits_{\substack{x\to x_0 \\x \not = x_0}} \frac{1}{\norm{x-x_0}} (f(x) -f(x_0) - u(x-x_0) ) = 0
+		\lim\limits_{\substack{x\to x_0 \\x \not = x_0}} \frac{1}{\norm{x-x_0}} (f(x) -f(x_0) - u(x-x_0) ) = 0\\
+		\lim_{\|h\| \to 0}\frac{\|f(x+h) - f(x) - A(x)h\|}{\|h\|} = 0.
 		\end{align*}
 		where the limit is in $\R^n$. We then denote $df(x_0) = u$
 		If $f$ is differentiable at every $x_0 \in X$, then we say that $f$ is differentiable on $X$.
@@ -904,12 +905,7 @@ It turns out that the existence of partial derivatives is not enough to show dif
 
 \textbf{Examples}
 
-\begin{itemize}
-	\item \textbf{Show that $\frac{\partial^2 f}{\partial y \partial x}(0,0)$ and $\frac{\partial^2 f}{\partial y \partial x}(0,0)$ exist but are not equal with $f(0,0) = 0$ and $f(x,y) = \frac{xy(x^2-y^2)}{x^2 + y^2}$:}
-	lalala
-	
-\end{itemize}
-\TODO{...}
+\vspace{4cm}
 
 
 \textbf{Example (Total Differentiability)}
@@ -919,6 +915,16 @@ Let $f(0,0) = 0$ and $f(x,y) = \frac{x^2 y^2}{x^2+y^2}$ for $(x,y)\neq (0,0)$. S
 \end{align*}
 
 As a second step we show differentiability at $(0,0)$: We will use two methods:
+
+
+
+\textbf{Via partial derivatives:}
+
+\begin{align*}
+\frac{\partial f}{\partial x} &= \frac{2xy^2}{x^2 +y^2} - \frac{2x^3 y^2}{(x^2+y^2)^2}\\
+\frac{\partial f}{\partial y} &= \frac{2x^2y}{x^2 +y^2} - \frac{2x^2 y^3}{(x^2+y^2)^2}\\
+\end{align*}
+We now calculate $\lim\limits_{(x,y)\to(0,0)} \frac{\partial f}{\partial x}$ and  $\lim\limits_{(x,y)\to(0,0)} \frac{\partial f}{\partial y}$ using the polar coordinates trick and get the same result as below. 
 
 \textbf{Direct Method:}
 We calculate the Jacobi Matrix at $(0,0)$ and plug it into the definition of differentability:
@@ -944,14 +950,6 @@ x-0 \\ y -0
 &=  \lim\limits_{\substack{r \to 0}} \frac{r^4 \sin^2(\varphi) \cos^2(\varphi) }{r^3} = 0
 \end{align*}
 Since this fulfills the definition $f$ is differentiable in all of $\R^2$.
-
-\textbf{Direct Method:} Via partial derivatives:
-
-\begin{align*}
-	\frac{\partial f}{\partial x} &= \frac{2xy^2}{x^2 +y^2} - \frac{2x^3 y^2}{(x^2+y^2)^2}\\
-	\frac{\partial f}{\partial y} &= \frac{2x^2y}{x^2 +y^2} - \frac{2x^2 y^3}{(x^2+y^2)^2}\\
-\end{align*}
-We now calculate $\lim\limits_{(x,y)\to(0,0)} \frac{\partial f}{\partial x}$ and  $\lim\limits_{(x,y)\to(0,0)} \frac{\partial f}{\partial y}$ using the polar coordinates trick and get the same result as above. 
 
 
 \subsection*{Rules for differentiation in $\R^n$}
@@ -1150,8 +1148,14 @@ Dabei ist \begin{align*}
 
 \subsection*{Change of Variable}
 
+Assume we have $h(u,v)\mapsto (u+v,u-v)$ and $g(u,v) = f(u+v,u-v) $. We would like to find $\partial_{v^2} g$. First we find $\partial_v$. We note that $Dg = Df(h(u,v)) \cdot Dh(u,v)$ by the chain rule. Hence we get
+$\partial_v  = \frac{\partial h_1}{\partial v} \frac{\partial}{ \partial x} + \frac{\partial h_2}{\partial v} \frac{\partial}{ \partial y}$.
 
-\TODO{change of variable \& abuse of notation}
+This gives us $\partial_v g = \partial_x f - \partial _y f$ ($f$ \& $g$ are same func. in diff var)
+
+Now we apply $\partial_{v^2} = \partial _v (\partial_v g) =   \partial _v(\partial x f - \partial _y f)$
+$\partial_x (\partial x f - \partial _y f) - \partial _y (\partial x f - \partial _y f) = \partial _{x^2} f + \partial_{y^2} -2\partial_{xy}f$
+
 
 
 \section*{Taylor Approximation in $\R^n$}
