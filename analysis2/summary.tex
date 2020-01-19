@@ -168,10 +168,10 @@
 
 \begin{method}{Komplexe Zahlen} ${\displaystyle \varphi =\arg(z)}$\\
 \begin{empheq}[box=\fbox]{align*}
-	z &= x + iy & z &= r(\cos(\phi) + i\sin(\phi)) & z &= re^{i\phi}
+	z &= x + iy & z &= r(\cos(\varphi) + i\sin(\varphi)) & z &= re^{i\varphi}
 \end{empheq}
 \begin{empheq}[box=\fbox]{align*}
-x &= r \cos \phi &  y &= r\sin \phi & r &= \sqrt{x^2 + y^2} & \phi &= \arctan\left(\frac{y}{x}\right) 
+x &= r \cos \varphi &  y &= r\sin \varphi & r &= \sqrt{x^2 + y^2} & \varphi &= \arctan\left(\frac{y}{x}\right) 
 \end{empheq}
 \textsc{Division:} Es gilt $z^{-1} = \frac{\bar{z}}{||z||^2}$ wenn $z \not = 0$\\
 \textsc{Polarform} Wenn \begin{align*}
@@ -190,8 +190,8 @@ Zudem folgt durch Induktion:
 
 \textbf{Komplexe Nullstellen:} Die $n$-te Wurzel von $x$ berechnen wir (es gibt $n$ davon):
 \begin{align*}
-	\sqrt[n]{z} &= \sqrt[n]{r} e^{i \left( \frac{\phi_0}{n} + \frac{2k\pi}{n}\right)}\\
-	&= \sqrt[n]{r} \left(\cos\left( \frac{\phi_0}{n} + \frac{2k\pi}{n}\right) + i \sin\left( \frac{\phi_0}{n} + \frac{2k\pi}{n}\right)\right)
+	\sqrt[n]{z} &= \sqrt[n]{r} e^{i \left( \frac{\varphi_0}{n} + \frac{2k\pi}{n}\right)}\\
+	&= \sqrt[n]{r} \left(\cos\left( \frac{\varphi_0}{n} + \frac{2k\pi}{n}\right) + i \sin\left( \frac{\varphi_0}{n} + \frac{2k\pi}{n}\right)\right)
 \end{align*}
 
 \end{method}
@@ -201,7 +201,7 @@ Zudem folgt durch Induktion:
 
 % -------------------------- Grenzwerte --------------------------
 
-\section*{Grenzwerte}
+\section*{Grenzwerte \& Folgen}
 Wir sagen dass $f$ an der Stelle $a$ den Grenzwert $L\in \R$ hat, geschrieben $\lim\limits_{x \to a} f(x) = L$ falls $\forall \epsilon > 0 \ \exists \delta > 0 $ sodass für alle $|x-a|<\delta$ gilt $|f(x)-L|< \epsilon$
 
 
@@ -209,13 +209,8 @@ Wir sagen dass $f$ an der Stelle $a$ den Grenzwert $L\in \R$ hat, geschrieben $\
 
 \subsubsection*{Wurzeltrick}
 \begin{align*}
-	\lim\limits_{x \to \infty } \left( \sqrt{x^2 + x} -x \right) &= \lim\limits_{x \to \infty } \left( \sqrt{x^2 + x} -x \right)  \cdot \frac{  -\sqrt{x^2 + x} -x  }{ -\sqrt{x^2 + x} -x }\\
-	&= 	\lim\limits_{x \to \infty } \frac{- \sqrt{x^2 + x} ^2 + x^2}{ -\sqrt{x^2 + x} -x}\\
-	&= 	\lim\limits_{x \to \infty } \frac{x^2 + x - x^2}{ \sqrt{x^2 + x} +x}\\
-	&=  \lim\limits_{x \to \infty}  \frac{1}{\sqrt{1 + \frac{1}{x}} + 1} = \frac{1}{2}
+	\lim\limits_{x \to \infty } \left( \sqrt{x^2 + x} -x \right) &= \lim\limits_{x \to \infty } \left( \sqrt{x^2 + x} -x \right)  \cdot \frac{  -\sqrt{x^2 + x} -x  }{ -\sqrt{x^2 + x} -x }
 \end{align*}
-
-
 
 \begin{method}{Fundamentallimes}
 	Oft kann man einen dieser Limits verwenden:
@@ -226,42 +221,6 @@ Wir sagen dass $f$ an der Stelle $a$ den Grenzwert $L\in \R$ hat, geschrieben $\
 	\end{align*}
 \end{method}
 
-\begin{method}{Bernoulli - de l’Hospital}
-	Wenn wir zwei differenzierbare Funktionen $f$, $g$ haben mit $g'(a)\not = 0$ dann gilt falls:
-	\begin{itemize}
-		\item entweder $\lim_{x \to a} f(x) = \lim_{x \to a} g(x) = 0 $
-		\item oder $\lim_{x \to a} f(x) = \lim_{x \to a} g(x) = \infty $
-	\end{itemize}
-	dann gilt:
-	\begin{equation*}
-	\lim_{x \to a} \frac{f(x)}{g(x)} = 	\lim_{x \to a} \frac{f'(x)}{g'(x)}
-	\end{equation*}
-\end{method}
-\begin{itemize}
-	\item \textbf{Typ 1: $\frac{0}{0}$ oder $\frac{\infty}{\infty}$}\\
-	
-	\item \textbf{Typ 2: $0 \cdot \infty$} Wenn wir einen Grenzwert wie $\lim\limits_{x \to a} f(x)g(x)$ haben dann können wir den umformen in:
-	\begin{align*}
-	\lim_{x \to a}f(x) g(x) &= \lim_{x\to a} \frac{f(x)}{\frac{1}{g(x)}}\\
-	\lim_{x \to a}f(x) g(x) &= \lim_{x\to a} \frac{g(x)}{\frac{1}{f(x)}}
-	\end{align*}
-
-	
-	
-	\item \textbf{Typ 3: $f(x)^{g(x)}$} Wenn wir Grenzwerte des Types $ \limx{a} f(x)^{g(x)}$ haben, dann schreiben wir es wie folgt:
-	\begin{align*}
-	\limx{a} f(x)^{g(x)} &= \limx{a} e^{\ln(f(x))\cdot g(x)} = e^{\limx{a} \ln(f(x))\cdot g(x)}
-	\end{align*}
-
-\end{itemize}
-
-\subsection*{Taylor (als letzte Hoffung)}
-
-
-% -------------------------- Folgen --------------------------
-
-\section*{Folgen}
-
 \begin{method}{Definition Konvergenz}
 Folge $a_n$ is konvergent, falls $\exists l \in \mathbb{R}$ so dass $\forall \epsilon > 0$ die Menge $\{n \in \mathbb{N}^+: a_n \not \in (l-\epsilon, l + \epsilon)\}$ endlich ist. \\
 Äquivalent: $\forall \epsilon > 0 \ \exists N \in \N $ so dass $ \forall n \geq N$ gilt $|a_n - l|< \epsilon$.
@@ -270,7 +229,7 @@ Folge $a_n$ is konvergent, falls $\exists l \in \mathbb{R}$ so dass $\forall \ep
 % -------------------------- Stetigkeit --------------------------
 
 
-\section{Stetigkeit}
+\section*{Stetigkeit}
 \begin{method}{Definition (Stetigkeit)}
 	\begin{itemize}
 		\item Sei $D \subseteq \mathbb{R}$, $x_0 \in D$. Die Funktion $f:D \to \R$ \textit{ist in $x_0$ stetig}, falls $\forall \epsilon > 0 \ \exists \delta > 0$, so dass für alle $x$ die Implikation $$|x-x_0| < \delta \implies |f(x) - f(x_0)| < \epsilon$$
@@ -286,11 +245,6 @@ Folge $a_n$ is konvergent, falls $\exists l \in \mathbb{R}$ so dass $\forall \ep
 	Sei $I \in \R$ ein Intervall, $f: I \to \R$ eine stetige Funktion und $a,b \in I$. Dann gilt: Für alle $c$ zwischen $f(a)$ und $f(b)$ exisitert ein $z$ zwischen $a$ und $b$ so dass $f(z) = c$.
 \end{method}
 
-\textbf{Beispiel (Zwischenwertsatz)}
-\begin{itemize}
-	\item Hat $e^{2x} - \log (1+x) = 2$ eine Lösung in $[0,1]$?. Wir def. $h(x) = e^{2x} - \log (1+x) -2$. Bemerke $h(x)$ ist stetig. Es gilt $h(0) = 1 - 0 - 2 = -1$, sowie $h(1) = e^2 - \log(2) -2 \geq 0$. Somit existiert $x_0 \in [0,1]$ mit $h(x_0) = 0$. Somit exisiter Lösung in $[0,1]$.
-\end{itemize}
-
 
 \begin{method}{Kompaktheit}
 	Wir nennen ein Intervall $I \subseteq R$ kompakt, wenn es die Form $[a,b], a \leq b$ hat.
@@ -305,36 +259,23 @@ Folge $a_n$ is konvergent, falls $\exists l \in \mathbb{R}$ so dass $\forall \ep
 	\operatorname{sin}(x) &:=\sum_{n=0}^{\infty} \frac{(-1)^n z^{2n+1}}{(2n+1)!} = x - \frac{x^3}{3!}+ \frac{x^5}{5!} - \frac{x^7}{7!} +  \frac{x^9}{9!} - \ldots\\
 	\operatorname{cos}(x) &:=\sum_{n=0}^{\infty} \frac{(-1)^n x^{2n}}{(2n)!} = 1 - \frac{x^2}{2!} + \frac{x^4}{4!} -\frac{x^6}{6!} + \frac{x^8}{8!} -\ldots 
 \end{align*}
-Dabei gilt:
+
 \begin{align*}
-\operatorname{exp}(iz) &= \cos (z) + i\sin(z) &  \cos(z) ^2 &+ \sin(z)^2 = 1\\
-\cos(z) &= \cos(-z) & \sin (-z) &= - \sin(z) \\
-\sin (z) &= \frac{e^{iz} - e^{-iz}}{2i} & \cos (z) &= \frac{e^{iz} + e^{-iz}}{2}\\
+\operatorname{exp}(iz) &= \cos (z) + i\sin(z) \\
+\cos(z) ^2 &+ \sin(z)^2 = 1\\
+\cos(z) &= \cos(-z)\\
+\sin (-z) &= - \sin(z) \\
+\sin (z) &= \frac{e^{iz} - e^{-iz}}{2i}\\
+\cos (z) &= \frac{e^{iz} + e^{-iz}}{2}\\
 \sin(z+w) &= \sin(z) \cos(w) + \cos(z) \sin(w) \\
 \cos(z + w) &= \cos(z) \cos(w) - \sin(z) \sin(w)\\
 \sin(x) - \sin(y) &=  2 \sin \left(\frac{x-y}{2}\right) \cos \left(\frac{x+y}{2}\right)\\
 \cos(x) - \cos(y) &= - 2 \sin \left(\frac{x-y}{2}\right) \sin \left(\frac{x+y}{2}\right)\\
-\sin(2x) &= 2\sin(x)\cos(x) &  \cos(2x) &= 1 - 2\sin^2(x)
+\sin(2x) &= 2\sin(x)\cos(x)\\
+\cos(2x) &= 1 - 2\sin^2(x)
 \end{align*}
 
 Zudem: $\sin(\arccos(t)) = \sqrt{1 - t^2}$ sowie $\cos(\arcsin(t)) = \sqrt{1-t^2}$
-
-\begin{tikzpicture}
-\begin{axis}[
-clip=false,
-xmin=-pi,xmax=2*pi,
-%axis lines=left,
-%axis x line=middle,
-%axis y line=left,
-xtick={-3.14,-1.57,0,1.57,3.14,4.71,6.28},
-xticklabels={$-\pi$,$-\frac{\pi}{2}$,$0$, $\frac{\pi}{2}$,$\pi$,$\frac{3}{2}\pi$,$2\pi$}
-]
-\addplot[domain=-1*pi:2*pi,samples=400,red]{sin(deg(x))};
-\addlegendentry{$\sin(x)$}
-\addplot[domain=-1*pi:2*pi,samples=400,blue]{cos(deg(x))};
-\addlegendentry{$\cos(x)$}
-\end{axis}
-\end{tikzpicture}
 
 
 \subsection*{Einige Trigonometrische Ungleichungen}
@@ -353,7 +294,7 @@ Wenn $x = 0$ dann folgt sofort $\sin(0) = 0$. Für $x\geq 1$ folgt auch $\sin(x)
 
 \begin{center}
 	\begin{tabular}{ p{5cm} | p{5cm}  | p{5cm} | p{5cm}  }
-		Value $\phi$ & $\sin(\phi)$ & $\cos(\phi)$ & $\tan(\phi)$ \\[0.75ex] \hline \hline 
+		Value $\varphi$ & $\sin(\varphi)$ & $\cos(\varphi)$ & $\tan(\varphi)$ \\[0.75ex] \hline \hline 
 		$0$ & $0$ & $1$ & $0$ \\  \hline
 		$\frac{\pi}{12}$ & $\frac{\sqrt{3} -1}{2\sqrt{2}}$ & $\frac{1 + \sqrt{3}}{2\sqrt{2}}$ & $2 - \sqrt{3}$ \\ \hline
 		$\frac{\pi}{6}$ & $\frac{1}{2}$ & $\frac{\sqrt{3}}{2}$ & $\frac{1}{\sqrt{3}}$	\\  \hline
@@ -472,20 +413,6 @@ Falls dies zutrifft ist $c=f'(x_0)$ eindeutig bestimmt.
 	\item \textit{Beweise: falls $f'(x) = 0 \ \forall x$, dann ist $f(x)$ auf $[a,b]$ konstant:} Aus Lagrange folgt dass für $x_1,x_2\in (a,b)$ beliebig: $0 = \frac{f(x_2)-f(x_1)}{x_2-x_1}$ dies impliziert $f(x_1) = f(x_2)$ $\forall x_1,x_2 \in (a,b)$.
 \end{itemize}
 
-
-\begin{method}{Ableitung der Umkehrfunktion}
-	Sei $f: D \to E$ eine bijektive Funktion, $x_0 \in D$ ein Häufungspunkt. Sei $f$ in $x_0$ differenzierbar und $f'(x_0) \not = 0$, dann ist $y_0$ ein Häufungspunkt von $E$, $f^{-1}(y_0)$ differenzierbar und es gilt
-	\begin{align*}
-		(f^{{-1}})'(y_0) &= {\frac  {1}{f'(f^{{-1}}(y_0))}}={\frac  {1}{f'(x_0)}}.
-	\end{align*}
-\end{method}
-
-\textbf{Zweite Ableitung der Umkehrfunktion} $(f^{-1})''(y) = \left(\frac{1}{f' \circ f^{-1}}\right)(y)$ mit Kettenregel.  
-
-
-\textbf{Beispiel (Ableitung der Umkehrfunktion)} Sei $f^{-1}(y) = \ln(y)$. Dann gilt $f(x) = e^x$, es folgt $f'(x)= e^x$ woraus $(f^{-1})'(y) = \frac{1}{f'(f^{-1}(y))}$ sowie $(f^{-1})'(y) = \frac{1}{y}$ folgt. 
-
-
 \subsection*{Konvexität}
 
 \begin{method}{Konvex}
@@ -514,37 +441,6 @@ Sei $f\in C^m ([a,b])$ auf $(a,b)$ $m+1$ mal differenzierbar. Dann exisitert $\x
 	\end{align*}
 Oder Alternativ $|R_N f(x;a)| \leq \sup\limits_{a < \xi < x} |f^{(n+1)} (\xi)|  \frac{(x-a)^{n+1}}{(n+1)!}$
 \end{method}
-
-\textbf{Beispiel (Taylorapproximation)}
-\begin{itemize}
-	\item \textit{Finde $P_3 ^0 (x)$ von $f(x) = \sin(x)e^x$} Wir berechnen zuerst die Ableitungen:
-	\begin{align*}
-	    f(x) &= \sin(x)e^x & f(0) &= 0\\
-		f'(x) &= e^x (\sin(x) + \cos(x)) & f'(0) &= 1\\
-		f''(x) &= 2e^x \cos(x) & f''(0) &= 2\\
-		f'''(x) &= 2e^x (\cos(x) - \sin(x)) & f'''(0) &=2 \\
-		f''''(x) &= -4e^x\sin(x)
-	\end{align*} 
-	Dies gibt uns: 
-	\begin{align*}
-		P_3 ^0 (x) &= f(0) + f'(0)\cdot x + \frac{f''(x)}{2!} x^2 + \frac{f'''(x)}{3!}x^3\\
-		&= 0 + 1 \cdot x + \frac{1}{2} \cdot 2 \cdot x^2 + 2 \frac{1}{3!}x^3\\
-		&= x + x^2 + \frac{x^3}{3}
-	\end{align*}
-	Nun wollen wir den Fehler abschätzen auf $[-\frac{1}{2},\frac{1}{2}]$:
-	\begin{align*}
-		|R_3 ^0 (x)| &= \left| \frac{-4e^c \sin(c)}{4!} x^4\right|\\
-		&= \frac{e^c |\sin(c)|}{3!} x^4 \leq \frac{e^c}{3!} x^4
-	\end{align*}
-	Da nun $c \in (0,x)$ und $x \in [-\frac{1}{2}, \frac{1}{2}]$ folgt: $\frac{e^c}{3!} x^4 \leq \frac{e^{1/2}}{6}x^4$
-	\item \textbf{Taylorreihe von $\frac{x^2}{2+x}$} Wir wissen dass $\frac{1}{1-x} = 1 + x + x^2 + \ldots = \sum_{n=0}^{\infty} x^n$ ist. Somit folgt:
-	\begin{align*}
-		\frac{x^2}{2+x} &= x^2 \frac{1}{2+x} = \frac{x^2}{2} \frac{1}{1 - (-\frac{x}{2})} \\
-		&= \frac{x^2}{2} \left( 1 - \frac{x}{2} + \left(\frac{x}{2}\right)^2+ \ldots \right)\\
-		&= \frac{x^2}{2} - \frac{x^3}{4} + \frac{x^4}{8} + \ldots = \sum_{n=0}^{\infty} \frac{(-1)^n x^{n+2}}{2^{n+1}}
-	\end{align*}
-\end{itemize}
-
 
 
 \subsection*{Wichtige Taylorapproximationen um $x=0$}
@@ -630,17 +526,12 @@ Mit der Kettenregel folgt aus dem Fundamentalsatz:
 \begin{align*}
 \frac{d}{dx} \left( \int_{u(x)}^{v(x)} f(t)  dt \right) &= f(v)\frac{dv}{dx} - f(u)\frac{du}{dx}
 \end{align*}
-\textbf{Beispiel:} Finde die Ableitung von $f(x) = \int_{x}^{2} \frac{e^{t^2}}{t} dt + \log(\frac{x}{2})$. Somit ist $f'(x) = -\frac{e^{x^2}}{x} + \frac{1}{x}$. Bemerke dass $f'(x) = \frac{1-e^{x^2}}{x}<0$ für $x \in (0, \infty)$ und somit umkehrbar.
-Wir können auch das Taylorpolynom 1ter Ordnung von $f'^{-1}(x)$ um $x_0 = 0$ berechnen. Es gilt $f(2) = 0$, sowie $(f^{-1})'(0) = \frac{1}{f'(f^{-1}(0))} = \frac{1}{f'(2)} = \frac{2}{1-e^4}$.
 
 \section*{Integrale Ausrechnen}
 
 \begin{important}
 Integrationskonstante $C$ nicht vergessen!
 \end{important}
-
-\subsection*{Elementare Integrale}
-Siehe Tabelle
 
 \subsection*{Direkte Integrale}
 Diese sind vom Typ $\int f(g(x)) g'(x) dx = F(g(x))$.
@@ -651,7 +542,7 @@ Diese sind vom Typ $\int f(g(x)) g'(x) dx = F(g(x))$.
 	\int f' \cdot g \ dx = f \cdot g - \int f \cdot g' \  dx
 \end{align*}
 \end{method}
-\textbf{Beispiele}:
+
 
 
 \subsection*{Integrale rationaler Funktionen}
@@ -703,12 +594,6 @@ Substituiere mit $\tan(x) = t$, ($dx = \frac{1}{1+t^2} dt$). Es gilt zudem:
 \sin^2(x) &= \frac{t^2}{1+t^2} & \cos^2(x) &= \frac{1}{1+t^2}
 \end{align*}
 
-\textbf{Beispiel:}
-\begin{align*}
-	\int \frac{1}{\sin^2(x) + 1} dx &= \int \frac{1}{\frac{t^2}{1+t^2} + 1} \frac{1}{t^2 + 1} dt = \int \frac{1}{1+2t^2} dt\\ &= \frac{1}{\sqrt{2}} \int  \frac{\sqrt{2}}{1 + (\sqrt{2}t)^2} dt = \frac{1}{\sqrt{2}} \arctan(\sqrt{2}t)
-\end{align*}
-
-
 \subsubsection*{Integrale die $\sin, \cos, \tan$ in ungeraden Potenzen enthalten}
 Substituiere mit $\tan(\frac{x}{2}) = t$, ($dx = \frac{2}{1+t^2} dt$). Es gilt zudem:
 
@@ -716,45 +601,7 @@ Substituiere mit $\tan(\frac{x}{2}) = t$, ($dx = \frac{2}{1+t^2} dt$). Es gilt z
 \sin(x) &= \frac{2t}{1+t^2} & \cos(x) &= \frac{1-t^2}{1+t^2}
 \end{align*}
 
-\textbf{Beispiel:}
-\begin{align*}
-	\int \frac{1}{\cos(x)} dx &= \int \frac{1}{\frac{1-t^2}{1+t^2}} \frac{2}{1+t^2} dt = \int \frac{2}{1-t^2} dt
-\end{align*}
 
-\subsection*{Quadratisch Ergänzen}
-\begin{method}{Quadratisch ergänzen} Für den Ausdruck $\sqrt{ax^2 + bx + x}$ definieren wie $\beta = - \frac{b}{2a}$. Es gibt nun zwei Optionen (mit dem Ziel $x= \alpha u + \beta$):
-
-\begin{itemize}
-	\item Falls $b^2 - 4ac > 0$. So setze $\alpha = \frac{\sqrt{b^2 - 4ac}}{2a}$. Dies gibt uns dann:
-	\begin{align*}
-		ax^2 + bx + c = \left(\frac{b^2 -4ac}{4a}\right)\left(u^2 - 1\right)
-	\end{align*}
-	
-	\item Falls $b^2 - 4ac < 0$. So setze $\alpha = \frac{\sqrt{4ac - b^2}}{2a}$. Dies gibt uns dann:
-	\begin{align*}
-	ax^2 + bx + c = \left(\frac{4ac - b^2}{4a}\right)\left(u^2 + 1\right)
-	\end{align*}
-	Falls dies in einem Integral ist kann man nun mit $u=\sinh(t)$, $du = \cosh(t) dt$ ersetzen.
-\end{itemize}
-
-\end{method}
-
-\begin{method}{Ekelhafte Zahlen}
-	
-	\begin{itemize}
-	\item $\int \frac{1}{a^2 + x^2} dx$ lösen wir mit $x=a\cdot u$, $dx = a \ du$, dies gibt uns:
-	\begin{align*}
-		\int \frac{1}{a^2 + x^2} = \int\frac{1}{a^2 (1 + u^2)} a \ du = \frac{1}{a} \arctan(u) = \frac{1}{a} \arctan\left(\frac{x}{a}\right)
-	\end{align*}
-	
-	\item $\int \sqrt{r^2 - x^2} dx$ lösen wir mit $x = r \sin \phi$, $dx = r \cos \phi \ d\phi$ :
-	\begin{align*}
-\int \sqrt{r^2 - x^2} dx = \int \sqrt{r^2 (1-\sin^2 \phi)} r \cos \phi \ d\phi = r^2 \int \cos^2(\phi) \ d\phi
-\end{align*}
-Wir können nun die Winkelverdopplungsregel anwenden.
-	\end{itemize}
-	
-\end{method}
 
 \subsubsection*{Integrale mit $\sqrt{Ax^2 + Bx + C}$ im Nenner}
 Mithilfe quadratischer Ergänzung auf einen der folgenden Fälle zurückführen:
@@ -790,50 +637,6 @@ Andernfalls machen wir eine Partialbruchzerlegung:
 	\frac{t}{t^3 + t^2 - t - 1} &= \frac{A}{(t+1)} + \frac{B}{(t+1)^2} + \frac{C}{t-1} \quad \text{first polyDiv}\\
 	\frac{t^4 + 1}{(t^2 + 1)^2} &= 1 + \frac{-2t}{(t^2 + 1)^2} = 1 + \ldots + \frac{At + B}{t^2 + 1} + \frac{Ct + D}{(t^2 + 1)^2}
 \end{align*}
-
-
-% -------------------------- Uneigentliche Integrale --------------------------
-
-\section*{Uneigentliche Integrale}
-
-
-Es gibt zwei Arten von uneigentlichen Integralen, man interessiert sich dafür ob die Integrale konvergieren oder nicht. Für beide Arten braucht man die gleichen Techniken:
-
-\begin{enumerate}
-	\item[] \textbf{Typ 1:} $f(x)$ auf $[a,\infty)$ stetig. Dann setzt man $\int_{a}^{\infty} f(x) dx = \lim_{R \to \infty} \int_{a}^{R} f(x) dx$ falls der Grenzwert existiert.
-	\item[] \textbf{Typ 2:} $f(x)$ auf $(a,b]$ stetig. Dann setzt man $\int_{a}^{b} f(x) dx= \lim_{\epsilon \to 0^+} \int_{a+\epsilon}^{b} f(x) dx$ falls der Grenzwert existiert.
-\end{enumerate}
-
-
-\subsection*{Definition + direkte Berechung}
-Setze die Definition ein (replace $\infty$ with $R$) und berechne dann das Integral. Lasse nun $R$ nach $\infty$ laufen.
-
-\subsection*{Vergleichskriterium}
- Seien $f,g$ auf dem Integrationsgebiet stetig mit $0 \leq f(x) \leq g(x)$ für alle $x$. Dann gilt:
- \begin{enumerate}
- 	\item Ist $\int_{a}^{\infty} g(x) dx$ konvergent, so auch $\int_{a}^{\infty} f(x) dx$
- 	\item Ist $\int_{a}^{\infty} f(x) dx$ divergent, so auch $\int_{a}^{\infty} g(x) dx$
- \end{enumerate}
- Oft braucht man $\int_{1}^{\infty} \frac{1}{x^p} dx$ als Vergleichsmittel welches für $p>1$ konvergiert, für $p \leq 1$ ist es divergent.\\
-\textbf{Beispiel (Vergleich)} 
-\begin{itemize}
-	\item $\int_{1}^{\infty} \frac{1 + e^x}{x} dx$, von unten durch $\int_{1}^{\infty} \frac{1}{x} dx$ abschätzen, dann divergent.
-	\item $\int_1 ^\infty \sin^2\left(\frac{1}{x}\right) dx$, beachte dass wenn $x \geq 0$, $\sin(x) \leq x$ gilt. Somit haben wir Majorante $\int_{1}^{\infty} \frac{1}{x^2} dx$ und konvergent. 
-\end{itemize}
-
-
-\subsection*{Absolute Konvergenz}
-$$ \int_{a}^{\infty} \left| f(x) \right| dx <\infty \implies \int_{a}^{\infty}f(x) dx < \infty $$
-Das ist nützlich bei trigonometrischen Teilen.\\
-\textbf{Beispiel (Absolute Konvergenz)} 
-\begin{itemize}
-	\item $\int_{1}^{\infty} \frac{\cos^2(x)}{x^2} dx$. Es gilt $\left| \frac{\cos^2(x)}{x^2}\right|\leq \frac{1}{x^2}$, somit konvergent.
-	\item $\int_0 ^\infty x\sin(4x)e^{-2x} dx$. Es gilt $|x\sin(4x)e^{-2x}| \leq xe^{-2x}$ wenn $x\geq 0$, per partieller Integration konvergiert das zweite. Somit konvergent.
-\end{itemize}
-
-\subsection*{Mc. Laurin Konvergenzkriterium}
-Sei $f:[1,\infty) \to [0,\infty)$ monoton fallend.
-$$\sum_{n=1}^{\infty} f(n) \ \text{konv.}  \iff    \int_{1}^{\infty} f(x) dx \ \text{konv.}$$
 
 
 
@@ -934,15 +737,7 @@ um, was wir dann nach $y$ auflösen können.
 	
 \end{method}
 
-\begin{method}{Variation der Konstanten (1te Ord.)} Wenn wir eine ODE der Form $y' = h(x)y + b(x)$ haben, so gilt dass $y(x) = y_{hom} + y_{part}$
-	\begin{itemize}
-		\item \textbf{Schritt 1: } Löse homogenes Problem mittels Trennung der Variablen
-		\item \textbf{Schritt 2: } Die Integrationskonstante $C$ aus Schritt 1 fassen wir als eine von $x$ abhängige Funktion $C(x)$ auf.
-		\item \textbf{Schritt 3: } Die enstandene Funktion $y_p(x)$, die homogene Lösung mit $C(x)$ anstatt $C$ setzte als Ansatz in die Differentialgleichung ein und löse nach $C(x)$ ein. Dies gibt die partikuläre Lösung.
-		\item \textbf{Schritt 4: } Setzte $y(x) = y_h(x) + y_p(x)$.
-	\end{itemize}
-	
-\end{method}
+
 
 
 \textbf{Beispiel $(\sin(x))y' = (\cos(x))y = e^x$}. Zuerst homogen:
@@ -1016,7 +811,9 @@ Wenn die NS $\lambda = \beta + i\gamma$ nicht reell ist, so ist (bei rellen DGL)
 	Für DLGs der Form $$a_n y^{(n)} + a_{n-1} y^{(n-1)} + \cdots + a_0 y = b(x)$$
 	mit dem Euler Ansatz lösen wir das homogene Problem. Die partikuläre Lösung finden wir mit der Idee, dass $y_p(x)$ die slebe Form wie $b(x)$ hat.
 	
-	\includegraphics[width=\textwidth]{ansatz.png}
+%	\includegraphics[width=\textwidth]{ansatz.png}
+
+\vspace{6cm}
 	
 	Dabei gilt:
 	\begin{itemize}
@@ -1078,7 +875,7 @@ Nutze eine Substitution und brauche dann die Methode des direkten Ansatzes:
 	
 	\item $\{(x,f(x)) \in \R^2  | x \in \left(0,1\right], f(x) = \sin\frac{1}{x} \}$ not closed since $(0,0)$ not contained but $(\frac{1}{2k\pi},0)$ is $\forall k$.
 	
-	\item $\{ (\cos\phi,\sin\phi) \in\R^2 | \phi \in \mathbb{Q} \}$ is not closed since $(1,1)$ can be approximated but never reached.
+	\item $\{ (\cos\varphi,\sin\varphi) \in\R^2 | \varphi \in \mathbb{Q} \}$ is not closed since $(1,1)$ can be approximated but never reached.
 	
 	\item $\{(x,y,z) \in \R^3 | x^2 + y^ + z^2 \leq 2 \}$ closed and bounded, hence compact.
 \end{itemize}
@@ -1092,7 +889,8 @@ It turns out that the existence of partial derivatives is not enough to show dif
 	\begin{itemize}
 		\item 	Let $X\subseteq \R^n$ be open and $f: X \to \R^n$ be a function. Let $u$ be a linear map $\R^n \to \R^m$ and $x_0 \in X$. We say $f$ is \textit{differentiable} at $x_0$ with differential $u$ if
 		\begin{align*}
-		\lim\limits_{\substack{x\to x_0 \\x \not = x_0}} \frac{1}{\norm{x-x_0}} (f(x) -f(x_0) - u(x-x_0) ) = 0
+		\lim\limits_{\substack{x\to x_0 \\x \not = x_0}} \frac{1}{\norm{x-x_0}} (f(x) -f(x_0) - u(x-x_0) ) = 0\\
+		\lim_{\|h\| \to 0}\frac{\|f(x+h) - f(x) - A(x)h\|}{\|h\|} = 0.
 		\end{align*}
 		where the limit is in $\R^n$. We then denote $df(x_0) = u$
 		If $f$ is differentiable at every $x_0 \in X$, then we say that $f$ is differentiable on $X$.
@@ -1107,21 +905,26 @@ It turns out that the existence of partial derivatives is not enough to show dif
 
 \textbf{Examples}
 
-\begin{itemize}
-	\item \textbf{Show that $\frac{\partial^2 f}{\partial y \partial x}(0,0)$ and $\frac{\partial^2 f}{\partial y \partial x}(0,0)$ exist but are not equal with $f(0,0) = 0$ and $f(x,y) = \frac{xy(x^2-y^2)}{x^2 + y^2}$:}
-	lalala
-	
-\end{itemize}
-\TODO{...}
+\vspace{4cm}
 
 
 \textbf{Example (Total Differentiability)}
 Let $f(0,0) = 0$ and $f(x,y) = \frac{x^2 y^2}{x^2+y^2}$ for $(x,y)\neq (0,0)$. Show that $f \in C^1$. We first show that $f$ is continuous at $(0,0)$, for this we use the polar coordinates trick:
 \begin{align*}
-	\lim\limits_{(x,y)\to(0,0)} \frac{x^2 y^2}{x^2+y^2} &= \lim\limits_{r\to 0} \frac{r^4 \sin^2(\phi)\cos^2(\phi)}{\sin^2(\phi) + \cos^2(\phi)} = 0
+	\lim\limits_{(x,y)\to(0,0)} \frac{x^2 y^2}{x^2+y^2} &= \lim\limits_{r\to 0} \frac{r^4 \sin^2(\varphi)\cos^2(\varphi)}{\sin^2(\varphi) + \cos^2(\varphi)} = 0
 \end{align*}
 
 As a second step we show differentiability at $(0,0)$: We will use two methods:
+
+
+
+\textbf{Via partial derivatives:}
+
+\begin{align*}
+\frac{\partial f}{\partial x} &= \frac{2xy^2}{x^2 +y^2} - \frac{2x^3 y^2}{(x^2+y^2)^2}\\
+\frac{\partial f}{\partial y} &= \frac{2x^2y}{x^2 +y^2} - \frac{2x^2 y^3}{(x^2+y^2)^2}\\
+\end{align*}
+We now calculate $\lim\limits_{(x,y)\to(0,0)} \frac{\partial f}{\partial x}$ and  $\lim\limits_{(x,y)\to(0,0)} \frac{\partial f}{\partial y}$ using the polar coordinates trick and get the same result as below. 
 
 \textbf{Direct Method:}
 We calculate the Jacobi Matrix at $(0,0)$ and plug it into the definition of differentability:
@@ -1144,17 +947,9 @@ Hence we have $J_f (0,0) = \left[0,0\right]$. Now we calculate:
 x-0 \\ y -0
 \end{pmatrix}}{ \sqrt{x^2 + y^2} }\\
 &= \lim\limits_{\substack{(x,y)\to (0,0)}} \frac{\frac{x^2 y^2}{x^2 + y^2}}{ \sqrt{x^2 + y^2} }\\
-&=  \lim\limits_{\substack{r \to 0}} \frac{r^4 \sin^2(\phi) \cos^2(\phi) }{r^3} = 0
+&=  \lim\limits_{\substack{r \to 0}} \frac{r^4 \sin^2(\varphi) \cos^2(\varphi) }{r^3} = 0
 \end{align*}
 Since this fulfills the definition $f$ is differentiable in all of $\R^2$.
-
-\textbf{Direct Method:} Via partial derivatives:
-
-\begin{align*}
-	\frac{\partial f}{\partial x} &= \frac{2xy^2}{x^2 +y^2} - \frac{2x^3 y^2}{(x^2+y^2)^2}\\
-	\frac{\partial f}{\partial y} &= \frac{2x^2y}{x^2 +y^2} - \frac{2x^2 y^3}{(x^2+y^2)^2}\\
-\end{align*}
-We now calculate $\lim\limits_{(x,y)\to(0,0)} \frac{\partial f}{\partial x}$ and  $\lim\limits_{(x,y)\to(0,0)} \frac{\partial f}{\partial y}$ using the polar coordinates trick and get the same result as above. 
 
 
 \subsection*{Rules for differentiation in $\R^n$}
@@ -1166,6 +961,7 @@ We now calculate $\lim\limits_{(x,y)\to(0,0)} \frac{\partial f}{\partial x}$ and
 		D_u f(a) &= \frac{d}{dt} (f(a+tu))_{|t=0}\\
 		D_u f(a) &= df(a) \cdot u
 	\end{align*}
+	Ideally $||u|| = 1$
 \end{method}
 \textbf{Examples:}
 We would like to find $D_u f((0,1))$ in direction $\frac{1}{\sqrt{17}}(-1,4)$ of the function $f(x,y) = e^{-x} \log(y)$:
@@ -1352,8 +1148,14 @@ Dabei ist \begin{align*}
 
 \subsection*{Change of Variable}
 
+Assume we have $h(u,v)\mapsto (u+v,u-v)$ and $g(u,v) = f(u+v,u-v) $. We would like to find $\partial_{v^2} g$. First we find $\partial_v$. We note that $Dg = Df(h(u,v)) \cdot Dh(u,v)$ by the chain rule. Hence we get
+$\partial_v  = \frac{\partial h_1}{\partial v} \frac{\partial}{ \partial x} + \frac{\partial h_2}{\partial v} \frac{\partial}{ \partial y}$.
 
-\TODO{change of variable \& abuse of notation}
+This gives us $\partial_v g = \partial_x f - \partial _y f$ ($f$ \& $g$ are same func. in diff var)
+
+Now we apply $\partial_{v^2} = \partial _v (\partial_v g) =   \partial _v(\partial x f - \partial _y f)$
+$\partial_x (\partial x f - \partial _y f) - \partial _y (\partial x f - \partial _y f) = \partial _{x^2} f + \partial_{y^2} -2\partial_{xy}f$
+
 
 
 \section*{Taylor Approximation in $\R^n$}
@@ -1469,21 +1271,21 @@ If possible use $1$-dimensional Taylor series as starting point!
 
 
 \begin{method}{Potenzialfeld}
-	Ein Vektorfeld $v:\Omega\subset \R^n \to \R^n$ heisst Potenzialfeld, falls eine stetig differenzierbare Abbildung $\phi:\Omega \subset \R^n \to \R$ existiert so dass $v = \nabla \phi$. Wir nennen $\phi$ das Potential von $v$. Dabei ist wichtig:
+	Ein Vektorfeld $v:\Omega\subset \R^n \to \R^n$ heisst Potenzialfeld, falls eine stetig differenzierbare Abbildung $\varphi:\Omega \subset \R^n \to \R$ existiert so dass $v = \nabla \varphi$. Wir nennen $\varphi$ das Potential von $v$. Dabei ist wichtig:
 	\begin{itemize}
-		\item Das Potential ist nicht eindeutig: $\phi = \overline{\phi} + C$
+		\item Das Potential ist nicht eindeutig: $\varphi = \overline{\varphi} + C$
 		\item Sehr viele Vektorfelder lassen sich nicht als Gradienten eines skalaren Feldes schreiben.
 	\end{itemize}
 \end{method}
 
 \begin{method}{Existenz eines Potentialfeldes}
-	Ist $v : \Omega \subset \R^n \to \R^n$ ein Potentialfeld (d.h. $\exists \phi : \nabla \phi = v$), so gelten die Integrabilitätsbedingungen $\frac{\partial v_i}{\partial x_j} = \frac{\partial v_j}{\partial x_i}$ für $i\neq j$ , $i,j\in\{1,\ldots,n\}$. Wenn $\Omega$ sternförmig ist, so gilt auch die Umkehrung. d.h. wenn die Integrabilitätsbedinungen erfüllt sind so gibt es ein Potential.
+	Ist $v : \Omega \subset \R^n \to \R^n$ ein Potentialfeld (d.h. $\exists \varphi : \nabla \varphi = v$), so gelten die Integrabilitätsbedingungen $\frac{\partial v_i}{\partial x_j} = \frac{\partial v_j}{\partial x_i}$ für $i\neq j$ , $i,j\in\{1,\ldots,n\}$. Wenn $\Omega$ sternförmig ist, so gilt auch die Umkehrung. d.h. wenn die Integrabilitätsbedinungen erfüllt sind so gibt es ein Potential.
 	
 	Folgende Aussagen sind äquivalent:
 	
 	\begin{itemize}
 		\item $v$ ist konservativ
-		\item $v$ ist ein Potentialfeld  (d.h. $\exists \phi : \nabla \phi = v$)
+		\item $v$ ist ein Potentialfeld  (d.h. $\exists \varphi : \nabla \varphi = v$)
 		\item Für alle geschlossenen Kurven $\gamma$ gilt $\int_\gamma v\cdot ds = 0$
 		\item Das Integral $\int_\gamma v\cdot ds$ ist unabhängig vom Weg.
 		\item $v$ erfüllt die Integrabilitätsbedingungen $\nabla \times v = 0$ in $\R^3$
@@ -1535,8 +1337,6 @@ If possible use $1$-dimensional Taylor series as starting point!
 	\end{align*}
 	wobei $f,g$ stetig sind.
 	
-	\includegraphics[width=\textwidth]{normBe.png}
-	
 	Selbstverständlich können wir über den Normalenbereich integriere und es gilt:
 	
 	\begin{align*}
@@ -1566,17 +1366,17 @@ If possible use $1$-dimensional Taylor series as starting point!
 	\begin{itemize}
 		\item \textbf{$1$-dimensional:} Sei $f$ Riemann-integrierbar, so gilt für die Substitution $x = g(u)$ mit $dx = g'(u)du$ dass
 		$$\int_{a}^{b} f(x) dx = \int_{g^{-1}(a)}^{g^{-1}(b)} f(g(u))g'(u)du$$
-		\item \textbf{$n$-dimensional:} Sei $f$ Riemann-integrierbar auf $\Omega \subset \R^n$ und die Substitution $(x_1,\ldots,x_n) = \phi(u_1,\ldots,u_n)$ oder in Komponenten $	\begin{pmatrix}
+		\item \textbf{$n$-dimensional:} Sei $f$ Riemann-integrierbar auf $\Omega \subset \R^n$ und die Substitution $(x_1,\ldots,x_n) = \varphi(u_1,\ldots,u_n)$ oder in Komponenten $	\begin{pmatrix}
 x_1\\ \vdots\\x_n
-		\end{pmatrix} = \phi(u) = 	\begin{pmatrix}
+		\end{pmatrix} = \varphi(u) = 	\begin{pmatrix}
 		g_1(u_1,\ldots,u_n)\\
 		\vdots \\
 		g_n(u_1,\ldots,u_n)
-		\end{pmatrix}$ wobei $\phi$ ein $C^1$ Diffeomorphismus ist. Dann gilt
+		\end{pmatrix}$ wobei $\varphi$ ein $C^1$ Diffeomorphismus ist. Dann gilt
 		\begin{align*}
-			\int_\Omega &f(x_1,\ldots , x_n) dx_1\ldots dx_n \\ &= \int_{\overline{\Omega}} f(g_1(x_1),\ldots , g_n(x_n)) |\operatorname{det}(d\phi) | du_1\ldots du_n
+			\int_\Omega &f(x_1,\ldots , x_n) dx_1\ldots dx_n \\ &= \int_{\overline{\Omega}} f(g_1(x_1),\ldots , g_n(x_n)) |\operatorname{det}(d\varphi) | du_1\ldots du_n
 		\end{align*}
-		mit $\overline{\Omega} = \phi^{-1}(\Omega)$
+		mit $\overline{\Omega} = \varphi^{-1}(\Omega)$
 	\end{itemize}
 \end{method}
 
@@ -1586,36 +1386,35 @@ x_1\\ \vdots\\x_n
 \textbf{Polarkoordinaten $\R^2$}
 
 \begin{align*}
-	x &= r\cos\phi  & 0 \leq &r < \infty & dxdy &= rdrd\phi\\
-	y &= r\sin\phi  & 0 \leq &\phi < 2\pi & & 
+	x &= r\cos\varphi  & 0 \leq &r < \infty & dxdy &= rdrd\varphi\\
+	y &= r\sin\varphi  & 0 \leq &\varphi < 2\pi & & 
 \end{align*}
 
 
 \textbf{Elliptische Koordinaten $\R^2$}
 
 \begin{align*}
-	x &= ar\cos\phi  & 0 \leq &r < \infty & dxdy &= abrdrd\phi\\
-	y &= br\sin\phi  & 0 \leq &\phi < 2\pi & & 
+	x &= ar\cos\varphi  & 0 \leq &r < \infty & dxdy &= abrdrd\varphi\\
+	y &= br\sin\varphi  & 0 \leq &\varphi < 2\pi & & 
 \end{align*}
 
 
 \textbf{Zylinderkoordinaten $\R^3$}
 
 \begin{align*}
-x &= r\cos\phi  & 0 \leq &r < \infty & dxdydz &= r dr d\phi dz\\
-y &= r\sin\phi  & 0 \leq &\phi < 2\pi & & \\
+x &= r\cos\varphi  & 0 \leq &r < \infty & dxdydz &= r dr d\varphi dz\\
+y &= r\sin\varphi  & 0 \leq &\varphi < 2\pi & & \\
 z &= z  &   -\infty < &z < \infty & & 
 \end{align*}
 
 \textbf{Kugelkoordinaten $\R^3$}
 
 \begin{align*}
-x &= r\sin\theta\cos\phi  & 0 \leq &r < \infty & dxdydz&=r^2 \sin \theta drd\theta d\phi\\
-y &=r\sin\theta\sin\phi  & 0 \leq &\theta < \pi & & \\
-z &= r\cos\theta  &  0 \leq &\phi < 2\pi & & 
+x &= r\sin\theta\cos\varphi  & 0 \leq &r < \infty & dxdydz&=r^2 \sin \theta drd\theta d\varphi\\
+y &=r\sin\theta\sin\varphi  & 0 \leq &\theta < \pi & & \\
+z &= r\cos\theta  &  0 \leq &\varphi < 2\pi & & 
 \end{align*}
 
-\TODO{off centered ball}.
 
 \begin{method}{Masse, Schwerpunkt}
 	Sei $\Omega$ ein 2-dimensionales Gebiet mit Massendichte $\rho(x,y)$, welche die Massenverteilung auf $\Omega$ beschreibt.
@@ -1666,7 +1465,7 @@ z &= r\cos\theta  &  0 \leq &\phi < 2\pi & &
 \begin{method}{Satz von Gauss-Ostrogradski}
 	Sei $V$ ein beschränkter räumlicher Bereich mit Rand $\partial V \in C^1_{pw}$ gegeben. Sei das Vektorfeld $\vec{v}$ auf ganz $V$ definiert und stetig differenzierbar. Dann gilt:
 	\begin{align*}
-		\int_{\partial V} \vec{v} \cdot \vec{n} \ do &= \int_{V} \vec{\nabla} \cdot \vec{v} \ d\mu
+		\int_{\partial V} \vec{v} \cdot \vec{n} \ d\sigma &= \int_{V} \vec{\nabla} \cdot \vec{v} \ d\mu = \int_V \operatorname{div} (f) dx dy dz
 	\end{align*}
 	wobei $\vec{n}$ der Normalenvektor entlang $\partial V$ ist, $do$ das zweidimensionale Integrationselement über die Fläche und $d\mu$ das dreidimensionale Integrationselement über das Volumen.
 \end{method}
@@ -1675,17 +1474,17 @@ z &= r\cos\theta  &  0 \leq &\phi < 2\pi & &
 
 
 \subsection*{Oberflächenintegral}
-\textbf{Parametrisierung einer Fläche $F$} ist ein Diffeomorphismus $$\phi:b \to \R^3, (u,v)\to\phi(u,v) = \begin{pmatrix}
+\textbf{Parametrisierung einer Fläche $F$} ist ein Diffeomorphismus $$\varphi:b \to \R^3, (u,v)\to\varphi(u,v) = \begin{pmatrix}
 x(u,v)\\y(u,v)\\z(u,v)
-\end{pmatrix}$$ sodass $\phi(B) = F$ gilt. Wir definieren $\phi_u = \frac{\partial \phi}{\partial u}$ sowie 
-$\phi_v = \frac{\partial \phi}{\partial v}$ und definieren den Normalenvektor $\vec{n}$:
+\end{pmatrix}$$ sodass $\varphi(B) = F$ gilt. Wir definieren $\varphi_u = \frac{\partial \varphi}{\partial u}$ sowie 
+$\varphi_v = \frac{\partial \varphi}{\partial v}$ und definieren den Normalenvektor $\vec{n}$:
 
-$$\vec{n} = \pm \frac{\phi_u \times \phi_v}{|\phi_u \times \phi_v|}$$
+$$\vec{n} = \pm \frac{\varphi_u \times \varphi_v}{|\varphi_u \times \varphi_v|}$$
 
 \begin{method}{Oberflächenmass}
-Das Flächenelement bezüglich der Parametrisierung $\phi$ ist 
+Das Flächenelement bezüglich der Parametrisierung $\varphi$ ist 
 
-$$do = |\phi_u \times \phi_v|dudv = |\operatorname{det}(d\phi)|dudv$$ Um die Oberfläche zu kriegen berechne $\int do$	
+$$do = |\varphi_u \times \varphi_v|dudv = |\operatorname{det}(d\varphi)|dudv$$ Um die Oberfläche zu kriegen berechne $\int do$	
 \end{method}
 
 \ifx
@@ -1819,7 +1618,7 @@ $$do = |\phi_u \times \phi_v|dudv = |\operatorname{det}(d\phi)|dudv$$ Um die Obe
 
 
 
-\subsubsection*{typische Integrale}
+\subsubsection*{Typische Integrale}
 
 \begin{itemize}
 	\item $\int \frac{1}{x} \,dx = \ln |x|$
@@ -1846,7 +1645,7 @@ $$do = |\phi_u \times \phi_v|dudv = |\operatorname{det}(d\phi)|dudv$$ Um die Obe
 	\item $\int a^{xb + c} \,dx = \frac{a^{bx + c}}{b \log(a)}$
 \end{itemize}
 
-\subsubsection*{trionometrische Funktionen}
+\subsubsection*{Trionometrische Funktionen}
 \begin{itemize}
 	\item $\int \sin(ax) \,dx = -\frac{1}{a}\cos(ax)$
 	\item $\int \cos(ax) \,dx = \frac{1}{a}\sin(ax)$
