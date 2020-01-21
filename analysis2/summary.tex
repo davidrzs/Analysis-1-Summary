@@ -674,7 +674,7 @@ Andernfalls machen wir eine Partialbruchzerlegung:
 			$\sinh(x)$ & $\cosh(x)$ & \\
 			$\tanh(x)$ & $\frac{1}{\cosh^2(x)}$ & \\
 			$\operatorname{arsinh}(x)$ & $\frac{1}{\sqrt{1+x^2}}$ & $\forall x \in R$\\
-			$\operatorname{arcos}(x)$ & $\frac{1}{\sqrt{x^2 - 1}}$ & $\forall x \in (1, \infty)$\\		  $\operatorname{artanh}(x)$ & $\frac{1}{1-x^2}$ & $\forall x \in (-1,1)$\\
+			$\operatorname{arcosh}(x)$ & $\frac{1}{\sqrt{x^2 - 1}}$ & $\forall x \in (1, \infty)$\\		  $\operatorname{artanh}(x)$ & $\frac{1}{1-x^2}$ & $\forall x \in (-1,1)$\\
 			\midrule
 			$g(x) \cdot h(x)$ & $g(x) \cdot h'(x) + g'(x) \cdot h(x)$ & Produktregel\\
 			$\left(g(x)\right)^n$ & $n \cdot \left( g(x) \right)^{n-1} \cdot g'(x)$ & Potenzregel\\
@@ -1279,7 +1279,7 @@ If possible use $1$-dimensional Taylor series as starting point!
 \end{method}
 
 \begin{method}{Existenz eines Potentialfeldes}
-	Ist $v : \Omega \subset \R^n \to \R^n$ ein Potentialfeld (d.h. $\exists \varphi : \nabla \varphi = v$), so gelten die Integrabilitätsbedingungen $\frac{\partial v_i}{\partial x_j} = \frac{\partial v_j}{\partial x_i}$ für $i\neq j$ , $i,j\in\{1,\ldots,n\}$. Wenn $\Omega$ sternförmig ist, so gilt auch die Umkehrung. d.h. wenn die Integrabilitätsbedinungen erfüllt sind so gibt es ein Potential.
+	Ist $v : \Omega \subset \R^n \to \R^n$ ein Potentialfeld (d.h. $\exists \varphi : \nabla \varphi = v$), so gelten die Integrabilitätsbedingungen $\frac{\partial v_i}{\partial x_j} = \frac{\partial v_j}{\partial x_i}$ für $i\neq j$ , $i,j\in\{1,\ldots,n\}$. Wenn $\Omega$ sternförmig (star shaped) ist, so gilt auch die Umkehrung. d.h. wenn die Integrabilitätsbedinungen erfüllt sind so gibt es ein Potential.
 	
 	Folgende Aussagen sind äquivalent:
 	
@@ -1290,7 +1290,6 @@ If possible use $1$-dimensional Taylor series as starting point!
 		\item Das Integral $\int_\gamma v\cdot ds$ ist unabhängig vom Weg.
 		\item $v$ erfüllt die Integrabilitätsbedingungen $\nabla \times v = 0$ in $\R^3$
 	\end{itemize}
-	
 \end{method}
 
 
@@ -1350,13 +1349,10 @@ If possible use $1$-dimensional Taylor series as starting point!
 
 \begin{itemize}
 	\item $\{(x,y)\in\R^2 | y \geq 0 , x-y + 1 \geq 0 , x + 2y -4 \leq 0\}$ Wir bemerken dass $x\leq 4-2y$ und $x\geq y-1$, wir suchen eine obere Schranke für $y$, dafür muss $4-2y = y-1$ gelten. Demnach integrieren wir $\int_{0}^{\frac{5}{3}} \int_{y-1}^{4-2y} dx dy$
-	\item 
-	\TODO{check!!!}
-	Wir definieren $A_1$ und $A_2$. Die Schnittpunkte sind bei $(\frac{1}{\sqrt{b}}, \sqrt{b})$ sowie $(\frac{1}{\sqrt{a}}, \sqrt{a})$. Demnach ist $\int_A d\mu = \int_{0}^{\sqrt{a}} \int_{\frac{y}{b}}^{\frac{y}{a}} dx dy + \int_{\sqrt{a}}^{\sqrt{b}} \int_{\frac{y}{b}}^{\frac{1}{y}} dx dy$
-	\includegraphics[width=\linewidth]{serie13.png}
+	\item 	Wir definieren $A_1$ und $A_2$. Die Schnittpunkte sind bei $(\frac{1}{\sqrt{b}}, \sqrt{b})$ sowie $(\frac{1}{\sqrt{a}}, \sqrt{a})$. Demnach ist $\int_A d\mu = \int_{0}^{\sqrt{a}} \int_{\frac{y}{b}}^{\frac{y}{a}} dx dy + \int_{\sqrt{a}}^{\sqrt{b}} \int_{\frac{y}{b}}^{\frac{1}{y}} dx dy$
 \end{itemize}
 
-
+\vspace{5cm}
 
 
 
@@ -1461,7 +1457,6 @@ z &= r\cos\theta  &  0 \leq &\varphi < 2\pi & &
 
 
 
-
 \begin{method}{Satz von Gauss-Ostrogradski}
 	Sei $V$ ein beschränkter räumlicher Bereich mit Rand $\partial V \in C^1_{pw}$ gegeben. Sei das Vektorfeld $\vec{v}$ auf ganz $V$ definiert und stetig differenzierbar. Dann gilt:
 	\begin{align*}
@@ -1484,8 +1479,9 @@ $$\vec{n} = \pm \frac{\varphi_u \times \varphi_v}{|\varphi_u \times \varphi_v|}$
 \begin{method}{Oberflächenmass}
 Das Flächenelement bezüglich der Parametrisierung $\varphi$ ist 
 
-$$do = |\varphi_u \times \varphi_v|dudv = |\operatorname{det}(d\varphi)|dudv$$ Um die Oberfläche zu kriegen berechne $\int do$	
+$$d\sigma = |\varphi_u \times \varphi_v|dudv = |\operatorname{det}(d\varphi)|dudv$$ Um die Oberfläche zu kriegen berechne $\int d\sigma$	
 \end{method}
+
 
 \ifx
 
@@ -1613,6 +1609,7 @@ $$do = |\varphi_u \times \varphi_v|dudv = |\operatorname{det}(d\varphi)|dudv$$ U
 	
 	\item $ {\displaystyle {\begin{aligned}\int (\sin ^{n}ax)(\cos ^{m}ax)\,dx&=-{\frac {(\sin ^{n-1}ax)(\cos ^{m+1}ax)}{a(n+m)}}\\&+{\frac {n-1}{n+m}}\int (\sin ^{n-2}ax)(\cos ^{m}ax)\,dx\qquad {\mbox{(for }}m,n>0{\mbox{)}}\end{aligned}}} $
 	
+	\item $\int \sin^2(x) \cos^2(x) dx = \frac{1}{4}\int sin^2(2x) dx = \frac{1}{4} \int \frac{1-\cos(4x)}{2}dx = \frac{x}{8} - \frac{1}{8} \frac{\sin(4x)}{4} + C$  
 	
 \end{itemize}
 
@@ -1669,6 +1666,18 @@ $$do = |\varphi_u \times \varphi_v|dudv = |\operatorname{det}(d\varphi)|dudv$$ U
 
 
 
+
+\subsection*{Vektoranalysis}
+
+\begin{align*}
+	{\displaystyle \Delta f=\operatorname {div} \left(\operatorname {grad} \,f\right),}\\
+	{\displaystyle \Delta f=\nabla \cdot (\nabla f)=(\nabla \cdot \nabla )f=\nabla ^{2}f.}\\
+	\nabla f = \begin{pmatrix}
+	\frac{\partial }{\partial x}\\
+	\frac{\partial }{\partial y}\\
+	\frac{\partial }{\partial z}
+	\end{pmatrix} \cdot f
+\end{align*}
 
 \newpage
 
