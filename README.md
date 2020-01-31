@@ -36,3 +36,8 @@ All the theory and some examples have been taken from the following sources:
 - complex numbers: https://www.bradford.ac.uk/academic-skills/media/academicskillsadvice/documents/mathsresources/summarysheets/complesnumbers/complex-numbers-summary.pdf
 - trigononemtric functions values: https://www.wolfram.com/mathematica/new-in-10/inactive-objects/HTMLImages.en/display-common-trigonometric-values/O_12.png
 - normalenbereich: https://n.ethz.ch/~breckman/download/AnalysisII-INFK-Serie10.pdf
+
+
+## License
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
